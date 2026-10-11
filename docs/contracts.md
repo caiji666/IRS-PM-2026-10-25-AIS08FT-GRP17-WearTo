@@ -1,15 +1,15 @@
-# 接口契约 v0.1
+# Interface contracts v0.1
 
-`TripRequest` 保存用户提供的事实。缺失字段保留空值，由控制层追问，不编造预算、日期或天气。
+`TripRequest` stores user-provided facts. Leave missing fields unset and ask for clarification through the control layer. Do not invent budgets, dates, or weather conditions.
 
-`FashionContext` 分离硬约束、软偏好与证据。硬约束属性未知时，不能自动当作满足。
+`FashionContext` separates hard requirements, soft preferences, and supporting evidence. An unknown attribute must not automatically satisfy a hard requirement.
 
-`ProductCandidate` 区分 owned/new，金额为最小货币单位整数；owned 新购成本为 0。库存和属性未知应保持 unknown。所有参与金额计算的条目必须使用相同币种，货币转换需单独实现。
+`ProductCandidate` distinguishes owned items from new purchases. Represent money as integer minor units; owned items have zero purchase cost. Preserve unknown availability and attributes as unknown. All items involved in a price calculation must use the same currency. Currency conversion requires a separate implementation.
 
-`OutfitResult` 是推荐数据传输结构；`constraint_status` 默认 unverified。schema 通过仅说明格式合法，不证明预算、库存、尺码或天气满足。
+`OutfitResult` is the recommendation transfer structure. Its `constraint_status` defaults to `unverified`. Passing schema validation establishes structural validity only; it does not prove compliance with budget, availability, size, or weather requirements.
 
-`ModuleResult` 统一返回 ok / needs_input / no_candidates / not_implemented / error；附带 data 与 reason。目前工具全部是 not_implemented 骨架，不能将其当作成功。
+`ModuleResult` returns one of `ok`, `needs_input`, `no_candidates`, `not_implemented`, or `error`, together with `data` and `reason`. All current tool implementations are scaffolds returning `not_implemented`; this status must never be treated as success.
 
-预算修改只更新明确提供的字段；“便宜一点”属于排序偏好或需要追问，不能生成新预算。Top-K 无解仅表示当前候选池无解。
+When updating a budget, change only fields explicitly supplied by the user. A request such as “make it cheaper” expresses a ranking preference or requires clarification; it must not produce an invented budget. Failure to find a solution within Top-K candidates means only that the current candidate pool has no solution.
 
-各模块 PR 应提供序列化样例，注明 currency、单位、字段含义、来源与版本。新增必填字段前与上下游协商。
+Each module pull request should include serialized examples and document currencies, units, field meanings, provenance, and versions. Coordinate new required fields with upstream and downstream module owners before introducing them.

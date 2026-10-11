@@ -1,8 +1,9 @@
-## 变化
+## Changes
 
-## 验证
+## Validation
 
-## 接口、依赖与数据影响
+## Interface, dependency, and data impacts
 
-- [ ] 已检查无密钥、大数据或模型权重
-- [ ] 已说明 mock / baseline / 真实实现的边界
+- [ ] Checked that no secrets, large datasets, or model weights are included.
+- [ ] Clearly identified mock, baseline, and real implementation behavior.
+- [ ] Used English for documentation, comments, and examples.
