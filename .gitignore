@@ -1,0 +1,14 @@
+# Secrets and local environments
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+# Local datasets and trained artifacts
+data/raw/
+artifacts/
+checkpoints/
