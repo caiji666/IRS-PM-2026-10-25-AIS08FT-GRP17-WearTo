@@ -1,0 +1,10 @@
+{
+  "upstream": {
+    "pt": "data/team_input/phase_2_output.pt",
+    "text": "data/team_input/expanded_fashion_context.txt",
+    "context": "data/team_input/context.json"
+  },
+  "source": "ebay",
+  "reference_mode": "recompute",
+  "k_per_category": 5
+}

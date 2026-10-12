@@ -1,0 +1,12 @@
+{
+  "product_id": "owned-1",
+  "title": "User-described shirt",
+  "raw_category": "shirt",
+  "category": "TOP",
+  "source_type": "WARDROBE",
+  "evidence": {
+    "notes": [
+      "User description only; not image-derived."
+    ]
+  }
+}

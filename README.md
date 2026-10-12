@@ -1,6 +1,6 @@
 # Travel Style Agent · Group 17
 
-A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. Social/product retrieval, FashionCLIP, MLP scoring and image generation remain scaffolds. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review.
+A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. Student 3 product retrieval now wraps the existing M1–M6 and wardrobe pipeline; social retrieval, MLP scoring and image generation remain scaffolds. See [the product retrieval runbook](docs/product-retrieval-runbook.md). See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review.
 
 ## Quick start
 
@@ -18,7 +18,7 @@ uv run ruff format --check .
 
 Use Python 3.11 across the team. Commit both `pyproject.toml` and `uv.lock`. Add dependencies with `uv add` and include both files in the same pull request. Do not edit the lockfile manually.
 
-The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The other four module tools return `not_implemented` explicitly.
+The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The social, outfit and recommendation tools return `not_implemented`; product retrieval requires explicit inputs and returns `needs_input` for the empty demo payload.
 
 ## English-first understanding workflow
 

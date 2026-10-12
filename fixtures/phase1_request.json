@@ -1,0 +1,28 @@
+{
+  "context": {
+    "trip": {
+      "destination": "Singapore"
+    },
+    "query": "lightweight clothing and comfortable shoes for summer city walking",
+    "activities": [
+      "city walking",
+      "sightseeing"
+    ],
+    "style_preferences": [
+      "casual",
+      "minimalist"
+    ],
+    "weather_notes": "User-supplied demo assumption: warm weather"
+  },
+  "top_social_references": [
+    {
+      "reference_id": "authored-casual-demo",
+      "description": "white cotton shirt, beige linen trousers and comfortable white sneakers"
+    },
+    {
+      "reference_id": "authored-outdoor-demo",
+      "description": "light rain jacket with outdoor hiking shorts and trail shoes"
+    }
+  ],
+  "limit": 20
+}

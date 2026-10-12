@@ -1,0 +1,82 @@
+[
+  {
+    "product_id": "demo-top",
+    "title": "Demo cotton shirt",
+    "raw_category": "shirt",
+    "description": "lightweight white casual",
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "evidence": {
+      "notes": [
+        "Fictional authored sample; no merchant or real purchase offer.",
+        "Placeholder illustration, not a product photo."
+      ]
+    },
+    "price": {
+      "amount": 25,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ]
+  },
+  {
+    "product_id": "demo-bottom",
+    "title": "Demo travel trousers",
+    "raw_category": "trousers",
+    "description": "black relaxed casual",
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "evidence": {
+      "notes": [
+        "Fictional authored sample; no merchant or real purchase offer.",
+        "Placeholder illustration, not a product photo."
+      ]
+    }
+  },
+  {
+    "product_id": "demo-shoes",
+    "title": "Demo walking shoes",
+    "raw_category": "shoes",
+    "description": "comfortable casual",
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "evidence": {
+      "notes": [
+        "Fictional authored sample; no merchant or real purchase offer.",
+        "Placeholder illustration, not a product photo."
+      ]
+    }
+  },
+  {
+    "product_id": "demo-coat",
+    "title": "Demo rain jacket",
+    "raw_category": "jacket",
+    "description": "lightweight waterproof",
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "evidence": {
+      "notes": [
+        "Fictional authored sample; no merchant or real purchase offer.",
+        "Placeholder illustration, not a product photo."
+      ]
+    }
+  },
+  {
+    "product_id": "demo-accessory",
+    "title": "Demo scarf",
+    "raw_category": "accessory",
+    "description": "soft grey",
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "evidence": {
+      "notes": [
+        "Fictional authored sample; no merchant or real purchase offer.",
+        "Placeholder illustration, not a product photo."
+      ]
+    }
+  }
+]

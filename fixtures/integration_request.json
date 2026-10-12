@@ -1,0 +1,46 @@
+{
+  "context": {
+    "trip": {
+      "destination": "Singapore"
+    },
+    "query": null,
+    "activities": [
+      "city walking"
+    ]
+  },
+  "categories": [],
+  "wardrobe_uploads": [
+    {
+      "upload_id": "upload-1",
+      "image_path": "user_uploads/not-provided.jpg"
+    }
+  ],
+  "context_embedding": {
+    "model": "external-example-only",
+    "values": [
+      0.1,
+      0.2
+    ]
+  },
+  "top_social_references": [
+    {
+      "reference_id": "reference-demo",
+      "image_path": "assets/placeholder.svg",
+      "description": "Placeholder social reference; not scraped."
+    }
+  ],
+  "wardrobe_garments": [
+    {
+      "product_id": "owned-1",
+      "title": "User-described shirt",
+      "raw_category": "shirt",
+      "category": "TOP",
+      "source_type": "WARDROBE",
+      "evidence": {
+        "notes": [
+          "User description only; not image-derived."
+        ]
+      }
+    }
+  ]
+}

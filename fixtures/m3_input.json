@@ -1,0 +1,6 @@
+[
+  {"product_id":"clean-demo","title":"  Demo shirt  ","raw_category":"T-Shirt","colors":["Grey","gray","白色"],"sizes":["medium","M"],"price":{"amount":"25.50","currency":"sgd","is_synthetic":true}},
+  {"product_id":"clean-demo","title":"Duplicate","raw_category":"shirt"},
+  {"product_id":"unknown-demo","title":"Demo accessory","colors":["blue"]},
+  {"product_id":"invalid-demo","title":"","raw_category":"shirt"}
+]

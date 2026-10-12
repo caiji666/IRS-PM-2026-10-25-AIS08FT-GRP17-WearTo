@@ -1,0 +1,67 @@
+{
+  "model": "patrickjohncyh/fashion-clip@7e3ba62ce16b379a1ab479346b66f192e76f51b7:clip-rgb-exif-text77-v1:transformers-4.46.3",
+  "dimension": 512,
+  "tests": {
+    "passed": 78,
+    "skipped": 0,
+    "includes_real_model": true
+  },
+  "catalogue": {
+    "input": 5,
+    "indexed": 5,
+    "modality": "text fallback",
+    "live_inventory": false
+  },
+  "ranking": [
+    {
+      "product_id": "demo-top",
+      "score": 0.9155022550200693,
+      "context_similarity": 0.9029421543594818,
+      "social_similarity": 0.9448091565614403,
+      "effective_weights": [
+        0.7,
+        0.3
+      ]
+    },
+    {
+      "product_id": "demo-shoes",
+      "score": 0.639791612088213,
+      "context_similarity": 0.6506160752672105,
+      "social_similarity": 0.6145345313372187,
+      "effective_weights": [
+        0.7,
+        0.3
+      ]
+    },
+    {
+      "product_id": "demo-coat",
+      "score": 0.6016197448726335,
+      "context_similarity": 0.6089546958812875,
+      "social_similarity": 0.584504859185774,
+      "effective_weights": [
+        0.7,
+        0.3
+      ]
+    }
+  ],
+  "wardrobe_smoke": {
+    "input": "explicit synthetic illustration, not a real garment photo",
+    "accepted_images": 1,
+    "failed_images": 1,
+    "category": "UNKNOWN",
+    "predicted_colors": [
+      "red"
+    ],
+    "category_margin": 0.029493060098940704,
+    "semantics_verified": false
+  },
+  "repeat_cache": {
+    "hits": 32,
+    "misses": 0
+  },
+  "limits": [
+    "Real-photo category/color accuracy not evaluated",
+    "Prepared catalogue has no real product photos",
+    "No segmentation, live commerce API, FX conversion or outfit generation"
+  ]
+}

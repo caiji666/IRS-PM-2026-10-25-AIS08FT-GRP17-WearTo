@@ -18,3 +18,13 @@ checkpoints/
 *.gguf
 *.pt
 *.pth
+
+# Student 3 local artifacts (never publish user input or credentials)
+.secrets/
+.cache/
+runs/
+data/team_input/
+data/photos20/
+.venv*/
+
+.tools/

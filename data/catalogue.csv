@@ -1,0 +1,6 @@
+product_id,title,raw_category,description,availability,image_path,evidence,price,sizes
+demo-top,Demo cotton shirt,shirt,lightweight white casual,UNKNOWN,assets/placeholder.svg,"{""notes"": [""Fictional authored sample; no merchant or real purchase offer."", ""Placeholder illustration, not a product photo.""]}","{""amount"": 25, ""currency"": ""SGD"", ""is_synthetic"": true}","[""S"", ""M"", ""L""]"
+demo-bottom,Demo travel trousers,trousers,black relaxed casual,UNKNOWN,assets/placeholder.svg,"{""notes"": [""Fictional authored sample; no merchant or real purchase offer."", ""Placeholder illustration, not a product photo.""]}",,
+demo-shoes,Demo walking shoes,shoes,comfortable casual,UNKNOWN,assets/placeholder.svg,"{""notes"": [""Fictional authored sample; no merchant or real purchase offer."", ""Placeholder illustration, not a product photo.""]}",,
+demo-coat,Demo rain jacket,jacket,lightweight waterproof,UNKNOWN,assets/placeholder.svg,"{""notes"": [""Fictional authored sample; no merchant or real purchase offer."", ""Placeholder illustration, not a product photo.""]}",,
+demo-accessory,Demo scarf,accessory,soft grey,UNKNOWN,assets/placeholder.svg,"{""notes"": [""Fictional authored sample; no merchant or real purchase offer."", ""Placeholder illustration, not a product photo.""]}",,
