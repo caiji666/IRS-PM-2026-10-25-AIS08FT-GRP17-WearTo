@@ -549,12 +549,10 @@ def rescore_saved(source_path, dataset_path, target_path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--dataset", type=Path, default=Path("evaluation/datasets/qwen_understanding_v1.json")
+        "--dataset", type=Path, default=Path("evaluation/datasets/qwen_english_development_v2.json")
     )
     parser.add_argument("--model-path", default=MODEL_ID)
-    parser.add_argument(
-        "--output", type=Path, default=Path("evaluation/results/qwen_understanding_v1.json")
-    )
+    parser.add_argument("--output", type=Path, default=Path("artifacts/qwen-english-run.json"))
     parser.add_argument("--rollout", action="store_true")
     parser.add_argument(
         "--rescore", type=Path, help="Audit saved raw outputs; do not call the model"

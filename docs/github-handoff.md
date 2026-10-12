@@ -6,7 +6,7 @@ Updated: 2026-10-12. Branch: `feat/proposal-understanding`. This development rel
 
 The code is ready to submit as a development feature branch for peer review. Latest checks: 87 offline regression tests, Ruff lint/format, lockfile consistency, offline demo and diff whitespace checks pass. The remote main base matches this branch's committed base; the newly observed inspiration branch currently has no committed diff from main. No live cross-module integration has been verified.
 
-Git-visible content is small Git-visible files, including code, source-backed small KG snapshots, synthetic examples, evaluation labels/results, tests and documentation. A pattern scan found no obvious tokens or private keys among Git-visible files. `.env`, `.venv`, local `artifacts/`, model checkpoints and caches are ignored. This check is not a guarantee against every possible sensitive-data pattern; review the actual PR diff before publishing.
+Git-visible content is about 2.8 MB, including code, source-backed small KG snapshots, synthetic examples, evaluation labels/results, tests and documentation. A pattern scan found no obvious tokens or private keys among Git-visible files. `.env`, `.venv`, local `artifacts/`, model checkpoints and caches are ignored. This check is not a guarantee against every possible sensitive-data pattern; review the actual PR diff before publishing.
 
 Follow CONTRIBUTING: commit the feature branch, push it, open a PR, pass remote CI, obtain review from affected schema/downstream owners, then merge. Passing local checks does not establish remote CI status, reviewed knowledge, model reliability, complete recommendations or deployment readiness.
 
@@ -40,3 +40,5 @@ The final text is `result["data"]["expanded_fashion_context"]`. Clothing and act
 The service and CLI can run directly, which makes the reasoning independently testable. Other contributors' four tools still return `not_implemented` in this checkout. The tests verify tool wrappers and module logic; a live autonomous multi-tool recommendation agent has not been verified.
 
 Known limitations remain: Qwen errors, human extraction review, pending KG/weather/season-rule review, untested live Neo4j and unimplemented downstream recommendation modules. Real-model baseline metrics and failures are retained in `evaluation/results/`.
+
+Submitted for review: [GitHub PR #1](https://github.com/caiji666/travel-style-agent/pull/1). The feature branch is uploaded; merge requires team review.

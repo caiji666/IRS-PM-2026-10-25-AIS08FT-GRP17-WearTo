@@ -60,6 +60,7 @@ From the repository root, install the optional runtime:
 uv sync --locked --extra qwen
 HF_HOME="$PWD/artifacts/huggingface" uv run --locked --extra qwen \
   python -m evaluation.qwen_benchmark --rollout \
+  --dataset evaluation/datasets/qwen_understanding_v1.json \
   --output artifacts/qwen-understanding-run.json
 ```
 
