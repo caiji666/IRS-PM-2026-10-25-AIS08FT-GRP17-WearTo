@@ -4,9 +4,9 @@ This guide runs the product retrieval and wardrobe pipeline from a checkout of *
 
 ## 1. Obtain the version containing this module
 
-**Publication status:** these changes currently exist only on the author's local `feat/student3-integration` branch. They have not been pushed. The clone command below becomes usable after that branch is published and you have access to the private repository. Downloading the current GitHub `main` branch will not provide this implementation until it is merged.
+**Branch:** use `feat/student3-integration` to obtain this implementation, with access to the private repository. The feature branch is separate from `main`; downloading `main` will not provide this implementation until the feature is merged.
 
-After publication:
+Clone the feature branch:
 
 ```bash
 git clone --branch feat/student3-integration \
