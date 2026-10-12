@@ -1,17 +1,20 @@
-"""Offline contract smoke demo. No LLM and no real recommendations."""
+"""Offline understanding demo; other contributors' tools remain explicit scaffolds."""
+
+import json
+from pathlib import Path
 
 from travel_agent.agent import TOOLS
-from travel_agent.schemas import FashionContext, TripRequest
+from travel_agent.understanding.service import run
 
 
 def main():
-    context = FashionContext(
-        request=TripRequest(destination="Demo city", activity="sightseeing", budget_minor=20000)
-    )
-    print("FIXTURE DEMO ONLY — not an autonomous agent or real recommendation")
-    print(context.model_dump_json(indent=2))
+    example = Path(__file__).resolve().parents[1] / "examples/understanding/seoul_winter.json"
+    print("OFFLINE DEMO: synthetic weather and explicitly enabled draft KG; no live LLM")
+    result = run(json.loads(example.read_text()))
+    print(result.model_dump_json(indent=2))
     for tool in TOOLS:
-        print(tool.name, tool.invoke({"payload": context.model_dump()}))
+        if tool.name != "understand_and_reason":
+            print(tool.name, tool.invoke({"payload": {}}))
 
 
 if __name__ == "__main__":

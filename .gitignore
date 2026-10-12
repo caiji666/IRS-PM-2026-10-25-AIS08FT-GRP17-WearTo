@@ -12,3 +12,9 @@ __pycache__/
 data/raw/
 artifacts/
 checkpoints/
+
+# Prevent accidental model checkpoint uploads outside artifact directories
+*.safetensors
+*.gguf
+*.pt
+*.pth

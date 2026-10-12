@@ -1,0 +1,29 @@
+{
+  "snapshot_date": "2026-10-11",
+  "source_date": "2026-10-07",
+  "source": "Existing local student1 Activity and Asia Place KGs; copied without knowledge approval",
+  "maintenance": "Modify the source KG under its specification, validate, then explicitly refresh this snapshot. Never reset reviews.",
+  "files": {
+    "activity/activity_kg.json": "ce377d2d56513ee38368b8664a082fbf1e1b00841aa99b207c6421d49031fbbb",
+    "activity/seed.cypher": "405e95c7d704d81b3de6046b34052742e14d54f5841893b7e6881cebf24bdb69",
+    "place/AGENTS.md": "ff5bcb859f4277986d2395e0ef793dff2ff9b6a99eb82b2df59636b3cc163c6e",
+    "place/KG_SPEC.md": "f1ca31b0474ee3e4ac3b0a2dc0894cd999b82176b358cfd5bc0e99735b5be038",
+    "place/activities.csv": "25bf0787ee165c8bb7b9e9dcd172e571e05408e2517469ef29c16920861d1e36",
+    "place/aliases.csv": "d75413e92db6aa9bb35fd7d4d619b9ce364ecca6b6c28019362268c30741141d",
+    "place/climate.csv": "89a7766cf40f4b124f43d4c1bba2209f0de85dbab8ea7a7287de75ce50c0e31a",
+    "place/contents.csv": "033d4884f4f0d82b265b4a3d84e5c076f01845a5a2ed35c6e3d70267d846449e",
+    "place/items.csv": "a896ed05589392b545c3d4f6fe6b092ec82d80e329e15cdf4a8a5784024bccce",
+    "place/place_activity.csv": "f3276c9ed2f7f504ee2f65b1dc4ae1f4d8caec64e50c17ab557cdcd68adf16a6",
+    "place/place_dresscode.csv": "0fb5738643ee54f1db1ea993c1fe9fb36240d8f06c9b416c9b34746fdb3935ac",
+    "place/place_style.csv": "c36988f255a6c0a7bec8f2bf32e39c8c62908576099ec7a46d624884c023ad38",
+    "place/places.csv": "4ae0ba45f3813ffd2a0c84270c18ef439f1b105616ed656922f1a01f8e1db88c",
+    "place/requirement_item.csv": "4a620c71c5cbe63c0f86feb6f9a2f6b0ab975bc711b38be5861bff61294974da",
+    "place/requirements.csv": "021d3f875bd0a6fb85e98a6a30c46d0685a1bef8917ed422f86b22bff6d1d45f",
+    "place/rules.csv": "bf445c12b572ea038a9a93e15c13c01d355b3eaade6723bf2ac8c73470a25c5c",
+    "place/season_events.csv": "2093e83c55df1f568dd4ff649a87814a5b436930e9a293ca00b8277db9d4a0fc",
+    "place/sources.csv": "ff009a5b592fe55ab6e22ed099a08108058574279b0ed8d4cb51398d70baa9fa",
+    "place/style_item.csv": "a335a58c80177ef38123b205e1aab3da4d1e8d736fd4d91563ce3e332e534845",
+    "place/styles.csv": "d8f710d92a177baff31156f4aead63ac991c15223cf440a88bba86d13122b732",
+    "place/vocabulary.json": "6d0e6d76d23c61b427b44e88313292e763da70220db4758c93b4a501bef5b9ac"
+  }
+}

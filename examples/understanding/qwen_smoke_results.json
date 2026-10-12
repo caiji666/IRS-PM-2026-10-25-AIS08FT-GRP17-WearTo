@@ -1,0 +1,461 @@
+{
+  "scope": "Developer smoke set; prompted on these cases; not a blind accuracy estimate",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "cases": [
+    {
+      "id": "complete_en",
+      "message": "I am going to Seoul from 2026-12-20 to 2026-12-27 for sightseeing and dinner. My shopping budget is 500 SGD. I prefer minimalist outfits. The dinner dress code is smart casual.",
+      "expected": {
+        "destination": "Seoul",
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-27",
+        "activities": [
+          "sightseeing",
+          "dinner"
+        ],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [
+          "minimalist"
+        ],
+        "dress_codes": {
+          "dinner": "smart casual"
+        },
+        "price_preference": null,
+        "enter_interior": null
+      },
+      "passed": true,
+      "failures": {},
+      "parsed": {
+        "destination": "Seoul",
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-27",
+        "activities": [
+          "sightseeing",
+          "dinner"
+        ],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [
+          "minimalist"
+        ],
+        "excluded_items": [],
+        "dress_codes": {
+          "dinner": "smart casual"
+        }
+      },
+      "request": {
+        "destination": "Seoul",
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-27",
+        "activities": [
+          "sightseeing",
+          "dinner"
+        ],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [
+          "minimalist"
+        ],
+        "excluded_items": [],
+        "owned_item_ids": [],
+        "places": [],
+        "dress_codes": {
+          "dinner": "smart casual"
+        },
+        "enter_interior": null,
+        "gender": null,
+        "cold_sensitive": null,
+        "price_preference": null
+      },
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "proposal-supervised-v3",
+        "prompt_sha256": "d782c9068ddc54fa7bf6dd2c93d1759997d1eebbd807959c745b6af130c446be",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "{\n  \"destination\": \"Seoul\",\n  \"start_date\": \"2026-12-20\",\n  \"end_date\": \"2026-12-27\",\n  \"activities\": [\"sightseeing\", \"dinner\"],\n  \"budget\": 500,\n  \"currency\": \"SGD\",\n  \"style\": [\"minimalist\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"sightseeing\": \"smart casual\",\n    \"dinner\": \"smart casual\"\n  }\n}",
+        "mode": "request",
+        "human_review_required": true,
+        "grounding_warnings": [
+          "Dropped dress code without same-sentence activity evidence: sightseeing"
+        ]
+      },
+      "seconds": 10.35
+    },
+    {
+      "id": "complete_zh",
+      "message": "2026年12月20日至2026年12月27日去首尔观光，购物预算500新币，喜欢极简风。",
+      "expected": {
+        "destination": "Seoul",
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-27",
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [
+          "minimalist"
+        ],
+        "price_preference": null
+      },
+      "passed": true,
+      "failures": {},
+      "parsed": {
+        "destination": "Seoul",
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-27",
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [
+          "minimalist"
+        ],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "request": {
+        "destination": "Seoul",
+        "start_date": "2026-12-20",
+        "end_date": "2026-12-27",
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [
+          "minimalist"
+        ],
+        "excluded_items": [],
+        "owned_item_ids": [],
+        "places": [],
+        "dress_codes": {},
+        "enter_interior": null,
+        "gender": null,
+        "cold_sensitive": null,
+        "price_preference": null
+      },
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "proposal-supervised-v3",
+        "prompt_sha256": "d782c9068ddc54fa7bf6dd2c93d1759997d1eebbd807959c745b6af130c446be",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "{\n  \"destination\": \"首尔\",\n  \"start_date\": \"2026-12-20\",\n  \"end_date\": \"2026-12-27\",\n  \"activities\": [\"观光\"],\n  \"budget\": 500,\n  \"currency\": \"SGD\",\n  \"style\": [\"极简风\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"观光\": \"minimalist\",\n    \"购物\": null\n  }\n}",
+        "mode": "request",
+        "human_review_required": true,
+        "grounding_warnings": [
+          "Dropped missing dress code: 购物",
+          "Dropped dress code without same-sentence activity evidence: 观光"
+        ]
+      },
+      "seconds": 5.83
+    },
+    {
+      "id": "missing_currency_dates",
+      "message": "Going to Tokyo for sightseeing, budget 500.",
+      "expected": {
+        "destination": "Tokyo",
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 500,
+        "currency": null,
+        "start_date": null,
+        "end_date": null,
+        "style": []
+      },
+      "passed": true,
+      "failures": {},
+      "parsed": {
+        "destination": "Tokyo",
+        "start_date": null,
+        "end_date": null,
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 500,
+        "style": [],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "request": {
+        "destination": "Tokyo",
+        "start_date": null,
+        "end_date": null,
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 500,
+        "currency": null,
+        "style": [],
+        "excluded_items": [],
+        "owned_item_ids": [],
+        "places": [],
+        "dress_codes": {},
+        "enter_interior": null,
+        "gender": null,
+        "cold_sensitive": null,
+        "price_preference": null
+      },
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "proposal-supervised-v3",
+        "prompt_sha256": "d782c9068ddc54fa7bf6dd2c93d1759997d1eebbd807959c745b6af130c446be",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "{\n  \"destination\": \"Tokyo\",\n  \"start_date\": null,\n  \"end_date\": null,\n  \"activities\": [\"sightseeing\"],\n  \"budget\": 500,\n  \"currency\": \"USD\",\n  \"style\": [\"minimalist\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"sightseeing\": \"minimalist\"\n  }\n}",
+        "mode": "request",
+        "human_review_required": true,
+        "grounding_warnings": [
+          "Dropped unstated style: minimalist",
+          "Dropped ungrounded currency; clarification required",
+          "Dropped dress code without same-sentence activity evidence: sightseeing"
+        ]
+      },
+      "seconds": 4.56
+    },
+    {
+      "id": "cheaper_patch",
+      "message": "Make it cheaper and do not include a long coat.",
+      "expected": {
+        "budget": 500,
+        "currency": "SGD",
+        "destination": "Seoul",
+        "excluded_items": [
+          "long coat"
+        ],
+        "price_preference": "lower"
+      },
+      "passed": false,
+      "failures": {
+        "excluded_items": {
+          "expected": [
+            "long coat"
+          ],
+          "actual": []
+        },
+        "price_preference": {
+          "expected": "lower",
+          "actual": null
+        }
+      },
+      "parsed": {
+        "intent": "MODIFY_REQUIREMENTS",
+        "set": {
+          "destination": "Seoul",
+          "start_date": null,
+          "end_date": null,
+          "activities": [],
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {}
+        },
+        "add": {},
+        "remove": {}
+      },
+      "request": {
+        "destination": "Seoul",
+        "start_date": null,
+        "end_date": null,
+        "activities": [],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [],
+        "excluded_items": [],
+        "owned_item_ids": [],
+        "places": [],
+        "dress_codes": {},
+        "enter_interior": null,
+        "gender": null,
+        "cold_sensitive": null,
+        "price_preference": null
+      },
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "proposal-supervised-v3",
+        "prompt_sha256": "6a7be28675461c996ee9bb6d2c97d885253f0d073350609f6bef4308958ceb8e",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"intent\": \"MODIFY_REQUIREMENTS\",\n  \"set\": {\n    \"destination\": \"Seoul\",\n    \"start_date\": null,\n    \"end_date\": null,\n    \"activities\": [\"sightseeing\", \"dinner\"],\n    \"budget\": 500,\n    \"currency\": \"SGD\",\n    \"style\": [\"minimalist\"],\n    \"excluded_items\": [],\n    \"owned_item_ids\": [],\n    \"places\": [],\n    \"dress_codes\": {\n      \"dinner\": \"smart casual\"\n    }\n  },\n  \"add\": {},\n  \"remove\": {}\n}\n```",
+        "mode": "patch",
+        "human_review_required": true,
+        "grounding_warnings": [
+          "Dropped unstated style: minimalist",
+          "Dropped activity without text evidence: sightseeing",
+          "Dropped activity without text evidence: dinner",
+          "Dropped ungrounded budget; clarification required",
+          "Dropped ungrounded currency; clarification required",
+          "Dropped dress code without same-sentence activity evidence: dinner"
+        ]
+      },
+      "seconds": 7.87
+    },
+    {
+      "id": "budget_patch_zh",
+      "message": "预算改成400新币，其他不变。",
+      "expected": {
+        "budget": 400,
+        "currency": "SGD",
+        "destination": "Seoul",
+        "activities": [
+          "sightseeing",
+          "dinner"
+        ],
+        "style": [
+          "minimalist"
+        ]
+      },
+      "passed": false,
+      "error": "ValidationError: 15 validation errors for TripShoppingRequestPatch\ndestination\n  Extra inputs are not permitted [type=extra_forbidden, input_value='Seoul', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nstart_date\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nend_date\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nactivities\n  Extra inputs are not permitted [type=extra_forbidden, input_value=['sightseeing', 'dinner'], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nbudget\n  Extra inputs are not permitted [type=extra_forbidden, input_value=400, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\ncurrency\n  Extra inputs are not permitted [type=extra_forbidden, input_value='SGD', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nstyle\n  Extra inputs are not permitted [type=extra_forbidden, input_value=['minimalist'], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nexcluded_items\n  Extra inputs are not permitted [type=extra_forbidden, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nowned_item_ids\n  Extra inputs are not permitted [type=extra_forbidden, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nplaces\n  Extra inputs are not permitted [type=extra_forbidden, input_value=[], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\ndress_codes\n  Extra inputs are not permitted [type=extra_forbidden, input_value={'dinner': 'smart casual'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nenter_interior\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\ngender\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\ncold_sensitive\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden\nprice_preference\n  Extra inputs are not permitted [type=extra_forbidden, input_value='lower', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+      "raw_output": "```json\n{\n  \"destination\": \"Seoul\",\n  \"start_date\": null,\n  \"end_date\": null,\n  \"activities\": [\"sightseeing\", \"dinner\"],\n  \"budget\": 400,\n  \"currency\": \"SGD\",\n  \"style\": [\"minimalist\"],\n  \"excluded_items\": [],\n  \"owned_item_ids\": [],\n  \"places\": [],\n  \"dress_codes\": {\n    \"dinner\": \"smart casual\"\n  },\n  \"enter_interior\": null,\n  \"gender\": null,\n  \"cold_sensitive\": null,\n  \"price_preference\": \"lower\"\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "proposal-supervised-v3",
+        "prompt_sha256": "6a7be28675461c996ee9bb6d2c97d885253f0d073350609f6bef4308958ceb8e",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Seoul\",\n  \"start_date\": null,\n  \"end_date\": null,\n  \"activities\": [\"sightseeing\", \"dinner\"],\n  \"budget\": 400,\n  \"currency\": \"SGD\",\n  \"style\": [\"minimalist\"],\n  \"excluded_items\": [],\n  \"owned_item_ids\": [],\n  \"places\": [],\n  \"dress_codes\": {\n    \"dinner\": \"smart casual\"\n  },\n  \"enter_interior\": null,\n  \"gender\": null,\n  \"cold_sensitive\": null,\n  \"price_preference\": \"lower\"\n}\n```",
+        "mode": "patch",
+        "human_review_required": true,
+        "grounding_warnings": []
+      },
+      "seconds": 7.85
+    },
+    {
+      "id": "remove_style",
+      "message": "Remove my minimalist style preference. Budget unchanged.",
+      "expected": {
+        "style": [],
+        "budget": 500,
+        "destination": "Seoul"
+      },
+      "passed": false,
+      "error": "ValidationError: 1 validation error for TripShoppingRequestPatch\n  Value error, Cannot set and add/remove the same field in one patch [type=value_error, input_value={'intent': 'MODIFY_REQUIR...'remove': {'style': []}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "raw_output": "```json\n{\n  \"intent\": \"MODIFY_REQUIREMENTS\",\n  \"set\": {\n    \"style\": []\n  },\n  \"add\": {},\n  \"remove\": {\n    \"style\": []\n  }\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "proposal-supervised-v3",
+        "prompt_sha256": "6a7be28675461c996ee9bb6d2c97d885253f0d073350609f6bef4308958ceb8e",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"intent\": \"MODIFY_REQUIREMENTS\",\n  \"set\": {\n    \"style\": []\n  },\n  \"add\": {},\n  \"remove\": {\n    \"style\": []\n  }\n}\n```",
+        "mode": "patch",
+        "human_review_required": true,
+        "grounding_warnings": []
+      },
+      "seconds": 2.93
+    },
+    {
+      "id": "unknown_activity",
+      "message": "Tokyo, 2026-10-15 to 2026-10-17. I plan scuba diving. Budget 200 SGD.",
+      "expected": {
+        "destination": "Tokyo",
+        "activities": [
+          "scuba diving"
+        ],
+        "budget": 200,
+        "currency": "SGD",
+        "style": []
+      },
+      "passed": true,
+      "failures": {},
+      "parsed": {
+        "destination": "Tokyo",
+        "start_date": "2026-10-15",
+        "end_date": "2026-10-17",
+        "activities": [
+          "scuba diving"
+        ],
+        "budget": 200,
+        "currency": "SGD",
+        "style": [],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "request": {
+        "destination": "Tokyo",
+        "start_date": "2026-10-15",
+        "end_date": "2026-10-17",
+        "activities": [
+          "scuba diving"
+        ],
+        "budget": 200,
+        "currency": "SGD",
+        "style": [],
+        "excluded_items": [],
+        "owned_item_ids": [],
+        "places": [],
+        "dress_codes": {},
+        "enter_interior": null,
+        "gender": null,
+        "cold_sensitive": null,
+        "price_preference": null
+      },
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "proposal-supervised-v3",
+        "prompt_sha256": "d782c9068ddc54fa7bf6dd2c93d1759997d1eebbd807959c745b6af130c446be",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "{\n  \"destination\": \"Tokyo\",\n  \"start_date\": \"2026-10-15\",\n  \"end_date\": \"2026-10-17\",\n  \"activities\": [\"scuba diving\"],\n  \"budget\": 200,\n  \"currency\": \"SGD\",\n  \"style\": [\"minimalist\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"scuba diving\": \"minimalist\"\n  }\n}",
+        "mode": "request",
+        "human_review_required": true,
+        "grounding_warnings": [
+          "Dropped unstated style: minimalist",
+          "Dropped dress code without same-sentence activity evidence: scuba diving"
+        ]
+      },
+      "seconds": 5.61
+    }
+  ],
+  "passed": 4,
+  "total": 7
+}

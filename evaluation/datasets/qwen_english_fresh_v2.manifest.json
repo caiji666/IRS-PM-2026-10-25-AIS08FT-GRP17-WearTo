@@ -1,0 +1,8 @@
+{
+  "dataset_sha256": "c07f38a63674a270c375619766a20cd358d013a043d0ccc1047acda4e5db12cb",
+  "extractor_sha256": "b5df683f92a6bbf580c2c9173f81539b5806e2593ba22796086e57ef2eb5e06b",
+  "evidence_sha256": "38f202bb582698941613ecb8665f3382bbdc7c3b3fd459b48ddcf8d790aba46a",
+  "frozen_before_run": true,
+  "label_status": "assistant_authored_pending_human_review",
+  "evaluation_role": "fresh_diagnostic"
+}

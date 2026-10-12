@@ -34,9 +34,11 @@ def test_recommendations_are_not_implicitly_verified():
     assert result.constraint_status == "unverified"
 
 
-def test_all_five_tools_return_explicit_not_implemented():
+def test_tools_distinguish_implemented_understanding_from_other_scaffolds():
     assert len({tool.name for tool in TOOLS}) == 5
     for tool in TOOLS:
         result = ModuleResult.model_validate(tool.invoke({"payload": {}}))
-        assert result.status == "not_implemented"
+        assert result.status == (
+            "needs_input" if tool.name == "understand_and_reason" else "not_implemented"
+        )
         assert result.reason

@@ -1,0 +1,4 @@
+# Preserve the byte-identical imported KG snapshots and their recorded checksums.
+travel_agent/understanding/kg_data/place/*.csv -text whitespace=cr-at-eol
+# The source specification uses Markdown hard line breaks.
+travel_agent/understanding/kg_data/place/KG_SPEC.md whitespace=-blank-at-eol
