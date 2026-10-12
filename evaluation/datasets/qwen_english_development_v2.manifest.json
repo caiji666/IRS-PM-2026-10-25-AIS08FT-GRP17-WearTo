@@ -1,0 +1,8 @@
+{
+  "dataset_sha256": "ddeb1a71c09c304fb955524fb3d91b1d7de2201f1fcddd2566071d98911a48f6",
+  "extractor_sha256": "b5df683f92a6bbf580c2c9173f81539b5806e2593ba22796086e57ef2eb5e06b",
+  "evidence_sha256": "81066d5a8e61f71cddef9ec4f982d9710385d44163fa98f003106f18fa97ef10",
+  "frozen_before_run": true,
+  "label_status": "assistant_authored_pending_human_review",
+  "evaluation_role": "development_regression"
+}

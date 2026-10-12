@@ -7,6 +7,13 @@ dependencies = ["langchain>=1,<2", "langgraph>=1,<2", "pydantic>=2,<3", "python-
 
 [project.optional-dependencies]
 openai = ["langchain-openai>=1,<2"]
+qwen = [
+    "torch>=2.6,<3",
+    "transformers>=4.51,<5",
+]
+neo4j = [
+    "neo4j>=5,<7",
+]
 
 [dependency-groups]
 dev = ["pytest>=8,<10", "ruff>=0.11,<1"]

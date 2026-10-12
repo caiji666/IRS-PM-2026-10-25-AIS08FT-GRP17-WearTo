@@ -1,0 +1,12 @@
+﻿activity_id,name,walk_level,outdoor_level,shoes_off,photo_oriented,wet_risk,source,confidence,updated_at,basis,evidence,review_status,reviewed_by
+city_walk,城市步行,2,2,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+theme_park,主题乐园,,,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+religious_visit,宗教场所参观,,,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+outdoor_trek,户外徒步,,3,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+nightlife_fine_dining,夜生活或精致餐饮,,,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+beach,海滨游览,,3,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+photo_spot,拍照观景,,,,True,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+food_market,食阁或食品市场,,,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+shopping,购物,,,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+museum_indoor,室内馆藏参观,,1,,False,unknown,MODEL,0.8,2026-10-07,project_inference,活动语义词表；1低/2中/3高；空值表示依场景而定。,pending,
+aquarium_visit,水族馆参观,,,,False,unknown,MODEL,0.85,2026-10-07,project_inference,水族馆参观独立活动，不等同于海滩游泳，不自动推定寒冷空调。,pending,

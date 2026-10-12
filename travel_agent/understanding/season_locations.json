@@ -1,0 +1,89 @@
+{
+  "version": "season-locations-0.1",
+  "records": [
+    {
+      "name": "Seoul",
+      "aliases": [
+        "首尔"
+      ],
+      "country_code": "KR",
+      "latitude": 37.566,
+      "longitude": 126.9784,
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Seoul&count=10&language=en&countryCode=KR",
+      "retrieved_at": "2026-10-12T07:42:49.022386+00:00",
+      "selection_basis": "Exact city name and specified country; largest population for duplicate city entries. City-level season planning only."
+    },
+    {
+      "name": "Tokyo",
+      "aliases": [
+        "东京"
+      ],
+      "country_code": "JP",
+      "latitude": 35.6895,
+      "longitude": 139.69171,
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Tokyo&count=10&language=en&countryCode=JP",
+      "retrieved_at": "2026-10-12T07:42:50.047512+00:00",
+      "selection_basis": "Exact city name and specified country; largest population for duplicate city entries. City-level season planning only."
+    },
+    {
+      "name": "Osaka",
+      "aliases": [
+        "大阪"
+      ],
+      "country_code": "JP",
+      "latitude": 34.69379,
+      "longitude": 135.50107,
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Osaka&count=10&language=en&countryCode=JP",
+      "retrieved_at": "2026-10-12T07:42:51.107280+00:00",
+      "selection_basis": "Exact city name and specified country; largest population for duplicate city entries. City-level season planning only."
+    },
+    {
+      "name": "London",
+      "aliases": [
+        "伦敦"
+      ],
+      "country_code": "GB",
+      "latitude": 51.50853,
+      "longitude": -0.12574,
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=London&count=10&language=en&countryCode=GB",
+      "retrieved_at": "2026-10-12T07:42:52.233405+00:00",
+      "selection_basis": "Exact city name and specified country; largest population for duplicate city entries. City-level season planning only."
+    },
+    {
+      "name": "Paris",
+      "aliases": [
+        "巴黎"
+      ],
+      "country_code": "FR",
+      "latitude": 48.85341,
+      "longitude": 2.3488,
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Paris&count=10&language=en&countryCode=FR",
+      "retrieved_at": "2026-10-12T07:42:53.597699+00:00",
+      "selection_basis": "Exact city name and specified country; largest population for duplicate city entries. City-level season planning only."
+    },
+    {
+      "name": "Sydney",
+      "aliases": [
+        "悉尼"
+      ],
+      "country_code": "AU",
+      "latitude": -33.86785,
+      "longitude": 151.20732,
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Sydney&count=10&language=en&countryCode=AU",
+      "retrieved_at": "2026-10-12T07:42:54.736734+00:00",
+      "selection_basis": "Exact city name and specified country; largest population for duplicate city entries. City-level season planning only."
+    },
+    {
+      "name": "Singapore",
+      "aliases": [
+        "新加坡"
+      ],
+      "country_code": "SG",
+      "latitude": 1.28967,
+      "longitude": 103.85007,
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Singapore&count=10&language=en&countryCode=SG",
+      "retrieved_at": "2026-10-12T07:42:55.780486+00:00",
+      "selection_basis": "Exact city name and specified country; largest population for duplicate city entries. City-level season planning only."
+    }
+  ]
+}

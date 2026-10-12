@@ -1,0 +1,25 @@
+{
+  "request": {
+    "destination": "Seoul",
+    "start_date": "2026-12-20",
+    "end_date": "2026-12-27",
+    "activities": ["sightseeing", "dinner"],
+    "budget": 500,
+    "currency": "SGD",
+    "style": ["minimalist"],
+    "dress_codes": {"dinner": "smart casual"}
+  },
+  "allow_draft": true,
+  "weather_fixture": {
+    "destination": "Seoul",
+    "start_date": "2026-12-20",
+    "end_date": "2026-12-27",
+    "temp_min_celsius": -4,
+    "temp_max_celsius": 5,
+    "snow": true,
+    "precipitation_probability": 0.35,
+    "status": "ok",
+    "data_type": "synthetic_fixture",
+    "source": "Proposal Appendix A weather example; synthetic, not a December forecast"
+  }
+}

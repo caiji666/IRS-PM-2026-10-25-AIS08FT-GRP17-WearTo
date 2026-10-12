@@ -1,0 +1,9 @@
+{
+  "patch": {
+    "intent": "MODIFY_REQUIREMENTS",
+    "set": {"budget": 400},
+    "add": {"excluded_items": ["long coat"]},
+    "remove": {}
+  },
+  "allow_draft": true
+}

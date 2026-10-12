@@ -1,0 +1,7 @@
+{
+  "dataset_id": "qwen-understanding-mini-v1",
+  "frozen_before_run": true,
+  "gold_review_status": "assistant_authored_pending_human_review",
+  "dataset_sha256": "d5d735bd0b9a2297eb1019b695c05ef61ea76f11313a49032f015d619b448b80",
+  "extractor_sha256": "cc0ece4880b255184cd0b556e2abe980eb8a4232e6eef3860cd8e24d9c9a064f"
+}

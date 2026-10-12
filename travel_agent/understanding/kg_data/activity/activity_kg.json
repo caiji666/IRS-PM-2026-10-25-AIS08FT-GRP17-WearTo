@@ -1,0 +1,846 @@
+{
+  "version": "0.1.0",
+  "created_on": "2026-10-07",
+  "scope": "Single activity; activity recommendations only; weather reasoning is separate.",
+  "sources": [
+    {
+      "id": "project",
+      "title": "Student 1 MVP modelling decisions",
+      "url": null,
+      "accessed_on": "2026-10-07",
+      "summary": "项目暂定语义映射，尚未经团队或专家审核。"
+    },
+    {
+      "id": "emily",
+      "title": "Emily Post — Attire Guide",
+      "url": "https://emilypost.com/advice/attire-guide-dress-codes-from-casual-to-white-tie",
+      "accessed_on": "2026-10-07",
+      "summary": "着装规范参考；并不证明任意活动必然有某个 dress code。"
+    },
+    {
+      "id": "rei",
+      "title": "REI — What to Wear Hiking",
+      "url": "https://www.rei.com/learn/expert-advice/how-to-choose-hiking-clothes.html",
+      "accessed_on": "2026-10-07",
+      "summary": "普通徒步服装功能建议；天气与地形仍需单独考虑。"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "activity:sightseeing",
+      "type": "Activity",
+      "name": "sightseeing",
+      "definition": "观光，默认无指定着装规范",
+      "aliases": [
+        "观光",
+        "city sightseeing"
+      ],
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:museum_visit",
+      "type": "Activity",
+      "name": "museum_visit",
+      "definition": "博物馆参观，默认普通公众开放时段",
+      "aliases": [
+        "博物馆",
+        "museum visit"
+      ],
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:hiking",
+      "type": "Activity",
+      "name": "hiking",
+      "definition": "普通徒步，不覆盖技术攀登或极端环境",
+      "aliases": [
+        "徒步",
+        "hike"
+      ],
+      "requires_dress_code": false,
+      "supported_dress_codes": []
+    },
+    {
+      "id": "activity:dinner",
+      "type": "Activity",
+      "name": "dinner",
+      "definition": "晚餐，着装规范由场所或邀请函确定",
+      "aliases": [
+        "晚餐",
+        "dining"
+      ],
+      "requires_dress_code": true,
+      "supported_dress_codes": [
+        "casual",
+        "smart casual"
+      ]
+    },
+    {
+      "id": "activity:business_meeting",
+      "type": "Activity",
+      "name": "business_meeting",
+      "definition": "商务会议，需确认组织着装要求",
+      "aliases": [
+        "商务会议",
+        "business meeting"
+      ],
+      "requires_dress_code": true,
+      "supported_dress_codes": [
+        "business casual",
+        "business formal"
+      ]
+    },
+    {
+      "id": "activity:wedding",
+      "type": "Activity",
+      "name": "wedding",
+      "definition": "婚礼宾客活动，需确认邀请函着装要求",
+      "aliases": [
+        "婚礼",
+        "wedding guest"
+      ],
+      "requires_dress_code": true,
+      "supported_dress_codes": [
+        "semi formal"
+      ]
+    },
+    {
+      "id": "style:casual",
+      "type": "Style",
+      "name": "casual",
+      "definition": "日常休闲",
+      "aliases": []
+    },
+    {
+      "id": "style:outdoor",
+      "type": "Style",
+      "name": "outdoor",
+      "definition": "以户外活动功能为主",
+      "aliases": []
+    },
+    {
+      "id": "style:smart_casual",
+      "type": "Style",
+      "name": "smart_casual",
+      "definition": "项目中的精致休闲风格，与 dressy casual 不视作通用同义词",
+      "aliases": []
+    },
+    {
+      "id": "style:business_casual",
+      "type": "Style",
+      "name": "business_casual",
+      "definition": "商务休闲",
+      "aliases": []
+    },
+    {
+      "id": "style:business_formal",
+      "type": "Style",
+      "name": "business_formal",
+      "definition": "商务正式",
+      "aliases": []
+    },
+    {
+      "id": "style:semi_formal",
+      "type": "Style",
+      "name": "semi_formal",
+      "definition": "半正式",
+      "aliases": []
+    },
+    {
+      "id": "attribute:comfortable",
+      "type": "Attribute",
+      "name": "comfortable",
+      "definition": "舒适性建议，不保证个人实际穿着舒适",
+      "aliases": []
+    },
+    {
+      "id": "attribute:freedom_of_movement",
+      "type": "Attribute",
+      "name": "freedom_of_movement",
+      "definition": "服装允许活动所需动作",
+      "aliases": []
+    },
+    {
+      "id": "attribute:moisture_wicking",
+      "type": "Attribute",
+      "name": "moisture_wicking",
+      "definition": "贴身衣物排汗属性",
+      "aliases": []
+    },
+    {
+      "id": "attribute:breathable",
+      "type": "Attribute",
+      "name": "breathable",
+      "definition": "衣物透湿属性",
+      "aliases": []
+    },
+    {
+      "id": "attribute:polished",
+      "type": "Attribute",
+      "name": "polished",
+      "definition": "整洁精致的视觉风格描述",
+      "aliases": []
+    },
+    {
+      "id": "attribute:coordinated_suiting",
+      "type": "Attribute",
+      "name": "coordinated_suiting",
+      "definition": "协调的套装式着装",
+      "aliases": []
+    },
+    {
+      "id": "attribute:dressy",
+      "type": "Attribute",
+      "name": "dressy",
+      "definition": "较为考究的着装",
+      "aliases": []
+    },
+    {
+      "id": "formality:casual",
+      "type": "Formality",
+      "name": "casual",
+      "definition": "项目着装级别：casual；保留独立概念，不作全序排序。",
+      "aliases": []
+    },
+    {
+      "id": "formality:smart_casual",
+      "type": "Formality",
+      "name": "smart_casual",
+      "definition": "项目着装级别：smart_casual；保留独立概念，不作全序排序。",
+      "aliases": []
+    },
+    {
+      "id": "formality:business_casual",
+      "type": "Formality",
+      "name": "business_casual",
+      "definition": "项目着装级别：business_casual；保留独立概念，不作全序排序。",
+      "aliases": []
+    },
+    {
+      "id": "formality:business_formal",
+      "type": "Formality",
+      "name": "business_formal",
+      "definition": "项目着装级别：business_formal；保留独立概念，不作全序排序。",
+      "aliases": []
+    },
+    {
+      "id": "formality:semi_formal",
+      "type": "Formality",
+      "name": "semi_formal",
+      "definition": "项目着装级别：semi_formal；保留独立概念，不作全序排序。",
+      "aliases": []
+    },
+    {
+      "id": "occasion:sightseeing_casual",
+      "type": "Occasion",
+      "name": "sightseeing_casual",
+      "definition": "该活动在指定着装背景下的场合。",
+      "aliases": []
+    },
+    {
+      "id": "occasion:museum_visit_casual",
+      "type": "Occasion",
+      "name": "museum_visit_casual",
+      "definition": "该活动在指定着装背景下的场合。",
+      "aliases": []
+    },
+    {
+      "id": "occasion:dinner_casual",
+      "type": "Occasion",
+      "name": "dinner_casual",
+      "definition": "该活动在指定着装背景下的场合。",
+      "aliases": []
+    },
+    {
+      "id": "occasion:dinner_smart_casual",
+      "type": "Occasion",
+      "name": "dinner_smart_casual",
+      "definition": "该活动在指定着装背景下的场合。",
+      "aliases": []
+    },
+    {
+      "id": "occasion:business_meeting_business_casual",
+      "type": "Occasion",
+      "name": "business_meeting_business_casual",
+      "definition": "该活动在指定着装背景下的场合。",
+      "aliases": []
+    },
+    {
+      "id": "occasion:business_meeting_business_formal",
+      "type": "Occasion",
+      "name": "business_meeting_business_formal",
+      "definition": "该活动在指定着装背景下的场合。",
+      "aliases": []
+    },
+    {
+      "id": "occasion:wedding_semi_formal",
+      "type": "Occasion",
+      "name": "wedding_semi_formal",
+      "definition": "该活动在指定着装背景下的场合。",
+      "aliases": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "e001",
+      "source": "formality:casual",
+      "target": "style:casual",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e002",
+      "source": "formality:smart_casual",
+      "target": "style:smart_casual",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e003",
+      "source": "formality:business_casual",
+      "target": "style:business_casual",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e004",
+      "source": "formality:business_formal",
+      "target": "style:business_formal",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e005",
+      "source": "formality:semi_formal",
+      "target": "style:semi_formal",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e006",
+      "source": "activity:sightseeing",
+      "target": "occasion:sightseeing_casual",
+      "relation": "HAS_OCCASION",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e007",
+      "source": "occasion:sightseeing_casual",
+      "target": "formality:casual",
+      "relation": "HAS_FORMALITY",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e008",
+      "source": "activity:sightseeing",
+      "target": "style:casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e009",
+      "source": "activity:museum_visit",
+      "target": "occasion:museum_visit_casual",
+      "relation": "HAS_OCCASION",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e010",
+      "source": "occasion:museum_visit_casual",
+      "target": "formality:casual",
+      "relation": "HAS_FORMALITY",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e011",
+      "source": "activity:museum_visit",
+      "target": "style:casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e012",
+      "source": "activity:dinner",
+      "target": "occasion:dinner_casual",
+      "relation": "HAS_OCCASION",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e013",
+      "source": "occasion:dinner_casual",
+      "target": "formality:casual",
+      "relation": "HAS_FORMALITY",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e014",
+      "source": "activity:dinner",
+      "target": "style:casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e015",
+      "source": "activity:dinner",
+      "target": "occasion:dinner_smart_casual",
+      "relation": "HAS_OCCASION",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e016",
+      "source": "occasion:dinner_smart_casual",
+      "target": "formality:smart_casual",
+      "relation": "HAS_FORMALITY",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e017",
+      "source": "activity:dinner",
+      "target": "style:smart_casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e018",
+      "source": "activity:business_meeting",
+      "target": "occasion:business_meeting_business_casual",
+      "relation": "HAS_OCCASION",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "business casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e019",
+      "source": "occasion:business_meeting_business_casual",
+      "target": "formality:business_casual",
+      "relation": "HAS_FORMALITY",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "business casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e020",
+      "source": "activity:business_meeting",
+      "target": "style:business_casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "business casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e021",
+      "source": "activity:business_meeting",
+      "target": "occasion:business_meeting_business_formal",
+      "relation": "HAS_OCCASION",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "business formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e022",
+      "source": "occasion:business_meeting_business_formal",
+      "target": "formality:business_formal",
+      "relation": "HAS_FORMALITY",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "business formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e023",
+      "source": "activity:business_meeting",
+      "target": "style:business_formal",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "business formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e024",
+      "source": "activity:wedding",
+      "target": "occasion:wedding_semi_formal",
+      "relation": "HAS_OCCASION",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "semi formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e025",
+      "source": "occasion:wedding_semi_formal",
+      "target": "formality:semi_formal",
+      "relation": "HAS_FORMALITY",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "semi formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e026",
+      "source": "activity:wedding",
+      "target": "style:semi_formal",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
+      "conditions": {
+        "dress_code": "semi formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e027",
+      "source": "activity:hiking",
+      "target": "style:outdoor",
+      "relation": "DIRECT_STYLE",
+      "source_id": "rei",
+      "supporting_section": "Clothing Strategies",
+      "rationale": "将来源中功能优先的徒步建议归入 outdoor 风格，是项目标签映射。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e028",
+      "source": "style:casual",
+      "target": "attribute:comfortable",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily",
+      "supporting_section": "Casual",
+      "rationale": "来源将 casual 描述为舒适的非正式着装；这里只生成建议属性。",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e029",
+      "source": "style:outdoor",
+      "target": "attribute:freedom_of_movement",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "rei",
+      "supporting_section": "What to Wear Hiking",
+      "rationale": "徒步建议支持该功能属性；仅限本图谱的普通徒步路径，不推广至所有户外活动。",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e030",
+      "source": "style:outdoor",
+      "target": "attribute:moisture_wicking",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "rei",
+      "supporting_section": "Key Hiking Clothing Features",
+      "rationale": "徒步建议支持该功能属性；仅限本图谱的普通徒步路径，不推广至所有户外活动。",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e031",
+      "source": "style:outdoor",
+      "target": "attribute:breathable",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "rei",
+      "supporting_section": "Key Hiking Clothing Features",
+      "rationale": "徒步建议支持该功能属性；仅限本图谱的普通徒步路径，不推广至所有户外活动。",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e032",
+      "source": "style:smart_casual",
+      "target": "attribute:polished",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "精致休闲到 polished 为项目暂定映射，不声称来源直接定义了 smart casual。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e033",
+      "source": "style:business_casual",
+      "target": "attribute:polished",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "MVP design",
+      "rationale": "商务休闲到 polished 为项目暂定风格映射。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e034",
+      "source": "style:business_formal",
+      "target": "attribute:coordinated_suiting",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily",
+      "supporting_section": "Business Formal",
+      "rationale": "来源以协调的西装外套与下装描述商务正式着装。",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    },
+    {
+      "id": "e035",
+      "source": "style:semi_formal",
+      "target": "attribute:dressy",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily",
+      "supporting_section": "Semi-formal",
+      "rationale": "将来源中的半正式着装示例概括为 dressy，属于项目归纳。",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.1.0"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Travel Style Agent · Group 17
 
-A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The repository currently provides an installable, testable development scaffold. Live weather, knowledge graph reasoning, social and product retrieval, FashionCLIP, MLP scoring, and image generation are not yet implemented.
+A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. Social/product retrieval, FashionCLIP, MLP scoring and image generation remain scaffolds. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review.
 
 ## Quick start
 
@@ -18,7 +18,23 @@ uv run ruff format --check .
 
 Use Python 3.11 across the team. Commit both `pyproject.toml` and `uv.lock`. Add dependencies with `uv add` and include both files in the same pull request. Do not edit the lockfile manually.
 
-The demo uses deterministic fixtures and requires no API keys. It does not perform autonomous agent decisions or demonstrate model quality. The algorithm tools currently return `not_implemented` explicitly to establish the integration boundaries.
+The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The other four module tools return `not_implemented` explicitly.
+
+## English-first understanding workflow
+
+English is the primary evaluated input language. Local Qwen3-0.6B proposes structured facts; a constrained English source-evidence layer checks explicit dates, money, activities, preferences, exclusions and edits. Raw model output and augmented results are retained separately. This is a supervised prototype, not a model-only accuracy claim. Relative/yearless dates, ambiguous currencies, unsupported edits and invalid inputs need clarification.
+
+```bash
+uv sync --locked --extra qwen
+HF_HOME="$PWD/artifacts/huggingface" uv run --locked --extra qwen \
+  python -m travel_agent.understanding.demo \
+  --message "Seoul, 2026-12-20 to 2026-12-27. Sightseeing and dinner. Budget 500 SGD. I prefer minimalist style. Dinner requires smart casual dress code." \
+  --output artifacts/extraction-preview.json
+```
+
+The first run returns a proposal for human review. Review `proposed_request` / `proposed_action` before explicitly accepting extraction in a direct CLI/service call. Do not enable automatic acceptance through the agent tool. Weather outside forecast coverage remains unavailable; no forecast is invented. Use the offline demo for a complete synthetic-weather walkthrough.
+
+Current English diagnostics and preserved multilingual history are in [evaluation](evaluation/README.md). Chinese aliases inside copied KG snapshots are source provenance; public explanations use English labels. All knowledge/rule approvals remain pending. Optional Neo4j and a live multi-tool recommendation agent are not verified.
 
 ## Team responsibilities
 

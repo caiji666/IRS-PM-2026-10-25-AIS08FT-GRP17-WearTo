@@ -1,0 +1,18 @@
+{
+  "version": "weather-rules-0.1",
+  "review_status": "pending",
+  "basis": "Project prototype heuristics implementing proposal Stage 3A; thresholds require human review.",
+  "classification": {"cold_min_below": 10, "cool_min_below": 18, "hot_max_at_least": 30},
+  "rules": [
+    {"id": "COLD", "field": "temp_min_celsius", "operator": "lt", "threshold": 10,
+     "output": {"outerwear": ["winter coat", "puffer jacket"], "top": ["sweater", "knitwear"], "bottom": ["long trousers"], "footwear": ["closed shoes", "boots"], "properties": ["warm", "insulated", "layerable"]}},
+    {"id": "COOL", "field": "temp_min_celsius", "operator": "range", "threshold": [10, 18],
+     "output": {"outerwear": ["light jacket"], "top": ["long sleeve top"], "properties": ["layerable"]}},
+    {"id": "HOT", "field": "temp_max_celsius", "operator": "gte", "threshold": 30,
+     "output": {"top": ["lightweight top"], "properties": ["breathable", "lightweight"]}},
+    {"id": "RAIN", "field": "precipitation_probability", "operator": "gte", "threshold": 0.5,
+     "output": {"outerwear": ["rain shell"], "footwear": ["weather-resistant footwear"], "properties": ["weather-resistant"]}},
+    {"id": "SNOW", "field": "snow", "operator": "eq", "threshold": true,
+     "output": {"outerwear": ["weather-resistant outerwear"], "footwear": ["closed shoes", "boots"], "properties": ["weather-resistant"]}}
+  ]
+}

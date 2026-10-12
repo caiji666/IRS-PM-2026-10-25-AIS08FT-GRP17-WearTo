@@ -1,0 +1,914 @@
+{
+  "dataset_id": "qwen-english-fresh-diagnostic-v2",
+  "version": "2.0.0",
+  "created_date": "2026-10-12",
+  "scope": "16 newly authored English cases; frozen before their first actual v4 model run, pending human label review. Not a deployment benchmark.",
+  "evaluation_role": "fresh_diagnostic",
+  "label_status": "assistant_authored_pending_human_review",
+  "scenarios": [
+    {
+      "id": "E01",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E01",
+          "category": "new_city_activity",
+          "language": "en",
+          "message": "Denver, 2026-11-12 to 2026-11-16. I plan skiing. Budget 480 USD.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": "Denver",
+              "start_date": "2026-11-12",
+              "end_date": "2026-11-16",
+              "activities": [
+                "skiing"
+              ],
+              "budget": 480,
+              "currency": "USD",
+              "style": [],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E02",
+          "category": "new_style",
+          "language": "en",
+          "message": "I prefer boho outfits.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": null,
+              "start_date": null,
+              "end_date": null,
+              "activities": [],
+              "budget": null,
+              "currency": null,
+              "style": [
+                "bohemian"
+              ],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E03",
+          "category": "decimal_money",
+          "language": "en",
+          "message": "Riga, 2026-11-23 to 2026-11-25. Sightseeing. Budget 275.75 SGD.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": "Riga",
+              "start_date": "2026-11-23",
+              "end_date": "2026-11-25",
+              "activities": [
+                "sightseeing"
+              ],
+              "budget": 275.75,
+              "currency": "SGD",
+              "style": [],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E04",
+          "category": "english_date_words",
+          "language": "en",
+          "message": "My destination is Vienna. Departure is November 4, 2026. Return is November 8, 2026. Museum visit. Budget 180 EUR.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 180,
+              "currency": "EUR",
+              "style": [],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E05",
+          "category": "missing_destination",
+          "language": "en",
+          "message": "Museum visit, classic style, budget 140 EUR. I have not chosen a destination or dates.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": null,
+              "start_date": null,
+              "end_date": null,
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 140,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E06",
+          "category": "dollar_ambiguity",
+          "language": "en",
+          "message": "Sapporo, 2026-11-02 to 2026-11-05. Hiking. Budget $90.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": "Sapporo",
+              "start_date": "2026-11-02",
+              "end_date": "2026-11-05",
+              "activities": [
+                "hiking"
+              ],
+              "budget": 90,
+              "currency": null,
+              "style": [],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E07",
+          "category": "relative_date",
+          "language": "en",
+          "message": "I am going to Warsaw later this winter for sightseeing. Budget 210 EUR.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": "Warsaw",
+              "start_date": null,
+              "end_date": null,
+              "activities": [
+                "sightseeing"
+              ],
+              "budget": 210,
+              "currency": "EUR",
+              "style": [],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E08",
+          "category": "negated_activity",
+          "language": "en",
+          "message": "Madrid, 2026-11-06 to 2026-11-09. I will do sightseeing, not dinner. Budget 260 EUR.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": "Madrid",
+              "start_date": "2026-11-06",
+              "end_date": "2026-11-09",
+              "activities": [
+                "sightseeing"
+              ],
+              "budget": 260,
+              "currency": "EUR",
+              "style": [],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E09",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E09",
+          "category": "missing_currency",
+          "language": "en",
+          "message": "I prefer streetwear outfits and my budget is 150. Currency is not decided yet.",
+          "previous_state": null,
+          "expected": {
+            "intent": "CREATE_REQUEST",
+            "request": {
+              "destination": null,
+              "start_date": null,
+              "end_date": null,
+              "activities": [],
+              "budget": 150,
+              "currency": null,
+              "style": [
+                "streetwear"
+              ],
+              "excluded_items": [],
+              "owned_item_ids": [],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E10",
+          "category": "end_date_patch",
+          "language": "en",
+          "message": "Extend the end date to 2026-11-10. Keep everything else.",
+          "previous_state": {
+            "session_id": "english_synthetic",
+            "request_version": 1,
+            "current_request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "recommendation_round": 0,
+            "last_recommended_outfit_ids": [],
+            "selected_outfit_id": null,
+            "session_status": "READY"
+          },
+          "expected": {
+            "intent": "MODIFY_REQUIREMENTS",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-10",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E11",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E11",
+          "category": "remove_one_exclusion",
+          "language": "en",
+          "message": "Remove sandals from my exclusion list. Keep boots excluded.",
+          "previous_state": {
+            "session_id": "english_synthetic",
+            "request_version": 1,
+            "current_request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "recommendation_round": 0,
+            "last_recommended_outfit_ids": [],
+            "selected_outfit_id": null,
+            "session_status": "READY"
+          },
+          "expected": {
+            "intent": "MODIFY_REQUIREMENTS",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E12",
+          "category": "activity_and_code_patch",
+          "language": "en",
+          "message": "Add dinner. The dinner dress code is casual.",
+          "previous_state": {
+            "session_id": "english_synthetic",
+            "request_version": 1,
+            "current_request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "recommendation_round": 0,
+            "last_recommended_outfit_ids": [],
+            "selected_outfit_id": null,
+            "session_status": "READY"
+          },
+          "expected": {
+            "intent": "MODIFY_REQUIREMENTS",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit",
+                "dinner"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {
+                "dinner": "casual"
+              },
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E13",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E13",
+          "category": "explanation_intent",
+          "language": "en",
+          "message": "Please explain why the third outfit was recommended.",
+          "previous_state": {
+            "session_id": "english_synthetic",
+            "request_version": 1,
+            "current_request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "recommendation_round": 1,
+            "last_recommended_outfit_ids": [
+              "outfit_301",
+              "outfit_302",
+              "outfit_303"
+            ],
+            "selected_outfit_id": null,
+            "session_status": "AWAITING_CONFIRMATION"
+          },
+          "expected": {
+            "intent": "REQUEST_EXPLANATION",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E14",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E14",
+          "category": "selection_by_id",
+          "language": "en",
+          "message": "Select outfit_303.",
+          "previous_state": {
+            "session_id": "english_synthetic",
+            "request_version": 1,
+            "current_request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "recommendation_round": 1,
+            "last_recommended_outfit_ids": [
+              "outfit_301",
+              "outfit_302",
+              "outfit_303"
+            ],
+            "selected_outfit_id": null,
+            "session_status": "AWAITING_CONFIRMATION"
+          },
+          "expected": {
+            "intent": "CONFIRM_OUTFIT",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "accept",
+            "selected_outfit_id": "outfit_303"
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E15",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E15",
+          "category": "ambiguous_selection",
+          "language": "en",
+          "message": "I confirm an outfit.",
+          "previous_state": {
+            "session_id": "english_synthetic",
+            "request_version": 1,
+            "current_request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "recommendation_round": 1,
+            "last_recommended_outfit_ids": [
+              "outfit_301",
+              "outfit_302",
+              "outfit_303"
+            ],
+            "selected_outfit_id": null,
+            "session_status": "AWAITING_CONFIRMATION"
+          },
+          "expected": {
+            "intent": "CONFIRM_OUTFIT",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "validation": "reject",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    },
+    {
+      "id": "E16",
+      "kind": "independent",
+      "turns": [
+        {
+          "id": "E16",
+          "category": "cheaper_no_numeric_change",
+          "language": "en",
+          "message": "Make it cheaper.",
+          "previous_state": {
+            "session_id": "english_synthetic",
+            "request_version": 1,
+            "current_request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": null
+            },
+            "recommendation_round": 0,
+            "last_recommended_outfit_ids": [],
+            "selected_outfit_id": null,
+            "session_status": "READY"
+          },
+          "expected": {
+            "intent": "MODIFY_REQUIREMENTS",
+            "request": {
+              "destination": "Vienna",
+              "start_date": "2026-11-04",
+              "end_date": "2026-11-08",
+              "activities": [
+                "museum visit"
+              ],
+              "budget": 275,
+              "currency": "EUR",
+              "style": [
+                "classic"
+              ],
+              "excluded_items": [
+                "boots",
+                "sandals"
+              ],
+              "owned_item_ids": [
+                "owned_jacket_b"
+              ],
+              "places": [],
+              "dress_codes": {},
+              "enter_interior": null,
+              "gender": null,
+              "cold_sensitive": null,
+              "price_preference": "lower"
+            },
+            "validation": "accept",
+            "selected_outfit_id": null
+          },
+          "label_status": "assistant_authored_pending_human_review"
+        }
+      ]
+    }
+  ]
+}
