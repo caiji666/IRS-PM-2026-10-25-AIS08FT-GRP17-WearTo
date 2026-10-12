@@ -80,3 +80,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [interface contracts](docs/contr
 Follow this workflow: main → feature branch → pull request → CI → peer review → squash merge. Keep full datasets, user-uploaded images, credentials, and model weights out of Git. Commit acquisition instructions, version information, and checksums instead.
 
 English is the project language for documentation, code comments, examples, issues, and pull requests.
+
+## Product retrieval and wardrobe commands
+
+For a fresh checkout, follow the [product retrieval runbook](docs/product-retrieval-runbook.md). It covers the products extra, repository-local configuration, included offline demos, FashionCLIP download, personal wardrobe import, upstream PT/TXT/JSON preparation, optional historical photos, Sandbox credentials and output handoff. Private input files, complete datasets, user images, model weights and credentials are not included in Git. The implementation is currently local on `feat/student3-integration`; the runbook explains how to obtain it after publication.
