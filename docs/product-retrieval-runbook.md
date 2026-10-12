@@ -64,6 +64,8 @@ PT files, complete datasets, personal photographs, credentials, weights, caches 
 
 You can run sections 4 and 5 without teammate files, wardrobe photographs or eBay access. Sections 6–9 progressively add these resources.
 
+The current author checkout has now been populated with independent local copies of these resources. See [the resource-complete local validation and command guide](local-product-retrieval-validation.md). This local preparation does not add private resources to Git or make them available in another person's clone.
+
 ## 4. Validate the catalogue and normalize products without a model
 
 ```bash
