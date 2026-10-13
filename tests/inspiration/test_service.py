@@ -1,6 +1,4 @@
-from unittest.mock import patch
-
-import torch
+from unittest.mock import Mock, patch
 
 from travel_agent.inspiration.service import run
 
@@ -22,10 +20,15 @@ student1_data = {
 
 
 def test_inspiration_service():
+    context_embedding = Mock()
+    context_embedding.cpu.return_value.tolist.return_value = [[0.0] * 512]
+
+    image_embeddings = Mock()
+    image_embeddings.cpu.return_value.tolist.return_value = [[0.0] * 512]
 
     # Simulated output of the Inspiration Pipeline
     mock_phase2_output = {
-        "context_embedding": torch.randn(1, 512),
+        "context_embedding": context_embedding,
         "top_images": [
             {
                 "image_id": "test_image_001",
@@ -34,7 +37,7 @@ def test_inspiration_service():
                 "similarity_score": 0.85,
             }
         ],
-        "top_image_embeddings": torch.randn(1, 512),
+        "top_image_embeddings": image_embeddings,
     }
 
     mock_evaluation_data = {
