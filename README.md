@@ -22,6 +22,8 @@ The default demo uses explicit synthetic weather and draft KG knowledge, with no
 
 ## English-first understanding workflow
 
+Activity KG v0.2.0 now returns alternative aesthetics and independent dressing needs, covering all 11 Place KG activity IDs. See [activity style expansion](docs/activity-style-expansion.md) for source scope, draft examples and the downstream output contract. No new item mappings are part of this expansion.
+
 English is the primary evaluated input language. Local Qwen3-0.6B proposes structured facts; a constrained English source-evidence layer checks explicit dates, money, activities, preferences, exclusions and edits. Raw model output and augmented results are retained separately. This is a supervised prototype, not a model-only accuracy claim. Relative/yearless dates, ambiguous currencies, unsupported edits and invalid inputs need clarification.
 
 ```bash

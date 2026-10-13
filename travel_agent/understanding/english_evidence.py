@@ -23,6 +23,12 @@ STYLES = {
     "bohemian": ("bohemian", "boho"),
     "classic": ("classic",),
     "streetwear": ("streetwear",),
+    "maximalist": ("maximalist", "maximalism"),
+    "preppy": ("preppy", "ivy style"),
+    "artistic": ("artistic", "artsy"),
+    "utility": ("utility", "utilitarian"),
+    "romantic": ("romantic",),
+    "retro": ("retro", "vintage inspired"),
 }
 ITEMS = {
     "boots": ("boots",),

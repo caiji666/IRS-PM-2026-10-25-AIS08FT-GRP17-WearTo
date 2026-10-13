@@ -163,7 +163,9 @@ def test_review_policy_one_hop_multi_hop_and_unknown_activity(payload):
     assert strict["hiking"] == []
     one, r1, _ = reason_activities(request, allow_draft=True, max_depth=1)
     multi, r2, _ = reason_activities(request, allow_draft=True)
-    assert len(multi["hiking"]) > len(one["hiking"])
+    assert set(one["hiking"]) <= set(multi["hiking"])
+    assert all(len(p["edge_ids"]) == 1 for c in r1["hiking"]["conclusions"] for p in c["paths"])
+    assert any(len(p["edge_ids"]) > 1 for c in r2["hiking"]["conclusions"] for p in c["paths"])
     assert r1["hiking"]["knowledge_status"] == "draft"
     assert r2["scuba diving"]["status"] == "unknown_activity"
     assert request.activities == ["hiking", "scuba diving"]

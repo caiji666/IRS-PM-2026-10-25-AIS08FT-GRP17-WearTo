@@ -134,6 +134,14 @@ def ground_extraction(value, message, existing=False, current_request=None):
         "minimalist": ("minimalist", "极简", "极简风", "简约"),
         "casual": ("casual", "休闲"),
         "sporty": ("sporty", "运动风"),
+        "maximalist": ("maximalist", "maximalism", "繁复", "繁复风"),
+        "preppy": ("preppy", "ivy style", "学院", "学院风"),
+        "streetwear": ("streetwear", "街头", "街头风"),
+        "artistic": ("artistic", "artsy", "艺术风"),
+        "bohemian": ("bohemian", "boho", "波西米亚"),
+        "utility": ("utility", "utilitarian", "工装", "工装风"),
+        "romantic": ("romantic", "浪漫", "浪漫风"),
+        "retro": ("retro", "vintage inspired", "复古", "复古风"),
     }
     if isinstance(values.get("style"), list):
         grounded_styles = []

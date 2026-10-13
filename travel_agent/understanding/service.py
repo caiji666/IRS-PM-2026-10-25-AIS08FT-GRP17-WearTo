@@ -33,7 +33,9 @@ def required_questions(request):
     ]
 
 
-def expand_context(request, weather, clothes, activities, places, season_context=None):
+def expand_context(
+    request, weather, clothes, activities, places, season_context=None, activity_results=None
+):
     # Keep activity requirements separate structurally; text is for retrieval,
     # never a substitute for hard-constraint checks or outfit feasibility.
     words = [request.destination or ""]
@@ -48,6 +50,16 @@ def expand_context(request, weather, clothes, activities, places, season_context
     words.extend(request.style)
     if places:
         words.extend(r["req_id"].replace("_", " ") for r in places["requirements"])
+    for activity, result in (activity_results or {}).items():
+        candidates = [c for c in result["style_candidates"] if c["kind"] == "aesthetic"]
+        matching = [c for c in candidates if c["matched_preferences"]]
+        directions = matching or candidates
+        if directions:
+            words.append(
+                f"Alternative aesthetics for {activity}: "
+                + ", ".join(c["style"] for c in directions)
+                + "."
+            )
     return " ".join(" ".join(words).split())
 
 
@@ -260,11 +272,25 @@ def run(
                 "enriched_trip_context": enriched.model_dump(mode="json"),
                 "weather_clothing_requirements": clothing.model_dump(),
                 "activity_style_requirements": activity_styles,
+                "activity_style_options": {
+                    activity: result["style_candidates"]
+                    for activity, result in activity_results.items()
+                },
+                "activity_dressing_requirements": {
+                    activity: result["dressing_requirements"]
+                    for activity, result in activity_results.items()
+                },
                 "activity_reasoning": activity_results,
                 "weather_rule_trace": trace,
                 "place_context": places,
                 "expanded_fashion_context": expand_context(
-                    request, weather, clothing, activity_styles, places, season_context
+                    request,
+                    weather,
+                    clothing,
+                    activity_styles,
+                    places,
+                    season_context,
+                    activity_results=activity_results,
                 ),
                 "hard_constraints": {
                     "budget": request.model_dump(mode="json")["budget"],

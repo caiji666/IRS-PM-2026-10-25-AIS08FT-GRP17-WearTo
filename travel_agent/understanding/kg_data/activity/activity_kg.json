@@ -1,7 +1,7 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "created_on": "2026-10-07",
-  "scope": "Single activity; activity recommendations only; weather reasoning is separate.",
+  "scope": "Selected activity and explicit dress code; alternative aesthetics and dressing requirements; no items; weather and venue rules remain separate.",
   "sources": [
     {
       "id": "project",
@@ -23,6 +23,116 @@
       "url": "https://www.rei.com/learn/expert-advice/how-to-choose-hiking-clothes.html",
       "accessed_on": "2026-10-07",
       "summary": "普通徒步服装功能建议；天气与地形仍需单独考虑。"
+    },
+    {
+      "id": "emily_v2",
+      "title": "Emily Post — Attire Guide",
+      "url": "https://emilypost.com/advice/attire-guide-dress-codes-from-casual-to-white-tie",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Casual; Dressy Casual; Business; Black Tie; Creative Black Tie; Black Tie Optional; Festive; White Tie",
+      "summary": "Dress-code meanings; host/company policy takes precedence; Western etiquette reference.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "rei_v2",
+      "title": "REI — What to Wear Hiking",
+      "url": "https://www.rei.com/learn/expert-advice/how-to-choose-hiking-clothes.html",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "What to Wear Hiking; Clothing Strategies; Footwear",
+      "summary": "Movement, moisture management and traction; conditions vary with terrain and weather.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "fit_minmax",
+      "title": "Museum at FIT — Minimalism/Maximalism",
+      "url": "https://exhibitions.fitnyc.edu/minimalism-maximalism/",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "1980s–1990s; 2000s–2010; 2015–2019",
+      "summary": "Restrained forms versus expressive pattern/volume; descriptors, not activity suitability.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "fit_ivy",
+      "title": "Museum at FIT — Ivy Style",
+      "url": "https://sites.fitnyc.edu/depts/museum/Ivy_Style/",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Introduction",
+      "summary": "Collegiate classic aesthetic; not a school or workplace policy.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "vam_street",
+      "title": "V&A — Samuel Ross / A-COLD-WALL*",
+      "url": "https://www.vam.ac.uk/articles/fashion-design-samuel-ross-a-cold-wall",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Introduction",
+      "summary": "One contemporary streetwear example mixing sportswear, industrial design and tailoring; not every streetwear outfit.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "fit_art",
+      "title": "Museum at FIT — Art X Fashion",
+      "url": "https://www.fitnyc.edu/museum/exhibitions/art-fashion/index.php",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Artistic identity; bohemian dress; art-inspired motifs",
+      "summary": "Art and bohemian references; visiting a museum does not require artistic dress.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "fit_utility",
+      "title": "Museum at FIT — Beyond Utility",
+      "url": "https://www.fitnyc.edu/museum/exhibitions/beyond-utility/index.php",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Utilitarian design; Workwear; Military; Craft",
+      "summary": "Functional heritage can become visual reference; utility appearance does not certify performance.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "fit_rose",
+      "title": "Museum at FIT — Ravishing: The Rose in Fashion",
+      "url": "https://www.fitnyc.edu/museum/exhibitions/ravishing-the-rose-in-fashion.php",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Rose imagery; Neo-Romantic style",
+      "summary": "Floral/romantic references are optional and not limited by gender.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "fit_retro",
+      "title": "Museum at FIT — RetroSpective",
+      "url": "https://sites.fitnyc.edu/depts/museum/RetroSpective/",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Introduction",
+      "summary": "Historical silhouette references; retro does not assert a garment is authentic vintage.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
+    },
+    {
+      "id": "fit_sport",
+      "title": "Museum at FIT — Sporting Life",
+      "url": "https://sites.fitnyc.edu/depts/museum/sporting_life/home.html",
+      "accessed_on": "2026-10-13",
+      "verification": "relevant_sections_read",
+      "supporting_section": "Introduction",
+      "summary": "Sports-inspired fashion is distinct from sport-specific functional suitability.",
+      "human_review_status": "pending",
+      "content_storage": "short_paraphrases_only"
     }
   ],
   "nodes": [
@@ -33,12 +143,14 @@
       "definition": "观光，默认无指定着装规范",
       "aliases": [
         "观光",
-        "city sightseeing"
+        "city sightseeing",
+        "city_walk"
       ],
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "place_activity_id": "city_walk"
     },
     {
       "id": "activity:museum_visit",
@@ -47,12 +159,14 @@
       "definition": "博物馆参观，默认普通公众开放时段",
       "aliases": [
         "博物馆",
-        "museum visit"
+        "museum visit",
+        "museum_indoor"
       ],
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "place_activity_id": "museum_indoor"
     },
     {
       "id": "activity:hiking",
@@ -61,10 +175,12 @@
       "definition": "普通徒步，不覆盖技术攀登或极端环境",
       "aliases": [
         "徒步",
-        "hike"
+        "hike",
+        "outdoor_trek"
       ],
       "requires_dress_code": false,
-      "supported_dress_codes": []
+      "supported_dress_codes": [],
+      "place_activity_id": "outdoor_trek"
     },
     {
       "id": "activity:dinner",
@@ -78,7 +194,9 @@
       "requires_dress_code": true,
       "supported_dress_codes": [
         "casual",
-        "smart casual"
+        "smart casual",
+        "dressy casual",
+        "festive"
       ]
     },
     {
@@ -107,7 +225,14 @@
       ],
       "requires_dress_code": true,
       "supported_dress_codes": [
-        "semi formal"
+        "semi formal",
+        "casual",
+        "dressy casual",
+        "black tie",
+        "creative black tie",
+        "black tie optional",
+        "festive",
+        "white tie"
       ]
     },
     {
@@ -284,6 +409,593 @@
       "name": "wedding_semi_formal",
       "definition": "该活动在指定着装背景下的场合。",
       "aliases": []
+    },
+    {
+      "id": "style:minimalist",
+      "type": "Style",
+      "name": "minimalist",
+      "definition": "Restrained visual direction; simple forms and limited decoration, not a mandatory palette.",
+      "aliases": [
+        "minimalism",
+        "极简",
+        "极简风",
+        "简约"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "极简"
+    },
+    {
+      "id": "attribute:clean_lines",
+      "type": "Attribute",
+      "name": "clean_lines",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:restrained_decoration",
+      "type": "Attribute",
+      "name": "restrained_decoration",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:maximalist",
+      "type": "Style",
+      "name": "maximalist",
+      "definition": "Expressive pattern, volume or decoration; these are alternatives, not a checklist.",
+      "aliases": [
+        "maximalism",
+        "繁复",
+        "繁复风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "繁复表达"
+    },
+    {
+      "id": "attribute:expressive_patterns",
+      "type": "Attribute",
+      "name": "expressive_patterns",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:expressive_volume",
+      "type": "Attribute",
+      "name": "expressive_volume",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:preppy",
+      "type": "Style",
+      "name": "preppy",
+      "definition": "Collegiate classic references; not a school uniform or employment requirement.",
+      "aliases": [
+        "ivy style",
+        "学院",
+        "学院风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "学院"
+    },
+    {
+      "id": "attribute:collegiate_references",
+      "type": "Attribute",
+      "name": "collegiate_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:classic_references",
+      "type": "Attribute",
+      "name": "classic_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:streetwear",
+      "type": "Style",
+      "name": "streetwear",
+      "definition": "Contemporary streetwear references; project descriptors cover one broad direction.",
+      "aliases": [
+        "街头",
+        "街头风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "街头"
+    },
+    {
+      "id": "attribute:sportswear_references",
+      "type": "Attribute",
+      "name": "sportswear_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:industrial_references",
+      "type": "Attribute",
+      "name": "industrial_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:artistic",
+      "type": "Style",
+      "name": "artistic",
+      "definition": "Art-inspired motifs or visual experimentation; optional for any visitor.",
+      "aliases": [
+        "artsy",
+        "艺术",
+        "艺术风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "艺术表达"
+    },
+    {
+      "id": "attribute:art_references",
+      "type": "Attribute",
+      "name": "art_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:creative_expression",
+      "type": "Attribute",
+      "name": "creative_expression",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:bohemian",
+      "type": "Style",
+      "name": "bohemian",
+      "definition": "Artistic and historical bohemian references, without fixed cultural costume requirements.",
+      "aliases": [
+        "boho",
+        "波西米亚",
+        "波西米亚风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "波西米亚"
+    },
+    {
+      "id": "attribute:artistic_identity",
+      "type": "Attribute",
+      "name": "artistic_identity",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:historical_references",
+      "type": "Attribute",
+      "name": "historical_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:utility",
+      "type": "Style",
+      "name": "utility",
+      "definition": "Workwear or utilitarian visual references; appearance does not guarantee protective function.",
+      "aliases": [
+        "utilitarian",
+        "工装",
+        "工装风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "工装功能感"
+    },
+    {
+      "id": "attribute:workwear_references",
+      "type": "Attribute",
+      "name": "workwear_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:functional_visual_details",
+      "type": "Attribute",
+      "name": "functional_visual_details",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:romantic",
+      "type": "Style",
+      "name": "romantic",
+      "definition": "Romantic or floral references; floral detail is an optional interpretation.",
+      "aliases": [
+        "浪漫",
+        "浪漫风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "浪漫"
+    },
+    {
+      "id": "attribute:floral_references",
+      "type": "Attribute",
+      "name": "floral_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "attribute:romantic_references",
+      "type": "Attribute",
+      "name": "romantic_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:retro",
+      "type": "Style",
+      "name": "retro",
+      "definition": "References to historical silhouettes or periods; not an authenticity claim.",
+      "aliases": [
+        "vintage inspired",
+        "复古",
+        "复古风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "复古"
+    },
+    {
+      "id": "attribute:historical_silhouette_references",
+      "type": "Attribute",
+      "name": "historical_silhouette_references",
+      "definition": "Optional visual descriptor; not a shared dressing obligation.",
+      "aliases": [],
+      "attribute_kind": "aesthetic_descriptor"
+    },
+    {
+      "id": "style:sporty",
+      "type": "Style",
+      "name": "sporty",
+      "definition": "Sports-inspired casual aesthetic; does not guarantee suitability for a technical sport.",
+      "aliases": [
+        "sporty casual",
+        "运动休闲",
+        "运动风"
+      ],
+      "style_kind": "aesthetic",
+      "label_zh": "运动休闲"
+    },
+    {
+      "id": "style:dressy_casual",
+      "type": "Style",
+      "name": "dressy_casual",
+      "definition": "Dressy casual balances casual and formal elements; distinct from smart casual.",
+      "aliases": [],
+      "style_kind": "dress_code"
+    },
+    {
+      "id": "formality:dressy_casual",
+      "type": "Formality",
+      "name": "dressy_casual",
+      "definition": "Explicit dress-code interpretation; not a global numeric rank.",
+      "aliases": []
+    },
+    {
+      "id": "style:black_tie",
+      "type": "Style",
+      "name": "black_tie",
+      "definition": "Formal evening dress code when explicitly requested.",
+      "aliases": [],
+      "style_kind": "dress_code"
+    },
+    {
+      "id": "formality:black_tie",
+      "type": "Formality",
+      "name": "black_tie",
+      "definition": "Explicit dress-code interpretation; not a global numeric rank.",
+      "aliases": []
+    },
+    {
+      "id": "attribute:formal_evening_presentation",
+      "type": "Attribute",
+      "name": "formal_evening_presentation",
+      "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "style:creative_black_tie",
+      "type": "Style",
+      "name": "creative_black_tie",
+      "definition": "Black-tie foundation with room for visual creativity.",
+      "aliases": [],
+      "style_kind": "dress_code"
+    },
+    {
+      "id": "formality:creative_black_tie",
+      "type": "Formality",
+      "name": "creative_black_tie",
+      "definition": "Explicit dress-code interpretation; not a global numeric rank.",
+      "aliases": []
+    },
+    {
+      "id": "attribute:creative_accent",
+      "type": "Attribute",
+      "name": "creative_accent",
+      "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "style:black_tie_optional",
+      "type": "Style",
+      "name": "black_tie_optional",
+      "definition": "Host permits alternatives within a formal presentation.",
+      "aliases": [],
+      "style_kind": "dress_code"
+    },
+    {
+      "id": "formality:black_tie_optional",
+      "type": "Formality",
+      "name": "black_tie_optional",
+      "definition": "Explicit dress-code interpretation; not a global numeric rank.",
+      "aliases": []
+    },
+    {
+      "id": "attribute:formal_presentation",
+      "type": "Attribute",
+      "name": "formal_presentation",
+      "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "attribute:formal_options",
+      "type": "Attribute",
+      "name": "formal_options",
+      "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "style:festive",
+      "type": "Style",
+      "name": "festive",
+      "definition": "Celebratory dress code with an optional seasonal touch.",
+      "aliases": [],
+      "style_kind": "dress_code"
+    },
+    {
+      "id": "formality:festive",
+      "type": "Formality",
+      "name": "festive",
+      "definition": "Explicit dress-code interpretation; not a global numeric rank.",
+      "aliases": []
+    },
+    {
+      "id": "attribute:celebratory_expression",
+      "type": "Attribute",
+      "name": "celebratory_expression",
+      "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "style:white_tie",
+      "type": "Style",
+      "name": "white_tie",
+      "definition": "Full evening dress when explicitly required; do not infer from activity.",
+      "aliases": [],
+      "style_kind": "dress_code"
+    },
+    {
+      "id": "formality:white_tie",
+      "type": "Formality",
+      "name": "white_tie",
+      "definition": "Explicit dress-code interpretation; not a global numeric rank.",
+      "aliases": []
+    },
+    {
+      "id": "attribute:full_evening_formality",
+      "type": "Attribute",
+      "name": "full_evening_formality",
+      "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "activity:theme_park",
+      "type": "Activity",
+      "name": "theme_park",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "主题乐园"
+      ],
+      "place_activity_id": "theme_park",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:religious_visit",
+      "type": "Activity",
+      "name": "religious_visit",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "religious visit",
+        "temple visit",
+        "宗教参观"
+      ],
+      "place_activity_id": "religious_visit",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:beach",
+      "type": "Activity",
+      "name": "beach",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "海滨游览",
+        "beach visit"
+      ],
+      "place_activity_id": "beach",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:photo_spot",
+      "type": "Activity",
+      "name": "photo_spot",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "拍照观景",
+        "photography outing"
+      ],
+      "place_activity_id": "photo_spot",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:food_market",
+      "type": "Activity",
+      "name": "food_market",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "food market",
+        "食品市场"
+      ],
+      "place_activity_id": "food_market",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:shopping",
+      "type": "Activity",
+      "name": "shopping",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "购物"
+      ],
+      "place_activity_id": "shopping",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:aquarium_visit",
+      "type": "Activity",
+      "name": "aquarium_visit",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "aquarium visit",
+        "水族馆参观"
+      ],
+      "place_activity_id": "aquarium_visit",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:nightlife_fine_dining",
+      "type": "Activity",
+      "name": "nightlife_fine_dining",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "nightlife fine dining",
+        "夜生活或精致餐饮"
+      ],
+      "place_activity_id": "nightlife_fine_dining",
+      "requires_dress_code": true,
+      "supported_dress_codes": [
+        "casual",
+        "smart casual",
+        "dressy casual",
+        "festive"
+      ]
+    },
+    {
+      "id": "activity:cafe_visit",
+      "type": "Activity",
+      "name": "cafe_visit",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "cafe visit",
+        "咖啡馆"
+      ],
+      "place_activity_id": "",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "activity:travel_transit",
+      "type": "Activity",
+      "name": "travel_transit",
+      "definition": "Selected activity only; venue rules and weather remain separate.",
+      "aliases": [
+        "travel transit",
+        "交通出行"
+      ],
+      "place_activity_id": "",
+      "requires_dress_code": false,
+      "supported_dress_codes": [
+        "casual"
+      ]
+    },
+    {
+      "id": "attribute:traction",
+      "type": "Attribute",
+      "name": "traction",
+      "definition": "Traction appropriate to the actual trail; not a specific footwear category.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "attribute:durability",
+      "type": "Attribute",
+      "name": "durability",
+      "definition": "Durability for the trail conditions.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "attribute:verify_venue_dress_rules",
+      "type": "Attribute",
+      "name": "verify_venue_dress_rules",
+      "definition": "Clarify the actual venue and entry conditions; no universal religious-site coverage rule.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
+    },
+    {
+      "id": "attribute:verify_actual_water_activity",
+      "type": "Attribute",
+      "name": "verify_actual_water_activity",
+      "definition": "A beach visit does not imply swimming or wet activity.",
+      "aliases": [],
+      "attribute_kind": "dressing_requirement"
     }
   ],
   "edges": [
@@ -841,6 +1553,2839 @@
       "reviewed_by": null,
       "acquisition_method": "agent_curated",
       "version": "0.1.0"
+    },
+    {
+      "id": "x004:001",
+      "source": "style:minimalist",
+      "target": "attribute:clean_lines",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_minmax",
+      "supporting_section": "1980s–1990s; 2000s–2010; 2015–2019",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:002",
+      "source": "style:minimalist",
+      "target": "attribute:restrained_decoration",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_minmax",
+      "supporting_section": "1980s–1990s; 2000s–2010; 2015–2019",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:003",
+      "source": "style:maximalist",
+      "target": "attribute:expressive_patterns",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_minmax",
+      "supporting_section": "1980s–1990s; 2000s–2010; 2015–2019",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:004",
+      "source": "style:maximalist",
+      "target": "attribute:expressive_volume",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_minmax",
+      "supporting_section": "1980s–1990s; 2000s–2010; 2015–2019",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:005",
+      "source": "style:preppy",
+      "target": "attribute:collegiate_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_ivy",
+      "supporting_section": "Introduction",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:006",
+      "source": "style:preppy",
+      "target": "attribute:classic_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_ivy",
+      "supporting_section": "Introduction",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:007",
+      "source": "style:streetwear",
+      "target": "attribute:sportswear_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "vam_street",
+      "supporting_section": "Introduction",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:008",
+      "source": "style:streetwear",
+      "target": "attribute:industrial_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "vam_street",
+      "supporting_section": "Introduction",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:009",
+      "source": "style:artistic",
+      "target": "attribute:art_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_art",
+      "supporting_section": "Artistic identity; bohemian dress; art-inspired motifs",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:010",
+      "source": "style:artistic",
+      "target": "attribute:creative_expression",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_art",
+      "supporting_section": "Artistic identity; bohemian dress; art-inspired motifs",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:011",
+      "source": "style:bohemian",
+      "target": "attribute:artistic_identity",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_art",
+      "supporting_section": "Artistic identity; bohemian dress; art-inspired motifs",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:012",
+      "source": "style:bohemian",
+      "target": "attribute:historical_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_art",
+      "supporting_section": "Artistic identity; bohemian dress; art-inspired motifs",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:013",
+      "source": "style:utility",
+      "target": "attribute:workwear_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_utility",
+      "supporting_section": "Utilitarian design; Workwear; Military; Craft",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:014",
+      "source": "style:utility",
+      "target": "attribute:functional_visual_details",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_utility",
+      "supporting_section": "Utilitarian design; Workwear; Military; Craft",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:015",
+      "source": "style:romantic",
+      "target": "attribute:floral_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_rose",
+      "supporting_section": "Rose imagery; Neo-Romantic style",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:016",
+      "source": "style:romantic",
+      "target": "attribute:romantic_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_rose",
+      "supporting_section": "Rose imagery; Neo-Romantic style",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:017",
+      "source": "style:retro",
+      "target": "attribute:historical_silhouette_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_retro",
+      "supporting_section": "Introduction",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:018",
+      "source": "style:sporty",
+      "target": "attribute:sportswear_references",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "fit_sport",
+      "supporting_section": "Introduction",
+      "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:019",
+      "source": "formality:dressy_casual",
+      "target": "style:dressy_casual",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:020",
+      "source": "style:dressy_casual",
+      "target": "attribute:polished",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Dressy Casual",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:021",
+      "source": "formality:black_tie",
+      "target": "style:black_tie",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:022",
+      "source": "style:black_tie",
+      "target": "attribute:formal_evening_presentation",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Black Tie",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:023",
+      "source": "formality:creative_black_tie",
+      "target": "style:creative_black_tie",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:024",
+      "source": "style:creative_black_tie",
+      "target": "attribute:formal_evening_presentation",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Creative Black Tie",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:025",
+      "source": "style:creative_black_tie",
+      "target": "attribute:creative_accent",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Creative Black Tie",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:026",
+      "source": "formality:black_tie_optional",
+      "target": "style:black_tie_optional",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:027",
+      "source": "style:black_tie_optional",
+      "target": "attribute:formal_presentation",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Black Tie Optional",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:028",
+      "source": "style:black_tie_optional",
+      "target": "attribute:formal_options",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Black Tie Optional",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:029",
+      "source": "formality:festive",
+      "target": "style:festive",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:030",
+      "source": "style:festive",
+      "target": "attribute:dressy",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Festive",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:031",
+      "source": "style:festive",
+      "target": "attribute:celebratory_expression",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "Festive",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:032",
+      "source": "formality:white_tie",
+      "target": "style:white_tie",
+      "relation": "SUGGESTS_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:033",
+      "source": "style:white_tie",
+      "target": "attribute:full_evening_formality",
+      "relation": "HAS_ATTRIBUTE",
+      "source_id": "emily_v2",
+      "supporting_section": "White Tie",
+      "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:034",
+      "source": "activity:dinner",
+      "target": "style:dressy_casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:035",
+      "source": "activity:dinner",
+      "target": "style:festive",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:036",
+      "source": "activity:wedding",
+      "target": "style:dressy_casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:037",
+      "source": "activity:wedding",
+      "target": "style:black_tie",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "black tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:038",
+      "source": "activity:wedding",
+      "target": "style:creative_black_tie",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "creative black tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:039",
+      "source": "activity:wedding",
+      "target": "style:black_tie_optional",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "black tie optional"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:040",
+      "source": "activity:wedding",
+      "target": "style:festive",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:041",
+      "source": "activity:wedding",
+      "target": "style:white_tie",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "white tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:042",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:043",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:smart_casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:044",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:dressy_casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:045",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:festive",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:046",
+      "source": "activity:hiking",
+      "target": "attribute:freedom_of_movement",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "rei_v2",
+      "supporting_section": "What to Wear Hiking; Footwear",
+      "rationale": "Functional trail recommendation.",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:047",
+      "source": "activity:hiking",
+      "target": "attribute:moisture_wicking",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "rei_v2",
+      "supporting_section": "What to Wear Hiking; Footwear",
+      "rationale": "Functional trail recommendation.",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:048",
+      "source": "activity:hiking",
+      "target": "attribute:breathable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "rei_v2",
+      "supporting_section": "What to Wear Hiking; Footwear",
+      "rationale": "Functional trail recommendation.",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:049",
+      "source": "activity:hiking",
+      "target": "attribute:traction",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "rei_v2",
+      "supporting_section": "What to Wear Hiking; Footwear",
+      "rationale": "Functional trail recommendation.",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:050",
+      "source": "activity:hiking",
+      "target": "attribute:durability",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "rei_v2",
+      "supporting_section": "What to Wear Hiking; Footwear",
+      "rationale": "Functional trail recommendation.",
+      "conditions": {},
+      "basis": "source_supported",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:051",
+      "source": "activity:sightseeing",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:052",
+      "source": "activity:sightseeing",
+      "target": "attribute:freedom_of_movement",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:053",
+      "source": "activity:museum_visit",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:054",
+      "source": "activity:theme_park",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:055",
+      "source": "activity:theme_park",
+      "target": "attribute:freedom_of_movement",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:056",
+      "source": "activity:religious_visit",
+      "target": "attribute:verify_venue_dress_rules",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:057",
+      "source": "activity:beach",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:058",
+      "source": "activity:beach",
+      "target": "attribute:verify_actual_water_activity",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:059",
+      "source": "activity:photo_spot",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:060",
+      "source": "activity:food_market",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:061",
+      "source": "activity:shopping",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:062",
+      "source": "activity:aquarium_visit",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:063",
+      "source": "activity:cafe_visit",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:064",
+      "source": "activity:travel_transit",
+      "target": "attribute:comfortable",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:065",
+      "source": "activity:travel_transit",
+      "target": "attribute:freedom_of_movement",
+      "relation": "NEEDS_ATTRIBUTE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 activity modelling",
+      "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "should"
+    },
+    {
+      "id": "x004:066",
+      "source": "activity:sightseeing",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:067",
+      "source": "activity:sightseeing",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:068",
+      "source": "activity:sightseeing",
+      "target": "style:streetwear",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:069",
+      "source": "activity:sightseeing",
+      "target": "style:sporty",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:070",
+      "source": "activity:sightseeing",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:071",
+      "source": "activity:museum_visit",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:072",
+      "source": "activity:museum_visit",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:073",
+      "source": "activity:museum_visit",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:074",
+      "source": "activity:museum_visit",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:075",
+      "source": "activity:hiking",
+      "target": "style:utility",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:076",
+      "source": "activity:hiking",
+      "target": "style:sporty",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:077",
+      "source": "activity:hiking",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:078",
+      "source": "activity:theme_park",
+      "target": "style:sporty",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:079",
+      "source": "activity:theme_park",
+      "target": "style:streetwear",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:080",
+      "source": "activity:theme_park",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:081",
+      "source": "activity:religious_visit",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:082",
+      "source": "activity:religious_visit",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:083",
+      "source": "activity:beach",
+      "target": "style:bohemian",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:084",
+      "source": "activity:beach",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:085",
+      "source": "activity:beach",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:086",
+      "source": "activity:beach",
+      "target": "style:sporty",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:087",
+      "source": "activity:photo_spot",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:088",
+      "source": "activity:photo_spot",
+      "target": "style:maximalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:089",
+      "source": "activity:photo_spot",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:090",
+      "source": "activity:photo_spot",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:091",
+      "source": "activity:food_market",
+      "target": "style:streetwear",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:092",
+      "source": "activity:food_market",
+      "target": "style:sporty",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:093",
+      "source": "activity:food_market",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:094",
+      "source": "activity:shopping",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:095",
+      "source": "activity:shopping",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:096",
+      "source": "activity:shopping",
+      "target": "style:streetwear",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:097",
+      "source": "activity:shopping",
+      "target": "style:maximalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:098",
+      "source": "activity:aquarium_visit",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:099",
+      "source": "activity:aquarium_visit",
+      "target": "style:sporty",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:100",
+      "source": "activity:aquarium_visit",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:101",
+      "source": "activity:cafe_visit",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:102",
+      "source": "activity:cafe_visit",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:103",
+      "source": "activity:cafe_visit",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:104",
+      "source": "activity:cafe_visit",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:105",
+      "source": "activity:cafe_visit",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:106",
+      "source": "activity:travel_transit",
+      "target": "style:sporty",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:107",
+      "source": "activity:travel_transit",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:108",
+      "source": "activity:travel_transit",
+      "target": "style:utility",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
+      "conditions": {},
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:109",
+      "source": "activity:dinner",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:110",
+      "source": "activity:dinner",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:111",
+      "source": "activity:dinner",
+      "target": "style:streetwear",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:112",
+      "source": "activity:dinner",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:113",
+      "source": "activity:dinner",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:114",
+      "source": "activity:dinner",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:115",
+      "source": "activity:dinner",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:116",
+      "source": "activity:dinner",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:117",
+      "source": "activity:dinner",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:118",
+      "source": "activity:dinner",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:119",
+      "source": "activity:dinner",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:120",
+      "source": "activity:dinner",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:121",
+      "source": "activity:dinner",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:122",
+      "source": "activity:dinner",
+      "target": "style:maximalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:123",
+      "source": "activity:dinner",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:124",
+      "source": "activity:dinner",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:125",
+      "source": "activity:wedding",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "semi formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:126",
+      "source": "activity:wedding",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "semi formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:127",
+      "source": "activity:wedding",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "semi formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:128",
+      "source": "activity:wedding",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:129",
+      "source": "activity:wedding",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:130",
+      "source": "activity:wedding",
+      "target": "style:streetwear",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:131",
+      "source": "activity:wedding",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:132",
+      "source": "activity:wedding",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:133",
+      "source": "activity:wedding",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:134",
+      "source": "activity:wedding",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:135",
+      "source": "activity:wedding",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:136",
+      "source": "activity:wedding",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:137",
+      "source": "activity:wedding",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "black tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:138",
+      "source": "activity:wedding",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "black tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:139",
+      "source": "activity:wedding",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "creative black tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:140",
+      "source": "activity:wedding",
+      "target": "style:maximalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "creative black tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:141",
+      "source": "activity:wedding",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "creative black tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:142",
+      "source": "activity:wedding",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "black tie optional"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:143",
+      "source": "activity:wedding",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "black tie optional"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:144",
+      "source": "activity:wedding",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "black tie optional"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:145",
+      "source": "activity:wedding",
+      "target": "style:maximalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:146",
+      "source": "activity:wedding",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:147",
+      "source": "activity:wedding",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:148",
+      "source": "activity:wedding",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "white tie"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:149",
+      "source": "activity:business_meeting",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "business casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:150",
+      "source": "activity:business_meeting",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "business casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:151",
+      "source": "activity:business_meeting",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "business formal"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:152",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:153",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:154",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:streetwear",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:155",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:156",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:157",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:158",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:159",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:160",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:retro",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "smart casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:161",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:minimalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:162",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:preppy",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:163",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:164",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "dressy casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:165",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:maximalist",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:166",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:artistic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:167",
+      "source": "activity:nightlife_fine_dining",
+      "target": "style:romantic",
+      "relation": "SUGGESTS_AESTHETIC",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Optional visual direction under the explicitly supplied dress code; exact venue/host compliance must be checked separately.",
+      "conditions": {
+        "dress_code": "festive"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
+    },
+    {
+      "id": "x004:168",
+      "source": "activity:wedding",
+      "target": "style:casual",
+      "relation": "DIRECT_STYLE",
+      "source_id": "project",
+      "supporting_section": "EXT-004 modelling",
+      "rationale": "Explicit casual wedding invitation; do not infer casual from the wedding activity.",
+      "conditions": {
+        "dress_code": "casual"
+      },
+      "basis": "project_heuristic",
+      "review_status": "pending",
+      "reviewed_by": null,
+      "acquisition_method": "agent_curated",
+      "version": "0.2.0",
+      "strength": "nice"
     }
-  ]
+  ],
+  "expanded_on": "2026-10-13"
 }

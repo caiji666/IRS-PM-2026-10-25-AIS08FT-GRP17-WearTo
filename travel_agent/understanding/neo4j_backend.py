@@ -21,7 +21,7 @@ class Neo4jKnowledgeGraph(KnowledgeGraph):
             raise ValueError("Set NEO4J_URI and NEO4J_PASSWORD locally for the Neo4j backend")
         user = os.environ.get("NEO4J_USER", "neo4j")
         database = os.environ.get("NEO4J_DATABASE", "neo4j")
-        version = os.environ.get("ACTIVITY_KG_VERSION", "0.1.0")
+        version = os.environ.get("ACTIVITY_KG_VERSION", KnowledgeGraph.load().data["version"])
         with GraphDatabase.driver(uri, auth=(user, password)) as driver:
             with driver.session(database=database, default_access_mode="READ") as session:
                 nodes = session.run(
@@ -65,10 +65,16 @@ class Neo4jKnowledgeGraph(KnowledgeGraph):
         }
         return cls(data, uri, user, password, database)
 
-    def query(self, activity, context=None, *, allow_draft=False, max_depth=4):
+    def query(self, activity, context=None, *, allow_draft=False, max_depth=4, preferred_styles=()):
         from neo4j import GraphDatabase
 
-        result = super().query(activity, context, allow_draft=allow_draft, max_depth=max_depth)
+        result = super().query(
+            activity,
+            context,
+            allow_draft=allow_draft,
+            max_depth=max_depth,
+            preferred_styles=preferred_styles,
+        )
         result["backend"] = "neo4j"
         if result["status"] != "ok":
             return result

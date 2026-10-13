@@ -13,6 +13,8 @@ RELATIONS = {
     "SUGGESTS_STYLE": ("Formality", "Style"),
     "DIRECT_STYLE": ("Activity", "Style"),
     "HAS_ATTRIBUTE": ("Style", "Attribute"),
+    "SUGGESTS_AESTHETIC": ("Activity", "Style"),
+    "NEEDS_ATTRIBUTE": ("Activity", "Attribute"),
 }
 
 
@@ -59,6 +61,18 @@ class KnowledgeGraph:
                 "Invalid node type",
             )
             require(bool(node.get("definition")), "Missing definition")
+            if "style_kind" in node:
+                require(
+                    node["type"] == "Style"
+                    and node["style_kind"] in {"aesthetic", "dress_code", "functional"},
+                    "Invalid style kind",
+                )
+            if "attribute_kind" in node:
+                require(
+                    node["type"] == "Attribute"
+                    and node["attribute_kind"] in {"aesthetic_descriptor", "dressing_requirement"},
+                    "Invalid attribute kind",
+                )
             for alias in [node["name"], *node["aliases"]]:
                 key = (node["type"], normalize(alias))
                 require(key not in vocabulary or vocabulary[key] == node["id"], "Ambiguous alias")
@@ -82,6 +96,20 @@ class KnowledgeGraph:
                 bool(edge["supporting_section"]) and bool(edge["rationale"]),
                 "Missing assertion evidence",
             )
+            require(
+                edge.get("strength", "nice") in {"should", "nice"}, "Invalid suggestion strength"
+            )
+            if edge["relation"] == "SUGGESTS_AESTHETIC":
+                require(
+                    nodes[edge["target"]].get("style_kind") == "aesthetic",
+                    "Aesthetic edge needs an aesthetic style",
+                )
+            if edge["relation"] == "NEEDS_ATTRIBUTE":
+                require(
+                    nodes[edge["target"]].get("attribute_kind", "dressing_requirement")
+                    != "aesthetic_descriptor",
+                    "Visual descriptor cannot be a shared need",
+                )
             require(isinstance(edge["conditions"], dict), "Invalid conditions")
             require(set(edge["conditions"]) <= {"dress_code"}, "Unsupported condition")
             require(
@@ -89,7 +117,7 @@ class KnowledgeGraph:
                 "Invalid condition value",
             )
 
-    def query(self, activity, context=None, *, allow_draft=False, max_depth=4):
+    def query(self, activity, context=None, *, allow_draft=False, max_depth=4, preferred_styles=()):
         if type(max_depth) is not int or not 1 <= max_depth <= 4:
             raise ValueError("max_depth must be an integer between 1 and 4")
         if not isinstance(activity, str) or not activity.strip():
@@ -98,6 +126,10 @@ class KnowledgeGraph:
             raise ValueError("allow_draft must be boolean")
         if context is not None and not isinstance(context, dict):
             raise ValueError("context must be a mapping")
+        if not isinstance(preferred_styles, (list, tuple)) or any(
+            not isinstance(v, str) or not v.strip() for v in preferred_styles
+        ):
+            raise ValueError("preferred_styles must be a list of nonempty strings")
         context = dict(context or {})
         if "dress_code" in context:
             if not isinstance(context["dress_code"], str):
@@ -116,11 +148,21 @@ class KnowledgeGraph:
             "clarification": None,
             "expanded_activity_context": "",
             "constraint_level": "recommendation",
+            "style_candidates": [],
+            "dressing_requirements": [],
+            "preference_match": {"matched": [], "unmatched": list(preferred_styles)},
+            "place_activity_id": None,
+            "limitations": [
+                "Styles are alternatives, not simultaneous obligations.",
+                "Aesthetic suitability is a project suggestion, not verified venue permission.",
+                "No items are selected; weather and specific venue rules are separate.",
+            ],
         }
         start = result["activity_id"]
         if start is None:
             return result
         node = self.nodes[start]
+        result["place_activity_id"] = node.get("place_activity_id") or None
         allowed = node["supported_dress_codes"]
         dress_code = context.get("dress_code")
         if node["requires_dress_code"] and not dress_code:
@@ -132,9 +174,8 @@ class KnowledgeGraph:
         if dress_code and dress_code not in allowed:
             result.update(
                 status="unsupported_context",
-                clarification=(
-                    "当前图谱不支持该活动与 dress code 组合；保留原要求，需人工确认或补充知识。"
-                ),
+                clarification="Unsupported activity/dress-code combination; keep the request "
+                "and clarify or extend the knowledge.",
             )
             return result
 
@@ -178,6 +219,7 @@ class KnowledgeGraph:
                                     "supporting_section": e["supporting_section"],
                                     "rationale": e["rationale"],
                                     "conditions": e["conditions"],
+                                    "strength": e.get("strength", "nice"),
                                 }
                                 for e in edges
                             ],
@@ -187,8 +229,83 @@ class KnowledgeGraph:
 
         walk(start, [start], [])
         result["conclusions"] = [conclusions[k] for k in sorted(conclusions)]
-        for key, kind in (("styles", "Style"), ("attributes", "Attribute")):
-            result[key] = sorted(c["value"] for c in conclusions.values() if c["type"] == kind)
+
+        def style_kind(n):
+            return n.get("style_kind", "functional" if n["name"] == "outdoor" else "dress_code")
+
+        result["styles"] = sorted(c["value"] for c in conclusions.values() if c["type"] == "Style")
+        result["attributes"] = sorted(
+            c["value"]
+            for c in conclusions.values()
+            if c["type"] == "Attribute"
+            and self.nodes[c["node_id"]].get("attribute_kind") != "aesthetic_descriptor"
+        )
+        matched = set()
+        for c in result["conclusions"]:
+            if c["type"] != "Style":
+                continue
+            sn = self.nodes[c["node_id"]]
+            aliases = {normalize(x) for x in [sn["name"], *sn["aliases"]]}
+            preferences = [v for v in preferred_styles if normalize(v) in aliases]
+            matched.update(preferences)
+            attrs = sorted(
+                a["value"]
+                for a in conclusions.values()
+                if a["type"] == "Attribute"
+                and any(sn["id"] in path["nodes"] for path in a["paths"])
+            )
+            result["style_candidates"].append(
+                {
+                    "style_id": sn["id"],
+                    "style": sn["name"],
+                    "label_zh": sn.get("label_zh", sn["name"]),
+                    "kind": style_kind(sn),
+                    "description": sn["definition"],
+                    "attributes": attrs,
+                    "matched_preferences": preferences,
+                    "evidence_paths": c["paths"],
+                }
+            )
+        result["preference_match"] = {
+            "matched": sorted(matched),
+            "unmatched": [v for v in preferred_styles if v not in matched],
+        }
+        for c in result["conclusions"]:
+            if (
+                c["type"] != "Attribute"
+                or self.nodes[c["node_id"]].get("attribute_kind") == "aesthetic_descriptor"
+            ):
+                continue
+            paths = [
+                path
+                for path in c["paths"]
+                if path["evidence"][0]["edge_id"]
+                in {
+                    e["id"]
+                    for e in self.adjacency.get(start, [])
+                    if e["relation"] == "NEEDS_ATTRIBUTE"
+                }
+                or any(
+                    self.nodes[n]["type"] == "Style" and style_kind(self.nodes[n]) != "aesthetic"
+                    for n in path["nodes"]
+                )
+            ]
+            if paths:
+                result["dressing_requirements"].append(
+                    {
+                        "attribute_id": c["node_id"],
+                        "value": c["value"],
+                        "strength": "should"
+                        if any(
+                            e.get("strength") == "should"
+                            for path in paths
+                            for e in path["evidence"]
+                        )
+                        else "nice",
+                        "scope": "selected_activity_or_explicit_dress_code",
+                        "evidence_paths": paths,
+                    }
+                )
         result["status"] = "ok" if conclusions else "no_reviewed_knowledge"
         if conclusions:
             pending = any(
@@ -198,8 +315,11 @@ class KnowledgeGraph:
                 for e in p["evidence"]
             )
             result["knowledge_status"] = "draft" if pending else "approved"
-            result["expanded_activity_context"] = " ".join(
-                [node["name"], *result["styles"], *result["attributes"]]
+            result["expanded_activity_context"] = (
+                f"Activity: {node['name']}. Alternative style directions: "
+                + ", ".join(result["styles"])
+                + ". Dressing needs: "
+                + ", ".join(result["attributes"])
             ).replace("_", " ")
         return result
 
@@ -208,6 +328,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("activity")
     parser.add_argument("--dress-code")
+    parser.add_argument("--preferred-style", action="append", default=[])
     parser.add_argument(
         "--allow-draft", action="store_true", help="Preview assertions pending human review"
     )
@@ -215,7 +336,12 @@ def main():
     context = {"dress_code": args.dress_code} if args.dress_code else {}
     print(
         json.dumps(
-            KnowledgeGraph.load().query(args.activity, context, allow_draft=args.allow_draft),
+            KnowledgeGraph.load().query(
+                args.activity,
+                context,
+                allow_draft=args.allow_draft,
+                preferred_styles=args.preferred_style,
+            ),
             ensure_ascii=False,
             indent=2,
         )

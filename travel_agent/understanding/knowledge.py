@@ -1,6 +1,7 @@
 """Adapters for the existing qualified Activity KG and optional explicit POIs."""
 
 from travel_agent.understanding.activity_engine import KnowledgeGraph
+from travel_agent.understanding.activity_engine import normalize as activity_graph_normalize
 from travel_agent.understanding.place_engine import KG
 
 # Vocabulary alignment only; this does not assert the user's chosen location
@@ -28,10 +29,22 @@ def reason_activities(request, allow_draft=False, max_depth=4, graph=None):
     for activity in request.activities:
         dress_code = request.dress_codes.get(activity)
         context = {"dress_code": dress_code} if dress_code else {}
-        result = graph.query(activity, context, allow_draft=allow_draft, max_depth=max_depth)
+        result = graph.query(
+            activity,
+            context,
+            allow_draft=allow_draft,
+            max_depth=max_depth,
+            preferred_styles=request.style,
+        )
         results[activity] = result
+        # Keep this legacy field limited to occasion/function directions.
+        # Aesthetic alternatives are exposed separately as style_candidates.
         requirements[activity] = [
-            v.replace("_", " ") for v in [*result["styles"], *result["attributes"]]
+            v.replace("_", " ")
+            for v in [
+                *[c["style"] for c in result["style_candidates"] if c["kind"] != "aesthetic"],
+                *result["attributes"],
+            ]
         ]
         if result["status"] == "needs_clarification":
             questions.append(
@@ -53,8 +66,12 @@ def reason_places(request, allow_draft=False):
     graph.tables["climate"] = []
     graph.tables["season_events"] = []
     activities = []
+    activity_graph = KnowledgeGraph.load()
     for activity in request.activities:
-        mapped = PLACE_ACTIVITIES.get(activity.casefold(), activity)
+        canonical = activity_graph.aliases.get(activity_graph_normalize(activity))
+        mapped = (
+            activity_graph.nodes[canonical].get("place_activity_id") if canonical else None
+        ) or PLACE_ACTIVITIES.get(activity.casefold(), activity)
         if mapped in graph.vocab["activity"]:
             activities.append(mapped)
     result = graph.query(

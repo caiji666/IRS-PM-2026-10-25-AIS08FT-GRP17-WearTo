@@ -1,11 +1,11 @@
 {
-  "snapshot_date": "2026-10-11",
+  "snapshot_date": "2026-10-13",
   "source_date": "2026-10-07",
   "source": "Existing local student1 Activity and Asia Place KGs; copied without knowledge approval",
   "maintenance": "Modify the source KG under its specification, validate, then explicitly refresh this snapshot. Never reset reviews.",
   "files": {
-    "activity/activity_kg.json": "ce377d2d56513ee38368b8664a082fbf1e1b00841aa99b207c6421d49031fbbb",
-    "activity/seed.cypher": "405e95c7d704d81b3de6046b34052742e14d54f5841893b7e6881cebf24bdb69",
+    "activity/activity_kg.json": "4f65a7f7603a655bfb6696841b94249c6c75d3c2989f592d57b87c63baf8fcd0",
+    "activity/seed.cypher": "eed98b2bc0fef032216316ace659c5fd837e3c97796eb788d5242fb4ad361110",
     "place/AGENTS.md": "ff5bcb859f4277986d2395e0ef793dff2ff9b6a99eb82b2df59636b3cc163c6e",
     "place/KG_SPEC.md": "f1ca31b0474ee3e4ac3b0a2dc0894cd999b82176b358cfd5bc0e99735b5be038",
     "place/activities.csv": "25bf0787ee165c8bb7b9e9dcd172e571e05408e2517469ef29c16920861d1e36",
@@ -25,5 +25,7 @@
     "place/style_item.csv": "a335a58c80177ef38123b205e1aab3da4d1e8d736fd4d91563ce3e332e534845",
     "place/styles.csv": "d8f710d92a177baff31156f4aead63ac991c15223cf440a88bba86d13122b732",
     "place/vocabulary.json": "6d0e6d76d23c61b427b44e88313292e763da70220db4758c93b4a501bef5b9ac"
-  }
+  },
+  "activity_source_date": "2026-10-13",
+  "activity_graph_version": "0.2.0"
 }
