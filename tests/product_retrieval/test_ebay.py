@@ -295,3 +295,132 @@ def test_optional_student1_context_override_preserves_social_pairing(tmp_path):
     assert result["request_used"]["top_social_references"][0]["reference_id"] == "a"
     assert result["upstream_metadata"]["original_context"]["destination"] == "Seoul"
     assert result["upstream_metadata"]["request_override"]["context"]["activities"] == ["dinner"]
+
+
+def test_keyword_wire_and_validation():
+    session = Session(
+        [
+            Response(body={"access_token": "test-token", "expires_in": 7200}),
+            Response(body={"itemSummaries": []}),
+        ]
+    )
+    client = BrowseClient(CREDS, session=session)
+    client.search_keywords("linen shirt", 20)
+    assert session.calls[1][0] == "GET"
+    assert session.calls[1][1].endswith("/item_summary/search")
+    assert session.calls[1][2]["params"] == {"q": "linen shirt", "limit": 20}
+    with pytest.raises(ValueError):
+        client.search_keywords(" ")
+
+
+def test_hybrid_empty_images_keyword_products_and_social_scoring(tmp_path):
+    class Hybrid(Client):
+        def search_image(self, *args):
+            return {"itemSummaries": []}
+
+        def search_keywords(self, query, *args):
+            return {"itemSummaries": [self.item("v1|1|0")]}
+
+    result = run(
+        Hybrid(),
+        Encoder(),
+        *inputs(tmp_path),
+        tmp_path / "hybrid",
+        fetch_photo=photo,
+        wardrobe_store=tmp_path / "none",
+        search_mode="hybrid",
+    )
+    assert result["summary"]["unique_candidates"] == 1
+    assert result["summary"]["candidates_by_source"] == {"image": 0, "keyword": 1}
+    ranked = result["bundle"]["top_k_products"]["TOP"][0]
+    assert result["summary"]["image_vectors"] == 1
+    assert result["request_used"]["top_social_references"][0]["embedding"] is not None
+    scores = result["bundle"]["product_ranking"]["ranked_products"]["TOP"][0]
+    assert scores["social_similarity"] == pytest.approx(1.0)
+    assert scores["context_weight"] == scores["social_weight"] == 0.5
+    assert scores["score"] == pytest.approx(1.0)
+    assert ranked is not None
+    original = result["index"]["items"][0]["product"]["provenance"]["original"]
+    assert original["matched_queries"] and original["retrieval_sources"] == ["keyword"]
+
+
+def test_hybrid_dedup_and_bounded_empty_fallback(tmp_path):
+    class Hybrid(Client):
+        def search_keywords(self, *args):
+            return {"itemSummaries": [self.item("v1|1|0")]}
+
+    result = run(
+        Hybrid(),
+        Encoder(),
+        *inputs(tmp_path),
+        tmp_path / "dedup",
+        fetch_photo=photo,
+        wardrobe_store=tmp_path / "none",
+        search_mode="hybrid",
+        max_search_requests=4,
+    )
+    assert result["summary"]["search_requests"] == 4
+    assert result["summary"]["unique_candidates"] == 1
+    original = result["index"]["items"][0]["product"]["provenance"]["original"]
+    assert original["retrieval_sources"] == ["image", "keyword"]
+    assert original["matched_reference_ids"] == ["a"]
+
+
+def test_hybrid_errors_are_not_empty_responses_and_fallback_is_once(tmp_path):
+    class Empty(Client):
+        def search_image(self, *args):
+            raise EbayError("eBay HTTP 403")
+
+        def search_keywords(self, query, *args):
+            return {"itemSummaries": []}
+
+    result = run(
+        Empty(),
+        Encoder(),
+        *inputs(tmp_path),
+        tmp_path / "empty",
+        fetch_photo=photo,
+        wardrobe_store=tmp_path / "none",
+        search_mode="hybrid",
+    )
+    assert result["status"] == "no_usable_api_products"
+    assert any("403" in issue["reason"] for issue in result["issues"])
+    queries = [s["query"] for s in result["raw_search_responses"] if s["source"] == "keyword"]
+    assert len(queries) == len(set(queries))
+    assert result["summary"]["search_requests"] <= 17
+
+
+def test_query_plan_uses_upstream_without_inventing_attributes(tmp_path):
+    from travel_agent.products.retrieval.ebay.queries import plan_queries
+    from travel_agent.products.retrieval.upstream import adapt_files
+
+    request, _, metadata = adapt_files(*inputs(tmp_path))
+    plan = plan_queries(request, metadata)
+    assert "sweater" in plan["TOP"]["primary"][0]
+    assert len(plan) == 4
+    assert all(len(p["primary"]) <= 2 for p in plan.values())
+    assert not any("linen" in q for p in plan.values() for q in p["primary"])
+
+
+def test_sandbox_cdn_upgrade_keeps_https_host_validation(tmp_path):
+    class Sandbox(Client):
+        def item(self, item):
+            row = super().item(item)
+            row["image"]["imageUrl"] = "http://i.ebayimg.sandbox.ebay.com/images/x.jpg"
+            return row
+
+    def sandbox_photo(url, path, hosts):
+        if "sandbox.ebay.com" in url:
+            assert url.startswith("https://i.ebayimg.sandbox.ebay.com/")
+            assert "i.ebayimg.sandbox.ebay.com" in hosts
+        return photo(url, path, hosts)
+
+    result = run(
+        Sandbox(),
+        Encoder(),
+        *inputs(tmp_path),
+        tmp_path / "cdn",
+        fetch_photo=sandbox_photo,
+        wardrobe_store=tmp_path / "none",
+    )
+    assert result["summary"]["products_indexed"] == 1

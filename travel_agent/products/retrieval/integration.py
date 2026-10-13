@@ -16,6 +16,7 @@ class ProductToolInput(Contract):
     request: dict | None = None
     upstream: dict[str, str] | None = None
     source: str = Field(default="photos20", pattern="^(photos20|prepared|ebay)$")
+    search_mode: str = Field(default="hybrid", pattern="^(image|hybrid|keyword)$")
     reference_mode: str = Field(default="recompute", pattern="^(recompute|imported)$")
     k_per_category: int = Field(default=5, ge=1, le=100)
     wardrobe_images: list[str] = Field(default_factory=list)
@@ -235,12 +236,13 @@ def execute(spec, settings, encoder=None, client=None):
             settings.work_root / "ebay",
             paths.get("model_info"),
             spec.reference_mode,
-            10,
+            5,
             20,
             40,
             spec.k_per_category,
             wardrobe / "items.json",
             request_override=request.model_dump(mode="json") if spec.understanding else None,
+            search_mode=spec.search_mode,
         )
         bundle = api["bundle"]
         metadata["api_run"] = {k: v for k, v in api.items() if k != "bundle"}
