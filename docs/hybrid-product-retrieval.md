@@ -49,3 +49,11 @@ ITSA_REAL_MODEL_TEST=1 uv run pytest tests/product_retrieval/test_ebay.py -q
 Mock transports validate nonempty hybrid retrieval and real-model image encoding independently of Sandbox inventory. Live Sandbox validation must be reported separately and never substituted with prepared products.
 
 Sandbox may emit HTTP URLs on `i.ebayimg.sandbox.ebay.com`; only that exact CDN is upgraded to HTTPS and allowlisted in Sandbox. Production retains its original HTTPS-only CDN policy. Missing or inaccessible images are excluded, not replaced with synthetic pictures.
+
+## Local validation on 2026-10-14
+
+Based on remote main `d709508`, local branch `feat/hybrid-product-retrieval` passed all 256 tests with `ITSA_REAL_MODEL_TEST=1`, Ruff lint/format and the offline shared-agent demo. The actual supplied upstream PT/TXT/JSON files and local Sandbox credentials were used for a separate live run with five references and a 17-search budget.
+
+Live result: image search found 0 candidates; keyword search found 66 unique candidates. After HTTPS Sandbox CDN compatibility and bounded processing, 40 actual returned product images were encoded with the pinned FashionCLIP model. Final grouped output was TOP=5, BOTTOM=0, FOOTWEAR=5, OUTERWEAR=1; social similarity was computed from the downloaded upstream reference images. Nine candidates remained unprocessed at the configured cap. Category shortages are explicit and not padded. This demonstrates the real Sandbox hybrid pipeline, not Production availability, relevance quality or verified stock.
+
+The private local report is `runs/ebay_hybrid_sandbox/result.json` (ignored by Git). No credentials, upstream private files, images or model weights are included in the feature commit. Publication remains pending user review.
