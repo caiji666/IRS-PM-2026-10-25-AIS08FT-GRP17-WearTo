@@ -40,6 +40,9 @@ dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+markers = [
+    "full_pipeline_live: five-module run; model, network or credential stages run only with RUN_FULL_PIPELINE_TESTS=1",
+]
 
 [tool.ruff]
 target-version = "py311"
