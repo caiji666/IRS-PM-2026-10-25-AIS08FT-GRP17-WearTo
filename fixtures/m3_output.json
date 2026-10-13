@@ -1,0 +1,122 @@
+{
+  "schema_version": "m3.1",
+  "products": [
+    {
+      "product_id": "clean-demo",
+      "title": "Demo shirt",
+      "raw_category": "T-Shirt",
+      "description": "",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": {
+        "amount": 25.5,
+        "currency": "SGD",
+        "is_synthetic": true
+      },
+      "sizes": [
+        "M"
+      ],
+      "availability": "UNKNOWN",
+      "image_path": null,
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": []
+      },
+      "category": "TOP",
+      "colors": [
+        "gray",
+        "white"
+      ],
+      "provenance": {
+        "source": "/Users/yoyozhang/Desktop/IntelligentTravelStyleAssistant/fixtures/m3_input.json",
+        "record_index": 1,
+        "original": {
+          "product_id": "clean-demo",
+          "title": "  Demo shirt  ",
+          "raw_category": "T-Shirt",
+          "colors": [
+            "Grey",
+            "gray",
+            "白色"
+          ],
+          "sizes": [
+            "medium",
+            "M"
+          ],
+          "price": {
+            "amount": "25.50",
+            "currency": "sgd",
+            "is_synthetic": true
+          }
+        }
+      },
+      "image_embedding_candidate": false
+    },
+    {
+      "product_id": "unknown-demo",
+      "title": "Demo accessory",
+      "raw_category": "UNKNOWN",
+      "description": "",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": null,
+      "sizes": [],
+      "availability": "UNKNOWN",
+      "image_path": null,
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": []
+      },
+      "category": "UNKNOWN",
+      "colors": [
+        "blue"
+      ],
+      "provenance": {
+        "source": "/Users/yoyozhang/Desktop/IntelligentTravelStyleAssistant/fixtures/m3_input.json",
+        "record_index": 3,
+        "original": {
+          "product_id": "unknown-demo",
+          "title": "Demo accessory",
+          "colors": [
+            "blue"
+          ]
+        }
+      },
+      "image_embedding_candidate": false
+    }
+  ],
+  "issues": [
+    {
+      "record_index": 2,
+      "stage": "M3",
+      "reason": "duplicate source_type/product_id; first valid record wins"
+    },
+    {
+      "record_index": 3,
+      "stage": "M3",
+      "reason": "Category unresolved; retained UNKNOWN."
+    },
+    {
+      "record_index": 4,
+      "stage": "M3",
+      "reason": "1 validation error for RawProduct\ntitle\n  String should have at least 1 character [type=string_too_short, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_short"
+    }
+  ],
+  "input_count": 4,
+  "warnings": [
+    "Prepared catalogue is illustrative, not live purchasable inventory.",
+    "No currency conversion, image inspection, embedding or ranking performed."
+  ]
+}

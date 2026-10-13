@@ -1,0 +1,192 @@
+{
+  "schema_version": "phase1-validation.1",
+  "tests": {
+    "passed": 91,
+    "skipped": 0,
+    "real_model_tests": 2
+  },
+  "catalogue": {
+    "total": 34,
+    "per_supported_category": 8,
+    "unknown": 2,
+    "fictional_prepared": true,
+    "live_stock_verified": false
+  },
+  "social_aggregation": "max",
+  "k_per_category": 5,
+  "total_supported_matches": 32,
+  "returned_products": 20,
+  "ranked_products": {
+    "TOP": [
+      {
+        "product_id": "phase1-top-01",
+        "title": "Demo white cotton shirt",
+        "score": 0.6384260571750122,
+        "context_similarity": 0.6359459813174682,
+        "social_similarity": 0.6442129008426153,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-top-02",
+        "title": "Demo beige linen blouse",
+        "score": 0.5551543802065455,
+        "context_similarity": 0.4999941509903992,
+        "social_similarity": 0.6838615817108868,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-top-03",
+        "title": "Demo blue sport tee",
+        "score": 0.5344589253168853,
+        "context_similarity": 0.5189256867362062,
+        "social_similarity": 0.5707031486718034,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-top-08",
+        "title": "Demo white and blue striped shirt",
+        "score": 0.5092833473020355,
+        "context_similarity": 0.49793081735893246,
+        "social_similarity": 0.5357725838359426,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-top-06",
+        "title": "Demo gray relaxed tee",
+        "score": 0.4986575030477034,
+        "context_similarity": 0.5192131661391417,
+        "social_similarity": 0.45069428916768084,
+        "availability": "UNKNOWN"
+      }
+    ],
+    "BOTTOM": [
+      {
+        "product_id": "phase1-bottom-04",
+        "title": "Demo green hiking shorts",
+        "score": 0.618857580883711,
+        "context_similarity": 0.5758953378480727,
+        "social_similarity": 0.719102814633534,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-bottom-01",
+        "title": "Demo beige linen trousers",
+        "score": 0.5983261188309699,
+        "context_similarity": 0.5319539784508419,
+        "social_similarity": 0.7531944463846019,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-bottom-03",
+        "title": "Demo blue denim jeans",
+        "score": 0.5853975036475172,
+        "context_similarity": 0.6259587947068213,
+        "social_similarity": 0.4907544911758078,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-bottom-02",
+        "title": "Demo black travel pants",
+        "score": 0.5838395426728271,
+        "context_similarity": 0.6055481572594664,
+        "social_similarity": 0.5331861086373357,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-bottom-07",
+        "title": "Demo black sport shorts",
+        "score": 0.5811664594602967,
+        "context_similarity": 0.5636089333390093,
+        "social_similarity": 0.6221340204099672,
+        "availability": "UNKNOWN"
+      }
+    ],
+    "FOOTWEAR": [
+      {
+        "product_id": "phase1-footwear-08",
+        "title": "Demo black walking shoes",
+        "score": 0.6970934424974059,
+        "context_similarity": 0.7442898987727535,
+        "social_similarity": 0.5869683778549282,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-footwear-02",
+        "title": "Demo gray trail shoes",
+        "score": 0.6923971221277186,
+        "context_similarity": 0.6939067769352205,
+        "social_similarity": 0.6888745942435477,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-footwear-01",
+        "title": "Demo white walking sneakers",
+        "score": 0.6905187512058648,
+        "context_similarity": 0.7316653149079537,
+        "social_similarity": 0.5945101025676572,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-footwear-05",
+        "title": "Demo blue casual sneakers",
+        "score": 0.6771573128255014,
+        "context_similarity": 0.7176943557169113,
+        "social_similarity": 0.5825708794122115,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-footwear-04",
+        "title": "Demo beige summer sandals",
+        "score": 0.6398475080014983,
+        "context_similarity": 0.6662908571356014,
+        "social_similarity": 0.5781463600219242,
+        "availability": "UNKNOWN"
+      }
+    ],
+    "OUTERWEAR": [
+      {
+        "product_id": "phase1-outerwear-01",
+        "title": "Demo blue rain jacket",
+        "score": 0.6062033151525643,
+        "context_similarity": 0.548882514404855,
+        "social_similarity": 0.7399518502305529,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-outerwear-05",
+        "title": "Demo green wind jacket",
+        "score": 0.6035777228374902,
+        "context_similarity": 0.5476379049388229,
+        "social_similarity": 0.7341039646010475,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-outerwear-03",
+        "title": "Demo black winter coat",
+        "score": 0.5604235183780792,
+        "context_similarity": 0.5614837312846404,
+        "social_similarity": 0.5579496882627699,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-outerwear-08",
+        "title": "Demo white summer jacket",
+        "score": 0.5567893431076097,
+        "context_similarity": 0.5483673636947197,
+        "social_similarity": 0.5764406284043533,
+        "availability": "UNKNOWN"
+      },
+      {
+        "product_id": "phase1-outerwear-02",
+        "title": "Demo beige linen blazer",
+        "score": 0.509564921851267,
+        "context_similarity": 0.4513809385557658,
+        "social_similarity": 0.64532754954077,
+        "availability": "UNKNOWN"
+      }
+    ]
+  },
+  "json_csv_and_reloaded_index_identical_scores": true,
+  "legacy_m1_compatible": true,
+  "original_wardrobe_chain_passed": true
+}

@@ -1,0 +1,912 @@
+[
+  {
+    "product_id": "phase1-top-01",
+    "title": "Demo white cotton shirt",
+    "raw_category": "shirt",
+    "description": "white; lightweight breathable casual city walking. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 18.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-top-02",
+    "title": "Demo beige linen blouse",
+    "raw_category": "blouse",
+    "description": "beige; airy summer minimalist sightseeing. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 21.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-top-03",
+    "title": "Demo blue sport tee",
+    "raw_category": "t-shirt",
+    "description": "blue; quick dry outdoor hiking exercise. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 24.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-top-04",
+    "title": "Demo black knit sweater",
+    "raw_category": "sweater",
+    "description": "black; warm winter relaxed streetwear. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 27.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-top-05",
+    "title": "Demo green casual shirt",
+    "raw_category": "shirt",
+    "description": "green; long sleeve smart casual evening dinner. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 30.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-top-06",
+    "title": "Demo gray relaxed tee",
+    "raw_category": "tee",
+    "description": "gray; soft everyday travel comfort. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 33.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-top-07",
+    "title": "Demo red dress blouse",
+    "raw_category": "blouse",
+    "description": "red; formal dinner elegant city outfit. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 36.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-top-08",
+    "title": "Demo white and blue striped shirt",
+    "raw_category": "shirt",
+    "description": "white and blue; nautical casual summer beach travel. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": null,
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-01",
+    "title": "Demo beige linen trousers",
+    "raw_category": "trousers",
+    "description": "beige; lightweight breathable summer city walking. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 28.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-02",
+    "title": "Demo black travel pants",
+    "raw_category": "pants",
+    "description": "black; stretch casual comfortable sightseeing. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 31.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-03",
+    "title": "Demo blue denim jeans",
+    "raw_category": "jeans",
+    "description": "blue; classic casual streetwear everyday travel. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 34.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-04",
+    "title": "Demo green hiking shorts",
+    "raw_category": "shorts",
+    "description": "green; lightweight outdoor walking warm weather. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 37.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-05",
+    "title": "Demo gray pleated skirt",
+    "raw_category": "skirt",
+    "description": "gray; smart casual elegant city dinner. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 40.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-06",
+    "title": "Demo brown warm trousers",
+    "raw_category": "trousers",
+    "description": "brown; winter insulated relaxed travel. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 43.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-07",
+    "title": "Demo black sport shorts",
+    "raw_category": "shorts",
+    "description": "black; quick dry active summer exercise. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 46.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-bottom-08",
+    "title": "Demo white wide leg pants",
+    "raw_category": "pants",
+    "description": "white; airy minimalist summer sightseeing. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": null,
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-01",
+    "title": "Demo white walking sneakers",
+    "raw_category": "sneakers",
+    "description": "white; comfortable lightweight casual city walking. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 38.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-02",
+    "title": "Demo gray trail shoes",
+    "raw_category": "shoes",
+    "description": "gray; outdoor hiking grip uneven ground. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 41.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-03",
+    "title": "Demo black ankle boots",
+    "raw_category": "boots",
+    "description": "black; winter warm streetwear evening city. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 44.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-04",
+    "title": "Demo beige summer sandals",
+    "raw_category": "sandals",
+    "description": "beige; open lightweight warm weather beach. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 47.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-05",
+    "title": "Demo blue casual sneakers",
+    "raw_category": "sneakers",
+    "description": "blue; everyday travel comfortable casual. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 50.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-06",
+    "title": "Demo brown dress shoes",
+    "raw_category": "shoes",
+    "description": "brown; formal elegant evening dinner. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 53.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-07",
+    "title": "Demo red sport sneakers",
+    "raw_category": "sneakers",
+    "description": "red; active exercise breathable running. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 56.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-footwear-08",
+    "title": "Demo black walking shoes",
+    "raw_category": "shoes",
+    "description": "black; minimalist comfortable long sightseeing. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": null,
+    "sizes": [
+      "EU 37",
+      "EU 38",
+      "EU 39",
+      "EU 40"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-01",
+    "title": "Demo blue rain jacket",
+    "raw_category": "jacket",
+    "description": "blue; lightweight waterproof outdoor travel. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 48.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-02",
+    "title": "Demo beige linen blazer",
+    "raw_category": "blazer",
+    "description": "beige; light summer smart casual evening. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 51.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-03",
+    "title": "Demo black winter coat",
+    "raw_category": "coat",
+    "description": "black; warm cold weather city sightseeing. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 54.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-04",
+    "title": "Demo blue denim jacket",
+    "raw_category": "jacket",
+    "description": "blue; casual streetwear cool evening. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 57.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-05",
+    "title": "Demo green wind jacket",
+    "raw_category": "jacket",
+    "description": "green; lightweight outdoor hiking wind protection. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 60.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-06",
+    "title": "Demo gray formal blazer",
+    "raw_category": "blazer",
+    "description": "gray; elegant business dinner city. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 63.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-07",
+    "title": "Demo brown warm coat",
+    "raw_category": "coat",
+    "description": "brown; winter layered relaxed travel. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 66.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-outerwear-08",
+    "title": "Demo white summer jacket",
+    "raw_category": "jacket",
+    "description": "white; light breathable minimalist evening. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": null,
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-unknown-01",
+    "title": "Demo gray travel scarf",
+    "raw_category": "accessory",
+    "description": "gray; soft cool weather accessory. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 58.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  },
+  {
+    "product_id": "phase1-unknown-02",
+    "title": "Demo blue summer dress",
+    "raw_category": "dress",
+    "description": "blue; lightweight warm weather dress. Fictional authored sample, not a merchant offer.",
+    "source_type": "PREPARED_CATALOGUE",
+    "price": {
+      "amount": 61.0,
+      "currency": "SGD",
+      "is_synthetic": true
+    },
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "availability": "UNKNOWN",
+    "image_path": "assets/placeholder.svg",
+    "product_url": null,
+    "evidence": {
+      "notes": [
+        "Fictional project-authored sample; no real merchant or purchase offer.",
+        "Prices and sizes are synthetic demonstration metadata, not live verified.",
+        "Self-authored placeholder illustration; not a product photograph."
+      ]
+    }
+  }
+]

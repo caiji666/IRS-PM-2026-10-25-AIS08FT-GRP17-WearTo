@@ -1,0 +1,32 @@
+{
+  "context": {
+    "trip": {
+      "destination": "Singapore"
+    },
+    "query": "lightweight white cotton shirt for casual city walking",
+    "activities": [
+      "city walking"
+    ],
+    "style_preferences": [
+      "casual"
+    ],
+    "weather_notes": "User supplied demo context: warm weather"
+  },
+  "top_social_references": [
+    {
+      "reference_id": "authored-text-demo",
+      "description": "white casual cotton shirt"
+    }
+  ],
+  "limit": 3,
+  "wardrobe_uploads": [
+    {
+      "upload_id": "synthetic-smoke-only",
+      "image_path": "fixtures/m4_synthetic_smoke.png"
+    },
+    {
+      "upload_id": "missing-image-demo",
+      "image_path": "user_uploads/not-provided.jpg"
+    }
+  ]
+}

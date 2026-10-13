@@ -1,0 +1,18 @@
+{
+  "context": {
+    "trip": {
+      "destination": "Singapore"
+    },
+    "query": null,
+    "activities": [
+      "city walking"
+    ]
+  },
+  "categories": [],
+  "wardrobe_uploads": [
+    {
+      "upload_id": "upload-1",
+      "image_path": "user_uploads/not-provided.jpg"
+    }
+  ]
+}

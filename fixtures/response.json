@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "products": [
+    {
+      "product_id": "demo-top",
+      "title": "Demo cotton shirt",
+      "raw_category": "shirt",
+      "description": "lightweight white casual",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": {
+        "amount": 25.0,
+        "currency": "SGD",
+        "is_synthetic": true
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "availability": "UNKNOWN",
+      "image_path": "assets/placeholder.svg",
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": [
+          "Fictional authored sample; no merchant or real purchase offer.",
+          "Placeholder illustration, not a product photo."
+        ]
+      },
+      "category": "TOP"
+    }
+  ],
+  "wardrobe_garments": [],
+  "pending_wardrobe_uploads": [
+    {
+      "upload_id": "upload-1",
+      "image_path": "user_uploads/not-provided.jpg"
+    }
+  ],
+  "total_matches": 1,
+  "issues": [],
+  "warnings": [
+    "Prepared samples are illustrative; prices, sizes and stock are not live verified.",
+    "Uploads are passed through without image understanding; embeddings are transport only."
+  ]
+}

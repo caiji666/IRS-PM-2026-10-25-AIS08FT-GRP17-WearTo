@@ -1,6 +1,6 @@
 # Travel Style Agent · Group 17
 
-A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. Social/product retrieval, FashionCLIP, MLP scoring and image generation remain scaffolds. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review.
+A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. Student 3 product retrieval now wraps the existing M1–M6 and wardrobe pipeline; social retrieval, MLP scoring and image generation remain scaffolds. See [the product retrieval runbook](docs/product-retrieval-runbook.md). See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review.
 
 ## Quick start
 
@@ -18,7 +18,7 @@ uv run ruff format --check .
 
 Use Python 3.11 across the team. Commit both `pyproject.toml` and `uv.lock`. Add dependencies with `uv add` and include both files in the same pull request. Do not edit the lockfile manually.
 
-The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The other four module tools return `not_implemented` explicitly.
+The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The social, outfit and recommendation tools return `not_implemented`; product retrieval requires explicit inputs and returns `needs_input` for the empty demo payload.
 
 ## English-first understanding workflow
 
@@ -80,3 +80,9 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [interface contracts](docs/contr
 Follow this workflow: main → feature branch → pull request → CI → peer review → squash merge. Keep full datasets, user-uploaded images, credentials, and model weights out of Git. Commit acquisition instructions, version information, and checksums instead.
 
 English is the project language for documentation, code comments, examples, issues, and pull requests.
+
+## Product retrieval and wardrobe commands
+
+For a fresh checkout, follow the [product retrieval runbook](docs/product-retrieval-runbook.md). It covers the products extra, repository-local configuration, included offline demos, FashionCLIP download, personal wardrobe import, upstream PT/TXT/JSON preparation, optional historical photos, Sandbox credentials and output handoff. Private input files, complete datasets, user images, model weights and credentials are not included in Git. Use the `feat/student3-integration` feature branch for this implementation until it is merged; the runbook includes the clone command.
+
+For the resource-complete current local checkout, see [independent local validation and commands](docs/local-product-retrieval-validation.md). Inputs, photographs, model files and private Sandbox configuration now reside within this checkout; the old standalone project is not required. These excluded resources remain local and are not supplied by a Git clone.

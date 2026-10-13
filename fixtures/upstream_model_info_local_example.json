@@ -1,0 +1,18 @@
+{
+  "context": {
+    "model_id": "patrickjohncyh/fashion-clip",
+    "revision": "7e3ba62ce16b379a1ab479346b66f192e76f51b7",
+    "preprocessing": "clip-rgb-exif-text77-v1",
+    "transformers_version": "4.46.3",
+    "dimension": 512,
+    "normalization": "L2"
+  },
+  "social_images": {
+    "model_id": "patrickjohncyh/fashion-clip",
+    "revision": "7e3ba62ce16b379a1ab479346b66f192e76f51b7",
+    "preprocessing": "clip-rgb-exif-text77-v1",
+    "transformers_version": "4.46.3",
+    "dimension": 512,
+    "normalization": "L2"
+  }
+}

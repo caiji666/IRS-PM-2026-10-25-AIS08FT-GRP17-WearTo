@@ -1,0 +1,318 @@
+{
+  "schema_version": "m3.1",
+  "products": [
+    {
+      "product_id": "demo-top",
+      "title": "Demo cotton shirt",
+      "raw_category": "shirt",
+      "description": "lightweight white casual",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": {
+        "amount": 25.0,
+        "currency": "SGD",
+        "is_synthetic": true
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "availability": "UNKNOWN",
+      "image_path": "assets/placeholder.svg",
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": [
+          "Fictional authored sample; no merchant or real purchase offer.",
+          "Placeholder illustration, not a product photo."
+        ]
+      },
+      "category": "TOP",
+      "colors": [],
+      "provenance": {
+        "source": "/Users/yoyozhang/Desktop/IntelligentTravelStyleAssistant/data/catalogue.json",
+        "record_index": 1,
+        "original": {
+          "product_id": "demo-top",
+          "title": "Demo cotton shirt",
+          "raw_category": "shirt",
+          "description": "lightweight white casual",
+          "source_type": "PREPARED_CATALOGUE",
+          "price": {
+            "amount": 25.0,
+            "currency": "SGD",
+            "is_synthetic": true
+          },
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ],
+          "availability": "UNKNOWN",
+          "image_path": "assets/placeholder.svg",
+          "product_url": null,
+          "embedding": null,
+          "evidence": {
+            "price_verified": false,
+            "availability_verified": false,
+            "sizes_verified": false,
+            "image_verified": false,
+            "product_url_verified": false,
+            "category_verified": false,
+            "notes": [
+              "Fictional authored sample; no merchant or real purchase offer.",
+              "Placeholder illustration, not a product photo."
+            ]
+          }
+        }
+      },
+      "image_embedding_candidate": false
+    },
+    {
+      "product_id": "demo-bottom",
+      "title": "Demo travel trousers",
+      "raw_category": "trousers",
+      "description": "black relaxed casual",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": null,
+      "sizes": [],
+      "availability": "UNKNOWN",
+      "image_path": "assets/placeholder.svg",
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": [
+          "Fictional authored sample; no merchant or real purchase offer.",
+          "Placeholder illustration, not a product photo."
+        ]
+      },
+      "category": "BOTTOM",
+      "colors": [],
+      "provenance": {
+        "source": "/Users/yoyozhang/Desktop/IntelligentTravelStyleAssistant/data/catalogue.json",
+        "record_index": 2,
+        "original": {
+          "product_id": "demo-bottom",
+          "title": "Demo travel trousers",
+          "raw_category": "trousers",
+          "description": "black relaxed casual",
+          "source_type": "PREPARED_CATALOGUE",
+          "price": null,
+          "sizes": [],
+          "availability": "UNKNOWN",
+          "image_path": "assets/placeholder.svg",
+          "product_url": null,
+          "embedding": null,
+          "evidence": {
+            "price_verified": false,
+            "availability_verified": false,
+            "sizes_verified": false,
+            "image_verified": false,
+            "product_url_verified": false,
+            "category_verified": false,
+            "notes": [
+              "Fictional authored sample; no merchant or real purchase offer.",
+              "Placeholder illustration, not a product photo."
+            ]
+          }
+        }
+      },
+      "image_embedding_candidate": false
+    },
+    {
+      "product_id": "demo-shoes",
+      "title": "Demo walking shoes",
+      "raw_category": "shoes",
+      "description": "comfortable casual",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": null,
+      "sizes": [],
+      "availability": "UNKNOWN",
+      "image_path": "assets/placeholder.svg",
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": [
+          "Fictional authored sample; no merchant or real purchase offer.",
+          "Placeholder illustration, not a product photo."
+        ]
+      },
+      "category": "FOOTWEAR",
+      "colors": [],
+      "provenance": {
+        "source": "/Users/yoyozhang/Desktop/IntelligentTravelStyleAssistant/data/catalogue.json",
+        "record_index": 3,
+        "original": {
+          "product_id": "demo-shoes",
+          "title": "Demo walking shoes",
+          "raw_category": "shoes",
+          "description": "comfortable casual",
+          "source_type": "PREPARED_CATALOGUE",
+          "price": null,
+          "sizes": [],
+          "availability": "UNKNOWN",
+          "image_path": "assets/placeholder.svg",
+          "product_url": null,
+          "embedding": null,
+          "evidence": {
+            "price_verified": false,
+            "availability_verified": false,
+            "sizes_verified": false,
+            "image_verified": false,
+            "product_url_verified": false,
+            "category_verified": false,
+            "notes": [
+              "Fictional authored sample; no merchant or real purchase offer.",
+              "Placeholder illustration, not a product photo."
+            ]
+          }
+        }
+      },
+      "image_embedding_candidate": false
+    },
+    {
+      "product_id": "demo-coat",
+      "title": "Demo rain jacket",
+      "raw_category": "jacket",
+      "description": "lightweight waterproof",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": null,
+      "sizes": [],
+      "availability": "UNKNOWN",
+      "image_path": "assets/placeholder.svg",
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": [
+          "Fictional authored sample; no merchant or real purchase offer.",
+          "Placeholder illustration, not a product photo."
+        ]
+      },
+      "category": "OUTERWEAR",
+      "colors": [],
+      "provenance": {
+        "source": "/Users/yoyozhang/Desktop/IntelligentTravelStyleAssistant/data/catalogue.json",
+        "record_index": 4,
+        "original": {
+          "product_id": "demo-coat",
+          "title": "Demo rain jacket",
+          "raw_category": "jacket",
+          "description": "lightweight waterproof",
+          "source_type": "PREPARED_CATALOGUE",
+          "price": null,
+          "sizes": [],
+          "availability": "UNKNOWN",
+          "image_path": "assets/placeholder.svg",
+          "product_url": null,
+          "embedding": null,
+          "evidence": {
+            "price_verified": false,
+            "availability_verified": false,
+            "sizes_verified": false,
+            "image_verified": false,
+            "product_url_verified": false,
+            "category_verified": false,
+            "notes": [
+              "Fictional authored sample; no merchant or real purchase offer.",
+              "Placeholder illustration, not a product photo."
+            ]
+          }
+        }
+      },
+      "image_embedding_candidate": false
+    },
+    {
+      "product_id": "demo-accessory",
+      "title": "Demo scarf",
+      "raw_category": "accessory",
+      "description": "soft grey",
+      "source_type": "PREPARED_CATALOGUE",
+      "price": null,
+      "sizes": [],
+      "availability": "UNKNOWN",
+      "image_path": "assets/placeholder.svg",
+      "product_url": null,
+      "embedding": null,
+      "evidence": {
+        "price_verified": false,
+        "availability_verified": false,
+        "sizes_verified": false,
+        "image_verified": false,
+        "product_url_verified": false,
+        "category_verified": false,
+        "notes": [
+          "Fictional authored sample; no merchant or real purchase offer.",
+          "Placeholder illustration, not a product photo."
+        ]
+      },
+      "category": "UNKNOWN",
+      "colors": [],
+      "provenance": {
+        "source": "/Users/yoyozhang/Desktop/IntelligentTravelStyleAssistant/data/catalogue.json",
+        "record_index": 5,
+        "original": {
+          "product_id": "demo-accessory",
+          "title": "Demo scarf",
+          "raw_category": "accessory",
+          "description": "soft grey",
+          "source_type": "PREPARED_CATALOGUE",
+          "price": null,
+          "sizes": [],
+          "availability": "UNKNOWN",
+          "image_path": "assets/placeholder.svg",
+          "product_url": null,
+          "embedding": null,
+          "evidence": {
+            "price_verified": false,
+            "availability_verified": false,
+            "sizes_verified": false,
+            "image_verified": false,
+            "product_url_verified": false,
+            "category_verified": false,
+            "notes": [
+              "Fictional authored sample; no merchant or real purchase offer.",
+              "Placeholder illustration, not a product photo."
+            ]
+          }
+        }
+      },
+      "image_embedding_candidate": false
+    }
+  ],
+  "issues": [
+    {
+      "record_index": 5,
+      "stage": "M3",
+      "reason": "Category unresolved; retained UNKNOWN."
+    }
+  ],
+  "input_count": 5,
+  "warnings": [
+    "Prepared catalogue is illustrative, not live purchasable inventory.",
+    "No currency conversion, image inspection, embedding or ranking performed."
+  ]
+}

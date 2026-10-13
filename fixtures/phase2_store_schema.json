@@ -1,0 +1,421 @@
+{
+  "$defs": {
+    "Availability": {
+      "enum": [
+        "UNKNOWN",
+        "IN_STOCK",
+        "OUT_OF_STOCK"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "Category": {
+      "enum": [
+        "TOP",
+        "BOTTOM",
+        "FOOTWEAR",
+        "OUTERWEAR",
+        "UNKNOWN"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Embedding": {
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "model",
+        "values"
+      ],
+      "title": "Embedding",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "price_verified": {
+          "default": false,
+          "title": "Price Verified",
+          "type": "boolean"
+        },
+        "availability_verified": {
+          "default": false,
+          "title": "Availability Verified",
+          "type": "boolean"
+        },
+        "sizes_verified": {
+          "default": false,
+          "title": "Sizes Verified",
+          "type": "boolean"
+        },
+        "image_verified": {
+          "default": false,
+          "title": "Image Verified",
+          "type": "boolean"
+        },
+        "product_url_verified": {
+          "default": false,
+          "title": "Product Url Verified",
+          "type": "boolean"
+        },
+        "category_verified": {
+          "default": false,
+          "title": "Category Verified",
+          "type": "boolean"
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        }
+      },
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Prediction": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "top_similarity": {
+          "title": "Top Similarity",
+          "type": "number"
+        },
+        "margin": {
+          "title": "Margin",
+          "type": "number"
+        },
+        "accepted": {
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "similarities": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Similarities",
+          "type": "object"
+        },
+        "method": {
+          "default": "FashionCLIP zero-shot cosine; uncalibrated heuristic thresholds",
+          "title": "Method",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "top_similarity",
+        "margin",
+        "accepted",
+        "similarities"
+      ],
+      "title": "Prediction",
+      "type": "object"
+    },
+    "Price": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "minimum": 0,
+          "title": "Amount",
+          "type": "number"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "is_synthetic": {
+          "default": true,
+          "title": "Is Synthetic",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "title": "Price",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "record_index": {
+          "minimum": 1,
+          "title": "Record Index",
+          "type": "integer"
+        },
+        "original": {
+          "additionalProperties": true,
+          "title": "Original",
+          "type": "object"
+        }
+      },
+      "required": [
+        "source",
+        "record_index",
+        "original"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "SourceType": {
+      "enum": [
+        "PREPARED_CATALOGUE",
+        "WARDROBE",
+        "ECOMMERCE_API"
+      ],
+      "title": "SourceType",
+      "type": "string"
+    },
+    "UnifiedItem": {
+      "additionalProperties": false,
+      "properties": {
+        "product_id": {
+          "minLength": 1,
+          "title": "Product Id",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "raw_category": {
+          "minLength": 1,
+          "title": "Raw Category",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "source_type": {
+          "$ref": "#/$defs/SourceType",
+          "default": "PREPARED_CATALOGUE"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Price"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "sizes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Sizes",
+          "type": "array"
+        },
+        "availability": {
+          "$ref": "#/$defs/Availability",
+          "default": "UNKNOWN"
+        },
+        "image_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Image Path"
+        },
+        "product_url": {
+          "anyOf": [
+            {
+              "format": "uri",
+              "maxLength": 2083,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Product Url"
+        },
+        "embedding": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Embedding"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "colors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Colors",
+          "type": "array"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "image_embedding_candidate": {
+          "default": false,
+          "title": "Image Embedding Candidate",
+          "type": "boolean"
+        },
+        "subcategory": {
+          "default": "UNKNOWN",
+          "title": "Subcategory",
+          "type": "string"
+        },
+        "styles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Styles",
+          "type": "array"
+        },
+        "style_status": {
+          "default": "UNKNOWN",
+          "enum": [
+            "PREDICTED",
+            "UNKNOWN"
+          ],
+          "title": "Style Status",
+          "type": "string"
+        },
+        "owned": {
+          "default": false,
+          "title": "Owned",
+          "type": "boolean"
+        },
+        "ownership_source": {
+          "anyOf": [
+            {
+              "const": "user_upload",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ownership Source"
+        },
+        "additional_purchase_required": {
+          "default": true,
+          "title": "Additional Purchase Required",
+          "type": "boolean"
+        },
+        "garment_embedding": {
+          "$ref": "#/$defs/Vector"
+        },
+        "attribute_predictions": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Prediction"
+          },
+          "title": "Attribute Predictions",
+          "type": "object"
+        }
+      },
+      "required": [
+        "product_id",
+        "title",
+        "raw_category",
+        "category",
+        "provenance",
+        "garment_embedding"
+      ],
+      "title": "UnifiedItem",
+      "type": "object"
+    },
+    "Vector": {
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "modality": {
+          "enum": [
+            "text",
+            "image"
+          ],
+          "title": "Modality",
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "model",
+        "modality",
+        "values"
+      ],
+      "title": "Vector",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "wardrobe.1",
+      "default": "wardrobe.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/UnifiedItem"
+      },
+      "title": "Items",
+      "type": "array"
+    }
+  },
+  "title": "WardrobeStore",
+  "type": "object"
+}
