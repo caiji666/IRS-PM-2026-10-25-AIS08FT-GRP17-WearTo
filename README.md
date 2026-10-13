@@ -1,6 +1,6 @@
 # Travel Style Agent · Group 17
 
-A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. Student 2 inspiration retrieval is implemented (FashionCLIP context/image embeddings, Unsplash retrieval, reranking and a file-based `product_handoff` to Student 3; see [the inspiration runbook](docs/inspiration-runbook.md)). Student 3 product retrieval now wraps the existing M1–M6 and wardrobe pipeline. Student 5 recommendation is implemented in `travel_agent/recommendation/` (hard constraints, final Top-3 ranking, user decision loop and a mock/product-card outfit preview; see [Student 5 recommendation](#student-5-recommendation)). Outfit generation and MLP compatibility scoring (Student 4) remain scaffolds. See [the product retrieval runbook](docs/product-retrieval-runbook.md). See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review.
+A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review. The Student 2 Inspiration module implements FashionCLIP-based context and image embeddings, Unsplash fashion reference retrieval, deduplication, cosine similarity reranking, and Top-N selection, with a file-based handoff to Student 3. See [the Inspiration runbook](docs/inspiration-runbook.md). The Student 3 Product Retrieval module integrates the existing M1–M6 and wardrobe pipeline for product retrieval and ranking. See [the product retrieval runbook](docs/product-retrieval-runbook.md). The Student 5 recommendation module in `travel_agent/recommendation/` implements hard constraints, final Top-3 ranking, the user decision loop and outfit preview; see [Student 5 recommendation](#student-5-recommendation). Outfit scoring and image generation remain under development. Full live-agent orchestration across all modules has not yet been verified.
 
 ## Quick start
 
@@ -18,7 +18,7 @@ uv run ruff format --check .
 
 Use Python 3.11 across the team. Commit both `pyproject.toml` and `uv.lock`. Add dependencies with `uv add` and include both files in the same pull request. Do not edit the lockfile manually.
 
-The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The social inspiration (Student 2) and product retrieval (Student 3) tools require explicit inputs and return `needs_input` for the empty demo payload. The recommendation tool (Student 5) returns `error` because its payload requires an explicit `action`. The outfit tool (Student 4) returns `not_implemented`.
+The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The Inspiration module is implemented and requires its optional dependencies and Unsplash API credentials for live retrieval; its tool returns `needs_input` for the empty demo payload. The product retrieval requires explicit inputs and returns `needs_input` for the empty demo payload. The recommendation tool (Student 5) returns `error` because its payload requires an explicit `action`. The outfit tool (Student 4) returns `not_implemented`.
 
 ## English-first understanding workflow
 
@@ -120,8 +120,35 @@ Follow this workflow: main → feature branch → pull request → CI → peer r
 
 English is the project language for documentation, code comments, examples, issues, and pull requests.
 
+## Fashion Inspiration Retrieval and Ranking
+
+The Inspiration module uses **FashionCLIP** to generate context and image embeddings, retrieve fashion references through the Unsplash API, and rank them using cosine similarity. It supports structured query generation, image deduplication, Top-N selection, and a file-based handoff to Student 3's product retrieval pipeline.
+
+The module integrates with Student 1's Understanding output through the LangChain `search_references` tool.
+
+**Setup:**
+
+```bash
+uv sync --locked --extra inspiration
+```
+
+Configure `UNSPLASH_ACCESS_KEY` in your local `.env` file.
+
+**Standalone execution:**
+
+```bash
+uv run --no-sync python -m travel_agent.inspiration.pipeline
+```
+
+The standalone pipeline uses local context fixtures for testing. Full live-agent orchestration remains pending team integration.
+
+For architecture, dependencies, integration contracts, and testing instructions, see the [Inspiration Runbook](docs/inspiration-runbook.md).
+
 ## Product retrieval and wardrobe commands
 
-For a fresh checkout, follow the [product retrieval runbook](docs/product-retrieval-runbook.md). It covers the products extra, repository-local configuration, included offline demos, FashionCLIP download, personal wardrobe import, upstream PT/TXT/JSON preparation, optional historical photos, Sandbox credentials and output handoff. Private input files, complete datasets, user images, model weights and credentials are not included in Git. Use the `feat/student3-integration` feature branch for this implementation until it is merged; the runbook includes the clone command.
+For a fresh checkout, follow the [product retrieval runbook](docs/product-retrieval-runbook.md). It covers the products extra, repository-local configuration, included offline demos, FashionCLIP download, personal wardrobe import, upstream PT/TXT/JSON preparation, optional historical photos, Sandbox credentials and output handoff. Private input files, complete datasets, user images, model weights and credentials are not included in Git. The runbook includes the clone command.
 
 For the resource-complete current local checkout, see [independent local validation and commands](docs/local-product-retrieval-validation.md). Inputs, photographs, model files and private Sandbox configuration now reside within this checkout; the old standalone project is not required. These excluded resources remain local and are not supplied by a Git clone.
+
+
+
