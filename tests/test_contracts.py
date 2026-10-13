@@ -40,7 +40,7 @@ def test_tools_distinguish_implemented_understanding_from_other_scaffolds():
         result = ModuleResult.model_validate(tool.invoke({"payload": {}}))
         assert result.status == (
             "needs_input"
-            if tool.name in {"understand_and_reason", "search_products"}
+            if tool.name in {"understand_and_reason", "search_references", "search_products"}
             else "not_implemented"
         )
         assert result.reason

@@ -4,8 +4,18 @@ import logging
 
 from travel_agent.schemas import ModuleResult
 
-from .handoff import save_inspiration_handoff
-from .pipeline import run_inspiration_pipeline
+
+def run_inspiration_pipeline(*args, **kwargs):
+    from .pipeline import run_inspiration_pipeline as execute
+
+    return execute(*args, **kwargs)
+
+
+def save_inspiration_handoff(*args, **kwargs):
+    from .handoff import save_inspiration_handoff as execute
+
+    return execute(*args, **kwargs)
+
 
 logger = logging.getLogger(__name__)
 
