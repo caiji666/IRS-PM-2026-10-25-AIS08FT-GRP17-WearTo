@@ -34,13 +34,21 @@ def test_recommendations_are_not_implicitly_verified():
     assert result.constraint_status == "unverified"
 
 
-def test_tools_distinguish_implemented_understanding_from_other_scaffolds():
-    assert len({tool.name for tool in TOOLS}) == 5
+# Status each registered tool returns for an empty payload, by its current contract.
+EMPTY_PAYLOAD_STATUS = {
+    "understand_and_reason": "needs_input",  # Student 1: implemented
+    "search_references": "needs_input",  # Student 2: implemented
+    "search_products": "needs_input",  # Student 3: implemented
+    "build_and_score_outfits": "not_implemented",  # Student 4: scaffold
+    "validate_and_recommend": "error",  # Student 5: implemented; `action` is required
+}
+
+
+def test_each_tool_reports_its_current_implementation_status_for_an_empty_payload():
+    """Implemented modules validate input (each by its own contract); only scaffolds return
+    not_implemented."""
+    assert {tool.name for tool in TOOLS} == set(EMPTY_PAYLOAD_STATUS)
     for tool in TOOLS:
         result = ModuleResult.model_validate(tool.invoke({"payload": {}}))
-        assert result.status == (
-            "needs_input"
-            if tool.name in {"understand_and_reason", "search_references", "search_products"}
-            else "not_implemented"
-        )
+        assert result.status == EMPTY_PAYLOAD_STATUS[tool.name], tool.name
         assert result.reason
