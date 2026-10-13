@@ -28,3 +28,13 @@ data/photos20/
 .venv*/
 
 .tools/
+
+# Student 2 - Local test images
+tests/fixtures/inspiration/test_images/
+
+# Student 2 - Unsplash API response data
+tests/fixtures/inspiration/image_api_calls/
+
+# Student 2 - Generated pipeline outputs
+tests/inspiration/outputs/
+tests/inspiration/test_live_agent.py

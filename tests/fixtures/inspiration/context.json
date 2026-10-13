@@ -1,0 +1,24 @@
+{
+    "destination": "Seoul",
+    "season": "winter",
+
+    "weather_clothing_requirements": {
+        "outerwear": ["winter coat", "puffer jacket"],
+        "top": ["sweater", "knitwear"],
+        "bottom": ["long trousers"],
+        "footwear": ["closed shoes", "boots"],
+        "properties": [
+            "warm",
+            "insulated",
+            "layerable",
+            "weather-resistant"
+        ]
+    },
+
+    "activity_style_requirements": {
+        "sightseeing": ["casual", "comfortable"],
+        "dinner": ["smart casual", "polished"]
+    },
+
+    "user_style": ["minimalist"]
+}
