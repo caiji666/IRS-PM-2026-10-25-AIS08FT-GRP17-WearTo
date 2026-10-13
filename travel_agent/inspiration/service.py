@@ -1,11 +1,14 @@
 """Student 2: retrieve and rank fashion references."""
 
-from travel_agent.schemas import ModuleResult
-from .handoff import save_inspiration_handoff
-
 import logging
+
+from travel_agent.schemas import ModuleResult
+
+from .handoff import save_inspiration_handoff
 from .pipeline import run_inspiration_pipeline
+
 logger = logging.getLogger(__name__)
+
 
 def prepare_inspiration_context(data: dict) -> tuple[str, dict]:
     """Convert Student 1 output into Student 2 pipeline inputs."""
@@ -29,24 +32,17 @@ def run(payload: dict) -> ModuleResult:
     """Execute Phase 2 inspiration retrieval using Phase 1 output."""
 
     if not isinstance(payload, dict):
-        return ModuleResult(
-            status="needs_input",
-            reason="Phase 1 output must be a dictionary."
-        )
+        return ModuleResult(status="needs_input", reason="Phase 1 output must be a dictionary.")
 
     # Phase 1's ModuleResult.data
     data = payload.get("understanding", payload)
 
     if not isinstance(data, dict):
-        return ModuleResult(
-            status="needs_input",
-            reason="Understanding data must be a dictionary."
-        )
+        return ModuleResult(status="needs_input", reason="Understanding data must be a dictionary.")
 
     if data.get("ready_for_downstream") is not True:
         return ModuleResult(
-            status="needs_input",
-            reason="Phase 1 context is not ready for downstream processing."
+            status="needs_input", reason="Phase 1 context is not ready for downstream processing."
         )
 
     try:
@@ -54,36 +50,26 @@ def run(payload: dict) -> ModuleResult:
 
         if not isinstance(expanded_context, str) or not expanded_context.strip():
             return ModuleResult(
-                status="needs_input",
-                reason="ExpandedFashionContext is missing or empty."
+                status="needs_input", reason="ExpandedFashionContext is missing or empty."
             )
 
         if not structured_context.get("destination"):
-            return ModuleResult(
-                status="needs_input",
-                reason="Trip destination is required."
-            )
+            return ModuleResult(status="needs_input", reason="Trip destination is required.")
 
         top_n = payload.get("top_n", 10)
 
         if type(top_n) is not int or top_n <= 0:
-            return ModuleResult(
-                status="needs_input",
-                reason="top_n must be a positive integer."
-            )
+            return ModuleResult(status="needs_input", reason="top_n must be a positive integer.")
 
         logger.info("Starting Phase 2 Inspiration Service")
 
         result = run_inspiration_pipeline(
-            expanded_context=expanded_context,
-            structured_context=structured_context,
-            top_n=top_n
+            expanded_context=expanded_context, structured_context=structured_context, top_n=top_n
         )
 
         if result is None:
             return ModuleResult(
-                status="no_candidates",
-                reason="No usable fashion inspiration images were returned."
+                status="no_candidates", reason="No usable fashion inspiration images were returned."
             )
 
         phase2_output, evaluation_data = result
@@ -93,7 +79,7 @@ def run(payload: dict) -> ModuleResult:
         handoff = save_inspiration_handoff(
             phase2_output=phase2_output,
             expanded_context=expanded_context,
-            structured_context=structured_context
+            structured_context=structured_context,
         )
 
         logger.info("Student 3 handoff prepared successfully")
@@ -103,11 +89,9 @@ def run(payload: dict) -> ModuleResult:
             data={
                 "context_embedding": phase2_output["context_embedding"].cpu().tolist(),
                 "top_images": phase2_output["top_images"],
-                "top_image_embeddings": (
-                    phase2_output["top_image_embeddings"].cpu().tolist()
-                ),
-                "product_handoff": handoff
-            }
+                "top_image_embeddings": (phase2_output["top_image_embeddings"].cpu().tolist()),
+                "product_handoff": handoff,
+            },
         )
 
     except (KeyError, TypeError, ValueError) as error:
@@ -115,13 +99,10 @@ def run(payload: dict) -> ModuleResult:
 
         return ModuleResult(
             status="needs_input",
-            reason="Phase 1 output is missing or contains invalid context fields."
+            reason="Phase 1 output is missing or contains invalid context fields.",
         )
 
     except Exception:
         logger.exception("Phase 2 inspiration pipeline failed")
 
-        return ModuleResult(
-            status="error",
-            reason="Inspiration retrieval or ranking failed."
-        )
+        return ModuleResult(status="error", reason="Inspiration retrieval or ranking failed.")

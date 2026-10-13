@@ -1,12 +1,11 @@
-import torch
 import json
-import transformers
-
-from uuid import uuid4
-
+import logging
 import os
 from pathlib import Path
-import logging
+from uuid import uuid4
+
+import torch
+import transformers
 
 logger = logging.getLogger(__name__)
 
@@ -40,10 +39,7 @@ def save_inspiration_handoff(phase2_output, expanded_context, structured_context
     # Save expanded fashion context
     text_path = request_dir / "expanded_fashion_context.txt"
 
-    text_path.write_text(
-        expanded_context,
-        encoding="utf-8"
-    )
+    text_path.write_text(expanded_context, encoding="utf-8")
 
     logger.info("Expanded fashion context saved: %s", text_path)
 
@@ -62,13 +58,10 @@ def save_inspiration_handoff(phase2_output, expanded_context, structured_context
         "preprocessing": "clip-rgb-exif-text77-v1",
         "transformers_version": transformers.__version__,
         "dimension": 512,
-        "normalization": "L2"
+        "normalization": "L2",
     }
 
-    model_info = {
-        "context": model_profile.copy(),
-        "social_images": model_profile.copy()
-    }
+    model_info = {"context": model_profile.copy(), "social_images": model_profile.copy()}
 
     model_info_path = request_dir / "model_info.json"
 
@@ -82,12 +75,9 @@ def save_inspiration_handoff(phase2_output, expanded_context, structured_context
         "pt": pt_path.relative_to(data_root).as_posix(),
         "text": text_path.relative_to(data_root).as_posix(),
         "context": context_path.relative_to(data_root).as_posix(),
-        "model_info": model_info_path.relative_to(data_root).as_posix()
+        "model_info": model_info_path.relative_to(data_root).as_posix(),
     }
 
     logger.info("Student 3 handoff prepared successfully")
 
-    return {
-        "upstream": upstream_paths,
-        "reference_mode": "imported"
-    }
+    return {"upstream": upstream_paths, "reference_mode": "imported"}

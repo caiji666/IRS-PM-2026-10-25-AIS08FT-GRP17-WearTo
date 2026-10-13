@@ -2,7 +2,6 @@ from pathlib import Path
 
 from travel_agent.products.retrieval.upstream.adapter import adapt_files
 
-
 fixture_dir = Path("tests/fixtures/inspiration")
 output_dir = Path("tests/inspiration/outputs")
 
@@ -10,7 +9,7 @@ request, fallback, metadata = adapt_files(
     pt_path=output_dir / "phase_2_output.pt",
     text_path=fixture_dir / "expanded_fashion_context.txt",
     context_path=fixture_dir / "context.json",
-    model_info_path=output_dir / "model_info.json"
+    model_info_path=output_dir / "model_info.json",
 )
 
 print("Adapter status:", metadata["status"])

@@ -1,13 +1,9 @@
-from travel_agent.inspiration.service import prepare_inspiration_context
 from travel_agent.inspiration.query_generator import generate_search_queries
-
+from travel_agent.inspiration.service import prepare_inspiration_context
 
 # Simulated Student 1 output
 student1_data = {
-    "trip_request": {
-        "destination": "Seoul",
-        "style": ["minimalist"]
-    },
+    "trip_request": {"destination": "Seoul", "style": ["minimalist"]},
     "season": "winter",
     "expanded_fashion_context": (
         "Seoul winter winter coat puffer jacket sweater "
@@ -18,12 +14,12 @@ student1_data = {
         "top": ["sweater"],
         "bottom": ["long trousers"],
         "footwear": ["boots"],
-        "properties": ["warm"]
+        "properties": ["warm"],
     },
     "activity_style_requirements": {
         "sightseeing": ["casual", "comfortable"],
-        "dinner": ["smart casual", "polished"]
-    }
+        "dinner": ["smart casual", "polished"],
+    },
 }
 
 # Test context adapter

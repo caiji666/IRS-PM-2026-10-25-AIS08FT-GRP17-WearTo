@@ -1,9 +1,9 @@
 import logging
+from io import BytesIO
+
 import requests
 import torch
-
 from PIL import Image, ImageOps
-from io import BytesIO
 
 logger = logging.getLogger(__name__)
 
@@ -17,8 +17,9 @@ def load_image_from_url(image_url):
     image = ImageOps.exif_transpose(image).convert("RGB")
     return image
 
+
 def load_images(image_records):
-    
+
     images = []
     valid_image_records = []
 
@@ -38,7 +39,6 @@ def load_images(image_records):
     return images, valid_image_records
 
 
-
 def encode_images(images, model, processor, batch_size=8):
 
     logger.info("Generating FashionCLIP Image Embeddings")
@@ -46,14 +46,11 @@ def encode_images(images, model, processor, batch_size=8):
     all_embeddings = []
 
     for start in range(0, len(images), batch_size):
-        batch_images = images[start:(start + batch_size)]
+        batch_images = images[start : (start + batch_size)]
 
         # Image preprocessing
-        image_inputs = processor(
-            images=batch_images,
-            return_tensors="pt"
-        )
-        
+        image_inputs = processor(images=batch_images, return_tensors="pt")
+
         # Moves input tensors to the device where FashionCLIP runs
         image_inputs = image_inputs.to(model.device)
 
@@ -62,7 +59,9 @@ def encode_images(images, model, processor, batch_size=8):
             batch_embeddings = model.get_image_features(**image_inputs)
 
         # L2 normalization
-        batch_embeddings = batch_embeddings / batch_embeddings.norm(dim=-1, keepdim=True).clamp_min(1e-12)
+        batch_embeddings = batch_embeddings / (
+            batch_embeddings.norm(dim=-1, keepdim=True).clamp_min(1e-12)
+        )
         all_embeddings.append(batch_embeddings.cpu())
         logger.info("Encoded %d/%d images", min(start + batch_size, len(images)), len(images))
 

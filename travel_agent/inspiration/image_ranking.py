@@ -1,4 +1,5 @@
 import logging
+
 import torch
 
 logger = logging.getLogger(__name__)
@@ -24,13 +25,8 @@ def rank_images(context_embedding, image_embeddings):
 
     return scores, ranked_indices
 
-def select_top_images(
-    scores,
-    ranked_indices,
-    valid_image_records,
-    image_embeddings,
-    top_n=10
-):
+
+def select_top_images(scores, ranked_indices, valid_image_records, image_embeddings, top_n=10):
     logger.info("Selecting Top-%d ranked images", top_n)
 
     if top_n <= 0:
@@ -43,7 +39,6 @@ def select_top_images(
     top_images = []
 
     for rank, idx in enumerate(top_indices, start=1):
-
         image_index = idx.item()
         image_record = valid_image_records[image_index].copy()
 

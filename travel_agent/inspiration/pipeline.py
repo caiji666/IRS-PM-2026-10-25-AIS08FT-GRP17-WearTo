@@ -1,21 +1,28 @@
-import torch
 import json
-import transformers
-from transformers import CLIPModel, CLIPProcessor
+import logging
 from pathlib import Path
 
-from .text_encoder import encode_context
-from .query_generator import generate_search_queries
-from .image_retrieval import retrieve_images, deduplicate_images
-from .image_encoder import load_images, encode_images
+import torch
+import transformers
+from transformers import CLIPModel, CLIPProcessor
+
+from .image_encoder import encode_images, load_images
 from .image_ranking import rank_images, select_top_images
+from .image_retrieval import deduplicate_images, retrieve_images
+from .query_generator import generate_search_queries
+from .text_encoder import encode_context
 
-
-import logging
 logger = logging.getLogger(__name__)
 
-def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max_queries=None, per_page=30):
-    
+
+def run_inspiration_pipeline(
+    expanded_context,
+    structured_context,
+    top_n=10,
+    max_queries=None,
+    per_page=30,
+):
+
     # Beginning Check
     if type(top_n) is not int or top_n <= 0:
         raise ValueError("top_n must be a positive integer.")
@@ -26,7 +33,7 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
 
     if type(per_page) is not int or not 1 <= per_page <= 30:
         raise ValueError("per_page must be between 1 and 30.")
-    
+
     logger.info("Starting Student 2 Inspiration Pipeline")
 
     # Stage 2: FashionCLIP Context Embedding
@@ -35,14 +42,19 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
     MODEL_NAME = "patrickjohncyh/fashion-clip"
     MODEL_REVISION = "7e3ba62ce16b379a1ab479346b66f192e76f51b7"
     PREPROCESSING_VERSION = "clip-rgb-exif-text77-v1"
-    
+
     model = CLIPModel.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
     processor = CLIPProcessor.from_pretrained(MODEL_NAME, revision=MODEL_REVISION, use_fast=False)
 
     model.eval()
 
     logger.info("FashionCLIP loaded successfully")
-    logger.info("\nMODEL IDENTITY:\nNAME: %s\nREVISION: %s\nPREPROCESSING_VERSION: %s", MODEL_NAME,MODEL_REVISION,PREPROCESSING_VERSION)
+    logger.info(
+        "\nMODEL IDENTITY:\nNAME: %s\nREVISION: %s\nPREPROCESSING_VERSION: %s",
+        MODEL_NAME,
+        MODEL_REVISION,
+        PREPROCESSING_VERSION,
+    )
     logger.info("Text hidden size: %d", model.config.text_config.hidden_size)
     logger.info("Vision hidden size: %d", model.config.vision_config.hidden_size)
     logger.info("Embedding dimension: %d", model.config.projection_dim)
@@ -53,8 +65,6 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
 
     assert context_embedding.shape == (1, model.config.projection_dim)
     logger.info("ContextEmbedding generated successfully: %s", tuple(context_embedding.shape))
-
-    
 
     # Stage 5: Generate Search Queries
     logger.info("Stage 5: Generating Search Queries")
@@ -68,11 +78,10 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
 
     for i, query in enumerate(search_queries, start=1):
         logger.info("Query %d: %s", i, query)
-    
-    
+
     # Stage 6: Unsplash Image Retrieval
     logger.info("Stage 6: Retrieving Fashion Images")
-    executed_queries = (search_queries[:max_queries] if max_queries is not None else search_queries)
+    executed_queries = search_queries[:max_queries] if max_queries is not None else search_queries
     all_retrieved_images = retrieve_images(executed_queries, per_page=per_page)
 
     if not all_retrieved_images:
@@ -106,12 +115,15 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
 
     assert image_embeddings.shape == (len(valid_image_records), model.config.projection_dim)
 
-    logger.info("ImageEmbeddings generated successfully: %s",tuple(image_embeddings.shape))
+    logger.info("ImageEmbeddings generated successfully: %s", tuple(image_embeddings.shape))
 
-    assert torch.allclose(image_embeddings.norm(dim=-1), torch.ones(len(valid_image_records)), atol=1e-5)
+    assert torch.allclose(
+        image_embeddings.norm(dim=-1),
+        torch.ones(len(valid_image_records)),
+        atol=1e-5,
+    )
 
     logger.info("All image embeddings are L2-normalized.")
-
 
     # Stage 10: Cosine Similarity and Image Reranking
     logger.info("Stage 10: Calculating Cosine Similarity and Reranking")
@@ -122,11 +134,7 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
     logger.info("Stage 11: Selecting Top-%d Images", top_n)
 
     top_images, top_image_embeddings = select_top_images(
-        scores,
-        ranked_indices,
-        valid_image_records,
-        image_embeddings,
-        top_n=top_n
+        scores, ranked_indices, valid_image_records, image_embeddings, top_n=top_n
     )
 
     assert len(top_images) == top_image_embeddings.shape[0]
@@ -139,17 +147,15 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
     phase2_output = {
         "context_embedding": context_embedding.cpu(),
         "top_images": top_images,
-        "top_image_embeddings": top_image_embeddings
+        "top_image_embeddings": top_image_embeddings,
     }
 
     logger.info("Phase 2 output prepared successfully for Next Phase")
-
 
     # Evaluation Requirement
     all_scored_records = []
 
     for rank, idx in enumerate(ranked_indices, start=1):
-
         image_index = idx.item()
 
         record = valid_image_records[image_index].copy()
@@ -162,7 +168,7 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
     evaluation_data = {
         "search_queries": executed_queries,
         "retrieval_records": all_retrieved_images,
-        "candidate_records": all_scored_records
+        "candidate_records": all_scored_records,
     }
 
     logger.info("Inspiration Pipeline completed successfully")
@@ -170,14 +176,10 @@ def run_inspiration_pipeline(expanded_context, structured_context, top_n=10, max
     return phase2_output, evaluation_data
 
 
-
 def main():
-    
+
     top_n = 10
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(message)s"
-    )
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 
     # Suppress unnecessary external library INFO logs
     logging.getLogger("httpx").setLevel(logging.WARNING)
@@ -207,21 +209,20 @@ def main():
     if not expanded_context:
         logger.error("ExpandedFashionContext is empty.")
         return
-    
+
     if not isinstance(structured_context, dict) or not structured_context:
         logger.error("Structured Fashion Context must be a non-empty dictionary.")
         return
 
     logger.info("Both contexts loaded successfully")
     logger.info("ExpandedFashionContext word count: %d", len(expanded_context.split()))
-    
-    
+
     result = run_inspiration_pipeline(
         expanded_context=expanded_context,
         structured_context=structured_context,
-        top_n=10,
+        top_n=top_n,
         max_queries=1,
-        per_page=5
+        per_page=5,
     )
 
     if result is None:
@@ -238,14 +239,13 @@ def main():
 
     output_path = output_dir / "phase_2_output.pt"
     evaluation_path = output_dir / "evaluation_data.pt"
-    
+
     torch.save(phase2_output, output_path)
     torch.save(evaluation_data, evaluation_path)
 
     logger.info("Phase 2 output saved successfully: %s", output_path)
     logger.info("Evaluation data saved successfully: %s", evaluation_path)
 
-    
     model_info = {
         "context": {
             "model_id": "patrickjohncyh/fashion-clip",
@@ -253,7 +253,7 @@ def main():
             "preprocessing": "clip-rgb-exif-text77-v1",
             "transformers_version": transformers.__version__,
             "dimension": 512,
-            "normalization": "L2"
+            "normalization": "L2",
         },
         "social_images": {
             "model_id": "patrickjohncyh/fashion-clip",
@@ -261,8 +261,8 @@ def main():
             "preprocessing": "clip-rgb-exif-text77-v1",
             "transformers_version": transformers.__version__,
             "dimension": 512,
-            "normalization": "L2"
-        }
+            "normalization": "L2",
+        },
     }
 
     model_info_path = output_dir / "model_info.json"

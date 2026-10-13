@@ -94,11 +94,7 @@ Its entry point is:
 
 ```python
 run_inspiration_pipeline(
-    expanded_context,
-    structured_context,
-    top_n=10,
-    max_queries=None,
-    per_page=30
+    expanded_context, structured_context, top_n=10, max_queries=None, per_page=30
 )
 ```
 
@@ -230,16 +226,9 @@ The module uses the pretrained FashionCLIP checkpoint:
 Model initialization:
 
 ```python
-model = CLIPModel.from_pretrained(
-    MODEL_NAME,
-    revision=MODEL_REVISION
-)
+model = CLIPModel.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
 
-processor = CLIPProcessor.from_pretrained(
-    MODEL_NAME,
-    revision=MODEL_REVISION,
-    use_fast=False
-)
+processor = CLIPProcessor.from_pretrained(MODEL_NAME, revision=MODEL_REVISION, use_fast=False)
 
 model.eval()
 ```
@@ -281,10 +270,7 @@ with torch.inference_mode():
 Embeddings are generated in batches and normalized using:
 
 ```python
-batch_embeddings = batch_embeddings / batch_embeddings.norm(
-    dim=-1,
-    keepdim=True
-).clamp_min(1e-12)
+batch_embeddings = batch_embeddings / batch_embeddings.norm(dim=-1, keepdim=True).clamp_min(1e-12)
 ```
 
 The resulting batches are transferred to CPU memory and concatenated.
@@ -342,7 +328,7 @@ run_inspiration_pipeline(
     structured_context=structured_context,
     top_n=10,
     max_queries=1,
-    per_page=5
+    per_page=5,
 )
 ```
 
@@ -393,7 +379,7 @@ The pipeline returns:
 phase2_output = {
     "context_embedding": context_embedding.cpu(),
     "top_images": top_images,
-    "top_image_embeddings": top_image_embeddings
+    "top_image_embeddings": top_image_embeddings,
 }
 ```
 
@@ -411,7 +397,7 @@ The pipeline also returns:
 evaluation_data = {
     "search_queries": executed_queries,
     "retrieval_records": all_retrieved_images,
-    "candidate_records": all_scored_records
+    "candidate_records": all_scored_records,
 }
 ```
 
@@ -475,9 +461,9 @@ The handoff function returns:
         "pt": "inspiration-handoffs/<id>/phase_2_output.pt",
         "text": "inspiration-handoffs/<id>/expanded_fashion_context.txt",
         "context": "inspiration-handoffs/<id>/context.json",
-        "model_info": "inspiration-handoffs/<id>/model_info.json"
+        "model_info": "inspiration-handoffs/<id>/model_info.json",
     },
-    "reference_mode": "imported"
+    "reference_mode": "imported",
 }
 ```
 
@@ -601,89 +587,146 @@ The LangChain service invokes `run_inspiration_pipeline()` directly and does not
 
 ## 13. Testing
 
-The module has been tested using real FashionCLIP inference, local test images, Unsplash retrieval and mocked service/tool interfaces.
+The Inspiration module has been validated through real FashionCLIP inference, local image fixtures, live Unsplash retrieval, and mocked service/tool integration tests.
 
-### 13.1 Test files
+Tests are separated into **manual integration scripts** and **automated pytest tests** to prevent unintended API calls, model downloads, or dependencies on local artifacts during CI execution.
 
-| Test | Purpose |
-|---|---|
-| `test_fashionclip_compatibility.py` | Text and image embedding compatibility |
-| `test_ranking_offline.py` | Local-image FashionCLIP ranking |
-| `test_retrieval_online.py` | Live Unsplash retrieval and URL-based loading |
-| `test_context_adapter.py` | Student 1 context mapping and query generation |
-| `test_service.py` | Mocked inspiration service and handoff |
-| `test_tools.py` | LangChain inspiration tool wrapper |
-| `test_student3_handoff.py` | Student 3 upstream adapter compatibility |
-| `test_handoff.py` | File creation and adapter validation |
-| `test_product_tool_handoff.py` | Student 3 LangChain tool boundary |
+### 13.1 Test Files
 
-### 13.2 Example test commands
+| Script | Purpose | Execution |
+|---|---|---|
+| `check_fashionclip_compatibility.py` | Validates FashionCLIP text and image embedding generation, dimensions, and L2 normalization | Manual |
+| `check_ranking_offline.py` | Tests cosine similarity ranking and Top-N selection using local images | Manual |
+| `check_retrieval_online.py` | Tests live Unsplash retrieval, image deduplication, and URL-based image loading | Manual |
+| `check_context_adapter.py` | Validates Student 1 context mapping and search query generation | Manual |
+| `check_student3_handoff.py` | Validates Student 3 upstream adapter compatibility with existing outputs | Manual |
+| `check_handoff.py` | Tests file-based handoff generation, model compatibility, and embedding alignment | Manual |
+| `live_agent_demo.py` | Manually tests the shared LangChain agent using a configured LLM | Manual |
+| `test_service.py` | Tests the Student 2 service and handoff using mocks | Pytest |
+| `test_tools.py` | Tests the LangChain inspiration tool wrapper using mocks | Pytest |
+| `test_product_tool_handoff.py` | Tests the Student 3 LangChain tool boundary using mocks | Pytest |
 
-Run the context adapter test:
+### 13.2 Manual Integration Tests
 
-```bash
-PYTHONPATH=. uv run --no-sync python tests/inspiration/test_context_adapter.py
-```
+Run the following commands from the repository root after installing the required optional dependencies.
 
-Run offline ranking:
-
-```bash
-PYTHONPATH=. uv run --no-sync python tests/inspiration/test_ranking_offline.py
-```
-
-Run online retrieval:
+**FashionCLIP Compatibility**
 
 ```bash
-PYTHONPATH=. uv run --no-sync python tests/inspiration/test_retrieval_online.py
+PYTHONPATH=. uv run --no-sync python tests/inspiration/check_fashionclip_compatibility.py
 ```
 
-Run service tests:
+**Offline FashionCLIP Ranking**
+
+```bash
+PYTHONPATH=. uv run --no-sync python tests/inspiration/check_ranking_offline.py
+```
+
+**Online Unsplash Retrieval**
+
+Requires a valid `UNSPLASH_ACCESS_KEY` configured in the local environment.
+
+```bash
+PYTHONPATH=. uv run --no-sync python tests/inspiration/check_retrieval_online.py
+```
+
+**Student 1 Context Adapter**
+
+```bash
+PYTHONPATH=. uv run --no-sync python tests/inspiration/check_context_adapter.py
+```
+
+**Student 3 Adapter Compatibility**
+
+Requires previously generated Phase 2 output files.
+
+```bash
+PYTHONPATH=. uv run --no-sync python tests/inspiration/check_student3_handoff.py
+```
+
+**Student 2 → Student 3 File-Based Handoff**
+
+Requires previously generated Phase 2 output files.
+
+```bash
+PYTHONPATH=. uv run --no-sync python tests/inspiration/check_handoff.py
+```
+
+**Live LangChain Agent**
+
+Requires `AGENT_MODEL` and the corresponding LLM provider credentials.
+
+```bash
+PYTHONPATH=. uv run --no-sync python tests/inspiration/live_agent_demo.py
+```
+
+Full live-agent orchestration has not yet been validated.
+
+### 13.3 Automated Pytest Tests
+
+The following tests use mocked pipeline or service outputs and do not require live Unsplash requests.
+
+**Student 2 Service Integration**
 
 ```bash
 uv run --no-sync python -m pytest tests/inspiration/test_service.py -v
 ```
 
-Run LangChain tool tests:
+**LangChain Inspiration Tool**
 
 ```bash
 uv run --no-sync python -m pytest tests/inspiration/test_tools.py -v
 ```
 
-Run the file-based handoff test:
-
-```bash
-PYTHONPATH=. uv run --no-sync python tests/inspiration/test_handoff.py
-```
-
-Run the Student 3 tool boundary test:
+**Student 3 Tool Handoff**
 
 ```bash
 uv run --no-sync python -m pytest tests/inspiration/test_product_tool_handoff.py -v
 ```
 
-**Note:** Some scripts execute live API calls or model inference at import time. They should not be included in routine CI execution without being converted into explicitly controlled tests.
+Run all automated Inspiration tests:
 
-### 13.3 Verified results
+```bash
+uv run --no-sync python -m pytest tests/inspiration/ -v
+```
 
-The standalone pipeline successfully generated:
+These tests use mocked external behavior, but some currently import optional ML dependencies. CI compatibility with a default-only dependency installation must be verified separately.
 
-- One 512-dimensional context embedding.
-- Nine search queries from the test context.
-- Five Unsplash image records in the limited online run.
-- Five successfully loaded images.
-- Five 512-dimensional image embeddings.
-- Five ranked fashion references.
-- The Phase 2 output, evaluation data and model metadata files.
+### 13.4 Verified Results
 
-Student 3's upstream adapter returned:
+The standalone Inspiration pipeline successfully generated:
 
-`declared_compatible`
+- One 512-dimensional FashionCLIP context embedding.
+- Nine search queries from the structured test context.
+- Five image records retrieved through the Unsplash API in a limited online run.
+- Five successfully downloaded and processed images.
+- Five 512-dimensional, L2-normalized image embeddings.
+- Five ranked fashion inspiration references.
+- Phase 2 output, evaluation data, and model metadata files.
 
-The file-based handoff preserved the ranked reference ID order.
+Student 3's upstream adapter successfully validated the generated artifacts and returned:
 
-Mocked service and LangChain tool tests also passed.
+```text
+Adapter status: declared_compatible
+Context embedding shape: [1, 512]
+Image embeddings shape: [5, 512]
+```
 
-These results verify execution and interface compatibility, not recommendation accuracy.
+The file-based handoff preserved the correspondence between ranked image records and embedding rows.
+
+Mocked Student 2 service, LangChain inspiration tool, and Student 3 tool-boundary tests also passed.
+
+### 13.5 Testing Limitations
+
+- Manual integration scripts use the `check_` prefix or the `live_agent_demo.py` filename to prevent automatic pytest collection.
+- Live Unsplash tests require API credentials and consume API quota.
+- FashionCLIP tests require compatible model dependencies and access to the pretrained checkpoint.
+- Offline image tests require local image fixtures that may not be included in the repository.
+- Handoff validation scripts require previously generated Phase 2 artifacts.
+- Mocked tests verify interface behavior but do not establish real model accuracy or complete agent orchestration.
+- Retrieval-quality evaluation using relevance labels, Precision@K, and NDCG@K remains separate from functional validation.
+
+The automated CI workflow should not require external API credentials, downloaded experimental images, or previously generated runtime artifacts.
 
 ## 14. Local Data and Git Exclusions
 

@@ -4,14 +4,10 @@ import torch
 
 from travel_agent.inspiration.service import run
 
-
 # Simulated Student 1 output
 student1_data = {
     "ready_for_downstream": True,
-    "trip_request": {
-        "destination": "Seoul",
-        "style": ["minimalist"]
-    },
+    "trip_request": {"destination": "Seoul", "style": ["minimalist"]},
     "season": "winter",
     "expanded_fashion_context": "Seoul winter minimalist warm coat trousers boots",
     "weather_clothing_requirements": {
@@ -19,11 +15,9 @@ student1_data = {
         "top": ["sweater"],
         "bottom": ["trousers"],
         "footwear": ["boots"],
-        "properties": ["warm"]
+        "properties": ["warm"],
     },
-    "activity_style_requirements": {
-        "sightseeing": ["casual", "comfortable"]
-    }
+    "activity_style_requirements": {"sightseeing": ["casual", "comfortable"]},
 }
 
 
@@ -37,16 +31,16 @@ def test_inspiration_service():
                 "image_id": "test_image_001",
                 "image_url": "https://example.com/image.jpg",
                 "rank": 1,
-                "similarity_score": 0.85
+                "similarity_score": 0.85,
             }
         ],
-        "top_image_embeddings": torch.randn(1, 512)
+        "top_image_embeddings": torch.randn(1, 512),
     }
 
     mock_evaluation_data = {
         "search_queries": ["Seoul winter minimalist outfit"],
         "retrieval_records": [],
-        "candidate_records": []
+        "candidate_records": [],
     }
 
     mock_handoff_result = {
@@ -54,28 +48,23 @@ def test_inspiration_service():
             "pt": "test/phase_2_output.pt",
             "text": "test/expanded_fashion_context.txt",
             "context": "test/context.json",
-            "model_info": "test/model_info.json"
+            "model_info": "test/model_info.json",
         },
-        "reference_mode": "imported"
+        "reference_mode": "imported",
     }
 
     # Mock both the pipeline and file-based handoff
     with (
         patch(
             "travel_agent.inspiration.service.run_inspiration_pipeline",
-            return_value=(mock_phase2_output, mock_evaluation_data)
+            return_value=(mock_phase2_output, mock_evaluation_data),
         ) as mock_pipeline,
-
         patch(
             "travel_agent.inspiration.service.save_inspiration_handoff",
-            return_value=mock_handoff_result
-        ) as mock_handoff
+            return_value=mock_handoff_result,
+        ) as mock_handoff,
     ):
-
-        result = run({
-            "understanding": student1_data,
-            "top_n": 10
-        })
+        result = run({"understanding": student1_data, "top_n": 10})
 
         # Verify service output
         assert result.status == "ok"

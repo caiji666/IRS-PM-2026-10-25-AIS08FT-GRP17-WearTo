@@ -24,10 +24,7 @@ def test_product_tool_handoff():
         "travel_agent.products.tools.run",
         return_value=mock_result,
     ) as mock_service:
-
-        result = search_products.invoke({
-            "payload": handoff
-        })
+        result = search_products.invoke({"payload": handoff})
 
         assert result["status"] == "ok"
 

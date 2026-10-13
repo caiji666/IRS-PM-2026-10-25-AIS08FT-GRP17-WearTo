@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 
 from travel_agent.agent import build_agent
@@ -17,11 +18,11 @@ result = agent.invoke(
                 "content": (
                     "I'm travelling to Seoul in December. "
                     "I prefer minimalist outfits for sightseeing and dinner."
-                )
+                ),
             }
         ]
     },
-    config={"recursion_limit": 12}
+    config={"recursion_limit": 12},
 )
 
 print(result["messages"][-1].content)
