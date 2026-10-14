@@ -115,7 +115,7 @@ uv run pytest
 ITSA_REAL_MODEL_TEST=1 uv run pytest -q
 ```
 
-Notification tests require the optional notification extra and skip cleanly in the default environment. Tests cover official signature interoperability, tamper rejection, challenge output, durable deduplication, all-consumer completion, encryption, retries, safe paths, invalidated reports, HTTP auth and end-to-end synthetic cleanup. Production account activation, real signed notifications, Docker image build and platform persistence require later deployment verification.
+Notification tests require the optional notification extra and skip cleanly in the default environment. Tests cover official signature interoperability, tamper rejection, challenge output, durable deduplication, all-consumer completion, encryption, retries, safe paths, invalidated reports, HTTP auth and end-to-end synthetic cleanup. Deployment verification is recorded below; automated tests remain separate from live API and deployment checks.
 
 References: [eBay account deletion guide](https://developer.ebay.com/develop/guides/sell/marketplace-user-account-deletion), [official notification SDK](https://github.com/eBay/event-notification-nodejs-sdk), [Buy API access requirements](https://developer.ebay.com/api-docs/buy/static/buy-requirements.html).
 
@@ -138,6 +138,20 @@ This registers the exported JSON for cleanup under the same lock as deletion. It
 - Notification-only environment: all 29 notification tests passed; Torch and Pillow absent.
 - Actual loopback WSGI HTTP smoke: GET challenge 200; unsigned POST 412; official SDK signed fixture POST 204; authenticated Mac pull, synthetic artifact cleanup and ACK completed.
 - Ruff lint/format, dependency lock sync and shared offline demo passed.
-- Docker engine was not running, so the image build has not been verified. No deployment, real notification, Production activation or GitHub push was performed.
+- At the initial local-validation stage, Docker was unavailable. The subsequent Render deployment built and ran the image successfully; see the live deployment record below.
 
 Authenticated status includes failed deliveries and expired leases. Status-only worker calls return exit 1 and emit an error when cleanup failures exist or queue age exceeds `--max-pending-age` (default 3600 seconds); monitoring can alert on this exit code. Continuous workers report errors and retain failed deliveries for retry. Configure the deployment platform's actual alert destination separately.
+
+
+## Live deployment and Production verification (2026-10-14)
+
+- The notification service branch was pushed independently of main and deployed on Render Starter with a 1 GB persistent disk mounted at `/var/lib/ebay`.
+- HTTPS health and GET challenge verification passed. Production notification settings were saved successfully in eBay, and the disabled keyset notice disappeared.
+- A real eBay test notification passed signature verification and entered the encrypted queue. After a Render service restart, the pending event remained available. The authenticated Mac worker completed it and acknowledged it; subsequent status reported one done event, zero failed deliveries and zero expired leases. No generated artifacts existed when this test cleanup ran.
+- Local Production OAuth authentication succeeded without displaying or persisting the access token.
+- Live hybrid retrieval using the previously supplied team inputs completed 13 search requests: 99 image-search candidates and 140 keyword-search candidates, 239 unique candidates, and 40 encoded products. All four target categories returned five products. One keyword request encountered a network error; the overall run still completed.
+- The result contained one saved owned item. Social references were re-encoded locally (`reference_mode: recompute`); this run did not establish compatibility of the old anonymous upstream vectors. Scoring used equal context/social weights and maximum similarity across social references.
+- Runtime results are local at `runs/ebay_production/result.json`; the downstream handoff is its `bundle` field. Three generated artifact locations were registered for lifecycle cleanup. Runtime results, credentials, user inputs, downloaded images and model weights are excluded from Git.
+- The worker was verified in single-pass mode. Continuous operation still requires the documented watch command or a supervised process on each registered data holder. This is functional verification, not a retrieval-quality evaluation or a claim of complete operational compliance.
+
+The latest fetched Student 2 code is already present in this branch. Git does not contain newly generated `.pt` outputs; a new handoff must be supplied privately or generated with the upstream API credentials before testing those exact updated artifacts.
