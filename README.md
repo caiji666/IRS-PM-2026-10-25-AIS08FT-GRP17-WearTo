@@ -150,5 +150,4 @@ For a fresh checkout, follow the [product retrieval runbook](docs/product-retrie
 
 For the resource-complete current local checkout, see [independent local validation and commands](docs/local-product-retrieval-validation.md). Inputs, photographs, model files and private Sandbox configuration now reside within this checkout; the old standalone project is not required. These excluded resources remain local and are not supplied by a Git clone.
 
-
-
+Hybrid eBay candidate retrieval: [algorithm and commands](docs/hybrid-product-retrieval.md).

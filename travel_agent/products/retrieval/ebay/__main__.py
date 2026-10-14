@@ -16,12 +16,18 @@ def main():
     subs.add_parser("auth-check")
     subs.add_parser("configure")
     r = subs.add_parser("run")
+    r.add_argument("--search-mode", choices=["image", "hybrid", "keyword"], default="hybrid")
+    r.add_argument("--max-search-requests", type=int, default=17)
+    r.add_argument("--context-weight", type=float, default=0.5)
+    r.add_argument(
+        "--request", type=Path, help="Mapped ProductRetrievalRequest JSON from Student 1"
+    )
     r.add_argument("--pt", type=Path, required=True)
     r.add_argument("--text", type=Path, required=True)
     r.add_argument("--context", type=Path, required=True)
     r.add_argument("--model-info", type=Path)
     r.add_argument("--reference-mode", choices=["recompute", "imported"], default="recompute")
-    r.add_argument("--max-references", type=int, default=3)
+    r.add_argument("--max-references", type=int, default=5)
     r.add_argument("--limit", type=int, default=20)
     r.add_argument("--max-products", type=int, default=40)
     r.add_argument("--k-per-category", type=int, default=5)
@@ -62,6 +68,10 @@ def main():
             a.k_per_category,
             a.wardrobe_store,
             a.category_ids,
+            request_override=json.loads(a.request.read_text()) if a.request else None,
+            search_mode=a.search_mode,
+            max_search_requests=a.max_search_requests,
+            context_weight=a.context_weight,
         )
         a.output_dir.mkdir(parents=True, exist_ok=True)
         (a.output_dir / "result.json").write_text(

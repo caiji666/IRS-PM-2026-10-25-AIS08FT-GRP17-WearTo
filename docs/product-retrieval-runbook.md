@@ -432,3 +432,7 @@ UV_PROJECT_ENVIRONMENT=.venv-ci uv run --locked pytest -q
 - Non-ready understanding output: finish upstream clarification/human review; the product adapter does not bypass `ready_for_downstream`.
 
 This guide verifies structured understanding output plus upstream reference files through product retrieval and wardrobe output. Online social retrieval, final outfit generation/validation, real Qwen inference, a live chat-model agent and persistent sessions are not claimed completed by these commands. No model/network calls occur merely by importing the shared tools.
+
+## Hybrid eBay search
+
+See [Hybrid product retrieval](hybrid-product-retrieval.md) for image-plus-keyword candidate acquisition, bounded fallback, commands and output interpretation. Final FashionCLIP social/context reranking remains required.

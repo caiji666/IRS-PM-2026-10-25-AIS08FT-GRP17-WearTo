@@ -105,6 +105,16 @@ class BrowseClient:
             json={"image": base64.b64encode(image_bytes).decode("ascii")},
         )
 
+    def search_keywords(self, query, limit=20, category_ids=None):
+        if not isinstance(query, str) or not query.strip() or len(query) > 100:
+            raise ValueError("query must contain 1..100 characters")
+        if not 1 <= limit <= 200:
+            raise ValueError("limit must be 1..200")
+        params = {"q": query.strip(), "limit": limit}
+        if category_ids:
+            params["category_ids"] = category_ids
+        return self._browse("GET", "/buy/browse/v1/item_summary/search", params=params)
+
     def item(self, item_id):
         return self._browse("GET", "/buy/browse/v1/item/" + quote(item_id, safe=""))
 
