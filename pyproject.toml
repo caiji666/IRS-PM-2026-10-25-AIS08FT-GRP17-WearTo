@@ -6,6 +6,7 @@ requires-python = ">=3.11,<3.12"
 dependencies = ["langchain>=1,<2", "langgraph>=1,<2", "pydantic>=2,<3", "python-dotenv>=1,<2"]
 
 [project.optional-dependencies]
+ebay-notifications = ["cryptography>=46,<51", "requests>=2.32,<3", "gunicorn>=23,<26"]
 openai = ["langchain-openai>=1,<2"]
 qwen = [
     "torch>=2.6,<3",

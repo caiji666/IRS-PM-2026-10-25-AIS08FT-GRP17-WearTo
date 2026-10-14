@@ -1,6 +1,7 @@
 import copy
 import hashlib
 from datetime import datetime, timezone
+from functools import wraps
 from pathlib import Path
 
 from ..m3 import process_records
@@ -110,7 +111,7 @@ def map_product(row, environment, marketplace, fetched_at, image_path=None):
     return product
 
 
-def run(
+def _run(
     client,
     encoder,
     pt,
@@ -130,6 +131,7 @@ def run(
     search_mode="image",
     max_search_requests=17,
     context_weight=None,
+    _lifecycle=None,
 ):
     if search_mode not in {"image", "hybrid", "keyword"}:
         raise ValueError("invalid search mode")
@@ -168,6 +170,7 @@ def run(
         )
     output_dir = Path(output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
+    lifecycle = _lifecycle
     issues = []
     raw_search = []
     references = []
@@ -178,6 +181,10 @@ def run(
     executed_queries = set()
 
     def collect(response, source, reference_id=None, query=None, category=None):
+        if lifecycle is not None:
+            for row in response.get("itemSummaries", []):
+                if isinstance(row, dict):
+                    lifecycle.observe(output_dir, row)
         raw_search.append(
             {
                 "source": source,
@@ -270,6 +277,8 @@ def run(
                     row.update(client.item(item_id))
                 except EbayError as exc:
                     issues.append({"stage": "item_details", "item_id": item_id, "reason": str(exc)})
+                if lifecycle is not None:
+                    lifecycle.observe(output_dir, row)
                 url = (row.get("image") or {}).get("imageUrl")
                 if not url:
                     raise ValueError("item has no primary photo; excluded from image ranking")
@@ -355,6 +364,7 @@ def run(
             "social_weight": 1 - context_weight,
             "social_aggregation": "max",
         },
+        "lifecycle_generation": lifecycle.generation() if lifecycle else None,
         "environment": client.environment,
         "marketplace": client.marketplace,
         "status": "completed" if products else "no_usable_api_products",
@@ -381,3 +391,24 @@ def run(
             "returned_per_category": {k.value: len(v) for k, v in ranking.ranked_products.items()},
         },
     }
+
+
+@wraps(_run)
+def run(client, encoder, pt, text, context, output_dir, *args, **kwargs):
+    if client.environment != "production":
+        return _run(client, encoder, pt, text, context, output_dir, *args, **kwargs)
+    import os
+
+    from ...notifications.lifecycle import lifecycle_lock, production_registry
+
+    root = os.environ.get("EBAY_MANAGED_ROOT")
+    if not root:
+        raise ValueError("Production persistence requires EBAY_MANAGED_ROOT")
+    with lifecycle_lock(root):
+        registry = production_registry(output_dir, encoder)
+        try:
+            return _run(
+                client, encoder, pt, text, context, output_dir, *args, _lifecycle=registry, **kwargs
+            )
+        finally:
+            registry.close()

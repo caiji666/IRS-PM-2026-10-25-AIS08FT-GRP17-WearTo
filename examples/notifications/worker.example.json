@@ -1,0 +1,5 @@
+{
+  "service_url": "https://YOUR_DEPLOYED_SERVICE",
+  "worker_token": "REPLACE_WITH_THE_MAC_WORKER_TOKEN_FROM_LOCAL_SECRET_CONFIGURATION",
+  "managed_root": "/absolute/path/to/travel-style-agent"
+}

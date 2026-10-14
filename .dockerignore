@@ -1,0 +1,10 @@
+**
+!pyproject.toml
+!uv.lock
+!travel_agent/
+!travel_agent/**
+!deploy/
+!deploy/ebay-notifications/
+!deploy/ebay-notifications/gunicorn.conf.py
+!deploy/ebay-notifications/Dockerfile
+**/__pycache__/

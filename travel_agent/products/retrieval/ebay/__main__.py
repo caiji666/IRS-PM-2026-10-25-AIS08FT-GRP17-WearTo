@@ -74,9 +74,9 @@ def main():
             context_weight=a.context_weight,
         )
         a.output_dir.mkdir(parents=True, exist_ok=True)
-        (a.output_dir / "result.json").write_text(
-            json.dumps(result, indent=2, ensure_ascii=False) + "\n"
-        )
+        from ...notifications.lifecycle import save_report
+
+        save_report(result, a.output_dir / "result.json")
         print(json.dumps({"status": result["status"], **result["summary"]}, ensure_ascii=False))
         return 0 if result["status"] == "completed" else 3
     except Exception as exc:

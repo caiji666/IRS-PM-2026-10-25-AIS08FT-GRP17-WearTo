@@ -7,7 +7,6 @@ from pathlib import Path
 from urllib.parse import quote, urljoin, urlparse
 
 import requests
-from PIL import Image, ImageOps
 
 MARKETS = {"EBAY_US", "EBAY_GB", "EBAY_DE", "EBAY_AU"}
 
@@ -121,6 +120,8 @@ class BrowseClient:
 
 def download_photo(url, target, hosts, session=None):
     """No bearer token on CDN requests; validate each HTTPS redirect and byte limits."""
+    from PIL import Image, ImageOps
+
     session = session or requests.Session()
     current = url
     for _ in range(4):

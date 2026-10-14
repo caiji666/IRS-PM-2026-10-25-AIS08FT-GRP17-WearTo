@@ -424,3 +424,44 @@ def test_sandbox_cdn_upgrade_keeps_https_host_validation(tmp_path):
         wardrobe_store=tmp_path / "none",
     )
     assert result["summary"]["products_indexed"] == 1
+
+
+def test_production_pipeline_registers_artifacts_and_preserves_sandbox(tmp_path, monkeypatch):
+    pytest.importorskip("cryptography")
+    from travel_agent.products.notifications.lifecycle import Registry, save_report
+
+    class Production(Client):
+        environment = "production"
+
+        def item(self, item):
+            row = super().item(item)
+            row["seller"] = {"username": "synthetic-seller"}
+            return row
+
+    monkeypatch.delenv("EBAY_MANAGED_ROOT", raising=False)
+    with pytest.raises(ValueError, match="EBAY_MANAGED_ROOT"):
+        run(Production(), Encoder(), *inputs(tmp_path), tmp_path / "runs/api")
+    monkeypatch.setenv("EBAY_MANAGED_ROOT", str(tmp_path))
+    result = run(
+        Production(),
+        Encoder(),
+        *inputs(tmp_path),
+        tmp_path / "runs/api",
+        fetch_photo=photo,
+        wardrobe_store=tmp_path / "none",
+    )
+    save_report(result, tmp_path / "runs/api/result.json")
+    registry = Registry(tmp_path, tmp_path / ".cache/ebay-lifecycle/registry.sqlite3")
+    assert registry.db.execute("SELECT count(*) FROM accounts").fetchone()[0] == 1
+    registry.cleanup({"event_id": "signed-event", "identifiers": {"username": "synthetic-seller"}})
+    assert not (tmp_path / "runs/api").exists()
+    registry.close()
+    with pytest.raises(RuntimeError, match="previously deleted"):
+        run(
+            Production(),
+            Encoder(),
+            *inputs(tmp_path),
+            tmp_path / "runs/new",
+            fetch_photo=photo,
+            wardrobe_store=tmp_path / "none",
+        )

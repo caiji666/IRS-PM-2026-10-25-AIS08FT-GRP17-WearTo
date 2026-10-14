@@ -292,6 +292,18 @@ wheels = [
 ]
 
 [[package]]
+name = "gunicorn"
+version = "25.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c4/f4/e78fa054248fab913e2eab0332c6c2cb07421fca1ce56d8fe43b6aef57a4/gunicorn-25.3.0.tar.gz", hash = "sha256:f74e1b2f9f76f6cd1ca01198968bd2dd65830edc24b6e8e4d78de8320e2fe889", size = 634883, upload-time = "2026-03-27T00:00:26.092Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/43/c8/8aaf447698c4d59aa853fd318eed300b5c9e44459f242ab8ead6c9c09792/gunicorn-25.3.0-py3-none-any.whl", hash = "sha256:cacea387dab08cd6776501621c295a904fe8e3b7aae9a1a3cbb26f4e7ed54660", size = 208403, upload-time = "2026-03-27T00:00:27.386Z" },
+]
+
+[[package]]
 name = "h11"
 version = "0.16.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1502,6 +1514,11 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+ebay-notifications = [
+    { name = "cryptography" },
+    { name = "gunicorn" },
+    { name = "requests" },
+]
 inspiration = [
     { name = "pillow" },
     { name = "requests" },
@@ -1540,7 +1557,9 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "cryptography", marker = "extra == 'ebay-notifications'", specifier = ">=46,<51" },
     { name = "google-genai", marker = "extra == 'inspiration-eval'", specifier = ">=1,<3" },
+    { name = "gunicorn", marker = "extra == 'ebay-notifications'", specifier = ">=23,<26" },
     { name = "langchain", specifier = ">=1,<2" },
     { name = "langchain-openai", marker = "extra == 'openai'", specifier = ">=1,<2" },
     { name = "langgraph", specifier = ">=1,<2" },
@@ -1552,6 +1571,7 @@ requires-dist = [
     { name = "pillow", marker = "extra == 'products'", specifier = ">=10,<12" },
     { name = "pydantic", specifier = ">=2,<3" },
     { name = "python-dotenv", specifier = ">=1,<2" },
+    { name = "requests", marker = "extra == 'ebay-notifications'", specifier = ">=2.32,<3" },
     { name = "requests", marker = "extra == 'inspiration'", specifier = ">=2.32,<3" },
     { name = "requests", marker = "extra == 'products'", specifier = ">=2.32,<3" },
     { name = "scikit-learn", marker = "extra == 'inspiration-eval'", specifier = ">=1.5,<2" },
@@ -1562,7 +1582,7 @@ requires-dist = [
     { name = "transformers", marker = "extra == 'products'", specifier = "==4.57.6" },
     { name = "transformers", marker = "extra == 'qwen'", specifier = ">=4.51,<5" },
 ]
-provides-extras = ["openai", "qwen", "neo4j", "products", "inspiration", "inspiration-eval"]
+provides-extras = ["ebay-notifications", "openai", "qwen", "neo4j", "products", "inspiration", "inspiration-eval"]
 
 [package.metadata.requires-dev]
 dev = [

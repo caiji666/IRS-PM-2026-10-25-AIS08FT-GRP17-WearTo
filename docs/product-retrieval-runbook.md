@@ -436,3 +436,7 @@ This guide verifies structured understanding output plus upstream reference file
 ## Hybrid eBay search
 
 See [Hybrid product retrieval](hybrid-product-retrieval.md) for image-plus-keyword candidate acquisition, bounded fallback, commands and output interpretation. Final FashionCLIP social/context reranking remains required.
+
+## Production notifications
+
+Before Production persistence, follow [the notification lifecycle guide](ebay-production-activation.md), configure `EBAY_MANAGED_ROOT`, and operate the authenticated cleanup worker. Sandbox workflows remain unchanged.
