@@ -1536,6 +1536,11 @@ neo4j = [
 openai = [
     { name = "langchain-openai" },
 ]
+preview = [
+    { name = "openai" },
+    { name = "pillow" },
+    { name = "requests" },
+]
 products = [
     { name = "numpy" },
     { name = "pandas" },
@@ -1566,13 +1571,16 @@ requires-dist = [
     { name = "matplotlib", marker = "extra == 'inspiration-eval'", specifier = ">=3.8,<4" },
     { name = "neo4j", marker = "extra == 'neo4j'", specifier = ">=5,<7" },
     { name = "numpy", marker = "extra == 'products'", specifier = ">=1.26,<3" },
+    { name = "openai", marker = "extra == 'preview'", specifier = ">=3,<4" },
     { name = "pandas", marker = "extra == 'products'", specifier = ">=2.2,<3" },
     { name = "pillow", marker = "extra == 'inspiration'", specifier = ">=10,<12" },
+    { name = "pillow", marker = "extra == 'preview'", specifier = ">=10,<12" },
     { name = "pillow", marker = "extra == 'products'", specifier = ">=10,<12" },
     { name = "pydantic", specifier = ">=2,<3" },
     { name = "python-dotenv", specifier = ">=1,<2" },
     { name = "requests", marker = "extra == 'ebay-notifications'", specifier = ">=2.32,<3" },
     { name = "requests", marker = "extra == 'inspiration'", specifier = ">=2.32,<3" },
+    { name = "requests", marker = "extra == 'preview'", specifier = ">=2.32,<3" },
     { name = "requests", marker = "extra == 'products'", specifier = ">=2.32,<3" },
     { name = "scikit-learn", marker = "extra == 'inspiration-eval'", specifier = ">=1.5,<2" },
     { name = "torch", marker = "extra == 'inspiration'", specifier = ">=2.6,<2.9" },
@@ -1582,7 +1590,7 @@ requires-dist = [
     { name = "transformers", marker = "extra == 'products'", specifier = "==4.57.6" },
     { name = "transformers", marker = "extra == 'qwen'", specifier = ">=4.51,<5" },
 ]
-provides-extras = ["ebay-notifications", "openai", "qwen", "neo4j", "products", "inspiration", "inspiration-eval"]
+provides-extras = ["ebay-notifications", "openai", "qwen", "neo4j", "products", "inspiration", "preview", "inspiration-eval"]
 
 [package.metadata.requires-dev]
 dev = [

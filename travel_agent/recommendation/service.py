@@ -4,8 +4,8 @@ Proposal Stages 10, 12, 13 and 14. The business logic lives in
 `travel_agent.recommendation.student5`; this module is the team entry point. It validates the
 payload, calls the existing public functions (`student4_adapter`, `Student5Orchestrator`) and
 returns a `ModuleResult`. It computes no CompatibilityScore (Student 4's Stage 11), never
-relaxes a hard constraint, opens no network connection, reads no `.env` and never calls a real
-image API.
+relaxes a hard constraint and reads no `.env`. Only a `"preview"` call can reach a real image
+API, and only when the server environment selects it (`PREVIEW_PROVIDER=openai`).
 
 Payload contract. The top-level `action` selects the service operation and is always
 required. It is not a Stage 1 user intent: the `intent` inside a `patch`
@@ -30,12 +30,21 @@ required. It is not a Stage 1 user intent: the `intent` inside a `patch`
   changed and no state is returned.
 - `"preview"`: Stage 14.
   - Required: `confirmed_outfit` and `preview_mode`.
-  - Optional: `preview_provider` (`"mock"` for `MockPreviewProvider`; absent means no
-    provider, so a product-card fallback is returned), and `user_portrait` with
-    `portrait_consent`.
-  - Returns `preview` and `preview_source` (`"mock"` or `"product_card_fallback"`).
-  - The real image provider is never created from a payload. Credentials must not enter a
-    payload.
+  - Optional: `preview_provider` (only `"mock"`, for the offline `MockPreviewProvider`), and
+    `user_portrait` with `portrait_consent`.
+  - Without `preview_provider`, the server environment decides
+    (`preview_provider.server_preview_provider`): `PREVIEW_PROVIDER=openai` with
+    `PREVIEW_API_KEY` and `PREVIEW_MODEL` uses the real `OpenAIImagePreviewProvider`. Unset or
+    empty returns the product-card fallback; any other value, a missing setting, SDK or
+    Pillow, or a known provider failure (`PreviewProviderError`) returns the fallback with a
+    warning that contains no secret. Programming errors are not turned into a fallback.
+  - PRODUCT_CARDS never reaches a provider. A portrait is only accepted with
+    `portrait_consent=true` (otherwise `needs_input`, before any provider is created).
+  - Returns `preview` and `preview_source`: `"mock"`, the real provider's name (`"openai"`,
+    PROVISIONAL) when it delivered a generated image, or `"product_card_fallback"`.
+  - The real image provider is never selected or configured from a payload: `"openai"` is not
+    an accepted `preview_provider`, and API key, model, allowed hosts and output directory are
+    unknown payload keys (`needs_input`).
 
 Status mapping:
 
@@ -53,6 +62,7 @@ from typing import Any
 
 from pydantic import ValidationError
 
+from travel_agent.recommendation.preview_provider import server_preview_provider
 from travel_agent.recommendation.student5.confirmation_handler import OutfitAlreadyConfirmedError
 from travel_agent.recommendation.student5.constraint_engine import CurrencyMismatchError
 from travel_agent.recommendation.student5.dialogue_state import (
@@ -63,6 +73,7 @@ from travel_agent.recommendation.student5.models import (
     ConfirmedOutfit,
     ConversationalRecommendationState,
     PreviewMode,
+    PreviewStatus,
     RecommendationSet,
     TripShoppingRequest,
     TripShoppingRequestPatch,
@@ -225,7 +236,8 @@ def _preview(payload: dict) -> ModuleResult:
         raise _PayloadError(
             f"preview_provider must be one of {sorted(PREVIEW_PROVIDERS)} or absent"
         )
-    provider = PREVIEW_PROVIDERS[name]() if name is not None else None
+    # The real provider comes only from the server environment, read here at call time.
+    provider = PREVIEW_PROVIDERS[name]() if name is not None else server_preview_provider()
     orchestrator = Student5Orchestrator(
         beta=DEFAULT_BETA, preview_provider=provider, session_id=confirmed.session_id
     )
@@ -235,13 +247,17 @@ def _preview(payload: dict) -> ModuleResult:
         user_portrait=payload.get("user_portrait"),
         portrait_consent=payload.get("portrait_consent", False),
     )
-    return ModuleResult(
-        status="ok",
-        data={
-            "preview": _dump(preview),
-            "preview_source": "mock" if name == "mock" else "product_card_fallback",
-        },
+    generated = (
+        preview.status is PreviewStatus.SUCCESS
+        and preview.delivered_mode is not PreviewMode.PRODUCT_CARDS
     )
+    if name == "mock":
+        source = "mock"
+    elif generated:
+        source = preview.provider_name
+    else:
+        source = "product_card_fallback"
+    return ModuleResult(status="ok", data={"preview": _dump(preview), "preview_source": source})
 
 
 HANDLERS = {

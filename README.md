@@ -50,7 +50,7 @@ Every payload names its operation with an explicit top-level `action`. A missing
 | `modify_requirements` | `state`, `patch` | Updated state, changed fields and a selective `rerun_plan`. |
 | `confirm` | `state`, latest `recommendation_set`, exact `outfit_id` | Confirmed state and `confirmed_outfit`. |
 | `explain` | `state`, latest `recommendation_set`, exact `outfit_id` | Data-only explanation; the state is not changed. |
-| `preview` | `confirmed_outfit`, `preview_mode` (optional `preview_provider: "mock"`) | Preview with `preview_source` `mock` or `product_card_fallback`. |
+| `preview` | `confirmed_outfit`, `preview_mode` (optional `preview_provider: "mock"`, `user_portrait` with `portrait_consent`) | Preview with `preview_source` `mock`, `openai` (server-configured real provider) or `product_card_fallback`. |
 
 - **Student 4 input:** `student4` is Student 4's output, whose outfits already carry `compatibility_score`. Student 5 converts it with its `student4_adapter`; it does not compute CompatibilityScore itself. The Student 4 output format and this adapter remain PROVISIONAL until the real Student 4 hand-off.
 - **Request projection:** `travel_agent.recommendation.projection.project_trip_request` builds the Student 5 request from Student 1's validated `trip_request`. It takes only eight shared fields: `destination`, `start_date`, `end_date`, `activities`, `budget` (major units), `currency`, `style` and `excluded_items`.
@@ -59,8 +59,8 @@ Every payload names its operation with an explicit top-level `action`. A missing
   - `user_size` is not set because its source is still to be agreed; with `user_size=None` the size constraint is not enabled.
 - **Stage 10:** hard constraints. Only purchase items count toward the budget, availability (a real boolean) is checked for purchase items, and size only when the size data is reliable. Constraints are never relaxed.
 - **Stage 12:** final ranking with `FinalOutfitScore = beta * CompatibilityScore + (1 - beta) * OutfitProductRelevance` (`beta` is configurable) and stable `outfit_id`s.
-- **Stage 14:** the optional real image provider is never created from a tool payload.
-- **Import safety:** importing the service reads no `.env`, opens no network connection and loads no model.
+- **Stage 14:** the real image provider is selected only by the server environment (`PREVIEW_PROVIDER=openai`), never by a tool payload; otherwise, or on any failure, the preview falls back to product cards. See [the Student 5 preview runbook](docs/student5-preview-runbook.md).
+- **Import safety:** importing the service reads no `.env` or `PREVIEW_*` variable, opens no network connection, loads no model and imports neither `openai` nor Pillow.
 
 ## Five-module integration test
 
