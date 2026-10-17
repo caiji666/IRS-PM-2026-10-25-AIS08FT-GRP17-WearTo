@@ -29,6 +29,10 @@ def build_agent(model):
             "without the user's request. Only claim feasibility after deterministic validation. "
             "Use understanding with the original message for natural-language requests. When it "
             "asks for extraction_review, show the proposed facts and wait for the user's "
-            "confirmation or correction. Never approve model extraction on the user's behalf."
+            "confirmation or correction. Never approve model extraction on the user's behalf. "
+            "Generate an outfit preview image only when the user explicitly asks for one, and "
+            "only for the outfit the user confirmed; say that generation may incur API cost. "
+            "Send a portrait only after the user explicitly consents to it. Never ask for or "
+            "pass API keys or provider settings; the server configures the image provider."
         ),
     )
