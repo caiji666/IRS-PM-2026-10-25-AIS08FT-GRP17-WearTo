@@ -135,24 +135,27 @@ RUN_LIVE_PREVIEW_TESTS=1 uv run pytest -m live_preview tests/recommendation
 
 `RUN_LIVE_PREVIEW_TESTS` only controls this test. Production uses `PREVIEW_PROVIDER` alone.
 
-### What the live test does not cover
+### What has been verified against the real API
 
-The single paid live smoke test verifies only:
+The automated live pytest covers only the text-input FLAT_LAY path:
 
 - the path from the LangChain tool to the real OpenAI provider;
-- `images.generate`;
+- `images.generate` with no reference images;
 - one FLAT_LAY output;
 - no portrait and no remote product images.
 
-It does **not** verify:
+Two further paths were verified manually with `scripts/run_live_preview_check.py` (see [Manual acceptance check](#manual-acceptance-check)) on 2026-10-16, at commit `3cc4c9e` with OpenAI SDK 3.28:
 
-- real remote downloads through `PREVIEW_ALLOWED_IMAGE_HOSTS`;
-- the real API and SDK behaviour of `images.edit`;
-- several clothing reference images;
-- a real portrait API call;
-- online compatibility of the multi-file `images.edit` arguments with OpenAI SDK 3.28.
+- **FLAT_LAY:** three local garment images, sent through `images.edit` with several reference images.
+- **PORTRAIT:** a local portrait, given with explicit consent, plus three local garment images.
 
-These paths are covered only by offline tests with fake clients. They must not be described as verified against the real API.
+Both runs reached the real OpenAI image API (`preview_source` `openai`, status `SUCCESS`) and produced an image that opens correctly. These are one-off manual checks, not automated regression tests.
+
+Still **not** verified against the real API (covered only by offline tests with fake clients):
+
+- remote product image URLs downloaded through `PREVIEW_ALLOWED_IMAGE_HOSTS`;
+- a real MANNEQUIN call;
+- tool selection by a real chat model (see the main-agent integration test below).
 
 ### Main-agent integration test
 
@@ -161,3 +164,19 @@ These paths are covered only by offline tests with fake clients. They must not b
 agent → `validate_and_recommend` → service → server-configured provider → tool result → final reply.
 
 It cannot show that a real LLM always judges the user's intent correctly. "Generate only when the user explicitly asks" remains a prompt and tool-contract rule, not a code-level guarantee.
+
+## Manual acceptance check
+
+`scripts/run_live_preview_check.py` is a manual acceptance and demo tool. It is not part of the automated regression suite: pytest runs offline by default and checks behaviour on every change, while this script is run by hand to see a real preview made from your own images and to keep a record of the result.
+
+- **Flow:** it runs recommend → confirm → preview through `validate_and_recommend`, the same tool the shared agent calls.
+- **Modes:** `--mock` (offline mock provider, no network, no cost), `--mode FLAT_LAY` and `--mode PORTRAIT` (needs `--portrait` and `--consent`). Each non-mock run sends one paid image request.
+- **Checks:** `preview_source` is `openai`, status is `SUCCESS`, the output image opens, and the API key is not in the tool result. In mock mode the checks that need a real image show SKIP. Any FAIL gives a non-zero exit code.
+- **Configuration:** read only from the `PREVIEW_*` environment variables of the current process. The script reads no `.env` file and reports only the names of missing variables, never their values.
+- **Output:** generated images go to `artifacts/previews/` and check records to `artifacts/preview_checks/`, both git-ignored. A record holds garment categories and file names, never the API key, environment values, absolute paths or portrait details; if it would, no record is written.
+
+```bash
+uv run --locked --extra preview python -m scripts.run_live_preview_check --mode FLAT_LAY --mock --top <top image> --top-title "<title>" --bottom <bottom image> --bottom-title "<title>" --shoes <shoes image> --shoes-title "<title>"
+```
+
+Do not commit the API key, input images, portraits, generated images or check records. The script's module docstring explains how to set the variables without putting the key in the shell history.
