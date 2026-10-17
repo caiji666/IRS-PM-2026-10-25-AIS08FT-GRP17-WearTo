@@ -105,7 +105,6 @@ Each `FLAT_LAY`, `MANNEQUIN` or `PORTRAIT` preview with the real provider sends 
 
 - **Where images are saved:** generated images go to `artifacts/previews/<random-uuid>.png`, relative to the process working directory. `artifacts/` is git-ignored. The result holds only this relative path, never image bytes or base64.
 - **Never commit:** generated images, portraits, `.env` files or keys.
-- **Stage output files:** the result can be saved to a stage output file. That file also stores only the result, never the image.
 - **Cleanup:** delete `artifacts/previews/` when the images are no longer needed. The service does not clean it up automatically.
 
 ## Tests
