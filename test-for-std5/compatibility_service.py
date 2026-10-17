@@ -34,21 +34,22 @@ def get_outfit_embedding(outfit):
 def run():
     """Rank all valid outfits formed from bundle['top_k_products'].
 
-    Combination rules: BOTTOM is mandatory; TOP or OUTERWEAR (or both) is mandatory;
-    FOOTWEAR is optional; at most one product per category.
+    Combination rules: TOP, BOTTOM, and FOOTWEAR are mandatory;
+    OUTERWEAR is optional; at most one product per category.
 
-    Returns a JSON-serializable list sorted by descending probability of
+    Returns a JSON string sorted by descending probability of
     compatible (class 1). Outfit IDs reflect the resulting rank.
     """
     with open(JSON_PATH, "r", encoding="utf-8") as f:
         result = json.load(f)
 
     top_k_products = result["bundle"]["top_k_products"]
+
     options = [
         [None] + top_k_products["OUTERWEAR"],
-        [None] + top_k_products["TOP"],
+        top_k_products["TOP"],
         top_k_products["BOTTOM"],
-        [None] + top_k_products["FOOTWEAR"],
+        top_k_products["FOOTWEAR"],
     ]
 
     outfits = []
@@ -58,8 +59,6 @@ def run():
             for category, item in zip(CATEGORIES, combination)
             if item is not None
         }
-        if "TOP" not in outfit and "OUTERWEAR" not in outfit:
-            continue
         outfits.append(outfit)
 
     if not outfits:
@@ -73,14 +72,12 @@ def run():
     scores = model.predict_proba(X_inference)[:, class_index]
 
     ranked_indices = np.argsort(-scores, kind="stable")
-    results =  [
+
+    results = [
         {
             "outfit_id": f"O{rank:04d}",
             "compatibility_score": float(scores[index]),
-            "products": {
-                category: item["product_id"]
-                for category, item in outfits[index].items()
-            },
+            "products": outfits[index],
         }
         for rank, index in enumerate(ranked_indices, start=1)
     ]
