@@ -155,4 +155,11 @@ The final output is a JSON-formatted string containing all outfit combinations r
 
 ## Notes
 
-The original image archive is not included in this repository. Product embeddings are provided in `fashionclip_embeddings.npz`.
+1. The original image archive is not included in this repository. Product embeddings are provided in `fashionclip_embeddings.npz`.
+
+2. To use the trained outfit compatibility model, import `compatibility_service.py` and call the `run()` function:
+
+```python
+import compatibility_service as service
+output = service.run()
+```
