@@ -1,7 +1,9 @@
 import argparse
 import json
 import sys
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from .client import BrowseClient
 
@@ -35,7 +37,12 @@ def main():
     r.add_argument("--wardrobe-store", type=Path, default=Path("runs/wardrobe/items.json"))
     r.add_argument("--model-cache", type=Path, default=Path(".cache/huggingface"))
     r.add_argument("--embedding-cache", type=Path, default=Path(".cache/embeddings"))
-    r.add_argument("--output-dir", type=Path, default=Path("runs/ebay_sandbox"))
+    r.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("runs/product_retrieval"),
+        help="Parent for timestamped portable downstream output directories",
+    )
     a = p.parse_args()
     try:
         if a.command == "configure":
@@ -52,6 +59,9 @@ def main():
         from ..m5 import CachedEncoder, FashionCLIPEncoder
         from .pipeline import run
 
+        timestamp = datetime.now(ZoneInfo("Asia/Singapore")).strftime("%Y%m%d_%H%M%S_%f%z")
+        handoff_dir = a.output_dir / timestamp
+        diagnostics_dir = Path("runs/product_retrieval_diagnostics") / timestamp
         encoder = CachedEncoder(FashionCLIPEncoder(a.model_cache, offline=True), a.embedding_cache)
         result = run(
             client,
@@ -59,7 +69,7 @@ def main():
             a.pt,
             a.text,
             a.context,
-            a.output_dir,
+            diagnostics_dir,
             a.model_info,
             a.reference_mode,
             a.max_references,
@@ -73,10 +83,13 @@ def main():
             max_search_requests=a.max_search_requests,
             context_weight=a.context_weight,
         )
-        a.output_dir.mkdir(parents=True, exist_ok=True)
         from ...notifications.lifecycle import save_report
 
-        save_report(result, a.output_dir / "result.json")
+        save_report(result, diagnostics_dir / "run_report.json")
+        from .handoff import write_handoff
+
+        handoff = write_handoff(result, handoff_dir)
+        print(f"Downstream output: {handoff}")
         print(json.dumps({"status": result["status"], **result["summary"]}, ensure_ascii=False))
         return 0 if result["status"] == "completed" else 3
     except Exception as exc:

@@ -440,3 +440,35 @@ See [Hybrid product retrieval](hybrid-product-retrieval.md) for image-plus-keywo
 ## Production notifications
 
 Before Production persistence, follow [the notification lifecycle guide](ebay-production-activation.md), configure `EBAY_MANAGED_ROOT`, and operate the authenticated cleanup worker. Sandbox workflows remain unchanged.
+
+
+## Production availability evidence
+
+Production eBay items map explicit `estimatedAvailabilities[].estimatedAvailabilityStatus` values (`IN_STOCK` or `OUT_OF_STOCK`) to the existing availability field. Present estimated available/remaining quantities must be non-negative integers and agree with the status; conflicting entries, unknown statuses, missing/malformed evidence and Sandbox data remain `UNKNOWN`. Historical sold quantity is not subtracted from available or remaining quantity.
+
+`evidence.availability_verified = true` means the mapped state is supported by the Production API snapshot, not guaranteed checkout inventory. Evidence notes retain the estimated-stock qualification and fetch timestamp. Raw estimates, source marketplace/environment and `fetched_at` remain in `provenance.original`. Consumers must apply a freshness policy and separately validate delivery eligibility, size and final purchase availability. Existing saved reports are not automatically rewritten; rerun retrieval for fresh stock evidence.
+
+Local verification (2026-10-19): 1390 tests passed, 17 skipped with real-model tests enabled; lint and format checks passed. Replaying the saved 2026-10-14 Top-K snapshot mapped all 20 products to API-supported `IN_STOCK`. This replay did not refresh stock from eBay.
+
+
+## Timestamped portable CLI output
+
+The eBay CLI `run` command now writes its formal downstream output directly to `runs/product_retrieval/<YYYYMMDD_HHMMSS_microseconds+0800>/`. Timestamps use Asia/Singapore and identify invocation start time. `--output-dir` selects the parent directory, not a fixed result filename; each invocation creates a distinct child. Existing reports and desktop packages are not overwritten.
+
+```bash
+EBAY_MANAGED_ROOT="$PWD" .venv/bin/python -m travel_agent.products.retrieval.ebay \
+  --credentials .secrets/ebay-production.json run \
+  --pt data/team_input/phase_2_output.pt \
+  --text data/team_input/expanded_fashion_context.txt \
+  --context data/team_input/context.json \
+  --search-mode hybrid --max-references 5 --limit 20 \
+  --max-products 80 --max-search-requests 17 --k-per-category 5
+```
+
+The printed `Downstream output` path points to the final JSON. Its directory contains `result.json`, `product_images/`, `wardrobe_images/`, and `README.md`. Consumers read `bundle.top_k_products`, `bundle.owned_items`, and `bundle.product_ranking.ranked_products`. Resolve image references against the result directory, never the caller's working directory. Upstream filenames and SHA-256 hashes are audit metadata only; consumers do not need upstream PT/TXT/JSON files. The pipeline itself still needs those inputs. Vector compatibility rules are unchanged.
+
+Full raw/internal diagnostic reports and acquisition images are stored separately at `runs/product_retrieval_diagnostics/<same timestamp>/run_report.json`. Those diagnostics can contain generating-machine paths and are not the portable handoff. This supersedes older CLI examples that expected a fixed `runs/ebay_production/result.json`.
+
+Both Production diagnostic directories and portable outputs are registered with the existing lifecycle mechanism. Running an apply worker can invalidate/delete these generated outputs under the current conservative global policy. Retrieval does not start a worker or discard queued notifications. Persistent recipient copies require separate cleanup integration or coordinated deletion. Runtime data remain Git-ignored.
+
+Local verification: 1393 passed, 17 skipped with real model tests enabled, including portable relocation, missing-image rejection, preserved inventory evidence and invalidation rejection.

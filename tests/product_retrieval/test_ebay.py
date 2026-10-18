@@ -465,3 +465,87 @@ def test_production_pipeline_registers_artifacts_and_preserves_sandbox(tmp_path,
             fetch_photo=photo,
             wardrobe_store=tmp_path / "none",
         )
+
+
+@pytest.mark.parametrize(
+    "environment,estimates,expected",
+    [
+        ("production", [{"estimatedAvailabilityStatus": "IN_STOCK"}], "IN_STOCK"),
+        (
+            "production",
+            [
+                {
+                    "estimatedAvailabilityStatus": "IN_STOCK",
+                    "estimatedAvailableQuantity": 9,
+                    "estimatedRemainingQuantity": 9,
+                    "estimatedSoldQuantity": 2,
+                }
+            ],
+            "IN_STOCK",
+        ),
+        (
+            "production",
+            [{"estimatedAvailabilityStatus": "OUT_OF_STOCK", "estimatedRemainingQuantity": 0}],
+            "OUT_OF_STOCK",
+        ),
+        (
+            "production",
+            [{"estimatedAvailabilityStatus": "IN_STOCK", "estimatedRemainingQuantity": 0}],
+            "UNKNOWN",
+        ),
+        (
+            "production",
+            [{"estimatedAvailabilityStatus": "OUT_OF_STOCK", "estimatedRemainingQuantity": 1}],
+            "UNKNOWN",
+        ),
+        (
+            "production",
+            [{"estimatedAvailabilityStatus": "IN_STOCK", "estimatedAvailableQuantity": True}],
+            "UNKNOWN",
+        ),
+        (
+            "production",
+            [{"estimatedAvailabilityStatus": "IN_STOCK", "estimatedRemainingQuantity": -1}],
+            "UNKNOWN",
+        ),
+        (
+            "production",
+            [{"estimatedAvailabilityStatus": "IN_STOCK", "estimatedRemainingQuantity": "1"}],
+            "UNKNOWN",
+        ),
+        (
+            "production",
+            [{"estimatedAvailabilityStatus": "IN_STOCK", "estimatedRemainingQuantity": None}],
+            "UNKNOWN",
+        ),
+        ("production", [{"estimatedAvailabilityStatus": "OTHER"}], "UNKNOWN"),
+        ("production", [{}, {"estimatedAvailabilityStatus": "IN_STOCK"}], "UNKNOWN"),
+        (
+            "production",
+            [
+                {"estimatedAvailabilityStatus": "IN_STOCK"},
+                {"estimatedAvailabilityStatus": "OUT_OF_STOCK"},
+            ],
+            "UNKNOWN",
+        ),
+        ("production", [], "UNKNOWN"),
+        ("production", None, "UNKNOWN"),
+        ("production", [None], "UNKNOWN"),
+        ("sandbox", [{"estimatedAvailabilityStatus": "IN_STOCK"}], "UNKNOWN"),
+    ],
+)
+def test_availability_api_evidence_mapping(environment, estimates, expected):
+    row = {
+        "itemId": "v1|stock|0",
+        "title": "Stock test shirt",
+        "estimatedAvailabilities": estimates,
+    }
+    product = map_product(row, environment, "EBAY_US", "2026-10-19T00:00:00Z")
+    assert product.availability.value == expected
+    assert product.evidence.availability_verified == (expected != "UNKNOWN")
+    assert product.provenance.original["api_item"] == row
+    assert product.provenance.original["fetched_at"] == "2026-10-19T00:00:00Z"
+    assert any(
+        "estimatedAvailabilities" in note and "2026-10-19" in note
+        for note in product.evidence.notes
+    )

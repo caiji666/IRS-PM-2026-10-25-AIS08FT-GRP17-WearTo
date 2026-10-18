@@ -52,6 +52,36 @@ def category_names(row):
     return "UNKNOWN"
 
 
+def map_availability(row, environment):
+    """Map explicit API estimates, never infer real stock from a listing alone."""
+    if environment != "production":
+        return "UNKNOWN", "Sandbox/non-production estimates are not real stock evidence."
+    estimates = row.get("estimatedAvailabilities")
+    if not isinstance(estimates, list) or not estimates:
+        return "UNKNOWN", "API availability estimates missing or malformed."
+    states = set()
+    for estimate in estimates:
+        if not isinstance(estimate, dict):
+            return "UNKNOWN", "Malformed API availability estimate."
+        status = estimate.get("estimatedAvailabilityStatus")
+        if status not in {"IN_STOCK", "OUT_OF_STOCK"}:
+            return "UNKNOWN", "Missing or unrecognized API availability status."
+        quantities = []
+        for field in ("estimatedAvailableQuantity", "estimatedRemainingQuantity"):
+            if field in estimate:
+                quantity = estimate[field]
+                if isinstance(quantity, bool) or not isinstance(quantity, int) or quantity < 0:
+                    return "UNKNOWN", "Malformed API availability quantity."
+                quantities.append(quantity)
+        # Sold quantity is historical; it must not be subtracted from remaining stock.
+        if any((q > 0) != (status == "IN_STOCK") for q in quantities):
+            return "UNKNOWN", "API availability status and quantities conflict."
+        states.add(status)
+    if len(states) != 1:
+        return "UNKNOWN", "API availability estimates conflict across entries."
+    return states.pop(), "Explicit eBay estimated availability; not a checkout stock guarantee."
+
+
 def map_product(row, environment, marketplace, fetched_at, image_path=None):
     item_id = row.get("itemId")
     title = row.get("title")
@@ -72,6 +102,7 @@ def map_product(row, environment, marketplace, fetched_at, image_path=None):
         for a in row.get("localizedAspects", [])
         if isinstance(a, dict)
     }
+    availability, stock_note = map_availability(row, environment)
     data = {
         "product_id": f"ebay:{environment}:{marketplace}:{item_id}",
         "title": title,
@@ -79,16 +110,18 @@ def map_product(row, environment, marketplace, fetched_at, image_path=None):
         "description": row.get("shortDescription") or "",
         "source_type": "ECOMMERCE_API",
         "price": mapped_price,
-        "availability": "UNKNOWN",
+        "availability": availability,
         "sizes": [aspects["size"]] if aspects.get("size") else [],
         "colors": [aspects["color"]] if aspects.get("color") else [],
         "image_path": str(image_path) if image_path else None,
         "product_url": row.get("itemWebUrl"),
         "evidence": {
             "price_verified": environment == "production" and price is not None,
+            "availability_verified": availability != "UNKNOWN",
             "image_verified": image_path is not None,
             "notes": [
-                f"eBay {environment} API snapshot at {fetched_at}; stock not verified; price excludes shipping/taxes.",
+                f"eBay {environment} API snapshot at {fetched_at}; price excludes shipping/taxes.",
+                f"Stock source: estimatedAvailabilities; fetched_at={fetched_at}; {stock_note}",
                 "Raster downloaded and decoded; image_verified means local image readiness, not semantic authenticity.",
             ],
         },
@@ -340,7 +373,7 @@ def _run(
         )
     index, ranking = rank_products()
     warnings = [
-        f"eBay {client.environment} snapshots; no verified stock, FX conversion or shipping/tax totals.",
+        f"eBay {client.environment} snapshots; stock is an API estimate at fetched_at, not a checkout guarantee; no FX conversion or shipping/tax totals.",
         "Sandbox listings are test data, not real purchasing opportunities.",
         "Local research reranking; production display/use must meet applicable eBay terms.",
     ]
