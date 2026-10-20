@@ -44,6 +44,26 @@ def run():
         result = json.load(f)
 
     top_k_products = result["bundle"]["top_k_products"]
+    ranked_products = result["bundle"]["product_ranking"]["ranked_products"]
+
+    # Map each product ID to its product score
+    product_scores = {
+        entry["item"]["product"]["product_id"]: entry["score"]
+        for category_products in ranked_products.values()
+        for entry in category_products
+    }
+
+    # Add product_score to each product
+    top_k_products = {
+        category: [
+            {
+                **item,
+                "product_score": product_scores[item["product_id"]]
+            }
+            for item in items
+        ]
+        for category, items in top_k_products.items()
+    }
 
     options = [
         [None] + top_k_products["OUTERWEAR"],
