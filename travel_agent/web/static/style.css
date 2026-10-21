@@ -21,3 +21,10 @@
 @media(max-width:560px){.chat-panel{height:720px;min-height:720px;max-height:none;padding:24px 24px 18px}.chat-panel-top .eyebrow{font-size:8px}.new-journey{font-size:11px}.chat-welcome{padding-top:8px}.chat-welcome h1{font-size:48px}.chat-welcome p{font-size:12px}.chat-starters{flex-direction:row}.chat-starters button{font-size:10px}.chat-composer textarea{font-size:14px}.chat-message{font-size:13px}.chat-disclaimer{font-size:9px}.composer-foot>span{font-size:9px}.avatar-glow,.companion-avatar{width:185px;height:185px}.category-tabs{gap:28px}}
 /* Keep Profile reachable on compact screens. */
 @media(max-width:560px){.header nav{display:flex;gap:0;margin-left:auto;margin-right:18px}.header nav a:not(.profile-nav){display:none}.header nav .profile-nav{font-size:9px;letter-spacing:1px}.header{gap:5px}.saved-toggle{gap:5px}}
+
+/* Slideshow controls match the existing outline arrows. */
+#toggleRefPlayback{font-size:14px;letter-spacing:-2px}.arrows button:disabled{cursor:default;opacity:.35}.arrows button:focus-visible{outline:2px solid white;outline-offset:4px}
+
+/* WearTo wordmark and the Where to? WearTo! signature. */
+.wordmark{font-size:35px;letter-spacing:-1.8px;font-weight:700;gap:19px}.wordmark .brand-tagline{width:84px;font-size:9px;letter-spacing:1.1px;line-height:1.55;font-weight:500;text-transform:none}.subnav>span:first-child{letter-spacing:1.4px}
+@media(max-width:850px){.wordmark{font-size:29px;letter-spacing:-1.4px}.wordmark .brand-tagline{display:none}}

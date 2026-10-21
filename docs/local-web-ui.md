@@ -1,6 +1,6 @@
 # Local travel product interface
 
-The AWAY interface is a local, additive UI over the existing Understanding, Inspiration and Product Retrieval modules. It uses a quiet editorial layout inspired by the supplied runway reference; it does not claim affiliation with the reference brand.
+The WearTo interface is a local, additive UI over the existing Understanding, Inspiration and Product Retrieval modules. It uses a quiet editorial layout inspired by the supplied runway reference; it does not claim affiliation with the reference brand.
 
 ## Run
 
@@ -76,3 +76,9 @@ For a fresh clone, follow the product runbook to install the Python 3.11 extras 
 ### Verification on the baseline branch (2026-10-21)
 
 A fresh run used the previously human-reviewed Seoul 2026-10-22 to 2026-10-25 message: local pinned Qwen extraction, real Open-Meteo forecast, two live Unsplash searches and live eBay Production hybrid acquisition. It produced 10 fresh social references, processed 80 of 349 API candidates and returned five products in each of four categories. The portable output `runs/product_retrieval/20261021_191904_054545+0800/` contains 20 product photos and 21 owned-wardrobe photos, all referenced with existing relative paths; every item has a 512-dimensional embedding. The upstream PT/TXT/context/model-info files were regenerated for this run. Diagnostics remain local. Normal regression: 1457 passed, 21 skipped; relevant source lint and diff whitespace checks passed. This is a connectivity/integration check, not a ranking-quality evaluation.
+
+## Inspiration slideshow
+
+Social reference photos advance every four seconds after the current image loads. Previous/next arrows remain available and restart the dwell timer. The pause/play control lets users stop or resume autoplay. Background tabs pause the timer; returning starts a fresh interval. Reduced-motion preferences start the slideshow paused. This only changes the displayed inspiration photo, not product retrieval or ranking.
+
+The frontend brand is **WearTo**, with the signature **Where to? WearTo!** across the home/profile headers, page titles and footers.
