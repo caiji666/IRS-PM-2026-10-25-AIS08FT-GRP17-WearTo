@@ -81,9 +81,7 @@ def project_item(item, score, base_dir, currency):
     owned = item["owned"]
     if owned:
         if not currency:
-            raise ValueError(
-                "Owned item projection needs a currency for zero purchase cost"
-            )
+            raise ValueError("Owned item projection needs a currency for zero purchase cost")
         amount, code = 0, currency
         # Ignored for owned items by Stage 10; never asserts merchant inventory.
         available = False

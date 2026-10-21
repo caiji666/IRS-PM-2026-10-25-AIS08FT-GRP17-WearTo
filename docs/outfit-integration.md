@@ -56,12 +56,14 @@ from travel_agent.outfits.service import run as build_outfits
 from travel_agent.recommendation.service import run as recommend
 
 fourth = build_outfits(payload)
-if fourth.status == 'ok':
-    fifth = recommend({
-        'action': 'recommend',
-        'request': student5_request,
-        'student4': fourth.data,
-    })
+if fourth.status == "ok":
+    fifth = recommend(
+        {
+            "action": "recommend",
+            "request": student5_request,
+            "student4": fourth.data,
+        }
+    )
 ```
 
 Important semantics:
