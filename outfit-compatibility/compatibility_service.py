@@ -5,7 +5,6 @@ from pathlib import Path
 import joblib
 import numpy as np
 
-
 CATEGORIES = ("OUTERWEAR", "TOP", "BOTTOM", "FOOTWEAR")
 EMBEDDING_DIM = 512
 
