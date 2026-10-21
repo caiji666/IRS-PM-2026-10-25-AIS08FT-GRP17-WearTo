@@ -5,7 +5,6 @@ from pathlib import Path
 import joblib
 import numpy as np
 
-
 CATEGORIES = ("OUTERWEAR", "TOP", "BOTTOM", "FOOTWEAR")
 EMBEDDING_DIM = 512
 
@@ -55,13 +54,7 @@ def run():
 
     # Add product_score to each product
     top_k_products = {
-        category: [
-            {
-                **item,
-                "product_score": product_scores[item["product_id"]]
-            }
-            for item in items
-        ]
+        category: [{**item, "product_score": product_scores[item["product_id"]]} for item in items]
         for category, items in top_k_products.items()
     }
 
@@ -75,9 +68,7 @@ def run():
     outfits = []
     for combination in product(*options):
         outfit = {
-            category: item
-            for category, item in zip(CATEGORIES, combination)
-            if item is not None
+            category: item for category, item in zip(CATEGORIES, combination) if item is not None
         }
         outfits.append(outfit)
 
