@@ -1,0 +1,135 @@
+{
+  "schema_version": "wardrobe.examples.1",
+  "purpose": "Shared wardrobe integration baseline, not live retail inventory",
+  "sharing_permission": "Project owner explicitly approved repository upload on 2026-10-21",
+  "source": "20 images from user-supplied wardrobe archive and one existing local wardrobe example",
+  "note": "Filenames are descriptive only; model predictions may remain UNKNOWN. No public redistribution license is asserted.",
+  "images": [
+    {
+      "path": "images/bottom01.png",
+      "sha256": "f9f9671e7955aba48258679764d250facf333f11d96e3fbd0640b06fded8a45b",
+      "width": 412,
+      "height": 548
+    },
+    {
+      "path": "images/bottom02.png",
+      "sha256": "b545a02c7fc6aa6aaa884dfee06787215abe8bf843e5819c358d708981ec469d",
+      "width": 412,
+      "height": 548
+    },
+    {
+      "path": "images/bottom03.png",
+      "sha256": "3b2ecc81eb7fa90fb2350f9cceeab03f3517a9a88d8e61fbc7aabb39a44af900",
+      "width": 412,
+      "height": 548
+    },
+    {
+      "path": "images/bottom04.png",
+      "sha256": "abfde23badea6d222f5bf930d04d72eb70190a1aa6ed2a7fc17c0d383b925abd",
+      "width": 412,
+      "height": 548
+    },
+    {
+      "path": "images/bottom05.png",
+      "sha256": "f9dbb6a2746385fde650e78d6348dfcea311f7a787319a24532a06a8b23b7064",
+      "width": 412,
+      "height": 548
+    },
+    {
+      "path": "images/bottom06.png",
+      "sha256": "a275e3e5b43c27ebf90926bb6e6a6fad5d2b5d8d43f30bc5b9f5a0bc15594ff2",
+      "width": 440,
+      "height": 440
+    },
+    {
+      "path": "images/bottom07.png",
+      "sha256": "c1c079449a054e0813242661753a8100f98c27c3d2f1779a5d7b1519e01cd7c3",
+      "width": 380,
+      "height": 380
+    },
+    {
+      "path": "images/bottom08.png",
+      "sha256": "830d2c0d0b9b9e4b003a795a0a254e796ea3b7b85585e3f11c1d9c0c97a190eb",
+      "width": 440,
+      "height": 440
+    },
+    {
+      "path": "images/bottom09.png",
+      "sha256": "207b4f07de4b2fdf9a362b9cc3744c48eebd2d1d5061ff663b13ea49486a6c0a",
+      "width": 967,
+      "height": 1200
+    },
+    {
+      "path": "images/outcoat01.png",
+      "sha256": "b06de6da607e9560fca6cb1244cd12aafe198431c9a520a2526bb536908c9950",
+      "width": 600,
+      "height": 612
+    },
+    {
+      "path": "images/outcoat02.png",
+      "sha256": "ef4b284fe16031e0a352d7db10e570d8da43452ce1f93bcb987d3448c5ed8285",
+      "width": 396,
+      "height": 505
+    },
+    {
+      "path": "images/shoes01.png",
+      "sha256": "5765c846647cd32eb546f390ffbc399cfc6eb401e8ee35699e2cd4fb743f59b8",
+      "width": 412,
+      "height": 468
+    },
+    {
+      "path": "images/shoes02.png",
+      "sha256": "7142a4b13a9fbbd816b0c99a10c522bcca7382d25f307ff643a3d1104f753ca9",
+      "width": 412,
+      "height": 468
+    },
+    {
+      "path": "images/shoes03.png",
+      "sha256": "7576d72997e38d9d0dae3700154d97347663f66350b9bc33421131cd3ab9986f",
+      "width": 412,
+      "height": 468
+    },
+    {
+      "path": "images/top01.png",
+      "sha256": "f0da718e8788441d10c08f632f59bc89c3c5b54ca16e803317639f325096fbea",
+      "width": 412,
+      "height": 548
+    },
+    {
+      "path": "images/top02.png",
+      "sha256": "3337a5cbdc7ae2a3cadd117e3060f2a2b630b28acbf913c75052dfa3d03112a4",
+      "width": 600,
+      "height": 666
+    },
+    {
+      "path": "images/top03.png",
+      "sha256": "beaa80978f09fba6860025e1d031317aea7e27bb60a99893acbdc78ea29598e5",
+      "width": 412,
+      "height": 548
+    },
+    {
+      "path": "images/top04.png",
+      "sha256": "1b1e06c7dcb8ff5502c5f2bee6398f2a987f2b992da11705c8037f60cc392fe0",
+      "width": 505,
+      "height": 800
+    },
+    {
+      "path": "images/top05.png",
+      "sha256": "a66dcc21082ac83b92fcfe0c815c77296e98689fcccce6cf6f834a318bc4fb75",
+      "width": 600,
+      "height": 690
+    },
+    {
+      "path": "images/top06.png",
+      "sha256": "98849fd81e6fb71de416f30359db57fc836b7b06ad1f3b5cc8fc3f61597b4a3f",
+      "width": 600,
+      "height": 766
+    },
+    {
+      "path": "images/owned-001.png",
+      "sha256": "fe11cff5d9fa6d942e0b139aef4364be4883ef4424390b069cebdaab57f41e97",
+      "width": 554,
+      "height": 554
+    }
+  ]
+}
