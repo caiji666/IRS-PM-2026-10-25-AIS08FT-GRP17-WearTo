@@ -161,5 +161,6 @@ The final output is a JSON-formatted string containing all outfit combinations r
 
 ```python
 import compatibility_service as service
+
 output = service.run()
 ```
