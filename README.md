@@ -153,3 +153,8 @@ For the resource-complete current local checkout, see [independent local validat
 Hybrid eBay candidate retrieval: [algorithm and commands](docs/hybrid-product-retrieval.md).
 
 Production activation preparation: [notification service and Mac cleanup worker](docs/ebay-production-activation.md).
+
+
+## Local travel interface
+
+Run `.venv/bin/python -m travel_agent.web --port 8765` to open the local travel chat, inspiration and real product interface, with a Profile page for personal details and wardrobe photos. See [Local web UI](docs/local-web-ui.md) for model/API setup, review flow and downstream output locations.

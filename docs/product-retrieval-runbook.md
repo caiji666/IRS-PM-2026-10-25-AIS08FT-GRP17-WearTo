@@ -472,3 +472,50 @@ Full raw/internal diagnostic reports and acquisition images are stored separatel
 Both Production diagnostic directories and portable outputs are registered with the existing lifecycle mechanism. Running an apply worker can invalidate/delete these generated outputs under the current conservative global policy. Retrieval does not start a worker or discard queued notifications. Persistent recipient copies require separate cleanup integration or coordinated deletion. Runtime data remain Git-ignored.
 
 Local verification: 1393 passed, 17 skipped with real model tests enabled, including portable relocation, missing-image rejection, preserved inventory evidence and invalidation rejection.
+
+## Live Understanding → Unsplash → eBay run
+
+From the repository root, with the existing Python environment, cached FashionCLIP weights, `.secrets/unsplash.env` (Access Key only) and `.secrets/ebay-production.json` configured locally:
+
+```bash
+.venv/bin/python -m scripts.run_live_product_pipeline
+```
+
+The default input is `examples/understanding/seoul_winter.json`. Understanding executes anew on this structured example with its explicit draft-KG opt-in and synthetic weather fixture. This command does not run free-text Qwen extraction or a live weather forecast. It checks downstream readiness before calling the APIs; it never bypasses clarification requirements.
+
+The runner executes two Unsplash queries with ten results per query, generates Top-10 references and a new PT/model-info handoff, then uses up to ten references for real eBay Production hybrid retrieval. It processes up to 80 products and requests five results per category. Fresh Student 1 context is mapped through the existing product adapter; imported Student 2 vectors must pass the existing model-identity compatibility check. No old `data/team_input/phase_2_output.pt` is reused.
+
+To choose another structured Understanding input or change bounded retrieval parameters:
+
+```bash
+.venv/bin/python -m scripts.run_live_product_pipeline \
+  --input examples/understanding/seoul_winter.json \
+  --max-queries 2 --per-page 10 --top-n 10 \
+  --max-references 10 --max-products 80 \
+  --max-search-requests 25 --k-per-category 5
+```
+
+Outputs share one Asia/Singapore invocation timestamp:
+
+- `runs/live_pipeline/<timestamp>/understanding.json`: actual Understanding output.
+- `runs/live_pipeline/<timestamp>/inspiration-handoffs/<id>/`: newly generated PT, TXT, context/model metadata and evaluation data.
+- `runs/live_pipeline/<timestamp>/pipeline_record.json`: completion state, upstream paths, limitations, outfit-level hard constraints and output path. A failed run records the exception type without secrets.
+- `runs/product_retrieval_diagnostics/<timestamp>/run_report.json`: full internal product report.
+- `runs/product_retrieval/<timestamp>/`: portable downstream output (`result.json`, product/wardrobe images and README).
+
+This runner does not execute the notification cleanup worker, merge code or upload results. Production-generated diagnostic/output artifacts remain registered with the existing lifecycle mechanism; retained recipient copies require coordinated cleanup. Running all three modules is a functional integration test, not a retrieval-quality assessment or an assurance of stock at checkout.
+
+### Reviewed Qwen message with live weather
+
+The runner also accepts a JSON payload containing `message` rather than `request`. In that case the existing Understanding service executes its real Qwen extractor. Review the initial `proposed_request` before setting `accept_extraction: true`; do not use this flag as blanket approval for arbitrary new messages. A confirmed Open-Meteo location must be bound to the same destination and dates must be within the provider forecast window. Do not include `weather_fixture` when using `weather_provider: "open_meteo"`.
+
+The local 2026-10-21 verification used a caller-reviewed Seoul message for 2026-10-22 through 2026-10-25, with 500 SGD, sightseeing/dinner, minimalist style and smart-casual dinner attire. Qwen3-0.6B ran at the pinned revision, and Open-Meteo returned `data_type: forecast` with a real retrieval timestamp. This still explicitly permits the prototype draft KG; it does not constitute human validation of all KG rules. The private reviewed input and model weights are not committed.
+
+After downloading Qwen into `.cache/huggingface` and reviewing a local input, run:
+
+```bash
+.venv/bin/python -m scripts.run_live_product_pipeline \
+  --input runs/qwen_live/20261021_153313_732659+0800/confirmed_input.json
+```
+
+That path is specific to this Mac's reviewed test input. Other clones must supply their own reviewed payload file. Omitting `--input` still uses the structured synthetic-weather example; it does not reproduce this real Qwen/live-weather test. Re-running this dated input later may fall outside the forecast window and require a newly reviewed request. The runner deliberately does not fabricate weather or bypass readiness.
