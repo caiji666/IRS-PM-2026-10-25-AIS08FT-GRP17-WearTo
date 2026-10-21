@@ -283,7 +283,7 @@ def check_student1_output(result: ModuleResult) -> list[str]:
         request = SharedTripShoppingRequest.model_validate(data.get("trip_request"))
     except ValueError as exc:
         return [*problems, f"trip_request violates TripShoppingRequest: {exc}"]
-    for name in ("destination", "start_date", "end_date", "activities", "budget", "currency"):
+    for name in ("destination", "start_date", "end_date", "budget", "currency"):
         if not getattr(request, name):
             problems.append(f"trip_request.{name} is empty")
     if state.get("current_request") != data.get("trip_request"):

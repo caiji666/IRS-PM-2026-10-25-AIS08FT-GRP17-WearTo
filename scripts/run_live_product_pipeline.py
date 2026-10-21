@@ -52,6 +52,7 @@ def main():
 
         load_dotenv(root / ".secrets/unsplash.env", override=True)
         if not os.getenv("UNSPLASH_ACCESS_KEY"):
+            record["reason_code"] = "missing_unsplash_config"
             raise ValueError("Configure .secrets/unsplash.env before running")
         import torch
 
@@ -69,6 +70,7 @@ def main():
 
         payload = json.loads(args.input.read_text(encoding="utf-8-sig"))
         record["stage"] = "understanding"
+        print(json.dumps({"status": "running", "stage": "understanding"}), flush=True)
         first = understand(payload)
         envelope = first.model_dump(mode="json")
         (stages / "understanding.json").write_text(
@@ -211,6 +213,7 @@ def main():
                 {
                     "status": "failed",
                     "stage": record.get("stage", "setup"),
+                    "reason_code": record.get("reason_code"),
                     "error_type": type(exc).__name__,
                 }
             ),

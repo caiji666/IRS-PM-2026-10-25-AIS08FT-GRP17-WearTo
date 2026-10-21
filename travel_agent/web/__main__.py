@@ -9,11 +9,10 @@ import secrets
 import subprocess
 import sys
 import threading
-from datetime import datetime, timedelta
+from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
-from zoneinfo import ZoneInfo
 
 ROOT = Path.cwd().resolve()
 STATIC = Path(__file__).parent / "static"
@@ -65,24 +64,26 @@ def validate_form(form):
         raise ValueError("Enter a city")
     start = datetime.strptime(str(form.get("start_date")), "%Y-%m-%d").date()
     end = datetime.strptime(str(form.get("end_date")), "%Y-%m-%d").date()
-    today = datetime.now(ZoneInfo("Asia/Singapore")).date()
-    if not today <= start <= end <= today + timedelta(days=15):
-        raise ValueError("Live weather supports the next 15 days. Please adjust your travel dates.")
+    if end < start:
+        raise ValueError("The return date cannot precede the departure date.")
     budget = float(form.get("budget", 0))
     if not 0 < budget <= 1000000:
         raise ValueError("Enter a positive budget")
     activities = form.get("activities")
+    if activities is None:
+        activities = []
     if (
         not isinstance(activities, list)
-        or not 1 <= len(activities) <= 8
+        or not 0 <= len(activities) <= 8
         or any(not isinstance(x, str) or not 1 <= len(x.strip()) <= 60 for x in activities)
     ):
-        raise ValueError("Choose 1 to 8 activities, each no longer than 60 characters.")
+        raise ValueError("Choose up to 8 activities, each no longer than 60 characters.")
     form = {**form, "activities": list(dict.fromkeys(x.strip() for x in activities))}
     if form.get("currency") not in {"SGD", "USD", "EUR", "GBP", "JPY", "KRW", "CNY"}:
         raise ValueError("Choose a currency")
-    if form.get("style") not in {"minimalist", "casual", "sporty", "streetwear", "romantic"}:
-        raise ValueError("Choose a style")
+    style = form.get("style") or ""
+    if style not in {"", "minimalist", "casual", "sporty", "streetwear", "romantic"}:
+        raise ValueError("Choose a supported style or leave it blank")
     if form.get("dress_code", "") not in {"", "smart casual", "dressy casual", "festive", "casual"}:
         raise ValueError("Choose a dinner dress code")
     notes = str(form.get("notes", "")).strip()
@@ -94,6 +95,7 @@ def validate_form(form):
         "country_name": COUNTRIES[country],
         "budget": budget,
         "notes": notes,
+        "style": style,
     }
 
 
@@ -151,6 +153,29 @@ def public_result(stamp):
     }
 
 
+def pipeline_failure(stopped, mode):
+    stopped = stopped or {}
+    stage = stopped.get(
+        "stage", "setup" if mode == "run" else "wardrobe" if mode == "wardrobe" else "understanding"
+    )
+    if stage not in {"setup", "weather", "understanding", "inspiration", "products", "wardrobe"}:
+        stage = "setup"
+    messages = {
+        "wardrobe": "Try another wardrobe photo or check the local model.",
+        "understanding": "Check your message or local Qwen model.",
+        "weather": "Weather lookup failed. Your trip is saved; please try again later.",
+        "inspiration": "Inspiration search is unavailable. Your trip details are saved.",
+        "products": "Product search is unavailable. Your trip details are saved.",
+        "setup": "Search is not configured on this device. Your trip details are saved.",
+    }
+    if stopped.get("reason_code") == "missing_unsplash_config":
+        return (
+            "setup",
+            "Unsplash inspiration search is not configured. Your trip details are saved.",
+        )
+    return stage, messages[stage]
+
+
 def execute(job, mode):
     directory = JOBS / job
     env = os.environ.copy()
@@ -168,6 +193,7 @@ def execute(job, mode):
     )
     if mode in {"chat", "wardrobe"}:
         command.append(mode)
+    failure_stage = "setup" if mode == "run" else "understanding"
     try:
         with (directory / f"{mode}.log").open("w") as log:
             process = subprocess.Popen(
@@ -196,6 +222,15 @@ def execute(job, mode):
                             output = value
                         elif value.get("status") in {"needs_input", "failed"}:
                             stopped = value
+                        elif (
+                            value.get("status") == "running"
+                            and value.get("stage") == "understanding"
+                        ):
+                            update(
+                                job,
+                                stage="weather",
+                                message="Checking the weather context for your trip…",
+                            )
                     except json.JSONDecodeError:
                         pass
             code = process.wait()
@@ -211,23 +246,9 @@ def execute(job, mode):
             )
             return
         if code:
-            stage = (stopped or {}).get(
-                "stage",
-                "wardrobe"
-                if mode == "wardrobe"
-                else "understanding"
-                if mode in {"prepare", "chat"}
-                else "weather",
-            )
-            messages = {
-                "wardrobe": "Try another wardrobe photo or check the local model.",
-                "understanding": "Check your message or local Qwen model.",
-                "weather": "Weather lookup failed. Check the destination and dates.",
-                "inspiration": "Inspiration search failed. Check Unsplash connectivity or quota.",
-                "products": "Product search failed. Check eBay Production connectivity or access.",
-                "setup": "The local setup is incomplete. Check model and credential files.",
-            }
-            raise RuntimeError(messages.get(stage, "This search did not finish. Please try again."))
+            failure_stage, message = pipeline_failure(stopped, mode)
+            raise RuntimeError(message)
+
         if mode == "wardrobe":
             result = read(directory / "wardrobe_result.json")
             update(
@@ -274,6 +295,7 @@ def execute(job, mode):
         update(
             job,
             status="failed",
+            stage=failure_stage,
             message=str(exc)
             if isinstance(exc, RuntimeError)
             else "The request could not finish. Check the local service and try again.",
@@ -356,9 +378,14 @@ class Handler(BaseHTTPRequestHandler):
                     )
                 conversation_path = JOBS / job / "conversation.json"
                 if conversation_path.is_file():
+                    from .chat import public_messages, public_offer
+
                     conversation = read(conversation_path)
-                    status["messages"] = conversation["messages"]
+                    status["messages"] = public_messages(conversation["messages"])
                     status["request"] = conversation.get("request", {})
+                    status["optional_offer"] = public_offer(
+                        conversation.get("dialogue", {}).get("offered_options")
+                    )
                 return self.send(status)
             if path.startswith("/media/") or path.startswith("/reference/"):
                 _, kind, stamp, relative = path.split("/", 3)
@@ -432,11 +459,23 @@ class Handler(BaseHTTPRequestHandler):
                 if not isinstance(message, str) or not 1 <= len(message.strip()) <= 2500:
                     raise ValueError("Write a message between 1 and 2,500 characters.")
                 job = body.get("id")
+                option_selection = False
                 if job:
                     if not re.fullmatch("[a-f0-9]{32}", job):
                         raise ValueError("Invalid conversation")
                     directory = JOBS / job
                     conversation = read(directory / "conversation.json")
+                    if body.get("offer_key"):
+                        from .chat import public_offer
+
+                        offer = public_offer(
+                            conversation.get("dialogue", {}).get("offered_options")
+                        )
+                        if offer is None or offer["key"] != body["offer_key"]:
+                            raise ValueError(
+                                "These choices have changed. Refresh the chat and try again."
+                            )
+                        option_selection = True
                     if conversation.get("turn", 0) >= 30:
                         raise ValueError("Please start a new journey to continue.")
                 else:
@@ -447,7 +486,10 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send({"error": "Another request is in progress. Please wait."}, 409)
                 try:
                     directory.mkdir(parents=True, exist_ok=True)
-                    conversation["messages"].append({"role": "user", "content": message.strip()})
+                    user_message = {"role": "user", "content": message.strip()}
+                    if option_selection:
+                        user_message["source"] = "option_selection"
+                    conversation["messages"].append(user_message)
                     conversation["turn"] += 1
                     write(directory / "conversation.json", conversation)
                     write(
@@ -504,14 +546,22 @@ class Handler(BaseHTTPRequestHandler):
                         "destination": draft["request"]["destination"],
                     },
                 }
+                conversation_path = directory / "conversation.json"
+                accepted = None
+                if conversation_path.exists():
+                    from .chat import accept_review
+
+                    accepted = accept_review(read(conversation_path), reviewed_request)
                 if not ACTIVE.acquire(blocking=False):
                     return self.send({"error": "Another search is running. Please wait."}, 409)
                 write(directory / "confirmed_input.json", payload)
+                if accepted is not None:
+                    write(conversation_path, accepted)
                 update(
                     job,
                     status="running",
-                    stage="weather",
-                    message="Checking live weather at your destination…",
+                    stage="setup",
+                    message="Preparing your search…",
                 )
                 threading.Thread(target=execute, args=(job, "run"), daemon=True).start()
                 return self.send({"id": job}, 202)

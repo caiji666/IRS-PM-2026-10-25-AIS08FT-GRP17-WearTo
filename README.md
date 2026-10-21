@@ -34,7 +34,7 @@ HF_HOME="$PWD/artifacts/huggingface" uv run --locked --extra qwen \
   --output artifacts/extraction-preview.json
 ```
 
-The first run returns a proposal for human review. Review `proposed_request` / `proposed_action` before explicitly accepting extraction in a direct CLI/service call. Do not enable automatic acceptance through the agent tool. Weather outside forecast coverage remains unavailable; no forecast is invented. Use the offline demo for a complete synthetic-weather walkthrough.
+The first run returns a proposal for human review. Save and resend returned state on every turn: `pending_request` accumulates facts across previews so users supply each detail once. Only destination, start/end dates and budget with currency are required; optional fields and KG outputs may be empty. Review `proposed_request` / `proposed_action` before explicitly accepting extraction in a direct CLI/service call. Do not enable automatic acceptance through the agent tool. Selected Open-Meteo weather uses forecasts within coverage and a local historical climate reference outside it; source types stay separate and no forecast is invented. See [weather data and teammate setup](docs/weather-data.md) and [12-country city coverage and clarification](docs/weather-location-coverage.md). Use the offline demo for a complete synthetic-weather walkthrough.
 
 Current English diagnostics and preserved multilingual history are in [evaluation](evaluation/README.md). Chinese aliases inside copied KG snapshots are source provenance; public explanations use English labels. All knowledge/rule approvals remain pending. Optional Neo4j and a live multi-tool recommendation agent are not verified.
 
@@ -74,6 +74,18 @@ Every payload names its operation with an explicit top-level `action`. A missing
 - **Default tests:** offline. They download no model, call no external API and do not read `.env`. Contract and boundary checks run; the full-pipeline tests (`full_pipeline_live`) are skipped with the exact blocking stage until every real module runs. Model/API stages run only with `RUN_FULL_PIPELINE_TESTS=1`.
 
 See [full-pipeline integration](docs/full_pipeline_integration.md) for the contracts, prerequisites, run commands and current gaps.
+
+## Local multi-turn natural-language chat
+
+A local dialogue entry point now wraps the understanding service. It reuses cached Qwen3-0.6B for structured extraction and natural reply wording; deterministic code stores the session, asks only for the next missing field, and applies pending facts only after an explicit confirmation. Reply wording has conservative lexical checks and a factual fallback; this is not a guarantee of model accuracy. This scoped chat does not run the full five-tool shopping agent.
+
+```bash
+uv run --extra qwen python -m travel_agent.chat --allow-draft
+```
+
+Type required trip details in separate turns. If activities or styles are missing, the chat offers up to three KG-backed choices for each, before the final review. Reply with numbers (for example `1 and 3`) or names; say `skip` for the current step or `skip all` for both. Suggested activities/styles are never written into the request until explicitly selected. After the accumulated summary, say `confirm`. Commands: `/state`, `/result`, `/suggest` (reopen optional suggestions), `/reset`, `/quit`. English remains the primary evaluated language. Model replies appear after `Assistant >`; JSON is saved under ignored `artifacts/chat/` and is displayed only by inspection commands or `--debug`. The default weather source is the local historical climate reference; select `--weather-provider open_meteo` for live forecast routing. Draft KG assertions require `--allow-draft`. Destination activity choices use Place KG hierarchy and place/activity relationships; uncovered destinations get explicitly generic ideas. Style choices use aesthetic alternatives for selected activities, or clearly general preferences if no activity was chosen. These are optional suggestions, not live availability or itinerary verification.
+
+Resume a saved chat or an earlier understanding state with `--resume /path/to/session.json`. Each checkpoint stores accepted/pending facts and the last requested field, so a short ISO-date answer has a known start/end role. `build_agent(model)` is still the separate full-tool framework and needs a configured chat provider.
 
 ## Team responsibilities
 

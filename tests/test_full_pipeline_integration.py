@@ -168,13 +168,22 @@ def test_student1_handoff_for_fixed_reviewed_request():
     assert result.data["feasibility_status"] == "unverified"
 
 
-@pytest.mark.parametrize("missing", ["budget", "activities"])
+@pytest.mark.parametrize("missing", ["budget", "currency", "destination", "start_date", "end_date"])
 def test_flow_stops_and_keeps_student1_needs_input(missing):
     run = run_pipeline(reviewed_payload(**{missing: None}), allow_models=False)
     assert [s.module for s in run.stages] == ["student1"]
     assert run.stopped.status == "needs_input"
     assert missing in run.stopped.summary["questions"]
     assert not run.completed
+
+
+def test_student1_handoff_allows_optional_activities_and_style_to_be_empty():
+    result = student1_run(reviewed_payload(activities=None, style=None))
+    assert result.status == "ok" and result.data["ready_for_downstream"]
+    assert check_student1_output(result) == []
+    assert result.data["trip_request"]["activities"] == []
+    assert result.data["trip_request"]["style"] == []
+    assert result.data["activity_reasoning"] == {}
 
 
 def test_flow_stops_at_first_unavailable_module_without_calling_later_ones():

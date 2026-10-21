@@ -1,0 +1,418 @@
+{
+  "version": "weather-city-scopes-1",
+  "scope": "Explicit city defaults for weather, not national climate averages or POI facts",
+  "countries": [
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "aliases": [
+        "新加坡",
+        "SG",
+        "Republic of Singapore",
+        "新加坡共和国"
+      ],
+      "city_state": true
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "aliases": [
+        "日本",
+        "JP",
+        "日本国"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "KR",
+      "name": "South Korea",
+      "aliases": [
+        "韩国",
+        "KR",
+        "Republic of Korea",
+        "大韩民国"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "CN",
+      "name": "China",
+      "aliases": [
+        "中国",
+        "CN",
+        "People's Republic of China",
+        "中华人民共和国"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "MY",
+      "name": "Malaysia",
+      "aliases": [
+        "马来西亚",
+        "MY"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "aliases": [
+        "泰国",
+        "TH"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "VN",
+      "name": "Vietnam",
+      "aliases": [
+        "越南",
+        "VN",
+        "Viet Nam"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "aliases": [
+        "印度尼西亚",
+        "印尼",
+        "ID"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "aliases": [
+        "英国",
+        "UK",
+        "GB",
+        "Britain"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "FR",
+      "name": "France",
+      "aliases": [
+        "法国",
+        "FR"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "aliases": [
+        "澳大利亚",
+        "澳洲",
+        "AU"
+      ],
+      "city_state": false
+    },
+    {
+      "code": "US",
+      "name": "United States",
+      "aliases": [
+        "美国",
+        "US",
+        "USA",
+        "United States of America"
+      ],
+      "city_state": false
+    }
+  ],
+  "records": [
+    {
+      "name": "Singapore",
+      "country_code": "SG",
+      "country": "Singapore",
+      "admin1": null,
+      "latitude": 1.28967,
+      "longitude": 103.85007,
+      "timezone": "Asia/Singapore",
+      "elevation": 23.0,
+      "id": 1880252,
+      "feature_code": "PPLC",
+      "aliases": [
+        "新加坡"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Singapore&countryCode=SG&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:47.156486+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Tokyo",
+      "country_code": "JP",
+      "country": "Japan",
+      "admin1": "Tokyo",
+      "latitude": 35.6895,
+      "longitude": 139.69171,
+      "timezone": "Asia/Tokyo",
+      "elevation": 44.0,
+      "id": 1850147,
+      "feature_code": "PPLC",
+      "aliases": [
+        "东京"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Tokyo&countryCode=JP&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:48.381550+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Osaka",
+      "country_code": "JP",
+      "country": "Japan",
+      "admin1": "Osaka",
+      "latitude": 34.69379,
+      "longitude": 135.50107,
+      "timezone": "Asia/Tokyo",
+      "elevation": 4.0,
+      "id": 1853909,
+      "feature_code": "PPLA",
+      "aliases": [
+        "大阪"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Osaka&countryCode=JP&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:49.562829+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Seoul",
+      "country_code": "KR",
+      "country": "South Korea",
+      "admin1": "Seoul",
+      "latitude": 37.566,
+      "longitude": 126.9784,
+      "timezone": "Asia/Seoul",
+      "elevation": 38.0,
+      "id": 1835848,
+      "feature_code": "PPLC",
+      "aliases": [
+        "首尔"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Seoul&countryCode=KR&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:50.633849+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Beijing",
+      "country_code": "CN",
+      "country": "China",
+      "admin1": "Beijing Municipality",
+      "latitude": 39.9075,
+      "longitude": 116.39723,
+      "timezone": "Asia/Shanghai",
+      "elevation": 49.0,
+      "id": 1816670,
+      "feature_code": "PPLC",
+      "aliases": [
+        "北京"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Beijing&countryCode=CN&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:51.684374+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Shanghai",
+      "country_code": "CN",
+      "country": "China",
+      "admin1": "Shanghai Municipality",
+      "latitude": 31.22222,
+      "longitude": 121.45806,
+      "timezone": "Asia/Shanghai",
+      "elevation": 12.0,
+      "id": 1796236,
+      "feature_code": "PPLA",
+      "aliases": [
+        "上海"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Shanghai&countryCode=CN&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:52.847951+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Kuala Lumpur",
+      "country_code": "MY",
+      "country": "Malaysia",
+      "admin1": "Kuala Lumpur",
+      "latitude": 3.1412,
+      "longitude": 101.68653,
+      "timezone": "Asia/Kuala_Lumpur",
+      "elevation": 56.0,
+      "id": 1735161,
+      "feature_code": "PPLC",
+      "aliases": [
+        "吉隆坡"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Kuala+Lumpur&countryCode=MY&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:53.925594+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Bangkok",
+      "country_code": "TH",
+      "country": "Thailand",
+      "admin1": "Bangkok",
+      "latitude": 13.75398,
+      "longitude": 100.50144,
+      "timezone": "Asia/Bangkok",
+      "elevation": 12.0,
+      "id": 1609350,
+      "feature_code": "PPLC",
+      "aliases": [
+        "曼谷"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Bangkok&countryCode=TH&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:54.976326+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Hanoi",
+      "country_code": "VN",
+      "country": "Vietnam",
+      "admin1": "Hanoi",
+      "latitude": 21.0245,
+      "longitude": 105.84117,
+      "timezone": "Asia/Bangkok",
+      "elevation": 10.0,
+      "id": 1581130,
+      "feature_code": "PPLC",
+      "aliases": [
+        "河内"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Hanoi&countryCode=VN&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:56.066087+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Ho Chi Minh City",
+      "country_code": "VN",
+      "country": "Vietnam",
+      "admin1": "Ho Chi Minh City (HCMC)",
+      "latitude": 10.82302,
+      "longitude": 106.62965,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "elevation": 7.0,
+      "id": 1566083,
+      "feature_code": "PPL",
+      "aliases": [
+        "胡志明市",
+        "西贡",
+        "Saigon"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Ho+Chi+Minh+City&countryCode=VN&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:57.176758+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Denpasar",
+      "country_code": "ID",
+      "country": "Indonesia",
+      "admin1": "Bali",
+      "latitude": -8.65,
+      "longitude": 115.21667,
+      "timezone": "Asia/Makassar",
+      "elevation": 33.0,
+      "id": 1645528,
+      "feature_code": "PPLA",
+      "aliases": [
+        "登巴萨"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Denpasar&countryCode=ID&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:58.227575+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "London",
+      "country_code": "GB",
+      "country": "United Kingdom",
+      "admin1": "England",
+      "latitude": 51.50853,
+      "longitude": -0.12574,
+      "timezone": "Europe/London",
+      "elevation": 25.0,
+      "id": 2643743,
+      "feature_code": "PPLC",
+      "aliases": [
+        "伦敦"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=London&countryCode=GB&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:47:59.330246+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Paris",
+      "country_code": "FR",
+      "country": "France",
+      "admin1": "Île-de-France Region",
+      "latitude": 48.85341,
+      "longitude": 2.3488,
+      "timezone": "Europe/Paris",
+      "elevation": 42.0,
+      "id": 2988507,
+      "feature_code": "PPLC",
+      "aliases": [
+        "巴黎"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Paris&countryCode=FR&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:48:00.773601+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "Sydney",
+      "country_code": "AU",
+      "country": "Australia",
+      "admin1": "New South Wales",
+      "latitude": -33.86785,
+      "longitude": 151.20732,
+      "timezone": "Australia/Sydney",
+      "elevation": 58.0,
+      "id": 2147714,
+      "feature_code": "PPLA",
+      "aliases": [
+        "悉尼"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=Sydney&countryCode=AU&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:48:01.858103+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    },
+    {
+      "name": "New York",
+      "country_code": "US",
+      "country": "United States",
+      "admin1": "New York",
+      "latitude": 40.71427,
+      "longitude": -74.00597,
+      "timezone": "America/New_York",
+      "elevation": 10.0,
+      "id": 5128581,
+      "feature_code": "PPL",
+      "aliases": [
+        "纽约",
+        "New York City"
+      ],
+      "scope": "city",
+      "source": "https://geocoding-api.open-meteo.com/v1/search?name=New+York&countryCode=US&count=10&language=en",
+      "retrieved_at": "2026-10-21T08:48:02.977541+00:00",
+      "selection_basis": "Explicit project city/country selection; exact-name populated place, largest population if duplicated within the named country."
+    }
+  ]
+}

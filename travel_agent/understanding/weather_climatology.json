@@ -1,0 +1,1883 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "name": "Singapore",
+      "aliases": [
+        "\u65b0\u52a0\u5761"
+      ],
+      "latitude": 1.28967,
+      "longitude": 103.85007,
+      "country_code": "SG",
+      "timezone": "Asia/Singapore",
+      "grid_latitude": 1.5,
+      "grid_longitude": 103.75,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.608,
+          "mean_daily_max_celsius": 29.948,
+          "wet_day_frequency": 0.722581,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 24.676,
+          "mean_daily_max_celsius": 30.448,
+          "wet_day_frequency": 0.586572,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.991,
+          "mean_daily_max_celsius": 31.242,
+          "wet_day_frequency": 0.754839,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 25.39,
+          "mean_daily_max_celsius": 31.342,
+          "wet_day_frequency": 0.9,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.845,
+          "mean_daily_max_celsius": 31.218,
+          "wet_day_frequency": 0.93871,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 25.567,
+          "mean_daily_max_celsius": 30.637,
+          "wet_day_frequency": 0.883333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.573,
+          "mean_daily_max_celsius": 30.505,
+          "wet_day_frequency": 0.735484,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.411,
+          "mean_daily_max_celsius": 30.352,
+          "wet_day_frequency": 0.8,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 25.197,
+          "mean_daily_max_celsius": 30.488,
+          "wet_day_frequency": 0.8,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.19,
+          "mean_daily_max_celsius": 30.745,
+          "wet_day_frequency": 0.822581,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.903,
+          "mean_daily_max_celsius": 30.41,
+          "wet_day_frequency": 0.953333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.871,
+          "mean_daily_max_celsius": 30.198,
+          "wet_day_frequency": 0.874194,
+          "snowfall_day_frequency": 0
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=1.28967&longitude=103.85007&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Singapore&count=10&language=en&countryCode=SG"
+      ],
+      "updated_at": "2026-10-21T08:18:45.412313+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "94243d6dd6c524392e2d5c93b210da4c39c8b5152cc1058a6a9a0e750e043355",
+      "elevation": 23.0,
+      "location_id": 1880252,
+      "grid_elevation_meters": 15.0
+    },
+    {
+      "name": "Tokyo",
+      "aliases": [
+        "\u4e1c\u4eac"
+      ],
+      "latitude": 35.6895,
+      "longitude": 139.69171,
+      "country_code": "JP",
+      "timezone": "Asia/Tokyo",
+      "grid_latitude": 35.75,
+      "grid_longitude": 139.75,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 0.764,
+          "mean_daily_max_celsius": 9.43,
+          "wet_day_frequency": 0.190323,
+          "snowfall_day_frequency": 0.077419
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 1.804,
+          "mean_daily_max_celsius": 10.579,
+          "wet_day_frequency": 0.275618,
+          "snowfall_day_frequency": 0.091873
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 5.726,
+          "mean_daily_max_celsius": 14.433,
+          "wet_day_frequency": 0.36129,
+          "snowfall_day_frequency": 0.019355
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 10.625,
+          "mean_daily_max_celsius": 18.755,
+          "wet_day_frequency": 0.383333,
+          "snowfall_day_frequency": 0.003333
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 15.598,
+          "mean_daily_max_celsius": 23.409,
+          "wet_day_frequency": 0.348387,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 19.442,
+          "mean_daily_max_celsius": 25.97,
+          "wet_day_frequency": 0.436667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 23.819,
+          "mean_daily_max_celsius": 29.925,
+          "wet_day_frequency": 0.451613,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.102,
+          "mean_daily_max_celsius": 31.382,
+          "wet_day_frequency": 0.383871,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 21.497,
+          "mean_daily_max_celsius": 27.303,
+          "wet_day_frequency": 0.48,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 15.002,
+          "mean_daily_max_celsius": 21.695,
+          "wet_day_frequency": 0.406452,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 9.193,
+          "mean_daily_max_celsius": 16.951,
+          "wet_day_frequency": 0.346667,
+          "snowfall_day_frequency": 0.003333
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 3.41,
+          "mean_daily_max_celsius": 11.895,
+          "wet_day_frequency": 0.216129,
+          "snowfall_day_frequency": 0.003226
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=35.6895&longitude=139.69171&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Tokyo&count=10&language=en&countryCode=JP"
+      ],
+      "updated_at": "2026-10-21T08:18:43.645913+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "8bd1c404cc1343124784fdaedae65cf0f11506e24824723790655513c21d39f3",
+      "elevation": 44.0,
+      "location_id": 1850147,
+      "grid_elevation_meters": 40.0
+    },
+    {
+      "name": "Osaka",
+      "aliases": [
+        "\u5927\u962a"
+      ],
+      "latitude": 34.69379,
+      "longitude": 135.50107,
+      "country_code": "JP",
+      "elevation": 4.0,
+      "location_id": 1853909,
+      "timezone": "Asia/Tokyo",
+      "grid_latitude": 34.75,
+      "grid_longitude": 135.5,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 2.946,
+          "mean_daily_max_celsius": 9.936,
+          "wet_day_frequency": 0.2,
+          "snowfall_day_frequency": 0.070968
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 3.337,
+          "mean_daily_max_celsius": 11.06,
+          "wet_day_frequency": 0.226148,
+          "snowfall_day_frequency": 0.063604
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 6.429,
+          "mean_daily_max_celsius": 15.527,
+          "wet_day_frequency": 0.325806,
+          "snowfall_day_frequency": 0.009677
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 11.503,
+          "mean_daily_max_celsius": 20.511,
+          "wet_day_frequency": 0.346667,
+          "snowfall_day_frequency": 0.003333
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 16.403,
+          "mean_daily_max_celsius": 25.203,
+          "wet_day_frequency": 0.322581,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 20.648,
+          "mean_daily_max_celsius": 27.922,
+          "wet_day_frequency": 0.453333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.569,
+          "mean_daily_max_celsius": 31.827,
+          "wet_day_frequency": 0.509677,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.699,
+          "mean_daily_max_celsius": 33.976,
+          "wet_day_frequency": 0.406452,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 22.965,
+          "mean_daily_max_celsius": 29.965,
+          "wet_day_frequency": 0.436667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 16.019,
+          "mean_daily_max_celsius": 23.963,
+          "wet_day_frequency": 0.332258,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 10.147,
+          "mean_daily_max_celsius": 18.439,
+          "wet_day_frequency": 0.226667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 4.97,
+          "mean_daily_max_celsius": 12.491,
+          "wet_day_frequency": 0.177419,
+          "snowfall_day_frequency": 0.012903
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=34.69379&longitude=135.50107&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Osaka&countryCode=JP&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:51:40.395161+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "048ec8428720bc5dd7aa34cb7570b2d31e579cfbe82c263d131a040eba4d19f4",
+      "grid_elevation_meters": 5.0
+    },
+    {
+      "name": "Seoul",
+      "aliases": [
+        "\u9996\u5c14"
+      ],
+      "latitude": 37.566,
+      "longitude": 126.9784,
+      "country_code": "KR",
+      "timezone": "Asia/Seoul",
+      "grid_latitude": 37.5,
+      "grid_longitude": 127.0,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": -6.132,
+          "mean_daily_max_celsius": 3.336,
+          "wet_day_frequency": 0.106452,
+          "snowfall_day_frequency": 0.13871
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": -3.913,
+          "mean_daily_max_celsius": 6.139,
+          "wet_day_frequency": 0.144876,
+          "snowfall_day_frequency": 0.137809
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 1.326,
+          "mean_daily_max_celsius": 13.071,
+          "wet_day_frequency": 0.174194,
+          "snowfall_day_frequency": 0.045161
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 7.544,
+          "mean_daily_max_celsius": 19.214,
+          "wet_day_frequency": 0.233333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 12.649,
+          "mean_daily_max_celsius": 24.115,
+          "wet_day_frequency": 0.248387,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 18.557,
+          "mean_daily_max_celsius": 28.035,
+          "wet_day_frequency": 0.303333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 23.179,
+          "mean_daily_max_celsius": 29.982,
+          "wet_day_frequency": 0.541935,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 23.439,
+          "mean_daily_max_celsius": 30.576,
+          "wet_day_frequency": 0.454839,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 17.963,
+          "mean_daily_max_celsius": 26.978,
+          "wet_day_frequency": 0.28,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 9.863,
+          "mean_daily_max_celsius": 20.494,
+          "wet_day_frequency": 0.206452,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 2.797,
+          "mean_daily_max_celsius": 13.093,
+          "wet_day_frequency": 0.21,
+          "snowfall_day_frequency": 0.046667
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": -4.493,
+          "mean_daily_max_celsius": 4.74,
+          "wet_day_frequency": 0.158065,
+          "snowfall_day_frequency": 0.158065
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=37.566&longitude=126.9784&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Seoul&count=10&language=en&countryCode=KR"
+      ],
+      "updated_at": "2026-10-21T08:18:41.964050+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "cd4cb493a93e14a518be78787323cae1f7d3a4f097c1e4b3f0be3ca0d8154f85",
+      "elevation": 38.0,
+      "location_id": 1835848,
+      "grid_elevation_meters": 27.0
+    },
+    {
+      "name": "Beijing",
+      "aliases": [
+        "\u5317\u4eac"
+      ],
+      "latitude": 39.9075,
+      "longitude": 116.39723,
+      "country_code": "CN",
+      "elevation": 49.0,
+      "location_id": 1816670,
+      "timezone": "Asia/Shanghai",
+      "grid_latitude": 40.0,
+      "grid_longitude": 116.5,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": -8.32,
+          "mean_daily_max_celsius": 2.394,
+          "wet_day_frequency": 0.016129,
+          "snowfall_day_frequency": 0.06129
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": -5.501,
+          "mean_daily_max_celsius": 6.045,
+          "wet_day_frequency": 0.063604,
+          "snowfall_day_frequency": 0.088339
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 0.94,
+          "mean_daily_max_celsius": 14.84,
+          "wet_day_frequency": 0.093548,
+          "snowfall_day_frequency": 0.032258
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 8.661,
+          "mean_daily_max_celsius": 22.407,
+          "wet_day_frequency": 0.106667,
+          "snowfall_day_frequency": 0.006667
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 14.481,
+          "mean_daily_max_celsius": 28.876,
+          "wet_day_frequency": 0.141935,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 20.047,
+          "mean_daily_max_celsius": 33.191,
+          "wet_day_frequency": 0.203333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 22.846,
+          "mean_daily_max_celsius": 32.403,
+          "wet_day_frequency": 0.425806,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 21.487,
+          "mean_daily_max_celsius": 30.754,
+          "wet_day_frequency": 0.345161,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 15.978,
+          "mean_daily_max_celsius": 27.416,
+          "wet_day_frequency": 0.196667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 7.265,
+          "mean_daily_max_celsius": 19.541,
+          "wet_day_frequency": 0.119355,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": -0.701,
+          "mean_daily_max_celsius": 10.392,
+          "wet_day_frequency": 0.09,
+          "snowfall_day_frequency": 0.053333
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": -7.072,
+          "mean_daily_max_celsius": 3.471,
+          "wet_day_frequency": 0.019355,
+          "snowfall_day_frequency": 0.051613
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=39.9075&longitude=116.39723&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Beijing&countryCode=CN&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:51:44.075418+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "cdb0042ed29a28759fac257823bdfec9a10a96c9fea886baf66b5c53fa70a868",
+      "grid_elevation_meters": 47.0
+    },
+    {
+      "name": "Shanghai",
+      "aliases": [
+        "\u4e0a\u6d77"
+      ],
+      "latitude": 31.22222,
+      "longitude": 121.45806,
+      "country_code": "CN",
+      "elevation": 12.0,
+      "location_id": 1796236,
+      "timezone": "Asia/Shanghai",
+      "grid_latitude": 31.25,
+      "grid_longitude": 121.5,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 3.33,
+          "mean_daily_max_celsius": 9.32,
+          "wet_day_frequency": 0.264516,
+          "snowfall_day_frequency": 0.045161
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 4.19,
+          "mean_daily_max_celsius": 10.553,
+          "wet_day_frequency": 0.325088,
+          "snowfall_day_frequency": 0.056537
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 8.365,
+          "mean_daily_max_celsius": 15.467,
+          "wet_day_frequency": 0.348387,
+          "snowfall_day_frequency": 0.003226
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 12.923,
+          "mean_daily_max_celsius": 20.444,
+          "wet_day_frequency": 0.353333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 17.742,
+          "mean_daily_max_celsius": 24.76,
+          "wet_day_frequency": 0.367742,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 22.114,
+          "mean_daily_max_celsius": 27.594,
+          "wet_day_frequency": 0.513333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.525,
+          "mean_daily_max_celsius": 32.07,
+          "wet_day_frequency": 0.493548,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.817,
+          "mean_daily_max_celsius": 32.452,
+          "wet_day_frequency": 0.403226,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 22.963,
+          "mean_daily_max_celsius": 28.094,
+          "wet_day_frequency": 0.416667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 17.266,
+          "mean_daily_max_celsius": 22.976,
+          "wet_day_frequency": 0.251613,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 11.877,
+          "mean_daily_max_celsius": 18.019,
+          "wet_day_frequency": 0.286667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 4.836,
+          "mean_daily_max_celsius": 11.357,
+          "wet_day_frequency": 0.222581,
+          "snowfall_day_frequency": 0.029032
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=31.22222&longitude=121.45806&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Shanghai&countryCode=CN&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:51:47.735673+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "4830166a647aa5926365e96ceefd3235eca0c58f37bc9b855a2eefaaf2bc6796",
+      "grid_elevation_meters": 7.0
+    },
+    {
+      "name": "Kuala Lumpur",
+      "aliases": [
+        "\u5409\u9686\u5761"
+      ],
+      "latitude": 3.1412,
+      "longitude": 101.68653,
+      "country_code": "MY",
+      "elevation": 56.0,
+      "location_id": 1735161,
+      "timezone": "Asia/Kuala_Lumpur",
+      "grid_latitude": 3.25,
+      "grid_longitude": 101.75,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.135,
+          "mean_daily_max_celsius": 31.924,
+          "wet_day_frequency": 0.670968,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 24.206,
+          "mean_daily_max_celsius": 32.886,
+          "wet_day_frequency": 0.579505,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.651,
+          "mean_daily_max_celsius": 33.075,
+          "wet_day_frequency": 0.793548,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.995,
+          "mean_daily_max_celsius": 33.048,
+          "wet_day_frequency": 0.936667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.187,
+          "mean_daily_max_celsius": 32.808,
+          "wet_day_frequency": 0.887097,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.655,
+          "mean_daily_max_celsius": 32.149,
+          "wet_day_frequency": 0.773333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.575,
+          "mean_daily_max_celsius": 31.95,
+          "wet_day_frequency": 0.73871,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.385,
+          "mean_daily_max_celsius": 31.89,
+          "wet_day_frequency": 0.809677,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.333,
+          "mean_daily_max_celsius": 31.89,
+          "wet_day_frequency": 0.83,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.458,
+          "mean_daily_max_celsius": 32.162,
+          "wet_day_frequency": 0.809677,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.396,
+          "mean_daily_max_celsius": 31.776,
+          "wet_day_frequency": 0.973333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.344,
+          "mean_daily_max_celsius": 31.601,
+          "wet_day_frequency": 0.819355,
+          "snowfall_day_frequency": 0
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=3.1412&longitude=101.68653&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Kuala+Lumpur&countryCode=MY&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:51:51.936976+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "8ae90f0e34e943808ba8e2a00e3294cbe11b5edae8371e8ec0b78323382d3f31",
+      "grid_elevation_meters": 47.0
+    },
+    {
+      "name": "Bangkok",
+      "aliases": [
+        "\u66fc\u8c37"
+      ],
+      "latitude": 13.75398,
+      "longitude": 100.50144,
+      "country_code": "TH",
+      "elevation": 12.0,
+      "location_id": 1609350,
+      "timezone": "Asia/Bangkok",
+      "grid_latitude": 13.75,
+      "grid_longitude": 100.5,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 22.461,
+          "mean_daily_max_celsius": 31.722,
+          "wet_day_frequency": 0.116129,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 23.858,
+          "mean_daily_max_celsius": 32.759,
+          "wet_day_frequency": 0.137809,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.369,
+          "mean_daily_max_celsius": 34.026,
+          "wet_day_frequency": 0.187097,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 27.38,
+          "mean_daily_max_celsius": 34.975,
+          "wet_day_frequency": 0.3,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 27.731,
+          "mean_daily_max_celsius": 34.865,
+          "wet_day_frequency": 0.564516,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 27.359,
+          "mean_daily_max_celsius": 34.059,
+          "wet_day_frequency": 0.666667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.879,
+          "mean_daily_max_celsius": 33.305,
+          "wet_day_frequency": 0.751613,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.838,
+          "mean_daily_max_celsius": 33.385,
+          "wet_day_frequency": 0.741935,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 26.28,
+          "mean_daily_max_celsius": 32.735,
+          "wet_day_frequency": 0.826667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.748,
+          "mean_daily_max_celsius": 32.4,
+          "wet_day_frequency": 0.654839,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.886,
+          "mean_daily_max_celsius": 32.472,
+          "wet_day_frequency": 0.333333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 22.81,
+          "mean_daily_max_celsius": 31.567,
+          "wet_day_frequency": 0.080645,
+          "snowfall_day_frequency": 0
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=13.75398&longitude=100.50144&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Bangkok&countryCode=TH&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:51:55.563253+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "b0655d4e416cf173498972173622f33dff0cc05a39538d24770add05160b49bd",
+      "grid_elevation_meters": 7.0
+    },
+    {
+      "name": "Hanoi",
+      "aliases": [
+        "\u6cb3\u5185"
+      ],
+      "latitude": 21.0245,
+      "longitude": 105.84117,
+      "country_code": "VN",
+      "elevation": 10.0,
+      "location_id": 1581130,
+      "timezone": "Asia/Bangkok",
+      "grid_latitude": 21.0,
+      "grid_longitude": 105.75,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 15.361,
+          "mean_daily_max_celsius": 21.056,
+          "wet_day_frequency": 0.341935,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 16.282,
+          "mean_daily_max_celsius": 22.459,
+          "wet_day_frequency": 0.254417,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 19.631,
+          "mean_daily_max_celsius": 25.59,
+          "wet_day_frequency": 0.332258,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 22.368,
+          "mean_daily_max_celsius": 29.166,
+          "wet_day_frequency": 0.366667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.543,
+          "mean_daily_max_celsius": 32.564,
+          "wet_day_frequency": 0.554839,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 27.58,
+          "mean_daily_max_celsius": 34.566,
+          "wet_day_frequency": 0.55,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 27.228,
+          "mean_daily_max_celsius": 33.909,
+          "wet_day_frequency": 0.635484,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.711,
+          "mean_daily_max_celsius": 33.15,
+          "wet_day_frequency": 0.748387,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 25.809,
+          "mean_daily_max_celsius": 32.166,
+          "wet_day_frequency": 0.69,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 22.901,
+          "mean_daily_max_celsius": 29.323,
+          "wet_day_frequency": 0.412903,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 20.202,
+          "mean_daily_max_celsius": 26.868,
+          "wet_day_frequency": 0.246667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 15.55,
+          "mean_daily_max_celsius": 21.913,
+          "wet_day_frequency": 0.196774,
+          "snowfall_day_frequency": 0
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=21.0245&longitude=105.84117&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Hanoi&countryCode=VN&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:51:59.259862+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "30f3047f82c42e0d9ac63130b9ca54cda33be21882471034d7e5b8f38d9cbaf4",
+      "grid_elevation_meters": 10.0
+    },
+    {
+      "name": "Ho Chi Minh City",
+      "aliases": [
+        "\u80e1\u5fd7\u660e\u5e02",
+        "\u897f\u8d21",
+        "Saigon"
+      ],
+      "latitude": 10.82302,
+      "longitude": 106.62965,
+      "country_code": "VN",
+      "elevation": 7.0,
+      "location_id": 1566083,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "grid_latitude": 10.75,
+      "grid_longitude": 106.75,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 23.665,
+          "mean_daily_max_celsius": 31.328,
+          "wet_day_frequency": 0.148387,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 23.829,
+          "mean_daily_max_celsius": 32.265,
+          "wet_day_frequency": 0.067138,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.294,
+          "mean_daily_max_celsius": 33.38,
+          "wet_day_frequency": 0.090323,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 26.671,
+          "mean_daily_max_celsius": 34.096,
+          "wet_day_frequency": 0.336667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.995,
+          "mean_daily_max_celsius": 33.746,
+          "wet_day_frequency": 0.732258,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 26.075,
+          "mean_daily_max_celsius": 32.584,
+          "wet_day_frequency": 0.836667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.741,
+          "mean_daily_max_celsius": 31.631,
+          "wet_day_frequency": 0.922581,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.775,
+          "mean_daily_max_celsius": 31.913,
+          "wet_day_frequency": 0.909677,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 25.433,
+          "mean_daily_max_celsius": 31.619,
+          "wet_day_frequency": 0.953333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.289,
+          "mean_daily_max_celsius": 31.334,
+          "wet_day_frequency": 0.887097,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 25.111,
+          "mean_daily_max_celsius": 31.3,
+          "wet_day_frequency": 0.66,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.073,
+          "mean_daily_max_celsius": 30.746,
+          "wet_day_frequency": 0.364516,
+          "snowfall_day_frequency": 0
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=10.82302&longitude=106.62965&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Ho+Chi+Minh+City&countryCode=VN&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:52:02.894983+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "99ea265027488c88b5751444febdb35fac5fdf0397eeda02dc81bc78898539c6",
+      "grid_elevation_meters": 6.0
+    },
+    {
+      "name": "Denpasar",
+      "aliases": [
+        "\u767b\u5df4\u8428"
+      ],
+      "latitude": -8.65,
+      "longitude": 115.21667,
+      "country_code": "ID",
+      "elevation": 33.0,
+      "location_id": 1645528,
+      "timezone": "Asia/Makassar",
+      "grid_latitude": -8.5,
+      "grid_longitude": 115.25,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.958,
+          "mean_daily_max_celsius": 30.198,
+          "wet_day_frequency": 0.9,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 25.844,
+          "mean_daily_max_celsius": 30.256,
+          "wet_day_frequency": 0.957597,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 26.045,
+          "mean_daily_max_celsius": 30.561,
+          "wet_day_frequency": 0.941935,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 26.143,
+          "mean_daily_max_celsius": 30.589,
+          "wet_day_frequency": 0.743333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.665,
+          "mean_daily_max_celsius": 29.94,
+          "wet_day_frequency": 0.535484,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.865,
+          "mean_daily_max_celsius": 29.022,
+          "wet_day_frequency": 0.503333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 24.064,
+          "mean_daily_max_celsius": 28.126,
+          "wet_day_frequency": 0.416129,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 23.79,
+          "mean_daily_max_celsius": 28.075,
+          "wet_day_frequency": 0.396774,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 24.225,
+          "mean_daily_max_celsius": 28.813,
+          "wet_day_frequency": 0.473333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.024,
+          "mean_daily_max_celsius": 29.779,
+          "wet_day_frequency": 0.490323,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 25.681,
+          "mean_daily_max_celsius": 30.252,
+          "wet_day_frequency": 0.833333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 25.896,
+          "mean_daily_max_celsius": 30.21,
+          "wet_day_frequency": 0.9,
+          "snowfall_day_frequency": 0
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=-8.65&longitude=115.21667&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Denpasar&countryCode=ID&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:52:06.664482+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "a1789f2afb2449f4dd8f81ef7ae4a070f740a6bf969f665b0cdfcef1f5a23575",
+      "grid_elevation_meters": 35.0
+    },
+    {
+      "name": "London",
+      "aliases": [
+        "\u4f26\u6566"
+      ],
+      "latitude": 51.50853,
+      "longitude": -0.12574,
+      "country_code": "GB",
+      "elevation": 25.0,
+      "location_id": 2643743,
+      "timezone": "Europe/London",
+      "grid_latitude": 51.5,
+      "grid_longitude": -0.25,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 2.635,
+          "mean_daily_max_celsius": 7.945,
+          "wet_day_frequency": 0.367742,
+          "snowfall_day_frequency": 0.067742
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 3.578,
+          "mean_daily_max_celsius": 9.204,
+          "wet_day_frequency": 0.35689,
+          "snowfall_day_frequency": 0.056537
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 4.635,
+          "mean_daily_max_celsius": 10.927,
+          "wet_day_frequency": 0.416129,
+          "snowfall_day_frequency": 0.035484
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 5.577,
+          "mean_daily_max_celsius": 13.792,
+          "wet_day_frequency": 0.333333,
+          "snowfall_day_frequency": 0.003333
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 8.988,
+          "mean_daily_max_celsius": 17.377,
+          "wet_day_frequency": 0.33871,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 12.093,
+          "mean_daily_max_celsius": 20.695,
+          "wet_day_frequency": 0.31,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 14.129,
+          "mean_daily_max_celsius": 22.509,
+          "wet_day_frequency": 0.325806,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 14.006,
+          "mean_daily_max_celsius": 22.092,
+          "wet_day_frequency": 0.319355,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 11.671,
+          "mean_daily_max_celsius": 19.496,
+          "wet_day_frequency": 0.366667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 9.066,
+          "mean_daily_max_celsius": 15.409,
+          "wet_day_frequency": 0.367742,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 5.762,
+          "mean_daily_max_celsius": 11.03,
+          "wet_day_frequency": 0.366667,
+          "snowfall_day_frequency": 0.013333
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 4.869,
+          "mean_daily_max_celsius": 9.367,
+          "wet_day_frequency": 0.393548,
+          "snowfall_day_frequency": 0.029032
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=51.50853&longitude=-0.12574&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=London&countryCode=GB&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:52:10.297339+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "2f29cbeaf75522d5645df75a415c776f5e4df6e2d46c527ef2b692102a9509a1",
+      "grid_elevation_meters": 23.0
+    },
+    {
+      "name": "Paris",
+      "aliases": [
+        "\u5df4\u9ece"
+      ],
+      "latitude": 48.85341,
+      "longitude": 2.3488,
+      "country_code": "FR",
+      "elevation": 42.0,
+      "location_id": 2988507,
+      "timezone": "Europe/Paris",
+      "grid_latitude": 48.75,
+      "grid_longitude": 2.25,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 2.623,
+          "mean_daily_max_celsius": 7.494,
+          "wet_day_frequency": 0.396774,
+          "snowfall_day_frequency": 0.090323
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 3.169,
+          "mean_daily_max_celsius": 9.772,
+          "wet_day_frequency": 0.367491,
+          "snowfall_day_frequency": 0.060071
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 4.647,
+          "mean_daily_max_celsius": 12.703,
+          "wet_day_frequency": 0.425806,
+          "snowfall_day_frequency": 0.016129
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 6.106,
+          "mean_daily_max_celsius": 16.089,
+          "wet_day_frequency": 0.32,
+          "snowfall_day_frequency": 0.006667
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 9.727,
+          "mean_daily_max_celsius": 19.566,
+          "wet_day_frequency": 0.406452,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 13.611,
+          "mean_daily_max_celsius": 23.818,
+          "wet_day_frequency": 0.39,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 15.166,
+          "mean_daily_max_celsius": 26.05,
+          "wet_day_frequency": 0.26129,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 15.06,
+          "mean_daily_max_celsius": 25.929,
+          "wet_day_frequency": 0.290323,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 12.185,
+          "mean_daily_max_celsius": 22.113,
+          "wet_day_frequency": 0.303333,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 9.489,
+          "mean_daily_max_celsius": 17.167,
+          "wet_day_frequency": 0.390323,
+          "snowfall_day_frequency": 0.003226
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 5.776,
+          "mean_daily_max_celsius": 11.409,
+          "wet_day_frequency": 0.386667,
+          "snowfall_day_frequency": 0.023333
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 4.186,
+          "mean_daily_max_celsius": 8.851,
+          "wet_day_frequency": 0.396774,
+          "snowfall_day_frequency": 0.032258
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=48.85341&longitude=2.3488&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Paris&countryCode=FR&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:52:13.925405+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "d7f93f393b4bfc35c88199f9e61b1001b6b80c2ebcbf5330086a448e2ac18140",
+      "grid_elevation_meters": 43.0
+    },
+    {
+      "name": "Sydney",
+      "aliases": [
+        "\u6089\u5c3c"
+      ],
+      "latitude": -33.86785,
+      "longitude": 151.20732,
+      "country_code": "AU",
+      "elevation": 58.0,
+      "location_id": 2147714,
+      "timezone": "Australia/Sydney",
+      "grid_latitude": -33.75,
+      "grid_longitude": 151.0,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 19.335,
+          "mean_daily_max_celsius": 28.633,
+          "wet_day_frequency": 0.380645,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": 18.788,
+          "mean_daily_max_celsius": 27.765,
+          "wet_day_frequency": 0.39576,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 17.374,
+          "mean_daily_max_celsius": 26.187,
+          "wet_day_frequency": 0.464516,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 13.47,
+          "mean_daily_max_celsius": 23.656,
+          "wet_day_frequency": 0.306667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 9.6,
+          "mean_daily_max_celsius": 20.58,
+          "wet_day_frequency": 0.209677,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 7.628,
+          "mean_daily_max_celsius": 17.662,
+          "wet_day_frequency": 0.23,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 6.648,
+          "mean_daily_max_celsius": 18.03,
+          "wet_day_frequency": 0.209677,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 7.361,
+          "mean_daily_max_celsius": 19.416,
+          "wet_day_frequency": 0.196774,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 9.711,
+          "mean_daily_max_celsius": 22.007,
+          "wet_day_frequency": 0.236667,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 12.915,
+          "mean_daily_max_celsius": 24.081,
+          "wet_day_frequency": 0.325806,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 15.218,
+          "mean_daily_max_celsius": 25.51,
+          "wet_day_frequency": 0.32,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 17.384,
+          "mean_daily_max_celsius": 27.793,
+          "wet_day_frequency": 0.3,
+          "snowfall_day_frequency": 0
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=-33.86785&longitude=151.20732&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=Sydney&countryCode=AU&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:52:17.588785+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "120829d7904f6aae8c912e0bbd445527cb858df18ed7607ac8e2754426b5a698",
+      "grid_elevation_meters": 51.0
+    },
+    {
+      "name": "New York",
+      "aliases": [
+        "\u7ebd\u7ea6",
+        "New York City"
+      ],
+      "latitude": 40.71427,
+      "longitude": -74.00597,
+      "country_code": "US",
+      "elevation": 10.0,
+      "location_id": 5128581,
+      "timezone": "America/New_York",
+      "grid_latitude": 40.75,
+      "grid_longitude": -74.0,
+      "baseline_start_year": 2015,
+      "baseline_end_year": 2024,
+      "model": "era5",
+      "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+      "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+      "monthly": [
+        {
+          "month": 1,
+          "sample_days": 310,
+          "mean_daily_min_celsius": -2.51,
+          "mean_daily_max_celsius": 3.981,
+          "wet_day_frequency": 0.303226,
+          "snowfall_day_frequency": 0.193548
+        },
+        {
+          "month": 2,
+          "sample_days": 283,
+          "mean_daily_min_celsius": -2.162,
+          "mean_daily_max_celsius": 5.443,
+          "wet_day_frequency": 0.328622,
+          "snowfall_day_frequency": 0.233216
+        },
+        {
+          "month": 3,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 1.917,
+          "mean_daily_max_celsius": 9.173,
+          "wet_day_frequency": 0.348387,
+          "snowfall_day_frequency": 0.141935
+        },
+        {
+          "month": 4,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 7.488,
+          "mean_daily_max_celsius": 14.928,
+          "wet_day_frequency": 0.38,
+          "snowfall_day_frequency": 0.01
+        },
+        {
+          "month": 5,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 12.983,
+          "mean_daily_max_celsius": 20.752,
+          "wet_day_frequency": 0.358065,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 6,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 18.186,
+          "mean_daily_max_celsius": 25.76,
+          "wet_day_frequency": 0.36,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 7,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 22.075,
+          "mean_daily_max_celsius": 29.036,
+          "wet_day_frequency": 0.406452,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 8,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 21.228,
+          "mean_daily_max_celsius": 27.868,
+          "wet_day_frequency": 0.36129,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 9,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 17.29,
+          "mean_daily_max_celsius": 24.192,
+          "wet_day_frequency": 0.32,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 10,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 11.197,
+          "mean_daily_max_celsius": 18.483,
+          "wet_day_frequency": 0.270968,
+          "snowfall_day_frequency": 0
+        },
+        {
+          "month": 11,
+          "sample_days": 300,
+          "mean_daily_min_celsius": 4.659,
+          "mean_daily_max_celsius": 12.145,
+          "wet_day_frequency": 0.27,
+          "snowfall_day_frequency": 0.02
+        },
+        {
+          "month": 12,
+          "sample_days": 310,
+          "mean_daily_min_celsius": 0.815,
+          "mean_daily_max_celsius": 6.919,
+          "wet_day_frequency": 0.33871,
+          "snowfall_day_frequency": 0.125806
+        }
+      ],
+      "source_urls": [
+        "https://archive-api.open-meteo.com/v1/archive?latitude=40.71427&longitude=-74.00597&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "https://geocoding-api.open-meteo.com/v1/search?name=New+York&countryCode=US&count=10&language=en"
+      ],
+      "updated_at": "2026-10-21T08:52:21.253165+00:00",
+      "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+      "raw_response_sha256": "75a64e25a010124599d28a3744ffc769f5f5590f42b4c84778bc0a826dd27e58",
+      "grid_elevation_meters": 51.0
+    }
+  ]
+}

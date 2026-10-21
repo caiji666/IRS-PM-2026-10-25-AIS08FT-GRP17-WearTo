@@ -27,18 +27,30 @@ def form():
     }
 
 
-def test_form_only_accepts_forecast_window_and_known_fields():
+def test_form_requires_trip_fields_but_allows_optional_fields_and_longer_dates():
     assert web.validate_form(form())["country_name"] == "South Korea"
     assert web.validate_form(
         {**form(), "country": "US", "city": "Los Angeles", "activities": ["beach walk"]}
     )["activities"] == ["beach walk"]
     assert web.validate_form({**form(), "country": "JP", "city": "Tokyo"})["city"] == "Tokyo"
+    assert (
+        web.validate_form(
+            {
+                **form(),
+                "activities": [],
+                "style": "",
+                "start_date": "2026-12-20",
+                "end_date": "2026-12-27",
+            }
+        )["activities"]
+        == []
+    )
     for updates in (
         {"country": "XX"},
         {"budget": -1},
         {"currency": "XXX"},
-        {"activities": []},
-        {"start_date": "2026-01-01"},
+        {"activities": ["x"] * 9},
+        {"start_date": "2026-02-30"},
         {"notes": "x" * 1501},
     ):
         with pytest.raises(ValueError):
@@ -114,17 +126,17 @@ def test_local_http_rejects_foreign_origin_host_and_private_files(tmp_path, monk
         server.server_close()
 
 
-def test_review_requires_explicit_activity_codes_and_preserves_input():
+def test_review_allows_missing_activity_codes_but_checks_explicit_choices():
     from travel_agent.web.review import confirmed_request, dress_code_options
 
     request = {"activities": ["dinner", "business meeting"], "dress_codes": {}}
     options = dress_code_options(request)
     assert "smart casual" in options["dinner"]
     assert options["business meeting"] == ["business casual", "business formal"]
-    with pytest.raises(ValueError, match="dinner"):
-        confirmed_request(request, {})
-    with pytest.raises(ValueError, match="business"):
-        confirmed_request(request, {"dinner": "smart casual"})
+    assert confirmed_request(request, {})["dress_codes"] == {}
+    assert confirmed_request(request, {"dinner": "smart casual"})["dress_codes"] == {
+        "dinner": "smart casual"
+    }
     with pytest.raises(ValueError, match="business"):
         confirmed_request(request, {"dinner": "smart casual", "business meeting": "casual"})
     fixed = confirmed_request(

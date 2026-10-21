@@ -46,7 +46,7 @@ HF_HOME="$PWD/artifacts/huggingface" uv run --extra qwen \
 
 The fixed model is `Qwen/Qwen3-0.6B`, revision `c1899de289a04d12100db370d81485cdf75e47ca`. First use downloads weights into ignored `artifacts/`. No API key or paid model service is needed. This Mac uses MPS when available; CPU/CUDA are alternatives. No model or provider is loaded at module import time. Advanced optional POI/owned-item extraction is not yet evaluated.
 
-**Human checkpoint:** inspect `proposed_request` against your exact original message. The model can produce valid JSON with wrong facts or omit facts. The default preview does not apply a request/patch to existing state. Correct the structured request or patch and submit it through `--input`. For a previously reviewed exact input, the direct CLI's `--accept-extraction` flag permits application; this is explicit caller approval, not a model's approval. The LangChain tool forcibly disables that flag for messages so an agent cannot approve its own extraction.
+**Human checkpoint:** inspect `proposed_request` against your exact original message. The model can produce valid JSON with wrong facts or omit facts. The default preview stores accumulated facts in `state.pending_request` while keeping accepted facts in `state.current_request` unchanged. Save and resend returned state on every turn, including previews; later messages need only the new or corrected details. Correct the structured request or patch and submit it through `--input`. For a previously reviewed exact input, the direct CLI's `--accept-extraction` flag permits application; this is explicit caller approval, not a model's approval. The LangChain tool forcibly disables that flag for messages so an agent cannot approve its own extraction.
 
 Budget/currency evidence guards, explicit ISO/Chinese date checks, qualified dress-code checks, and limited activity/style vocabulary normalization reduce some hallucinations. They are conservative: unsupported date wording, synonyms and cross-sentence dress-code evidence may be omitted. They do not prove semantic correctness or replace review. A malformed patch returns a clarification/error with prior state preserved; do not accept it just to keep a demo moving.
 
@@ -60,9 +60,9 @@ HF_HOME="$PWD/artifacts/huggingface" uv run --extra qwen \
   --output artifacts/qwen-smoke-results.json
 ```
 
-## 3. Run real weather for a near-term trip
+## 3. Run forecasts or historical climate references
 
-Prepare a reviewed request JSON (`{"request":{...},"allow_draft":true}`) with exact dates inside the provider's forecast window, then:
+Prepare a reviewed request JSON (`{"request":{...},"allow_draft":true}`) with exact dates, then:
 
 ```bash
 uv run python -m travel_agent.understanding.demo \
@@ -83,7 +83,7 @@ Open-Meteo city search can return several locations with the same name. The modu
 
 Pass `--location artifacts/confirmed-location.json`. `destination` must match the current request; coordinates cannot silently carry over after a destination edit. Do not use city-centre weather as a mountain or indoor-venue forecast. The current live adapter supports city scope only; exact venue/mountain microclimates need separate supported input.
 
-Out-of-range dates return `out_of_range`. No historical fallback is configured by default. An optional explicitly sourced `historical_climatology` fixture must match the exact input scope and must stay labelled historical. Missing data or unexpected units/date coverage return unknown weather; no clear-sky assumption is made.
+`--live-weather` / `weather_provider=open_meteo` selects automatic routing. Whole trips within today through day 15 use the API; trips outside or crossing that window use the local historical database for the whole trip. The public dataset covers 15 cities in 12 countries using 2015-2024 ERA5 monthly statistics. Country-only and ambiguous inputs require city confirmation; uncached confirmed cities have a bounded explicit acquisition path. See [city coverage](weather-location-coverage.md). Historical values are labelled reference data, never forecasts. API failures within the window stay unknown instead of silently falling back. Unsupported historical locations stay unavailable. No weather API key is required for this non-commercial prototype. See [weather setup, data and sharing](weather-data.md).
 
 Provider documentation: [forecast](https://open-meteo.com/en/docs), [geocoding](https://open-meteo.com/en/docs/geocoding-api). The provider returns at most 16 days; the actual returned coverage is checked. Temperatures are Celsius, snowfall is cm and precipitation probability is converted from percent to 0–1. Source/retrieval time and dates are included in output.
 
@@ -113,7 +113,7 @@ NEO4J_URI=bolt://localhost:7687
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=<your local password>
 NEO4J_DATABASE=neo4j
-ACTIVITY_KG_VERSION=0.1.0
+ACTIVITY_KG_VERSION=0.2.0
 ```
 
 The CLI loads `.env`. In your development database, import `travel_agent/understanding/kg_data/activity/seed.cypher` through Neo4j Browser or `cypher-shell`. The version-scoped seed uses MERGE and performs no deletes. Reimporting this snapshot updates that version's properties, including reviews, so do not use it on an already reviewed shared graph; use a separate development DB/version or a reviewed migration.
@@ -142,3 +142,23 @@ Outputs now include `data.season` and `data.season_context`, and include support
 English scenarios are the primary workflow. Follow the README for the supervised Qwen preview command and `evaluation/README.md` for current English diagnostics. The historical multilingual scores above remain archived evidence and are not the current English release scores. Raw Qwen output remains separate from Qwen plus deterministic source-evidence reconciliation.
 
 Review each proposed request/edit/confirmation before accepting it. Team review is still required for KG assertions, weather thresholds, season conventions and downstream schema adoption. Live Neo4j, product/recommendation modules and autonomous end-to-end agent integration remain unverified or unimplemented.
+
+## Incremental collection and empty optional results
+
+Required fields are destination, start/end dates and budget including currency. Activities, styles, places and dress codes are optional. Empty activity output maps, empty clothing arrays and `place_context=null` are valid; missing occasion codes appear in `optional_questions` and do not block downstream work. No activity is invented when none was provided. Explicit null optional collections normalize to empty lists/maps.
+
+For a multi-turn local dialogue, use the same state file for every message:
+
+```bash
+uv run python -m travel_agent.understanding.demo --message 'I am going to Seoul.' --save-state artifacts/session.json
+uv run python -m travel_agent.understanding.demo --message '2026-12-20 to 2026-12-27' --state artifacts/session.json --save-state artifacts/session.json
+uv run python -m travel_agent.understanding.demo --message '500 SGD' --state artifacts/session.json --save-state artifacts/session.json
+```
+
+Review the final accumulated `proposed_request`, then confirm it without repeating any input or rerunning the model:
+
+```bash
+uv run python -m travel_agent.understanding.demo --confirm-pending --state artifacts/session.json --save-state artifacts/session.json
+```
+
+A corrected structured `patch` also merges onto pending facts and applies them; an empty patch accepts them unchanged after user review. Single ISO dates need a start/end label unless exactly one date slot is still missing. Relative/yearless dates and ambiguous currencies still need clarification. The LangChain caller must carry returned state between tool calls; automatic production session persistence is still not configured.

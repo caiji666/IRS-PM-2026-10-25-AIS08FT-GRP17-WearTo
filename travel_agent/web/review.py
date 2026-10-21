@@ -32,10 +32,12 @@ def confirmed_request(request, supplied):
     options = dress_code_options(result)
     for activity, choices in options.items():
         code = supplied.get(activity, codes.get(activity))
+        if code in (None, ""):
+            if activity in supplied:
+                codes.pop(activity, None)
+            continue
         if code not in choices:
             label = LABELS.get(activity, activity)
-            raise ValueError(
-                f"Please choose a supported dress code for {label} before starting the search."
-            )
+            raise ValueError(f"Choose a supported dress code for {label}, or leave it unspecified.")
         codes[activity] = code
     return result

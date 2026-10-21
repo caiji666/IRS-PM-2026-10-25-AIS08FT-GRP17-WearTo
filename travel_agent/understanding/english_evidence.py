@@ -179,6 +179,21 @@ def money_facts(text):
                 code = currency_in(clause)
                 if code:
                     facts["currency"] = code
+    # A complete amount/currency reply is explicit even without the word budget.
+    currency_terms = "|".join(re.escape(term) for terms in CURRENCY.values() for term in terms)
+    amount = r"[+-]?\d+(?:,\d{3})*(?:\.\d+)?"
+    reply = re.fullmatch(
+        rf"\s*(?:({amount})\s*({currency_terms})|({currency_terms})\s*({amount}))\s*[.!]?\s*",
+        text,
+        re.I,
+    )
+    if reply:
+        value = (reply.group(1) or reply.group(4)).replace(",", "")
+        facts.update(
+            budget=float(value) if "." in value else int(value), currency=currency_in(text)
+        )
+    elif re.fullmatch(rf"\s*(?:{currency_terms})\s*[.!]?\s*", text, re.I):
+        facts["currency"] = currency_in(text)
     return facts
 
 
@@ -201,6 +216,15 @@ def destination_fact(text, candidate):
     if match:
         return (match.group(1) or match.group(2)).strip()
     value = candidate.get("destination")
+    non_places = {
+        term for vocab in (STYLES, ACTIVITIES, ITEMS) for terms in vocab.values() for term in terms
+    }
+    if (
+        isinstance(value, str)
+        and value.strip().casefold() == text.strip(" .!\n").casefold()
+        and value.strip().casefold() not in non_places
+    ):
+        return value.strip()
     if (
         isinstance(value, str)
         and value
@@ -236,6 +260,9 @@ def exclusion_items(text):
 
 def style_facts(text, candidate):
     found = []
+    for canonical, terms in STYLES.items():
+        if text.strip(" .!\n").casefold() in terms:
+            return [canonical]
     for clause in clauses(text):
         if not re.search(r"\b(?:prefer|like|want|style)\b", clause, re.I):
             continue
@@ -323,6 +350,15 @@ def grounded_english(candidate, message, previous=None):
     facts, text, warnings = english_facts(message, candidate.get("set", candidate))
     if previous is None:
         return facts, warnings
+    # Resolve short answers only where the accumulated request makes the slot
+    # unambiguous. Do not guess a date role or overwrite a known budget from a number.
+    missing_dates = [
+        field for field in ("start_date", "end_date") if getattr(previous, field) is None
+    ]
+    if len(missing_dates) == 1 and re.fullmatch(r"\s*\d{4}-\d{2}-\d{2}\s*[.!]?\s*", text):
+        facts[missing_dates[0]] = text.strip(" .!\n")
+    if previous.budget is None and re.fullmatch(r"\s*\d+(?:\.\d+)?\s*", text):
+        facts["budget"] = float(text) if "." in text else int(text)
     if re.search(r"\b(?:why|explain|reason)\b", text, re.I) and re.search(
         r"\boutfit|recommend", text, re.I
     ):
@@ -350,6 +386,15 @@ def grounded_english(candidate, message, previous=None):
             action["display_position"] = int(position.group(1))
         return action, warnings
     patch = {"intent": "MODIFY_REQUIREMENTS", "set": {}, "add": {}, "remove": {}}
+    if re.fullmatch(r"\s*(?:no (?:style )?preferences?|any style)\s*[.!]?\s*", text, re.I):
+        patch["remove"]["style"] = []
+    if re.fullmatch(r"\s*(?:no activities|no planned activities)\s*[.!]?\s*", text, re.I):
+        patch["remove"]["activities"] = []
+    skip_optional = bool(
+        re.fullmatch(
+            r"\s*(?:skip(?: optional (?:fields|details))?|nothing else)\s*[.!]?\s*", text, re.I
+        )
+    )
     for field in ("destination", "start_date", "end_date", "budget", "currency"):
         if field in facts:
             patch["set"][field] = facts[field]
@@ -363,6 +408,10 @@ def grounded_english(candidate, message, previous=None):
             patch["add"].setdefault("activities", []).extend(active)
         elif active and re.search(r"\b(?:activities|activity|plan)\b", clause, re.I):
             patch["set"]["activities"] = mentions(clause, ACTIVITIES, positive_only=True)
+        elif active and not re.search(r"\b(?:keep|unchanged|same)\b", clause, re.I):
+            additions = mentions(clause, ACTIVITIES, positive_only=True)
+            if additions:
+                patch["add"].setdefault("activities", []).extend(additions)
         if re.search(r"\b(?:clear|reset)\b.*\b(?:style|preferences)\b", clause, re.I):
             patch["remove"]["style"] = []
         elif re.search(r"\b(?:remove|drop|cancel)\b.*\bstyle\b", clause, re.I):
@@ -375,6 +424,8 @@ def grounded_english(candidate, message, previous=None):
             patch["remove"]["excluded_items"] = mentions(clause, ITEMS)
     if facts.get("excluded_items"):
         patch["add"]["excluded_items"] = facts["excluded_items"]
+    if facts.get("style") and "style" not in patch["remove"] and "style" not in patch["set"]:
+        patch["set"]["style"] = facts["style"]
     codes = dict(previous.dress_codes)
     codes.update(facts.get("dress_codes", {}))
     for clause in clauses(text):
@@ -386,7 +437,7 @@ def grounded_english(candidate, message, previous=None):
     for group in ("add", "remove"):
         for field, values in patch[group].items():
             patch[group][field] = list(dict.fromkeys(values))
-    if not any(patch[group] for group in ("set", "add", "remove")):
+    if not skip_optional and not any(patch[group] for group in ("set", "add", "remove")):
         raise ValueError(
             "The English follow-up does not specify a supported clear edit; clarify it"
         )
