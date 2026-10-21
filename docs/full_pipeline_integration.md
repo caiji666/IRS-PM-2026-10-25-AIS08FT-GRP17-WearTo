@@ -7,10 +7,11 @@ modules. This page describes the test, what it really exercises today and what i
 
 - **Default (offline) runs** stop at Student 2 with `prerequisite_missing`: its live run needs a
   model, an API key and network access.
-- **Structural blocker:** Student 4 is still a scaffold.
+- **Student 4 update:** The dynamic backend is implemented; a trained normalized model and compatible current handoff are required. See [outfit integration](outfit-integration.md).
 - **Student 5** is implemented in this repository (`travel_agent.recommendation`) and is called
-  through `travel_agent.recommendation.service.run`. It cannot be reached with real data until
-  Student 4 returns real output.
+  through `travel_agent.recommendation.service.run`. Its adapter now accepts the dynamic Student 4 output; the original budget currency must still match purchase prices.
+
+**Historical harness notes:** The detailed harness observations below describe the earlier scaffold baseline. For the current real Student 1–4 runner, dynamic contracts and validation, use [outfit integration](outfit-integration.md). The five-module agent harness is not the same as that verified backend runner.
 
 ## Module status
 
@@ -19,8 +20,8 @@ modules. This page describes the test, what it really exercises today and what i
 | Student 1 | `travel_agent.understanding.service.run` | Implemented; runs offline with the reviewed structured example (synthetic weather, draft KG). |
 | Student 2 | `travel_agent.inspiration.service.run` | **Implemented**. See below. |
 | Student 3 | `travel_agent.products.service.run` | Implemented. A live run needs the products extra, FashionCLIP weights and a product data source. |
-| Student 4 | `travel_agent.outfits.service.run` | Scaffold: returns `not_implemented`. **Current structural blocker.** |
-| Student 5 | `travel_agent.recommendation.service.run` | Implemented (`travel_agent/recommendation/student5/`): Student 4 adapter, Stage 10 constraints, Stage 12 ranking, Stage 13 decision loop, Stage 14 preview. Not reachable with real data while Student 4 is a scaffold. |
+| Student 4 | `travel_agent.outfits.service.run` | Dynamic normalized-MLP scorer; explicit inputs and local trained model required. |
+| Student 5 | `travel_agent.recommendation.service.run` | Implemented (`travel_agent/recommendation/student5/`): Student 4 adapter, Stage 10 constraints, Stage 12 ranking, Stage 13 decision loop, Stage 14 preview. Typed handoff verified separately; complete agent orchestration still needs validation. |
 
 Student 2 details:
 

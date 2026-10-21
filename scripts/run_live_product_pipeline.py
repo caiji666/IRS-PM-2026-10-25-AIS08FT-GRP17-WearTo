@@ -26,6 +26,11 @@ def main():
     parser.add_argument("--max-references", type=int, default=10)
     parser.add_argument("--max-search-requests", type=int, default=25)
     parser.add_argument("--k-per-category", type=int, default=5)
+    parser.add_argument(
+        "--with-outfits",
+        action="store_true",
+        help="Run dynamic Student4 after writing the current Student3 handoff",
+    )
     args = parser.parse_args()
     root = Path.cwd().resolve()
     os.environ["HF_HUB_CACHE"] = str(root / ".cache/huggingface")
@@ -159,6 +164,37 @@ def main():
         target = root / "runs/product_retrieval" / timestamp
         handoff = write_handoff(result, target)
         record.update(status=result["status"], output=str(handoff), summary=result["summary"])
+        if args.with_outfits:
+            from travel_agent.outfits.service import run as score_outfits
+
+            record["stage"] = "outfits"
+            fourth = score_outfits(
+                {
+                    "product_result_path": str(handoff),
+                    "understanding": envelope,
+                    "ranking_request": result["request_used"],
+                }
+            )
+            output4 = root / "runs/outfit_generation" / timestamp
+            output4.mkdir(parents=True, exist_ok=False)
+            path4 = output4 / "result.json"
+            from travel_agent.outfits.output import recommendation_input, save_artifact
+
+            save_artifact(fourth.model_dump(mode="json"), path4, result)
+            if fourth.status == "ok":
+                input5 = output4 / "student5_input.json"
+                save_artifact(recommendation_input(fourth, envelope), input5, result)
+            record["outfits"] = {
+                "status": fourth.status,
+                "output": str(path4),
+                "summary": fourth.data.get("summary", {}),
+                "reason": fourth.reason,
+                "student5_input": str(input5) if fourth.status == "ok" else None,
+            }
+            print("Student 4: " + json.dumps(record["outfits"]), flush=True)
+            if fourth.status != "ok":
+                record["status"] = fourth.status
+                return 4 if fourth.status == "needs_input" else 3
         print(
             json.dumps(
                 {"status": record["status"], "output": str(handoff), **result["summary"]},

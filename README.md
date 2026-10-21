@@ -1,6 +1,6 @@
 # Travel Style Agent · Group 17
 
-A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review. The Student 2 Inspiration module implements FashionCLIP-based context and image embeddings, Unsplash fashion reference retrieval, deduplication, cosine similarity reranking, and Top-N selection, with a file-based handoff to Student 3. See [the Inspiration runbook](docs/inspiration-runbook.md). The Student 3 Product Retrieval module integrates the existing M1–M6 and wardrobe pipeline for product retrieval and ranking. See [the product retrieval runbook](docs/product-retrieval-runbook.md). The Student 5 recommendation module in `travel_agent/recommendation/` implements hard constraints, final Top-3 ranking, the user decision loop and outfit preview; see [Student 5 recommendation](#student-5-recommendation). Outfit scoring and image generation remain under development. Full live-agent orchestration across all modules has not yet been verified.
+A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review. The Student 2 Inspiration module implements FashionCLIP-based context and image embeddings, Unsplash fashion reference retrieval, deduplication, cosine similarity reranking, and Top-N selection, with a file-based handoff to Student 3. See [the Inspiration runbook](docs/inspiration-runbook.md). The Student 3 Product Retrieval module integrates the existing M1–M6 and wardrobe pipeline for product retrieval and ranking. See [the product retrieval runbook](docs/product-retrieval-runbook.md). The Student 5 recommendation module in `travel_agent/recommendation/` implements hard constraints, final Top-3 ranking, the user decision loop and outfit preview; see [Student 5 recommendation](#student-5-recommendation). Dynamic outfit scoring is implemented as a backend module; the website still stops at Student 3. Image preview is a separate downstream operation. Full live-agent orchestration across all modules has not yet been verified.
 
 ## Quick start
 
@@ -18,7 +18,7 @@ uv run ruff format --check .
 
 Use Python 3.11 across the team. Commit both `pyproject.toml` and `uv.lock`. Add dependencies with `uv add` and include both files in the same pull request. Do not edit the lockfile manually.
 
-The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The Inspiration module is implemented and requires its optional dependencies and Unsplash API credentials for live retrieval; its tool returns `needs_input` for the empty demo payload. The product retrieval requires explicit inputs and returns `needs_input` for the empty demo payload. The recommendation tool (Student 5) returns `error` because its payload requires an explicit `action`. The outfit tool (Student 4) returns `not_implemented`.
+The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The Inspiration module is implemented and requires its optional dependencies and Unsplash API credentials for live retrieval; its tool returns `needs_input` for the empty demo payload. The product retrieval requires explicit inputs and returns `needs_input` for the empty demo payload. The recommendation tool (Student 5) returns `error` because its payload requires an explicit `action`. The outfit tool (Student 4) returns `needs_input` for the empty demo payload; it requires explicit current products and a trained normalized model.
 
 ## English-first understanding workflow
 
@@ -69,7 +69,7 @@ Every payload names its operation with an explicit top-level `action`. A missing
 - **Student 1 → Student 2:** Student 2 receives Student 1's `ModuleResult.data` as `understanding`.
 - **Student 2 → Student 3:** Student 2's `product_handoff` (upstream files, `reference_mode=imported`) is passed unchanged to Student 3.
 - **Student 2 live runs:** need the `inspiration` extra, the FashionCLIP weights, `UNSPLASH_ACCESS_KEY` and network access.
-- **Student 4:** `outfits.service.run` is still a scaffold, and is the current structural blocker.
+- **Student 4:** `outfits.service.run` now scores dynamic product/wardrobe combinations using the normalized model; see [backend integration](docs/outfit-integration.md). Model artifacts and valid handoff signals are required.
 - **Student 5:** reached through `travel_agent.recommendation.service.run` (`action: "recommend"`) with the minimal eight-field request projection. Real data cannot reach it until Student 4 returns real output.
 - **Default tests:** offline. They download no model, call no external API and do not read `.env`. Contract and boundary checks run; the full-pipeline tests (`full_pipeline_live`) are skipped with the exact blocking stage until every real module runs. Model/API stages run only with `RUN_FULL_PIPELINE_TESTS=1`.
 
@@ -158,3 +158,5 @@ Production activation preparation: [notification service and Mac cleanup worker]
 ## Local travel interface
 
 Run `.venv/bin/python -m travel_agent.web --port 8765` to open the local travel chat, inspiration and real product interface, with a Profile page for personal details and wardrobe photos. See [Local web UI](docs/local-web-ui.md) for model/API setup, review flow and downstream output locations.
+
+Student 4 dynamic backend: [setup, model alignment, contracts and Student 1–4 commands](docs/outfit-integration.md).

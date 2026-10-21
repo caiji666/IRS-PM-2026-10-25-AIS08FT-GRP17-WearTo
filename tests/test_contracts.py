@@ -39,7 +39,7 @@ EMPTY_PAYLOAD_STATUS = {
     "understand_and_reason": "needs_input",  # Student 1: implemented
     "search_references": "needs_input",  # Student 2: implemented
     "search_products": "needs_input",  # Student 3: implemented
-    "build_and_score_outfits": "not_implemented",  # Student 4: scaffold
+    "build_and_score_outfits": "needs_input",  # Student 4 requires explicit dynamic input
     "validate_and_recommend": "error",  # Student 5: implemented; `action` is required
 }
 

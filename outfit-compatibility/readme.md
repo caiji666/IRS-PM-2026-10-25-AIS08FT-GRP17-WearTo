@@ -164,3 +164,6 @@ import compatibility_service as service
 
 output = service.run()
 ```
+## Dynamic project integration
+
+The standalone fixed-file entry was replaced by a facade over `travel_agent.outfits.service.run(payload)`. Use [the backend integration guide](../docs/outfit-integration.md) for the current API and commands. The original raw-vector model and training notebooks are retained as historical training artifacts. Production-style backend inference now uses a separately trained, checksum-validated model with the same pinned normalized FashionCLIP feature space as Student 3. No implicit `result.json` fallback remains.

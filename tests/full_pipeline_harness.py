@@ -868,7 +868,7 @@ KNOWN_GAPS = (
     "Student 3 uses Student 2's product_handoff (upstream files, reference_mode=imported)",
     "product_handoff sets no Student 3 `source`, so Student 3 uses its default 'photos20', which "
     "needs the private data/photos20 dataset under STUDENT3_DATA_ROOT",
-    "Student 4 outfits.service.run is a not_implemented scaffold and the current structural "
+    "Student 4 needs a trained normalized model and an explicitly compatible dynamic handoff; "
     "blocker; no real CandidateOutfit or CompatibilityScore is produced in this repository",
     "Student 3 -> Student 4 input contract is not defined (harness payload is PROVISIONAL)",
     "Real Student 4 -> Student 5 output still needs final hand-off verification",

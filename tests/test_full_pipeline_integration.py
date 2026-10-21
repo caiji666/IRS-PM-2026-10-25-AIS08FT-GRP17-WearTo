@@ -408,7 +408,7 @@ def test_student2_product_handoff_is_accepted_by_student3_input_adapter(s1, tmp_
 # ---------------------------------------------------------------------------
 
 
-def test_chain_stops_at_student4_scaffold_with_its_own_status(s1, tmp_path):
+def test_student4_rejects_incompatible_test_vectors_without_claiming_model_success(s1, tmp_path):
     """Boundary test: a Student 3 result reaching Student 4 stops the chain at Student 4.
 
     The Student 3 result comes from Student 3's own offline test mode (prepared catalogue and
@@ -445,12 +445,10 @@ def test_chain_stops_at_student4_scaffold_with_its_own_status(s1, tmp_path):
 
     run = PipelineRun()
     assert run_student4_stage(run, s1, s3) is False
-    assert (run.stopped.module, run.stopped.status) == ("student4", "not_implemented")
-    reason = blocking_skip_reason(run)
-    assert reason and "student4" in reason and "student2" not in reason
-    assert build_record(run, input_description="boundary")["status"] == (
-        "blocked_by_missing_modules"
-    )
+    assert (run.stopped.module, run.stopped.status) == ("student4", "needs_input")
+    assert blocking_skip_reason(run) is None  # Input/model mismatch, not a scaffold.
+    assert run.stopped.reason and "not_implemented" not in run.stopped.reason
+    assert build_record(run, input_description="boundary")["status"] == ("stopped_by_module_status")
 
 
 @pytest.mark.parametrize(

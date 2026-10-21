@@ -7,6 +7,6 @@ from travel_agent.outfits.service import run
 def build_and_score_outfits(payload: dict) -> dict:
     """Student 4: build outfits and score compatibility using offline-trained weights.
 
-    Current scaffold returns not_implemented.
+    Accepts current Student 3 products and understanding; returns all scored combinations.
     """
     return run(payload).model_dump()
