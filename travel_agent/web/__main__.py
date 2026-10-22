@@ -396,6 +396,7 @@ def execute_student5_refinement(job, session_id, pending):
             raise RuntimeError("The updated Top-3 could not be created.")
         data = result.model_dump(mode="json")["data"]
         replacement = {
+            "run_id": record_path.parent.name,
             "request": payload["request"],
             "student4": payload["student4"],
             "state": data["state"],
@@ -422,6 +423,7 @@ def execute_student5_refinement(job, session_id, pending):
             status="completed",
             stage="completed",
             message="Your updated Top-3 is ready.",
+            result=record_path.parent.name,
             student5={"id": session_id, **public_student5(replacement)},
         )
     except Exception as exc:

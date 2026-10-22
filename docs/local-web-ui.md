@@ -144,3 +144,21 @@ Preview configuration is private, in the Git-ignored repository `.env`:
 Only an explicitly confirmed outfit is submitted for image generation. Missing
 product descriptions use the existing title as a preview description, without
 changing the product scores or inventing details.
+
+When an upstream refinement (for example a destination change) completes, the job
+returns the exact new `result` timestamp and the recommendation session carries
+that `run_id`. The browser loads that run's social references and trip labels,
+resets the slideshow to its first image, and applies the already-ranked Top-3 in
+the same update. No page reload or second ranking request is required. Saved
+journeys also display their actual destination in the inspiration heading.
+
+### New-trip dialogue versus recommendation refinement
+
+Chat routing is explicit. On a fresh page or after **New journey**, messages use
+the original Student 1 dialogue controller, even when a saved Top-3 is visible.
+Incremental facts, missing-field questions, optional activity/style bubbles,
+multi-selection, Skip/Skip all, and the review step retain the behavior from
+commit `0b6d3a5`. Loading old recommendations alone does not activate refinement.
+After a newly confirmed trip finishes, or after **Adjust requirements**, messages
+can refine the current Student 5 session. **New journey** resets the dialogue route
+and pending refinement state without deleting the existing results or wardrobe.
