@@ -21,18 +21,17 @@ def trip(**updates):
     }
 
 
-def test_questions_follow_missing_fields_and_forecast_window():
+def test_questions_only_require_destination_dates_and_budget():
     assert next_question({}, today=TODAY)[0] == "destination"
     assert next_question(trip(destination="Japan"), today=TODAY)[0] == "destination"
     for updates, expected in [
         ({"start_date": None}, "dates"),
-        ({"end_date": "2026-12-25"}, "dates"),
-        ({"activities": []}, "activities"),
         ({"budget": None}, "budget"),
-        ({"style": []}, "style"),
-        ({"dress_codes": {}}, "dress_codes.dinner"),
     ]:
         assert next_question(trip(**updates), today=TODAY)[0] == expected
+    assert next_question(
+        trip(end_date="2026-12-25", activities=[], style=[], dress_codes={}), today=TODAY
+    ) == (None, None)
     assert next_question(trip(), today=TODAY) == (None, None)
     assert next_question(trip(style=[]), style_declined=True, today=TODAY) == (None, None)
 

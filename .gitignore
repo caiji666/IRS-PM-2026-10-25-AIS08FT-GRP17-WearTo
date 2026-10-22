@@ -11,6 +11,8 @@ __pycache__/
 # Local datasets and trained artifacts
 data/raw/
 artifacts/
+runtime/uploads/portraits/
+runtime/cache/
 checkpoints/
 
 # Prevent accidental model checkpoint uploads outside artifact directories

@@ -48,6 +48,7 @@ from urllib.parse import urljoin, urlsplit
 
 from travel_agent.recommendation.student5.models import (
     ConfirmedOutfit,
+    PreviewDeliveryMode,
     PreviewItemReference,
     PreviewMode,
     PreviewRequest,
@@ -83,9 +84,6 @@ PREVIEW_ENV_KEYS = (
 _GENERATIVE_WARNINGS = {
     PreviewMode.PORTRAIT: [
         "The person's likeness, pose and body proportions may be altered by the generative model.",
-        "Garment colours, textures and details may differ from the actual products.",
-    ],
-    PreviewMode.MANNEQUIN: [
         "Garment colours, textures and details may differ from the actual products.",
     ],
     PreviewMode.FLAT_LAY: [
@@ -548,20 +546,14 @@ _MODE_INSTRUCTIONS = {
         "outfit items listed below. Any further reference images show those items in the listed "
         "order. Do not claim or imply that the result shows the real size, fit or try-on result."
     ),
-    PreviewMode.MANNEQUIN: (
-        "Show the complete outfit on a neutral, generic mannequin against a plain background. "
-        "Do not depict a specific real person."
-    ),
     PreviewMode.FLAT_LAY: (
-        "Arrange the complete outfit as a neat flat-lay, viewed from directly above on a plain "
-        "background, with no person."
+        "Create a coordinated, body-shaped outfit composition with no person or mannequin. "
+        "Place the outerwear in the centre, slightly open; layer the top visibly inside it; "
+        "align the trousers naturally below the top; and place the pair of shoes below the "
+        "trouser legs. The garments should read as one styled outfit on an invisible body. "
+        "Do not scatter items, place them side-by-side, or use a catalogue grid."
     ),
 }
-
-PRODUCT_CARDS_TEXT = (
-    "Mode: PRODUCT_CARDS. No generative image is created; the confirmed outfit is shown as "
-    "product cards built from the product information."
-)
 
 
 def _item_text(item: PreviewItemReference) -> str:
@@ -577,8 +569,6 @@ def build_preview_prompt(request: PreviewRequest) -> str:
     """
     if not isinstance(request, PreviewRequest):
         raise TypeError(f"expected a PreviewRequest, got {type(request).__name__}")
-    if request.preview_mode is PreviewMode.PRODUCT_CARDS:
-        return PRODUCT_CARDS_TEXT
     lines = [
         f"Create an AI-generated visual outfit preview. Mode: {request.preview_mode.value}.",
         _MODE_INSTRUCTIONS[request.preview_mode],
@@ -605,8 +595,6 @@ def build_prompt_with_image_mapping(
     and category, so skipped images never shift the mapping. No path or URL is included.
     """
     base = build_preview_prompt(request)
-    if request.preview_mode is PreviewMode.PRODUCT_CARDS:
-        return base
     if not references:
         return base + "\nNo reference images are provided; use the item descriptions above."
     lines = [base, "Reference images (in the order they are provided):"]
@@ -637,7 +625,7 @@ def build_product_cards_result(
         selected_outfit_id=request.selected_outfit_id,
         status=status,
         requested_mode=request.preview_mode,
-        delivered_mode=PreviewMode.PRODUCT_CARDS,
+        delivered_mode=PreviewDeliveryMode.PRODUCT_CARDS,
         output_reference=None,
         provider_name=provider_name,
         model_name=None,
@@ -659,8 +647,7 @@ class PreviewProvider(Protocol):
 class MockPreviewProvider:
     """PROVISIONAL. Deterministic provider without network or credentials.
 
-    `failure`, if given, is raised for every generative request (PRODUCT_CARDS still succeeds),
-    to exercise the fallback path.
+    `failure`, if given, is raised for every request to exercise the fallback path.
     """
 
     provider_name = "mock"
@@ -671,8 +658,6 @@ class MockPreviewProvider:
 
     def generate_preview(self, request: PreviewRequest) -> PreviewResult:
         self.calls.append(request.preview_mode)
-        if request.preview_mode is PreviewMode.PRODUCT_CARDS:
-            return build_product_cards_result(request, provider_name=self.provider_name)
         if self.failure is not None:
             raise self.failure
         mode = request.preview_mode
@@ -680,7 +665,7 @@ class MockPreviewProvider:
             selected_outfit_id=request.selected_outfit_id,
             status=PreviewStatus.SUCCESS,
             requested_mode=mode,
-            delivered_mode=mode,
+            delivered_mode=PreviewDeliveryMode(mode.value),
             output_reference=f"mock://preview/{request.selected_outfit_id}/{mode.value.lower()}",
             provider_name=self.provider_name,
             model_name=None,
@@ -712,10 +697,9 @@ def _parse_env_file(text: str) -> dict[str, str]:
 class OpenAIImagePreviewProvider:
     """PROVISIONAL. Preview provider backed by the OpenAI Images API (edit / generate).
 
-    - PRODUCT_CARDS: no API call.
     - PORTRAIT: images.edit with the consented local portrait first, then the resolved product
       images in request order.
-    - MANNEQUIN / FLAT_LAY: images.edit with the resolved product images, or images.generate
+    - FLAT_LAY: images.edit with the resolved product images, or images.generate
       from the text prompt when no product image is usable.
     The prompt states which outfit item each sent image belongs to. The base64 result is
     validated with Pillow and saved under `output_dir` with a random UUID file name.
@@ -818,8 +802,6 @@ class OpenAIImagePreviewProvider:
     def generate_preview(self, request: PreviewRequest) -> PreviewResult:
         if not isinstance(request, PreviewRequest):
             raise TypeError(f"expected a PreviewRequest, got {type(request).__name__}")
-        if request.preview_mode is PreviewMode.PRODUCT_CARDS:
-            return build_product_cards_result(request)
         started = time.perf_counter()
         work_dir = Path(tempfile.mkdtemp(prefix="student5_preview_", dir=self.temp_dir_parent))
         try:
@@ -834,7 +816,7 @@ class OpenAIImagePreviewProvider:
             selected_outfit_id=request.selected_outfit_id,
             status=PreviewStatus.SUCCESS,
             requested_mode=mode,
-            delivered_mode=mode,
+            delivered_mode=PreviewDeliveryMode(mode.value),
             output_reference=output_path.as_posix(),
             provider_name=self.provider_name,
             model_name=self.model,
@@ -968,15 +950,13 @@ def generate_preview_with_fallback(
 ) -> PreviewResult:
     """PROVISIONAL. Generate a preview, falling back to PRODUCT_CARDS when generation fails.
 
-    PRODUCT_CARDS requests never reach the provider. A missing provider or any
-    PreviewProviderError (configuration, input, API or output problem) gives a FALLBACK result
+    A missing provider or any PreviewProviderError (configuration, input, API or output problem)
+    gives a FALLBACK result
     with delivered_mode PRODUCT_CARDS and a warning that contains no sensitive data. Other
     exceptions (programming errors) are not caught.
     """
     if not isinstance(request, PreviewRequest):
         raise TypeError(f"expected a PreviewRequest, got {type(request).__name__}")
-    if request.preview_mode is PreviewMode.PRODUCT_CARDS:
-        return build_product_cards_result(request)
     if provider is None:
         reason = "a preview provider is not configured"
     else:

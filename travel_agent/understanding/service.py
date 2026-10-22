@@ -16,9 +16,15 @@ from travel_agent.understanding.knowledge import reason_activities, reason_place
 from travel_agent.understanding.rules import reason_weather
 from travel_agent.understanding.season import derive_season
 from travel_agent.understanding.state import apply_patch, confirm_outfit, update_state
-from travel_agent.understanding.weather import FixtureWeather, OpenMeteoWeather, UnavailableWeather
+from travel_agent.understanding.suggestions import optional_suggestions
+from travel_agent.understanding.weather import (
+    FixtureWeather,
+    HistoricalWeather,
+    PlanningWeather,
+    UnavailableWeather,
+)
 
-REQUIRED_FIELDS = ("destination", "start_date", "end_date", "activities", "budget", "currency")
+REQUIRED_FIELDS = ("destination", "start_date", "end_date", "budget", "currency")
 
 
 def required_questions(request):
@@ -26,7 +32,7 @@ def required_questions(request):
         {
             "field": field,
             "question": f"Please provide {field}.",
-            "reason": "Needed for the complete travel-shopping workflow",
+            "reason": "Required trip information (budget includes an explicit currency)",
         }
         for field in REQUIRED_FIELDS
         if not getattr(request, field)
@@ -39,6 +45,8 @@ def expand_context(
     # Keep activity requirements separate structurally; text is for retrieval,
     # never a substitute for hard-constraint checks or outfit feasibility.
     words = [request.destination or ""]
+    if weather.data_type == "historical_climatology":
+        words.append("historical monthly climate reference, not a trip-date forecast")
     if season_context is not None:
         words.extend(season_context.seasons)
     if weather.weather_class:
@@ -89,10 +97,18 @@ def run(
                 reason="The recommendation module supplies outfit explanations",
             )
         inputs = [key for key in ("request", "patch", "message") if key in payload]
-        if len(inputs) != 1:
+        accepting_pending = (
+            not inputs
+            and payload.get("accept_extraction", False)
+            and state.pending_request is not None
+        )
+        if len(inputs) != 1 and not accepting_pending:
             raise ValueError("Supply exactly one of request, patch or message")
         extraction: dict[str, Any] = {"provider": "structured_input"}
-        if "request" in payload:
+        working_request = state.pending_request or state.current_request
+        if accepting_pending:
+            request = working_request
+        elif "request" in payload:
             if state.request_version:
                 raise ValueError(
                     "Use a patch for an existing session instead of replacing the request"
@@ -100,13 +116,13 @@ def run(
             request = TripShoppingRequest.model_validate(payload["request"])
         elif "patch" in payload:
             patch = TripShoppingRequestPatch.model_validate(payload["patch"])
-            request = apply_patch(state.current_request, patch)
+            request = apply_patch(working_request, patch)
         else:
             message = payload["message"]
             if not isinstance(message, str) or not message.strip():
                 raise ValueError("Message must be nonempty text")
             extractor = extractor or QwenExtractor()
-            previous = state.current_request if state.request_version else None
+            previous = working_request if state.request_version or state.pending_request else None
             extracted, extraction = extractor.extract(message, previous)
             if previous:
                 action = DIALOGUE_SCHEMA.validate_python(extracted)
@@ -143,13 +159,13 @@ def run(
                         reason="The recommendation module supplies outfit explanations",
                     )
             request = (
-                apply_patch(
-                    state.current_request, TripShoppingRequestPatch.model_validate(extracted)
-                )
+                apply_patch(working_request, TripShoppingRequestPatch.model_validate(extracted))
                 if previous
                 else TripShoppingRequest.model_validate(extracted)
             )
         if "message" in payload and not payload.get("accept_extraction", False):
+            state.pending_request = request
+            missing_questions = required_questions(request)
             return ModuleResult(
                 status="needs_input",
                 reason="Human extraction review required",
@@ -158,17 +174,21 @@ def run(
                     "proposed_request": request.model_dump(mode="json"),
                     "proposed_action": extracted if previous else None,
                     "extraction": extraction,
-                    "questions": [
+                    "missing_fields": [q["field"] for q in missing_questions],
+                    "questions": missing_questions
+                    or [
                         {
                             "field": "extraction_review",
-                            "question": "Check the extracted facts against your message. Submit "
-                            "the corrected structured request/patch to continue.",
+                            "question": "Check the accumulated facts. You may provide only missing "
+                            "or corrected details; previously supplied facts are saved. "
+                            "Confirm the accumulated request when ready.",
                             "reason": "Qwen3-0.6B semantic extraction is not validated",
                         }
                     ],
                 },
             )
         state = update_state(state, request)
+        state.pending_request = None
         # An empty first request still creates a collecting session.
         if not state.request_version:
             state.request_version = 1
@@ -199,14 +219,20 @@ def run(
             if "weather_fixture" in payload:
                 provider = FixtureWeather(payload["weather_fixture"])
             elif payload.get("weather_provider") == "open_meteo":
-                provider = OpenMeteoWeather(location=payload.get("confirmed_location"))
+                provider = PlanningWeather(location=payload.get("confirmed_location"))
+            elif payload.get("weather_provider") == "open_meteo_forecast":
+                provider = PlanningWeather(
+                    location=payload.get("confirmed_location"), forecast_only=True
+                )
+            elif payload.get("weather_provider") == "climatology":
+                provider = HistoricalWeather(location=payload.get("confirmed_location"))
             else:
                 provider = UnavailableWeather()
         weather, clothing, trace = reason_weather(provider.fetch(request))
         season_context = derive_season(request, weather, payload.get("confirmed_location"))
         base["season"] = season_context.season
         base["season_context"] = season_context.model_dump(mode="json")
-        if activity_graph is None and payload.get("kg_backend") == "neo4j":
+        if request.activities and activity_graph is None and payload.get("kg_backend") == "neo4j":
             from travel_agent.understanding.neo4j_backend import Neo4jKnowledgeGraph
 
             try:
@@ -225,12 +251,12 @@ def run(
             if payload.get("kg_backend") == "neo4j":
                 raise RuntimeError(f"Neo4j query unavailable: {type(exc).__name__}") from None
             raise
-        questions.extend(activity_questions)
+        optional_questions = list(activity_questions)
         try:
             places = reason_places(request, allow_draft)
         except ValueError as exc:
             places = {"status": "unsupported_place", "reason": str(exc), "requirements": []}
-            questions.append(
+            optional_questions.append(
                 {
                     "field": "places",
                     "question": "Please clarify the intended POI",
@@ -244,13 +270,18 @@ def run(
                     "question": "Which city/location do you mean?",
                     "reason": weather.reason,
                     "candidates": weather.location_candidates,
+                    "reason_code": weather.reason_code,
+                    "next_steps": weather.next_steps,
                 }
             )
         limitations = []
+        limitations.extend(weather.limitations)
         if weather.status != "ok":
             limitations.append(weather.reason or "Weather is unknown")
         elif weather.data_type != "forecast":
             limitations.append(f"Weather is {weather.data_type}; it is not a trip-date forecast")
+            if weather.climate_reference:
+                limitations.extend(weather.climate_reference.limitations)
         incomplete = [a for a, r in activity_results.items() if r["status"] != "ok"]
         if incomplete:
             limitations.append("No complete KG mapping for: " + ", ".join(incomplete))
@@ -300,8 +331,12 @@ def run(
                     "owned_item_ids": request.owned_item_ids,
                 },
                 "questions": questions,
+                "optional_questions": optional_questions,
+                "optional_suggestions": optional_suggestions(request, allow_draft=allow_draft),
                 "limitations": limitations,
-                "context_status": "partial" if limitations or questions else "complete",
+                "context_status": "partial"
+                if limitations or questions or optional_questions
+                else "complete",
                 "ready_for_downstream": not questions,
                 "feasibility_status": "unverified",
             }

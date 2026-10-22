@@ -88,13 +88,18 @@ REQUIRED_OUTFIT_ROLES = (ProductCategory.TOP, ProductCategory.BOTTOM, ProductCat
 
 
 class PreviewMode(StrEnum):
-    """PROVISIONAL. Stage 14 presentation modes named after the proposal's description:
-    portrait-based preview, product cards only, generic mannequin, or flat-lay."""
+    """User-selectable Stage 14 generative preview modes."""
 
     PORTRAIT = "PORTRAIT"
-    PRODUCT_CARDS = "PRODUCT_CARDS"
-    MANNEQUIN = "MANNEQUIN"
     FLAT_LAY = "FLAT_LAY"
+
+
+class PreviewDeliveryMode(StrEnum):
+    """Internal delivery modes; product cards are fallback-only."""
+
+    PORTRAIT = "PORTRAIT"
+    FLAT_LAY = "FLAT_LAY"
+    PRODUCT_CARDS = "PRODUCT_CARDS"
 
 
 class PreviewStatus(StrEnum):
@@ -204,6 +209,13 @@ class Product(ContractModel):
     image_url: NonEmptyStr | None = None
     price: Money
     currency: NonEmptyStr
+    # Present after currency normalisation. Internal candidate copies use SGD for hard
+    # constraints; returned recommendation copies use the user's requested display currency.
+    # These fields retain what the upstream product source supplied in either case.
+    original_price: Money | None = None
+    original_currency: NonEmptyStr | None = None
+    fx_rate_date: date | None = None
+    fx_source: NonEmptyStr | None = None
     availability: StrictBool
     category: ProductCategory
     product_score: CosineScoreValue
@@ -470,7 +482,7 @@ class PreviewResult(ContractModel):
       SUCCESS  — delivered_mode set and equal to requested_mode;
       FALLBACK — delivered_mode set, may differ from requested_mode;
       FAILED   — delivered_mode and output_reference both null.
-    For SUCCESS and FALLBACK, a generative delivered mode (PORTRAIT, MANNEQUIN, FLAT_LAY) needs an
+    For SUCCESS and FALLBACK, a generative delivered mode (PORTRAIT or FLAT_LAY) needs an
     output_reference; PRODUCT_CARDS can be rendered from the request items, so it may have none.
     `output_reference` is never raw bytes. `disclaimer` is required; its wording is produced by
     the later preview module.
@@ -479,7 +491,7 @@ class PreviewResult(ContractModel):
     selected_outfit_id: NonEmptyStr
     status: PreviewStatus
     requested_mode: PreviewMode
-    delivered_mode: PreviewMode | None = None
+    delivered_mode: PreviewDeliveryMode | None = None
     output_reference: ReferenceStr | None = None
     provider_name: NonEmptyStr
     model_name: NonEmptyStr | None = None
@@ -497,11 +509,15 @@ class PreviewResult(ContractModel):
             return self
         if self.delivered_mode is None:
             raise ValueError(f"{self.status} requires delivered_mode")
-        if self.status is PreviewStatus.SUCCESS and self.delivered_mode is not self.requested_mode:
+        expected_delivery = PreviewDeliveryMode(self.requested_mode.value)
+        if self.status is PreviewStatus.SUCCESS and self.delivered_mode is not expected_delivery:
             raise ValueError(
                 "SUCCESS requires delivered_mode == requested_mode; use FALLBACK otherwise"
             )
-        if self.delivered_mode is not PreviewMode.PRODUCT_CARDS and self.output_reference is None:
+        if (
+            self.delivered_mode is not PreviewDeliveryMode.PRODUCT_CARDS
+            and self.output_reference is None
+        ):
             raise ValueError(
                 f"{self.status} with generative delivered_mode {self.delivered_mode} requires "
                 f"output_reference"

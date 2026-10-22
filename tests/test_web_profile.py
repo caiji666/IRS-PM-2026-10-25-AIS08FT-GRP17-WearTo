@@ -12,7 +12,7 @@ pytest.importorskip("PIL")
 from PIL import Image, PngImagePlugin
 
 from travel_agent.web import __main__ as web
-from travel_agent.web.profile import decode_upload, profile_view, save_profile
+from travel_agent.web.profile import decode_upload, portrait_view, profile_view, save_profile
 
 
 def image_bytes():
@@ -85,6 +85,27 @@ def test_profile_http_and_private_records_not_served(local_server):
     assert call(server, "POST", "/api/profile", "{}", {"Origin": "https://other.example"})[0] == 403
     assert call(server, "POST", "/api/wardrobe/upload", b"not an image")[0] == 400
     assert not web.ACTIVE.locked()
+
+
+def test_portrait_upload_status_media_and_delete(local_server):
+    assert json.loads(call(local_server, "GET", "/api/profile/portrait")[1])["uploaded"] is False
+    status, raw = call(
+        local_server,
+        "POST",
+        "/api/profile/portrait",
+        image_bytes(),
+        {"Content-Type": "image/png"},
+    )
+    saved = json.loads(raw)
+    assert status == 200 and saved == {
+        "uploaded": True,
+        "portrait_ref": "current",
+        "image": "/portrait-media/current.png",
+        "consent": True,
+    }
+    assert call(local_server, "GET", "/portrait-media/current.png")[0] == 200
+    assert call(local_server, "DELETE", "/api/profile/portrait")[0] == 200
+    assert portrait_view(web.ROOT)["uploaded"] is False
 
 
 def test_upload_dispatches_managed_pixels_not_user_filename(local_server, monkeypatch):

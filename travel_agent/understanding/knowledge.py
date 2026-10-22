@@ -24,6 +24,8 @@ PLACE_ACTIVITIES = {
 
 
 def reason_activities(request, allow_draft=False, max_depth=4, graph=None):
+    if not request.activities:
+        return {}, {}, []
     graph = graph or KnowledgeGraph.load()
     requirements, results, questions = {}, {}, []
     for activity in request.activities:

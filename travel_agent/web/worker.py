@@ -16,10 +16,12 @@ def prepare(directory):
     message = (
         f"I am travelling to {form['city']}, {form['country_name']}, "
         f"from {form['start_date']} to {form['end_date']}. "
-        f"My activities are {', '.join(form['activities'])}. "
         f"My total clothing budget is {form['budget']} {form['currency']}. "
-        f"I prefer {form['style']} outfits. "
     )
+    if form.get("activities"):
+        message += f"My activities are {', '.join(form['activities'])}. "
+    if form.get("style"):
+        message += f"I prefer {form['style']} outfits. "
     if form.get("dress_code") and "dinner" in form["activities"]:
         message += f"The dress code for dinner is {form['dress_code']}. "
     if form.get("notes"):
@@ -52,101 +54,14 @@ def prepare(directory):
 
 
 def chat(directory):
-    from travel_agent.understanding.extraction import QwenExtractor
-    from travel_agent.understanding.weather import get_json
-
-    from .chat import contextual_answer, merge_candidate, next_question
-    from .review import dress_code_options
+    from .chat import advance_chat
 
     conversation = json.loads((directory / "conversation.json").read_text())
-    message = conversation["messages"][-1]["content"]
-    previous = conversation.get("request", {})
-    effective = contextual_answer(message, conversation.get("pending_field"), previous)
-    try:
-        from travel_agent.schemas import TripShoppingRequest
-
-        extracted, metadata = QwenExtractor(local_files_only=True).extract(
-            effective, TripShoppingRequest.model_validate(previous) if previous else None
+    conversation, audit, review = advance_chat(conversation)
+    if review is not None:
+        (directory / "review.json").write_text(
+            json.dumps(review, ensure_ascii=False, indent=2) + "\n"
         )
-        candidate = merge_candidate(extracted, previous)
-        audit = {
-            "message": message,
-            "effective_message": effective,
-            "extraction": metadata,
-            "proposed_request": candidate,
-        }
-    except (ValueError, TypeError) as exc:
-        audit = {
-            "message": message,
-            "error_type": type(exc).__name__,
-            "raw_output": getattr(exc, "raw_output", None),
-        }
-        candidate = previous
-        conversation["messages"].append(
-            {
-                "role": "assistant",
-                "content": "Please rephrase that detail with exact dates, "
-                "a city, or a currency where relevant?",
-            }
-        )
-        conversation["status"] = "collecting"
-    else:
-        declined = conversation.get("style_declined", False) or (
-            conversation.get("pending_field") == "style"
-            and message.strip().casefold()
-            in {"no preference", "no style preference", "any style", "surprise me"}
-        )
-        conversation["style_declined"] = declined
-        field, question = next_question(candidate, declined)
-        conversation["pending_field"] = field
-        if question:
-            conversation["messages"].append({"role": "assistant", "content": question})
-            conversation["status"] = "collecting"
-        else:
-            locations = get_json(
-                "https://geocoding-api.open-meteo.com/v1/search?"
-                + urlencode({"name": candidate["destination"], "count": 10, "language": "en"})
-            ).get("results", [])
-            if not locations:
-                conversation["messages"].append(
-                    {
-                        "role": "assistant",
-                        "content": "I couldn't find that city. Could you add the country?",
-                    }
-                )
-                conversation["status"] = "collecting"
-                conversation["pending_field"] = "destination"
-            else:
-                review = {
-                    "request": candidate,
-                    "dress_code_options": dress_code_options(candidate),
-                    "locations": [
-                        {
-                            k: x.get(k)
-                            for k in (
-                                "name",
-                                "country",
-                                "latitude",
-                                "longitude",
-                                "timezone",
-                                "admin1",
-                            )
-                        }
-                        for x in locations
-                    ],
-                }
-                (directory / "review.json").write_text(
-                    json.dumps(review, ensure_ascii=False, indent=2) + "\n"
-                )
-                conversation["status"] = "review"
-                conversation["messages"].append(
-                    {
-                        "role": "assistant",
-                        "content": "Your trip is taking shape! Review and confirm the city. "
-                        "Then I'll check the weather, find inspiration and search for your pieces.",
-                    }
-                )
-    conversation["request"] = candidate
     turns = directory / "turns"
     turns.mkdir(exist_ok=True)
     (turns / f"{conversation['turn']:03d}.json").write_text(
@@ -159,7 +74,10 @@ def chat(directory):
 
 def main():
     root = Path.cwd().resolve()
-    os.environ["HF_HUB_CACHE"] = str(root / ".cache/huggingface")
+    cache = root / ".cache/huggingface"
+    if not (cache / "models--Qwen--Qwen3-0.6B").exists():
+        cache = root / "artifacts/huggingface/hub"
+    os.environ.setdefault("HF_HUB_CACHE", str(cache))
     os.environ["HF_HUB_OFFLINE"] = "1"
     if len(sys.argv) > 2 and sys.argv[2] == "chat":
         chat(Path(sys.argv[1]))

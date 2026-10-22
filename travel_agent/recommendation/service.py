@@ -18,7 +18,11 @@ required. It is not a Stage 1 user intent: the `intent` inside a `patch`
   - Optional: `beta` (default `DEFAULT_BETA`; a configurable hyperparameter, not a claimed
     optimum), `session_id`, and `state` for the next round after `"modify_requirements"`.
   - Returns `ok` with `state`, `recommendation_set`, `filter_summary`, `rejected_outfits`,
-    `beta` and the Student 4 `student4_source` / `model_version`.
+    `beta` and the Student 4 `student4_source` / `model_version`. When the request or products
+    use another currency, an ephemeral copy is converted to SGD with one daily ECB rate
+    snapshot before filtering. The returned state and RecommendationSet use the user's requested
+    currency for display; `currency_conversion` records the internal currency, rate date and
+    source.
   - Returns `no_candidates` when no outfit is feasible, with the structured `conflict`.
 - `"modify_requirements"`. Required: `state` and `patch` (`TripShoppingRequestPatch`, whose
   own `intent` is `"MODIFY_REQUIREMENTS"`). Returns the new `state`, `changed`,
@@ -29,19 +33,25 @@ required. It is not a Stage 1 user intent: the `intent` inside a `patch`
 - `"explain"`. Same inputs as `"confirm"`. Returns a data-only `explanation`; the state is not
   changed and no state is returned.
 - `"preview"`: Stage 14.
-  - Required: `confirmed_outfit` and `preview_mode`.
+  - Required: `confirmed_outfit` and user-selectable `preview_mode` (`FLAT_LAY` or `PORTRAIT`).
   - Optional: `preview_provider` (only `"mock"`, for the offline `MockPreviewProvider`), and
-    `user_portrait` with `portrait_consent`.
+    `user_portrait_ref` with `portrait_consent`. The reference is an opaque identifier for an
+    image already stored under the server-managed portrait upload directory; raw paths and
+    arbitrary URLs are not accepted.
   - Without `preview_provider`, the server environment decides
     (`preview_provider.server_preview_provider`): `PREVIEW_PROVIDER=openai` with
     `PREVIEW_API_KEY` and `PREVIEW_MODEL` uses the real `OpenAIImagePreviewProvider`. Unset or
     empty returns the product-card fallback; any other value, a missing setting, SDK or
     Pillow, or a known provider failure (`PreviewProviderError`) returns the fallback with a
     warning that contains no secret. Programming errors are not turned into a fallback.
-  - PRODUCT_CARDS never reaches a provider. A portrait is only accepted with
-    `portrait_consent=true` (otherwise `needs_input`, before any provider is created).
+  - Product cards are an internal fallback, never a requested preview mode. A portrait is only
+    accepted with `portrait_consent=true` (otherwise `needs_input`, before any provider is
+    created).
   - Returns `preview` and `preview_source`: `"mock"`, the real provider's name (`"openai"`,
     PROVISIONAL) when it delivered a generated image, or `"product_card_fallback"`.
+- `"preview_auto"`: Stage 14 convenience action. Requires only `confirmed_outfit`; it uses the
+  server-managed `current` portrait in PORTRAIT mode when present, otherwise FLAT_LAY mode with
+  the styled body-shaped garment composition. The caller cannot supply a raw portrait path.
   - The real image provider is never selected or configured from a payload: `"openai"` is not
     an accepted `preview_provider`, and API key, model, allowed hosts and output directory are
     unknown payload keys (`needs_input`).
@@ -50,18 +60,29 @@ Status mapping:
 
 - `error`: the payload is not an object, `action` is missing or unknown, or the Student 4
   output violates the hand-off contract (`Student4AdapterError`, with `code` and `location`).
-  A missing CompatibilityScore or a currency mismatch between the request and the candidates
-  is also an `error`.
+  A missing CompatibilityScore, unavailable/stale exchange rates, unsupported currency, or a
+  currency mismatch remaining after normalisation is also an `error`.
 - `needs_input`: missing or unknown keys for the action, an invalid request, state or patch, or
   an `outfit_id` that is not in the latest recommendations (stale or unknown).
 """
 
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import Any
 
 from pydantic import ValidationError
 
+from travel_agent.recommendation.currency_converter import (
+    CurrencyConversionError,
+    load_ecb_snapshot,
+    normalise_to_sgd,
+    recommendation_in_currency,
+)
+from travel_agent.recommendation.portrait_store import (
+    PortraitReferenceError,
+    resolve_user_portrait_ref,
+)
 from travel_agent.recommendation.preview_provider import server_preview_provider
 from travel_agent.recommendation.student5.confirmation_handler import OutfitAlreadyConfirmedError
 from travel_agent.recommendation.student5.constraint_engine import CurrencyMismatchError
@@ -72,6 +93,7 @@ from travel_agent.recommendation.student5.dialogue_state import (
 from travel_agent.recommendation.student5.models import (
     ConfirmedOutfit,
     ConversationalRecommendationState,
+    PreviewDeliveryMode,
     PreviewMode,
     PreviewStatus,
     RecommendationSet,
@@ -90,7 +112,7 @@ from travel_agent.schemas import ModuleResult
 
 DEFAULT_BETA = 0.5  # Default only; beta stays configurable per call.
 DEFAULT_SESSION_ID = "session"
-ACTIONS = ("recommend", "modify_requirements", "confirm", "explain", "preview")
+ACTIONS = ("recommend", "modify_requirements", "confirm", "explain", "preview", "preview_auto")
 ALLOWED_KEYS = {
     "recommend": {"action", "request", "student4", "beta", "session_id", "state"},
     "modify_requirements": {"action", "state", "patch"},
@@ -101,9 +123,10 @@ ALLOWED_KEYS = {
         "confirmed_outfit",
         "preview_mode",
         "preview_provider",
-        "user_portrait",
+        "user_portrait_ref",
         "portrait_consent",
     },
+    "preview_auto": {"action", "confirmed_outfit", "preview_provider"},
 }
 REQUIRED_KEYS = {
     "recommend": ("request", "student4"),
@@ -111,6 +134,7 @@ REQUIRED_KEYS = {
     "confirm": ("state", "recommendation_set", "outfit_id"),
     "explain": ("state", "recommendation_set", "outfit_id"),
     "preview": ("confirmed_outfit", "preview_mode"),
+    "preview_auto": ("confirmed_outfit",),
 }
 PREVIEW_PROVIDERS = {"mock": MockPreviewProvider}
 
@@ -161,8 +185,44 @@ def _recommend(payload: dict) -> ModuleResult:
         else None
     )
     adapted = adapt_student4_output(payload["student4"])
+    original_request = request
+    conversion = None
+    request_currency = request.currency.strip().upper()
+    needs_conversion = any(
+        item.currency.strip().upper() != request_currency
+        for outfit in adapted.outfits
+        for item in outfit.items
+    )
+    if needs_conversion:
+        conversion = normalise_to_sgd(request, adapted.outfits, load_ecb_snapshot())
+        request = conversion.request
+        candidates = conversion.outfits
+        if state is not None:
+            state = ConversationalRecommendationState.model_validate(
+                {**state.model_dump(), "current_request": request.model_dump()}
+            )
+    else:
+        candidates = adapted.outfits
     orchestrator = _orchestrator(payload, state)
-    outcome = orchestrator.run(request=request, candidate_outfits=adapted.outfits, state=state)
+    outcome = orchestrator.run(request=request, candidate_outfits=candidates, state=state)
+    if conversion is not None:
+        restored_state = ConversationalRecommendationState.model_validate(
+            {**outcome.state.model_dump(), "current_request": original_request.model_dump()}
+        )
+        displayed_recommendations = (
+            recommendation_in_currency(
+                outcome.recommendation_set,
+                conversion.original_currency,
+                conversion.snapshot,
+            )
+            if outcome.recommendation_set is not None
+            else None
+        )
+        outcome = replace(
+            outcome,
+            state=restored_state,
+            recommendation_set=displayed_recommendations,
+        )
     result = outcome.filter_result
     data = {
         "state": _dump(outcome.state),
@@ -179,6 +239,14 @@ def _recommend(payload: dict) -> ModuleResult:
         "student4_source": adapted.source,
         "model_version": adapted.model_version,
     }
+    if conversion is not None:
+        data["currency_conversion"] = {
+            "normalised_currency": "SGD",
+            "original_budget": str(conversion.original_budget),
+            "original_currency": conversion.original_currency,
+            "rate_date": conversion.snapshot.rate_date.isoformat(),
+            "source": conversion.snapshot.source,
+        }
     if outcome.recommendation_set is None:
         reason = (
             outcome.conflict.message
@@ -231,6 +299,10 @@ def _explain(payload: dict) -> ModuleResult:
 
 def _preview(payload: dict) -> ModuleResult:
     confirmed = ConfirmedOutfit.model_validate(payload["confirmed_outfit"])
+    portrait_ref = payload.get("user_portrait_ref")
+    portrait_path = (
+        str(resolve_user_portrait_ref(portrait_ref)) if portrait_ref is not None else None
+    )
     name = payload.get("preview_provider")
     if name is not None and name not in PREVIEW_PROVIDERS:
         raise _PayloadError(
@@ -244,12 +316,12 @@ def _preview(payload: dict) -> ModuleResult:
     preview = orchestrator.generate_preview(
         confirmed,
         PreviewMode(payload["preview_mode"]),
-        user_portrait=payload.get("user_portrait"),
+        user_portrait=portrait_path,
         portrait_consent=payload.get("portrait_consent", False),
     )
     generated = (
         preview.status is PreviewStatus.SUCCESS
-        and preview.delivered_mode is not PreviewMode.PRODUCT_CARDS
+        and preview.delivered_mode is not PreviewDeliveryMode.PRODUCT_CARDS
     )
     if name == "mock":
         source = "mock"
@@ -260,12 +332,31 @@ def _preview(payload: dict) -> ModuleResult:
     return ModuleResult(status="ok", data={"preview": _dump(preview), "preview_source": source})
 
 
+def _preview_auto(payload: dict) -> ModuleResult:
+    try:
+        resolve_user_portrait_ref("current")
+        has_portrait = True
+    except PortraitReferenceError:
+        has_portrait = False
+    forwarded = {
+        "action": "preview",
+        "confirmed_outfit": payload["confirmed_outfit"],
+        "preview_mode": "PORTRAIT" if has_portrait else "FLAT_LAY",
+    }
+    if "preview_provider" in payload:
+        forwarded["preview_provider"] = payload["preview_provider"]
+    if has_portrait:
+        forwarded.update(user_portrait_ref="current", portrait_consent=True)
+    return _preview(forwarded)
+
+
 HANDLERS = {
     "recommend": _recommend,
     "modify_requirements": _modify,
     "confirm": _confirm,
     "explain": _explain,
     "preview": _preview,
+    "preview_auto": _preview_auto,
 }
 
 
@@ -283,7 +374,7 @@ def run(payload: dict) -> ModuleResult:
         return HANDLERS[action](payload)
     except Student4AdapterError as exc:
         return _error("error", exc, code=exc.code, location=exc.location)
-    except (MissingCompatibilityScoreError, CurrencyMismatchError) as exc:
+    except (MissingCompatibilityScoreError, CurrencyMismatchError, CurrencyConversionError) as exc:
         return _error("error", exc)
     except (
         _PayloadError,
