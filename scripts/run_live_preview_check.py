@@ -48,6 +48,7 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from datetime import UTC, datetime
@@ -210,7 +211,17 @@ def main(argv: list[str] | None = None) -> int:
         "preview_mode": args.mode,
     }
     if portrait is not None:
-        preview_payload.update(user_portrait=str(portrait), portrait_consent=True)
+        extension = portrait.suffix.lower()
+        if extension not in {".jpg", ".jpeg", ".png", ".webp"}:
+            raise SystemExit("portrait must be a JPEG, PNG or WEBP image")
+        portrait_ref = f"live_check_{hashlib.sha256(portrait.read_bytes()).hexdigest()[:16]}"
+        portrait_store = Path(
+            os.environ.get("PORTRAIT_UPLOAD_ROOT", ROOT / "runtime" / "uploads" / "portraits")
+        ).resolve()
+        portrait_store.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(portrait, portrait_store / f"{portrait_ref}{extension}")
+        os.environ["PORTRAIT_UPLOAD_ROOT"] = str(portrait_store)
+        preview_payload.update(user_portrait_ref=portrait_ref, portrait_consent=True)
     if args.mock:
         preview_payload["preview_provider"] = "mock"
     result = validate_and_recommend.invoke({"payload": preview_payload})

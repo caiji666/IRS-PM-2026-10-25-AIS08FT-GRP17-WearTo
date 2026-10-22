@@ -13,6 +13,40 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024
+PORTRAIT_REF = "current"
+
+
+def portrait_path(root):
+    return Path(root) / "runtime/uploads/portraits" / f"{PORTRAIT_REF}.png"
+
+
+def portrait_view(root):
+    path = portrait_path(root)
+    return {
+        "uploaded": path.is_file(),
+        "portrait_ref": PORTRAIT_REF if path.is_file() else None,
+        "image": "/portrait-media/current.png" if path.is_file() else None,
+        "consent": path.is_file(),
+    }
+
+
+def save_portrait(root, content):
+    path = portrait_path(root)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(dir=path.parent, suffix=".png")
+    os.close(fd)
+    try:
+        decode_upload(content, temporary)
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+    return portrait_view(root)
+
+
+def delete_portrait(root):
+    portrait_path(root).unlink(missing_ok=True)
+    return portrait_view(root)
 
 
 class Profile(BaseModel):

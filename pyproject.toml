@@ -3,7 +3,13 @@ name = "travel-style-agent"
 version = "0.1.0"
 description = "Group 17 travel style agent — shared LangChain development scaffold"
 requires-python = ">=3.11,<3.12"
-dependencies = ["langchain>=1,<2", "langgraph>=1,<2", "pydantic>=2,<3", "python-dotenv>=1,<2"]
+dependencies = [
+    "certifi>=2025",
+    "langchain>=1,<2",
+    "langgraph>=1,<2",
+    "pydantic>=2,<3",
+    "python-dotenv>=1,<2",
+]
 
 [project.optional-dependencies]
 outfits = ["scikit-learn==1.6.1", "joblib>=1.4,<2", "numpy>=1.26,<3"]

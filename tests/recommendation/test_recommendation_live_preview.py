@@ -137,7 +137,7 @@ def test_live_flat_lay_preview_from_the_tool(tmp_path, monkeypatch):
     # A product-card fallback must not pass as a live success.
     assert result["data"]["preview_source"] == "openai", preview["warnings"]
     assert preview["status"] == PreviewStatus.SUCCESS.value, preview["warnings"]
-    assert preview["delivered_mode"] in (PreviewMode.FLAT_LAY.value, PreviewMode.MANNEQUIN.value)
+    assert preview["delivered_mode"] == PreviewMode.FLAT_LAY.value
     assert preview["delivered_mode"] == preview["requested_mode"] == "FLAT_LAY"
     assert preview["provider_name"] == "openai"
 

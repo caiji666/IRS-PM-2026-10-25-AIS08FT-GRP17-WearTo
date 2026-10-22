@@ -13,7 +13,7 @@ Nothing is read at import time. `server_preview_provider()` reads `PREVIEW_PROVI
 - exactly `openai`: a lazy provider. The real `OpenAIImagePreviewProvider` (and its SDK
   client) is only created by `create_live_provider` when a generative preview is actually
   requested, i.e. after the PreviewRequest (including the portrait consent rule) has been
-  validated, and never for PRODUCT_CARDS;
+  validated;
 - any other value: a provider that reports a configuration error, so the preview falls back
   with a configuration warning. The value itself is never echoed.
 

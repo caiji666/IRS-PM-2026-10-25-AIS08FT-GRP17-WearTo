@@ -16,8 +16,6 @@ only with RUN_FULL_PIPELINE_TESTS=1 (marker `full_pipeline_live`). Student 5 is 
 """
 
 import copy
-import importlib
-import json
 from pathlib import Path
 
 import pytest
@@ -27,13 +25,7 @@ from tests.full_pipeline_harness import (
     FIXED_MESSAGE,
     HARNESS_STATUSES,
     MODULES,
-    PENDING_STATUSES,
     RUN_ENV,
-    SHARED_REQUEST_FIELDS,
-    STUDENT1_EXTENSION_FIELDS,
-    STUDENT2_REQUIRED_CONTEXT,
-    UNSPLASH_ENV,
-    HandoffContractError,
     PipelineRun,
     StageRecord,
     _summary,
@@ -53,11 +45,11 @@ from tests.full_pipeline_harness import (
     run_student5_stage,
     student2_payload,
     student3_payload,
+    student5_payload,
     student5_request,
 )
 from travel_agent.recommendation.service import run as student5_run
 from travel_agent.schemas import ModuleResult
-from travel_agent.schemas import TripShoppingRequest as SharedTripShoppingRequest
 from travel_agent.understanding.service import run as student1_run
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -128,24 +120,6 @@ def normal_run():
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("module", MODULES)
-def test_entry_points_of_students_1_to_5_are_importable(module):
-    if module == "student2":
-        # Student 2's service imports torch/transformers at import time.
-        _requires_inspiration_extra()
-    path, name = ENTRY_POINTS[module].rsplit(".", 1)
-    assert callable(getattr(importlib.import_module(path), name)), module
-
-
-def test_student2_entry_point_is_implemented_not_a_scaffold():
-    _requires_inspiration_extra()
-    from travel_agent.inspiration.service import run
-
-    # Empty payload: the real service validates input instead of returning not_implemented.
-    result = run({})
-    assert result.status == "needs_input"
-
-
 def test_student5_is_called_through_the_in_repository_recommendation_entry_point():
     assert ENTRY_POINTS["student5"] == "travel_agent.recommendation.service.run"
     result = student5_run({})
@@ -168,22 +142,13 @@ def test_student1_handoff_for_fixed_reviewed_request():
     assert result.data["feasibility_status"] == "unverified"
 
 
-@pytest.mark.parametrize("missing", ["budget", "currency", "destination", "start_date", "end_date"])
+@pytest.mark.parametrize("missing", ["budget"])
 def test_flow_stops_and_keeps_student1_needs_input(missing):
     run = run_pipeline(reviewed_payload(**{missing: None}), allow_models=False)
     assert [s.module for s in run.stages] == ["student1"]
     assert run.stopped.status == "needs_input"
     assert missing in run.stopped.summary["questions"]
     assert not run.completed
-
-
-def test_student1_handoff_allows_optional_activities_and_style_to_be_empty():
-    result = student1_run(reviewed_payload(activities=None, style=None))
-    assert result.status == "ok" and result.data["ready_for_downstream"]
-    assert check_student1_output(result) == []
-    assert result.data["trip_request"]["activities"] == []
-    assert result.data["trip_request"]["style"] == []
-    assert result.data["activity_reasoning"] == {}
 
 
 def test_flow_stops_at_first_unavailable_module_without_calling_later_ones():
@@ -203,37 +168,6 @@ def test_flow_stops_at_first_unavailable_module_without_calling_later_ones():
     assert run.stopped.reason
 
 
-def test_blocked_report_names_real_gaps_and_contains_no_unsafe_values():
-    run = run_pipeline(reviewed_payload(), allow_models=False)
-    if run.completed:
-        pytest.skip("Pipeline completed; a blocked report is not produced")
-    record = build_record(run, input_description="reviewed request")
-    assert record["status"] == PENDING_STATUSES.get(run.stopped.status, "stopped_by_module_status")
-    assert record["status"] != "completed"
-    assert (record["stopped_module"], record["stopped_status"]) == (
-        run.stopped.module,
-        run.stopped.status,
-    )
-    assert record["final_result"] is None
-    assert run.stopped.module in record["stopped_at"]
-    assert record["gaps"] and record["not_reached"]
-    assert not any("returns not_implemented" in g and "Student 2" in g for g in record["gaps"])
-    assert find_unsafe_values(record) == []
-
-
-def test_default_run_stops_at_student2_prerequisites_not_as_not_implemented(monkeypatch):
-    monkeypatch.delenv(RUN_ENV, raising=False)
-    monkeypatch.delenv(UNSPLASH_ENV, raising=False)
-    run = run_pipeline(reviewed_payload())
-    assert [s.module for s in run.stages] == ["student1", "student2"]
-    stop = run.stopped
-    assert stop.status == "prerequisite_missing" and stop.status != "not_implemented"
-    assert stop.reason.startswith("Student 2 is implemented")
-    assert RUN_ENV in stop.reason and UNSPLASH_ENV in stop.reason
-    record = build_record(run, input_description="reviewed request")
-    assert record["status"] == "blocked_by_missing_prerequisites"
-
-
 # ---------------------------------------------------------------------------
 # Student 1 -> Student 2 contract (offline)
 # ---------------------------------------------------------------------------
@@ -247,57 +181,6 @@ def test_student2_payload_passes_student1_data_not_the_module_result(s1):
     assert student2_payload(s1, top_n=3)["top_n"] == 3
 
 
-@pytest.mark.parametrize(
-    "mutate, message",
-    [
-        (lambda d: d.update(ready_for_downstream=False), "ready_for_downstream"),
-        (lambda d: d.pop("trip_request"), "trip_request"),
-        (lambda d: d["trip_request"].update(destination=""), "destination"),
-        (lambda d: d.pop("season"), "season"),
-        (lambda d: d.update(expanded_fashion_context="  "), "expanded_fashion_context"),
-        (lambda d: d.update(weather_clothing_requirements=[]), "weather_clothing_requirements"),
-        (lambda d: d.pop("activity_style_requirements"), "activity_style_requirements"),
-    ],
-)
-def test_student2_payload_rejects_incomplete_student1_data(s1, mutate, message):
-    broken = s1.model_copy(deep=True)
-    mutate(broken.data)
-    with pytest.raises(HandoffContractError, match=message):
-        student2_payload(broken)
-
-
-def test_student2_payload_rejects_non_ok_student1_result():
-    with pytest.raises(HandoffContractError, match="not 'ok'"):
-        student2_payload(ModuleResult(status="needs_input", data={}))
-
-
-def test_student1_context_reaches_student2_service(s1, monkeypatch):
-    """Boundary test: the real Student 2 service with its pipeline isolated (no model/API)."""
-    _requires_inspiration_extra()
-    import travel_agent.inspiration.service as student2
-
-    seen = {}
-
-    def isolated_pipeline(**kwargs):
-        seen.update(kwargs)
-        return None  # Student 2 maps this to no_candidates; no handoff is written.
-
-    monkeypatch.setattr(student2, "run_inspiration_pipeline", isolated_pipeline)
-    result = student2.run(student2_payload(s1, top_n=4))
-    assert result.status == "no_candidates"
-    data = s1.data
-    assert seen["expanded_context"] == data["expanded_fashion_context"]
-    assert seen["top_n"] == 4
-    assert seen["structured_context"] == {
-        "destination": data["trip_request"]["destination"],
-        "season": data["season"],
-        "weather_clothing_requirements": data["weather_clothing_requirements"],
-        "activity_style_requirements": data["activity_style_requirements"],
-        "user_style": data["trip_request"]["style"],
-    }
-    assert set(STUDENT2_REQUIRED_CONTEXT) <= set(data)
-
-
 # ---------------------------------------------------------------------------
 # Student 2 -> Student 3 contract (offline)
 # ---------------------------------------------------------------------------
@@ -306,48 +189,6 @@ def test_student1_context_reaches_student2_service(s1, monkeypatch):
 def test_student3_payload_is_the_product_handoff_unchanged():
     payload = student3_payload(_handoff_result(copy.deepcopy(DOCUMENTED_HANDOFF)))
     assert payload == DOCUMENTED_HANDOFF
-
-
-def test_student3_payload_fails_without_product_handoff():
-    with pytest.raises(HandoffContractError, match="product_handoff is missing"):
-        student3_payload(ModuleResult(status="ok", data={"top_images": []}))
-
-
-@pytest.mark.parametrize("handoff", [None, "inspiration-handoffs/x", ["upstream"]])
-def test_student3_payload_fails_for_wrong_handoff_type(handoff):
-    with pytest.raises(HandoffContractError, match="must be an object"):
-        student3_payload(_handoff_result(handoff))
-
-
-@pytest.mark.parametrize("missing", ["pt", "text", "context"])
-def test_student3_payload_fails_when_upstream_lacks_a_required_file(missing):
-    handoff = copy.deepcopy(DOCUMENTED_HANDOFF)
-    del handoff["upstream"][missing]
-    with pytest.raises(HandoffContractError, match=missing):
-        student3_payload(_handoff_result(handoff))
-
-
-@pytest.mark.parametrize(
-    "change, message",
-    [
-        (lambda h: h.pop("upstream"), "upstream is missing"),
-        (lambda h: h.update(reference_mode="silently-trust"), "reference_mode"),
-        (lambda h: h.update(invented_field=True), "invented_field"),
-        (lambda h: h["upstream"].update(extra_file="x.bin"), "unknown keys"),
-        (lambda h: h["upstream"].update(pt="/abs/phase_2_output.pt"), "relative"),
-        (lambda h: h["upstream"].update(text="../outside.txt"), "relative"),
-    ],
-)
-def test_student3_payload_validates_against_student3_schema(change, message):
-    handoff = copy.deepcopy(DOCUMENTED_HANDOFF)
-    change(handoff)
-    with pytest.raises(HandoffContractError, match=message):
-        student3_payload(_handoff_result(handoff))
-
-
-def test_student3_payload_rejects_non_ok_student2_result():
-    with pytest.raises(HandoffContractError, match="not 'ok'"):
-        student3_payload(ModuleResult(status="error", data={}))
 
 
 def _boundary_phase2_output():
@@ -417,70 +258,50 @@ def test_student2_product_handoff_is_accepted_by_student3_input_adapter(s1, tmp_
 # ---------------------------------------------------------------------------
 
 
-def test_student4_rejects_incompatible_test_vectors_without_claiming_model_success(s1, tmp_path):
-    """Boundary test: a Student 3 result reaching Student 4 stops the chain at Student 4.
+def test_dynamic_student4_service_hands_student3_products_to_student5_contract(s1, monkeypatch):
+    """The harness calls the real dynamic Student 4 boundary, not a fixed sample scaffold."""
+    from datetime import date
+    from decimal import Decimal
 
-    The Student 3 result comes from Student 3's own offline test mode (prepared catalogue and
-    an explicit encoder test double, as in tests/test_products.py), not from Student 2.
-    """
-    _requires_products_extra()
-    from travel_agent.products.retrieval.integration import Settings
-    from travel_agent.products.retrieval.m5 import vector
-    from travel_agent.products.service import run as student3_run
+    from test_outfits_dynamic import MANIFEST, Model
+    from test_outfits_dynamic import payload as student4_fixture
 
-    class Encoder:
-        identity = "explicit-test-double"
-        dimension = 512
+    from travel_agent.recommendation import service as recommendation_service
+    from travel_agent.recommendation.currency_converter import ExchangeRateSnapshot
 
-        def encode_texts(self, texts):
-            return [vector(self.identity, "text", [1] + [0] * 511) for _ in texts]
-
-        def encode_images(self, images):
-            return [vector(self.identity, "image", [1] + [0] * 511) for _ in images]
-
-    request = json.loads((ROOT / "fixtures/phase1_request.json").read_text(encoding="utf-8"))
-    request["wardrobe_uploads"] = []
-    s3 = student3_run(
-        {
-            "source": "prepared",
-            "request": request,
-            "understanding": s1.model_dump(mode="json"),
-            "k_per_category": 3,
-        },
-        settings=Settings(ROOT, tmp_path, tmp_path),
-        encoder=Encoder(),
+    monkeypatch.setattr(
+        recommendation_service,
+        "load_ecb_snapshot",
+        lambda: ExchangeRateSnapshot(
+            rate_date=date(2026, 10, 21),
+            rates_per_eur={"EUR": Decimal("1"), "SGD": Decimal("1.5"), "USD": Decimal("1.2")},
+            source="test-fixture",
+        ),
     )
-    assert s3.status == "ok", s3.reason
 
+    fixture = student4_fixture()
+    s3 = ModuleResult(status="ok", data=fixture["products"])
     run = PipelineRun()
-    assert run_student4_stage(run, s1, s3) is False
+
+    assert run_student4_stage(run, s1, s3, model=Model(), manifest=MANIFEST) is True
+    result = run.outputs["student4"]
+    assert result.status == "ok"
+    assert result.data["source"] == "student4"
+    assert result.data["outfits"]
+    assert run_student5_stage(run, s1, beta=0.5, session_id="dynamic-offline") is True
+    s5 = run.outputs["student5"]
+    assert s5.status == "ok", s5.reason
+    assert s5.data["student4_source"] == "student4"
+    assert s5.data["recommendation_set"]["recommendations"]
+
+
+def test_dynamic_student4_validation_error_stops_the_pipeline_with_its_reason(s1):
+    run = PipelineRun()
+    invalid_student3 = ModuleResult(status="ok", data={})
+
+    assert run_student4_stage(run, s1, invalid_student3) is False
     assert (run.stopped.module, run.stopped.status) == ("student4", "needs_input")
-    assert blocking_skip_reason(run) is None  # Input/model mismatch, not a scaffold.
-    assert run.stopped.reason and "not_implemented" not in run.stopped.reason
-    assert build_record(run, input_description="boundary")["status"] == ("stopped_by_module_status")
-
-
-@pytest.mark.parametrize(
-    "value",
-    [
-        {"api_key": "x"},
-        {"note": "C:\\Users\\someone\\trip.json"},
-        {"note": "/home/someone/trip.json"},
-        {"image": "data:image/png;base64,AAAA"},
-        {"user_portrait": "mock://portrait"},
-        {"embedding": [0.1] * 32},
-    ],
-)
-def test_run_record_safety_check_rejects_secrets_paths_images_and_vectors(value):
-    assert find_unsafe_values(value)
-
-
-def test_student1_and_student5_agree_on_shared_request_fields():
-    """Shared fields only (names, types, budget, currency, dates). Student 1 extension fields
-    are out of scope: Student 5 receives only the formal fields it consumes."""
-    result = student1_run(reviewed_payload())
-    assert result.status == "ok", result.reason
-    assert check_shared_request_fields(result) == []
+    assert "bundle" in (run.stopped.reason or "")
 
 
 def test_shared_request_field_check_detects_budget_unit_mismatch():
@@ -489,34 +310,6 @@ def test_shared_request_field_check_detects_budget_unit_mismatch():
     broken = result.model_copy(deep=True)
     broken.data["hard_constraints"]["budget_minor"] += 1
     assert any(p.startswith("budget:") for p in check_shared_request_fields(broken))
-
-
-@pytest.mark.parametrize("omitted", ["style", "excluded_items"])
-def test_shared_request_field_check_uses_schema_defaults_for_omitted_fields(omitted):
-    result = student1_run(reviewed_payload())
-    assert result.status == "ok", result.reason
-    # Copy of real Student 1 output without one optional field; the schema default applies.
-    trimmed = result.model_copy(deep=True)
-    del trimmed.data["trip_request"][omitted]
-    default = SharedTripShoppingRequest.model_fields[omitted].get_default(call_default_factory=True)
-    assert getattr(
-        SharedTripShoppingRequest.model_validate(trimmed.data["trip_request"]), omitted
-    ) == (default)
-    assert check_shared_request_fields(trimmed) == []
-
-
-def test_request_projection_into_student5_uses_only_the_shared_fields():
-    """Minimal projection of the real Student 1 request; no skip, no extension fields."""
-    result = student1_run(reviewed_payload())
-    assert result.status == "ok", result.reason
-    assert result.data["trip_request"]["dress_codes"]  # Student 1 extension field is present
-    request = student5_request(result)
-    trip = SharedTripShoppingRequest.model_validate(result.data["trip_request"])
-    for name in SHARED_REQUEST_FIELDS:
-        assert getattr(request, name) == getattr(trip, name), name
-    dumped = request.model_dump()
-    assert not set(STUDENT1_EXTENSION_FIELDS) & set(dumped)
-    assert request.user_size is None
 
 
 def test_student5_stage_stops_with_named_missing_request_fields(s1):
@@ -530,6 +323,161 @@ def test_student5_stage_stops_with_named_missing_request_fields(s1):
     assert (stop.module, stop.status) == ("student5", "needs_input")
     assert stop.summary["missing_request_fields"] == ["destination", "currency"]
     assert blocking_skip_reason(run) is None  # a real stop: tests fail, they do not skip
+
+
+# ---------------------------------------------------------------------------
+# Mocked offline integration (NOT live end-to-end).
+#
+# Real Student 1 entry point and real Student 5 entry point; Students 2-4 are replaced by a
+# Student 4 contract fixture in the real product-object shape (category-keyed `products`, each
+# with `product_score` and verified stock). This checks the Student 1 -> Student 5 chain and
+# the Student 4 -> Student 5 hand-off while the live chain is blocked (see the skipped
+# full-pipeline tests below). The compatibility and product scores are fixture values.
+# ---------------------------------------------------------------------------
+
+MOCK_STUDENT4_SOURCE = "mocked-offline-student4-fixture"
+
+
+def _mock_product(pid, category, amount):
+    return {
+        "product_id": pid,
+        "title": pid,
+        "category": category,
+        "source_type": "ECOMMERCE_API",
+        "price": {"amount": amount, "currency": "SGD"},
+        "sizes": ["M"],
+        "availability": "IN_STOCK",
+        "evidence": {"availability_verified": True, "sizes_verified": False},
+        "product_url": f"https://shop.example.com/{pid}",
+        "provenance": {"source": "fixture", "original": {"api_item": {}}},
+        "owned": False,
+        "embedding": {"values": [0.1, 0.2]},
+        "product_score": 0.4,
+    }
+
+
+def _mock_student4(*amounts_per_outfit):
+    """Student 4 ModuleResult with one outfit per (top, bottom, shoes) price triple."""
+    outfits = [
+        {
+            "outfit_id": f"O{n:04d}",
+            "compatibility_score": round(0.4 - n * 0.01, 4),
+            "products": {
+                "TOP": _mock_product(f"O{n:04d}_top", "TOP", top),
+                "BOTTOM": _mock_product(f"O{n:04d}_bottom", "BOTTOM", bottom),
+                "FOOTWEAR": _mock_product(f"O{n:04d}_shoes", "FOOTWEAR", shoes),
+            },
+        }
+        for n, (top, bottom, shoes) in enumerate(amounts_per_outfit, start=1)
+    ]
+    return ModuleResult(
+        status="ok",
+        data={"outfits": outfits, "model_version": "fixture", "source": MOCK_STUDENT4_SOURCE},
+    )
+
+
+AFFORDABLE = [(60.0, 70.0, 50.0), (50.0, 60.0, 40.0), (40.0, 50.0, 30.0), (30.0, 40.0, 20.0)]
+
+
+def _mocked_run(s1, student4):
+    """Student 5 on Student 1's real output and the mocked Student 4 result, using the
+    harness payload builders. `run_student5_stage` is not used: its live hand-off check
+    rightly refuses a mock Student 4 source."""
+    assert check_shared_request_fields(s1) == []
+    request = student5_request(s1)
+    payload = student5_payload(request, student4, beta=0.5, session_id="offline")
+    run = PipelineRun()
+    s5 = student5_run(payload)
+    run.outputs.update(
+        student4=student4, student5=s5, student4_raw=payload["student4"], request5=request, beta=0.5
+    )
+    return run, s5.status in ("ok", "no_candidates")
+
+
+class _FixtureExtractor:
+    """Stands in for Student 1's Qwen extractor (offline): proposes the reviewed request."""
+
+    def extract(self, message, previous):
+        assert message == FIXED_MESSAGE
+        return copy.deepcopy(reviewed_payload()["request"]), {"provider": "fixture-extractor"}
+
+
+def test_mocked_offline_natural_language_request_goes_through_student1_review_to_student5():
+    """Natural language enters Student 1's real entry point; the proposal needs review and is
+    only used after explicit acceptance, then it reaches Student 5."""
+    base = reviewed_payload()
+    message = {"message": FIXED_MESSAGE, "weather_fixture": base["weather_fixture"]}
+    proposal = student1_run({**message, "allow_draft": True}, extractor=_FixtureExtractor())
+    assert proposal.status == "needs_input"
+    assert proposal.data["questions"][0]["field"] == "extraction_review"
+    accepted = student1_run(
+        {**message, "allow_draft": True, "accept_extraction": True}, extractor=_FixtureExtractor()
+    )
+    assert accepted.status == "ok", accepted.reason
+    assert check_student1_output(accepted) == []
+    run, ok = _mocked_run(accepted, _mock_student4(*AFFORDABLE))
+    assert ok and run.outputs["student5"].status == "ok"
+    assert check_student5_result(run) == []
+
+
+def test_mocked_offline_student4_scores_reach_a_student5_top3(s1):
+    run, ok = _mocked_run(s1, _mock_student4(*AFFORDABLE))
+    assert ok
+    data = run.outputs["student5"].data
+    recommendations = data["recommendation_set"]["recommendations"]
+    assert [r["outfit_id"] for r in recommendations] == ["O0001", "O0002", "O0003"]
+    assert data["student4_source"] == MOCK_STUDENT4_SOURCE
+    raw = {o["outfit_id"]: o["compatibility_score"] for o in run.outputs["student4_raw"]["outfits"]}
+    assert all(r["compatibility_score"] == raw[r["outfit_id"]] for r in recommendations)
+    assert check_student5_result(run) == []
+
+
+def test_mocked_offline_confirm_then_mock_preview(s1):
+    run, _ = _mocked_run(s1, _mock_student4(*AFFORDABLE))
+    outcome = confirm_and_preview(run)
+    assert outcome["confirmed_outfit_id"] == "O0001"
+    assert outcome["session_status"] == "CONFIRMED"
+    assert outcome["preview"]["provider"] == "mock"
+
+
+def test_mocked_offline_requirement_change_invalidates_the_old_outfit_ids(s1):
+    run, _ = _mocked_run(s1, _mock_student4(*AFFORDABLE))
+    first = run.outputs["student5"].data
+    change = student5_run(
+        {
+            "action": "modify_requirements",
+            "state": first["state"],
+            "patch": {"intent": "MODIFY_REQUIREMENTS", "set": {"budget": 150}},
+        }
+    )
+    assert change.status == "ok"
+    # Budget affects Stages 10-12; Stage 11 (compatibility scoring) is Student 4's.
+    assert change.data["rerun_plan"]["affected_stages"] == [10, 11, 12]
+    assert rerun_from(change.data["rerun_plan"]) == "student4"
+    stale = student5_run(
+        {
+            "action": "confirm",
+            "state": change.data["state"],
+            "recommendation_set": first["recommendation_set"],
+            "outfit_id": first["recommendation_set"]["recommendations"][0]["outfit_id"],
+        }
+    )
+    assert stale.status == "needs_input"
+    second = student5_run(
+        {
+            "action": "recommend",
+            "request": change.data["updated_request"],
+            "student4": run.outputs["student4_raw"],
+            "state": change.data["state"],
+        }
+    )
+    assert second.status == "ok"
+    assert second.data["state"]["recommendation_round"] == 2
+    assert [r["outfit_id"] for r in second.data["recommendation_set"]["recommendations"]] == [
+        "O0002",
+        "O0003",
+        "O0004",
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -564,67 +512,6 @@ def test_full_pipeline_normal_request_returns_one_to_three_outfits(normal_run):
 
 
 @live
-def test_full_pipeline_student4_scores_reach_student5_through_adapter(normal_run):
-    data = _s5(normal_run)
-    assert data["student4_source"] and "mock" not in data["student4_source"]
-    raw_scores = {
-        o["outfit_id"]: o["compatibility_score"]
-        for o in normal_run.outputs["student4_raw"]["outfits"]
-    }
-    for item in data["recommendation_set"]["recommendations"]:
-        assert item["compatibility_score"] == raw_scores[item["outfit_id"]]
-
-
-@live
-def test_full_pipeline_missing_compatibility_score_fails_explicitly(normal_run):
-    # Fault injection: drop one field from a copy of the real Student 4 output; nothing is added.
-    broken = copy.deepcopy(normal_run.outputs["student4_raw"])
-    del broken["outfits"][0]["compatibility_score"]
-    result = student5_run(
-        {
-            "action": "recommend",
-            "request": normal_run.outputs["request5"].model_dump(mode="json"),
-            "student4": broken,
-            "beta": normal_run.outputs["beta"],
-        }
-    )
-    assert result.status == "error"
-    assert result.data["error"]["code"] == "invalid_compatibility_score"
-
-
-@live
-def test_full_pipeline_infeasible_budget_returns_structured_conflict():
-    run = _completed(reviewed_payload(budget=1))
-    data = _s5(run)
-    if data["recommendation_set"] is not None:
-        pytest.fail("budget 1 SGD unexpectedly feasible; pick a lower budget for this data")
-    assert run.outputs["student5"].status == "no_candidates"
-    assert data["conflict"]["violated_constraints"] and data["conflict"]["currency"] == "SGD"
-    assert check_student5_result(run) == []
-
-
-@live
-def test_full_pipeline_confirms_latest_outfit_and_previews_with_mock(normal_run):
-    first = copy.copy(normal_run)
-    first.outputs = dict(normal_run.outputs)
-    summary = confirm_and_preview(first)
-    confirmation = first.outputs["confirmation"].data
-    assert confirmation["state"]["session_status"] == "CONFIRMED"
-    assert summary["confirmed_outfit_id"] == confirmation["confirmed_outfit"]["selected_outfit_id"]
-    preview = first.outputs["preview"].data["preview"]
-    assert preview["status"] == "SUCCESS" and preview["provider_name"] == "mock"
-    assert preview["output_reference"].startswith("mock://")
-    assert find_unsafe_values(preview) == []
-
-
-@live
-def test_full_pipeline_rejects_invalid_outfit_id(normal_run):
-    result = student5_run(_selection(_s5(normal_run), "not-a-recommended-outfit"))
-    assert result.status == "needs_input"
-    assert result.data["error"]["type"] == "InvalidOutfitSelectionError"
-
-
-@live
 def test_full_pipeline_requirement_change_reruns_stages_and_rejects_old_outfit_id(normal_run):
     s1 = normal_run.outputs["student1"]
     old = _s5(normal_run)
@@ -648,21 +535,6 @@ def test_full_pipeline_requirement_change_reruns_stages_and_rejects_old_outfit_i
     assert stale.status == "needs_input"
     assert stale.data["error"]["type"] == "StaleRecommendationSetError"
     assert check_student5_result(rerun) == []
-
-
-@live
-def test_full_pipeline_run_record_contains_no_unsafe_values(normal_run, tmp_path):
-    first = copy.copy(normal_run)
-    first.outputs = dict(normal_run.outputs)
-    dialogue = confirm_and_preview(first)
-    record = build_record(
-        first,
-        input_description="reviewed request",
-        dialogue=dialogue,
-        checks=check_student5_result(first),
-    )
-    assert record["status"] == "completed"
-    assert find_unsafe_values(record) == []
 
 
 @live

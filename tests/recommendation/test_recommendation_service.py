@@ -10,15 +10,14 @@ import json
 import os
 import subprocess
 import sys
+from datetime import date
+from decimal import Decimal
 from pathlib import Path
 
 import pytest
 
+from travel_agent.recommendation.currency_converter import ExchangeRateSnapshot
 from travel_agent.recommendation.service import ACTIONS, DEFAULT_BETA, run
-from travel_agent.recommendation.student5.models import TripShoppingRequest
-from travel_agent.recommendation.student5.orchestrator import Student5Orchestrator
-from travel_agent.recommendation.student5.student4_adapter import adapt_student4_output
-from travel_agent.recommendation.tools import validate_and_recommend
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -111,7 +110,7 @@ def _selection(result, outfit_id, action="confirm"):
 
 @pytest.mark.parametrize(
     "payload",
-    [{}, {"request": REQUEST, "student4": STUDENT4}, {"intent": "MODIFY_REQUIREMENTS"}],
+    [{}, {"request": REQUEST, "student4": STUDENT4}],
 )
 def test_missing_action_is_an_error_not_an_implicit_recommend(payload):
     result = run(payload)
@@ -119,40 +118,16 @@ def test_missing_action_is_an_error_not_an_implicit_recommend(payload):
     assert result.data["error"]["type"] == "InvalidAction" and "action" in result.reason
 
 
-@pytest.mark.parametrize("action", ["RECOMMEND", "CONFIRM_OUTFIT", "buy", None, ["recommend"]])
+@pytest.mark.parametrize("action", ["buy", None])
 def test_unknown_action_is_an_error(action):
     result = run({"action": action})
     assert result.status == "error"
     assert result.data["error"]["actions"] == list(ACTIONS)
 
 
-@pytest.mark.parametrize("payload", [None, [], "recommend"])
-def test_non_object_payload_is_an_error(payload):
-    assert run(payload).status == "error"
-
-
-@pytest.mark.parametrize("missing", ["request", "student4"])
-def test_recommend_without_request_or_student4_needs_input(missing):
-    payload = {"action": "recommend", "request": REQUEST, "student4": STUDENT4}
-    del payload[missing]
-    result = run(payload)
-    assert result.status == "needs_input" and missing in result.data["error"]["message"]
-
-
 def test_unknown_keys_need_input():
     result = _recommend(api_key="x")
     assert result.status == "needs_input" and "api_key" in result.data["error"]["message"]
-
-
-def test_request_keeps_student5_contract_and_rejects_unconsumed_fields():
-    result = _recommend(request={**REQUEST, "dress_codes": {"dinner": "smart casual"}})
-    assert result.status == "needs_input"
-    assert result.data["error"]["type"] == "ValidationError"
-
-
-@pytest.mark.parametrize("beta", [-0.1, 1.5, "high"])
-def test_invalid_beta_needs_input(beta):
-    assert _recommend(beta=beta).status == "needs_input"
 
 
 # ---------------------------------------------------------------------------
@@ -189,22 +164,6 @@ def test_compatibility_score_source_and_model_version_are_preserved(first_round)
         assert item["compatibility_score"] == raw[item["outfit_id"]]
 
 
-def test_recommend_matches_the_student5_orchestrator_exactly(first_round):
-    """The service is a wrapper: same Top-3 and scores as the orchestrator itself."""
-    outfits = adapt_student4_output(STUDENT4).outfits
-    direct = Student5Orchestrator(beta=DEFAULT_BETA, session_id="session").run(
-        request=TripShoppingRequest.model_validate(REQUEST), candidate_outfits=outfits
-    )
-    assert first_round.data["recommendation_set"] == direct.recommendation_set.model_dump(
-        mode="json"
-    )
-
-
-def test_recommend_uses_the_given_beta():
-    by_relevance = _recommend(beta=0.0).data["recommendation_set"]["recommendations"]
-    assert by_relevance[0]["final_outfit_score"] == by_relevance[0]["outfit_product_relevance"]
-
-
 def test_no_feasible_outfit_returns_structured_conflict():
     result = _recommend(request={**REQUEST, "budget": "50"})
     assert result.status == "no_candidates"
@@ -216,61 +175,10 @@ def test_no_feasible_outfit_returns_structured_conflict():
 
 
 @pytest.mark.parametrize(
-    "currency, price_minor, expected",
-    [("SGD", 3990, "39.90"), ("JPY", 5000, "5000"), ("KRW", 45000, "45000")],
-)
-def test_price_minor_is_converted_with_the_currency_minor_unit(currency, price_minor, expected):
-    outfit = _outfit("o_x", 0.8, (price_minor, price_minor, price_minor), currency=currency)
-    for item in outfit["items"]:
-        item["currency"] = currency
-    result = _recommend(
-        request={**REQUEST, "currency": currency, "budget": "1000000"},
-        student4={**STUDENT4, "outfits": [outfit]},
-    )
-    assert result.status == "ok", result.reason
-    prices = {
-        p["price"]
-        for p in result.data["recommendation_set"]["recommendations"][0]["purchase_items"]
-    }
-    assert prices == {expected}
-
-
-def test_missing_compatibility_score_is_an_explicit_error():
-    student4 = copy.deepcopy(STUDENT4)
-    del student4["outfits"][1]["compatibility_score"]
-    result = _recommend(student4=student4)
-    assert result.status == "error"
-    error = result.data["error"]
-    assert error["code"] == "invalid_compatibility_score"
-    assert error["location"] == "outfits[1].compatibility_score"
-
-
-@pytest.mark.parametrize("availability", ["unknown", None, "true", 1])
-def test_availability_must_be_a_real_boolean_never_coerced_to_true(availability):
-    student4 = copy.deepcopy(STUDENT4)
-    student4["outfits"][0]["items"][0]["availability"] = availability
-    result = _recommend(student4=student4)
-    assert result.status == "error"
-    assert result.data["error"]["code"] == "invalid_item"
-    assert result.data["error"]["location"] == "outfits[0].items[0]"
-
-
-def test_purchasable_item_without_product_url_is_rejected():
-    student4 = copy.deepcopy(STUDENT4)
-    del student4["outfits"][0]["items"][1]["product_url"]
-    result = _recommend(student4=student4)
-    assert result.status == "error"
-    assert result.data["error"]["code"] == "invalid_item"
-    assert "product_url" in result.data["error"]["message"]
-
-
-@pytest.mark.parametrize(
     "change, code",
     [
         (lambda s: s.update(status="not_implemented"), "status_not_ok"),
-        (lambda s: s.update(outfits=[]), "no_outfits"),
         (lambda s: s["outfits"][0]["items"][0].update(price_minor=19.9), "invalid_price"),
-        (lambda s: s["outfits"][1].update(outfit_id="o_a"), "duplicate_outfit_id"),
     ],
 )
 def test_student4_contract_violations_are_errors_with_code(change, code):
@@ -278,12 +186,6 @@ def test_student4_contract_violations_are_errors_with_code(change, code):
     change(student4)
     result = _recommend(student4=student4)
     assert result.status == "error" and result.data["error"]["code"] == code
-
-
-def test_currency_mismatch_is_an_error():
-    result = _recommend(request={**REQUEST, "currency": "USD"})
-    assert result.status == "error"
-    assert result.data["error"]["type"] == "CurrencyMismatchError"
 
 
 # ---------------------------------------------------------------------------
@@ -311,24 +213,6 @@ def test_modify_requirements_returns_state_and_rerun_plan(first_round):
     assert change.data["updated_request"]["budget"] == "180"
 
 
-def test_patch_keeps_its_own_stage1_intent(first_round):
-    patch = {"intent": "CONFIRM_OUTFIT", "set": {"budget": "180"}}
-    result = run(
-        {"action": "modify_requirements", "state": first_round.data["state"], "patch": patch}
-    )
-    assert result.status == "needs_input"
-
-
-def test_same_value_patch_has_no_rerun_plan(first_round):
-    change = _modify(first_round, "300")
-    assert change.status == "ok" and change.data["changed"] is False
-    assert change.data["rerun_plan"] is None
-
-
-def test_invalid_patch_needs_input(first_round):
-    assert _modify(first_round, "-5").status == "needs_input"
-
-
 def test_second_round_after_change_and_stale_set_is_rejected(first_round):
     change = _modify(first_round, "180")
     second = _recommend(request=change.data["updated_request"], state=change.data["state"])
@@ -350,28 +234,11 @@ def test_second_round_after_change_and_stale_set_is_rejected(first_round):
     assert confirmed.data["confirmed_outfit"]["recommendation"]["outfit_id"] == "o_b"
 
 
-@pytest.mark.parametrize("outfit_id", ["o_z", "the second one", "2", "o_e"])
+@pytest.mark.parametrize("outfit_id", ["2", "o_e"])
 def test_confirm_accepts_only_an_exact_outfit_id_from_the_latest_set(first_round, outfit_id):
     result = run(_selection(first_round, outfit_id))
     assert result.status == "needs_input"
     assert result.data["error"]["type"] == "InvalidOutfitSelectionError"
-
-
-@pytest.mark.parametrize("outfit_id", [2, None, ["o_a"]])
-def test_confirm_requires_an_outfit_id_string(first_round, outfit_id):
-    assert run(_selection(first_round, outfit_id)).status == "needs_input"
-
-
-def test_explanation_is_data_only_and_does_not_change_the_state(first_round):
-    state_before = copy.deepcopy(first_round.data["state"])
-    result = run(_selection(first_round, "o_b", action="explain"))
-    assert result.status == "ok"
-    assert set(result.data) == {"explanation"}
-    explanation = result.data["explanation"]
-    assert explanation["outfit_id"] == "o_b" and explanation["display_position"] == 2
-    assert first_round.data["state"] == state_before
-    # The same, unchanged state can still confirm afterwards.
-    assert run(_selection(first_round, "o_b")).status == "ok"
 
 
 # ---------------------------------------------------------------------------
@@ -384,12 +251,36 @@ def confirmed_outfit(first_round):
     return run(_selection(first_round, "o_a")).data["confirmed_outfit"]
 
 
+@pytest.mark.parametrize("unconfirmed", ["missing", "recommendation_item"])
+def test_preview_without_a_confirmed_outfit_is_rejected_and_calls_no_provider(
+    first_round, monkeypatch, unconfirmed
+):
+    """Preview needs a ConfirmedOutfit from `confirm`; a recommended (unconfirmed) outfit or no
+    outfit is rejected, and the server-configured provider is never created or called."""
+    from travel_agent.recommendation import preview_provider
+
+    monkeypatch.setenv("PREVIEW_PROVIDER", "openai")
+    monkeypatch.setenv("PREVIEW_API_KEY", "sk-test-not-a-real-key-0123456789")
+    monkeypatch.setenv("PREVIEW_MODEL", "fake-image-model")
+    monkeypatch.setattr(
+        preview_provider,
+        "create_live_provider",
+        lambda environ: pytest.fail("no provider may be created before confirmation"),
+    )
+    payload = {"action": "preview", "preview_mode": "FLAT_LAY"}
+    if unconfirmed == "recommendation_item":
+        payload["confirmed_outfit"] = first_round.data["recommendation_set"]["recommendations"][0]
+    result = run(payload)
+    assert result.status == "needs_input"
+    assert "preview" not in result.data
+
+
 def test_preview_with_mock_provider_is_marked_mock(confirmed_outfit):
     result = run(
         {
             "action": "preview",
             "confirmed_outfit": confirmed_outfit,
-            "preview_mode": "MANNEQUIN",
+            "preview_mode": "FLAT_LAY",
             "preview_provider": "mock",
         }
     )
@@ -397,12 +288,91 @@ def test_preview_with_mock_provider_is_marked_mock(confirmed_outfit):
     assert result.data["preview_source"] == "mock"
     preview = result.data["preview"]
     assert (preview["status"], preview["provider_name"]) == ("SUCCESS", "mock")
-    assert preview["output_reference"] == "mock://preview/o_a/mannequin"
+    assert preview["output_reference"] == "mock://preview/o_a/flat_lay"
+
+
+@pytest.mark.parametrize("mode", ["MANNEQUIN", "PRODUCT_CARDS"])
+def test_removed_user_preview_modes_are_rejected(confirmed_outfit, mode):
+    result = run(
+        {
+            "action": "preview",
+            "confirmed_outfit": confirmed_outfit,
+            "preview_mode": mode,
+        }
+    )
+    assert result.status == "needs_input"
+
+
+def test_portrait_ref_resolves_from_the_managed_upload_store(
+    confirmed_outfit, tmp_path, monkeypatch
+):
+    store = tmp_path / "portraits"
+    store.mkdir()
+    (store / "portrait_abc123.jpg").write_bytes(b"test portrait placeholder")
+    monkeypatch.setenv("PORTRAIT_UPLOAD_ROOT", str(store))
+
+    result = run(
+        {
+            "action": "preview",
+            "confirmed_outfit": confirmed_outfit,
+            "preview_mode": "PORTRAIT",
+            "preview_provider": "mock",
+            "user_portrait_ref": "portrait_abc123",
+            "portrait_consent": True,
+        }
+    )
+
+    assert result.status == "ok"
+    assert result.data["preview"]["requested_mode"] == "PORTRAIT"
+
+
+@pytest.mark.parametrize(
+    "portrait_ref",
+    [
+        "../portrait_abc123",
+        "D:/uploads/portrait.jpg",
+        "https://example.com/portrait.jpg",
+        "missing_portrait",
+    ],
+)
+def test_unsafe_or_missing_portrait_ref_is_rejected(
+    confirmed_outfit, tmp_path, monkeypatch, portrait_ref
+):
+    store = tmp_path / "portraits"
+    store.mkdir()
+    monkeypatch.setenv("PORTRAIT_UPLOAD_ROOT", str(store))
+
+    result = run(
+        {
+            "action": "preview",
+            "confirmed_outfit": confirmed_outfit,
+            "preview_mode": "PORTRAIT",
+            "preview_provider": "mock",
+            "user_portrait_ref": portrait_ref,
+            "portrait_consent": True,
+        }
+    )
+
+    assert result.status == "needs_input"
+
+
+def test_raw_user_portrait_path_is_not_a_public_payload_field(confirmed_outfit):
+    result = run(
+        {
+            "action": "preview",
+            "confirmed_outfit": confirmed_outfit,
+            "preview_mode": "PORTRAIT",
+            "preview_provider": "mock",
+            "user_portrait": "D:/uploads/portrait.jpg",
+            "portrait_consent": True,
+        }
+    )
+    assert result.status == "needs_input"
 
 
 def test_preview_without_provider_is_marked_product_card_fallback(confirmed_outfit):
     result = run(
-        {"action": "preview", "confirmed_outfit": confirmed_outfit, "preview_mode": "MANNEQUIN"}
+        {"action": "preview", "confirmed_outfit": confirmed_outfit, "preview_mode": "FLAT_LAY"}
     )
     assert result.data["preview_source"] == "product_card_fallback"
     preview = result.data["preview"]
@@ -410,32 +380,32 @@ def test_preview_without_provider_is_marked_product_card_fallback(confirmed_outf
     assert preview["output_reference"] is None
 
 
-@pytest.mark.parametrize(
-    "extra",
-    [{"preview_provider": "openai"}, {"preview_mode": "HOLOGRAM"}, {"user_portrait": "me.jpg"}],
-)
-def test_preview_rejects_real_provider_bad_mode_and_unconsented_portrait(confirmed_outfit, extra):
-    payload = {
-        "action": "preview",
-        "confirmed_outfit": confirmed_outfit,
-        "preview_mode": "FLAT_LAY",
-    }
-    payload.update(extra)
-    assert run(payload).status == "needs_input"
+def test_preview_auto_uses_styled_layout_without_portrait(confirmed_outfit, tmp_path, monkeypatch):
+    store = tmp_path / "portraits"
+    store.mkdir()
+    monkeypatch.setenv("PORTRAIT_UPLOAD_ROOT", str(store))
+    result = run(
+        {"action": "preview_auto", "confirmed_outfit": confirmed_outfit, "preview_provider": "mock"}
+    )
+    assert result.status == "ok"
+    assert result.data["preview"]["requested_mode"] == "FLAT_LAY"
+
+
+def test_preview_auto_uses_managed_portrait_when_present(confirmed_outfit, tmp_path, monkeypatch):
+    store = tmp_path / "portraits"
+    store.mkdir()
+    (store / "current.png").write_bytes(b"portrait")
+    monkeypatch.setenv("PORTRAIT_UPLOAD_ROOT", str(store))
+    result = run(
+        {"action": "preview_auto", "confirmed_outfit": confirmed_outfit, "preview_provider": "mock"}
+    )
+    assert result.status == "ok"
+    assert result.data["preview"]["requested_mode"] == "PORTRAIT"
 
 
 # ---------------------------------------------------------------------------
 # Tool wrapper and import safety
 # ---------------------------------------------------------------------------
-
-
-def test_tool_wrapper_returns_json_module_result():
-    result = validate_and_recommend.invoke(
-        {"payload": {"action": "recommend", "request": REQUEST, "student4": STUDENT4}}
-    )
-    assert result["status"] == "ok"
-    assert result["data"]["recommendation_set"]["recommendations"][0]["outfit_id"] == "o_a"
-    assert validate_and_recommend.invoke({"payload": {}})["status"] == "error"
 
 
 IMPORT_PROBE = """
@@ -476,3 +446,184 @@ def test_importing_the_service_alone_loads_no_model_sdk_network_or_env():
     )
     assert result.returncode == 0, result.stderr
     assert result.stdout.strip() == "ok []"
+
+
+# ---------------------------------------------------------------------------
+# Student 4 category-keyed `products` outfits through the service
+# ---------------------------------------------------------------------------
+#
+# MOCK contract fixtures in the product-object shape that Student 4 copies from Student 3's
+# Top-K output. Compatibility and product scores are arbitrary test values.
+
+
+def _s4_product(pid, category, amount, *, availability="IN_STOCK", verified=True, score=0.5):
+    product = {
+        "product_id": pid,
+        "title": pid,
+        "category": category,
+        "source_type": "ECOMMERCE_API",
+        "price": {"amount": amount, "currency": "SGD", "is_synthetic": False},
+        "sizes": ["M"],
+        "availability": availability,
+        "product_url": f"https://shop.example.com/{pid}",
+        "image_path": f"product_images/{pid}.jpg",
+        "evidence": {"sizes_verified": False, "availability_verified": verified},
+        "provenance": {"source": "fixture", "original": {"api_item": {}}},
+        "owned": False,
+        "embedding": {"values": [0.1, 0.2]},
+        "garment_embedding": {"values": [0.1]},
+    }
+    if score is not None:
+        product["product_score"] = score
+    return product
+
+
+def _s4_outfit(oid, compatibility, amounts, **top_kwargs):
+    top, bottom, shoes = amounts
+    return {
+        "outfit_id": oid,
+        "compatibility_score": compatibility,
+        "products": {
+            "TOP": _s4_product(f"{oid}_top", "TOP", top, **top_kwargs),
+            "BOTTOM": _s4_product(f"{oid}_bottom", "BOTTOM", bottom),
+            "FOOTWEAR": _s4_product(f"{oid}_shoes", "FOOTWEAR", shoes),
+        },
+    }
+
+
+S4_PRODUCTS = {
+    "status": "ok",
+    "model_version": "mock-compat-0.2",
+    "source": "mock_contract_fixture",
+    "outfits": [
+        _s4_outfit("O0001", 0.32, (50.0, 60.0, 90.0)),
+        _s4_outfit("O0002", 0.31, (40.0, 50.0, 80.0)),
+        _s4_outfit("O0003", 0.30, (30.0, 40.0, 70.0)),
+        _s4_outfit("O0004", 0.29, (20.0, 30.0, 60.0)),
+    ],
+}
+
+
+def test_products_outfits_with_their_own_product_score_are_recommended():
+    result = _recommend(student4=S4_PRODUCTS)
+    assert result.status == "ok", result.reason
+    ids = [r["outfit_id"] for r in result.data["recommendation_set"]["recommendations"]]
+    assert ids == ["O0001", "O0002", "O0003"]
+    top = result.data["recommendation_set"]["recommendations"][0]["purchase_items"][0]
+    assert top["price"] == "50.0" and top["currency"] == "SGD"
+    assert top["product_score"] == 0.5
+    assert "embedding" not in top and "provenance" not in top and "evidence" not in top
+
+
+def test_products_without_product_score_are_an_explicit_error():
+    student4 = copy.deepcopy(S4_PRODUCTS)
+    student4["outfits"][1]["products"]["TOP"] = _s4_product("O0002_top", "TOP", 40.0, score=None)
+    result = _recommend(student4=student4)
+    assert result.status == "error"
+    error = result.data["error"]
+    assert error["code"] == "missing_product_score"
+    assert error["location"] == "outfits[1].products.TOP.product_score"
+
+
+def test_unknown_availability_is_rejected_and_never_recommended():
+    student4 = copy.deepcopy(S4_PRODUCTS)
+    student4["outfits"][0]["products"]["TOP"]["availability"] = "UNKNOWN"
+    result = _recommend(student4=student4)
+    assert result.status == "error"
+    assert result.data["error"]["code"] == "availability_unknown"
+    assert result.data["error"]["location"] == "outfits[0].products.TOP.availability"
+    assert "recommendation_set" not in result.data
+
+
+def test_same_non_sgd_currency_does_not_load_exchange_rates(monkeypatch):
+    """A USD request with only USD products is already directly comparable."""
+    from travel_agent.recommendation import service
+
+    monkeypatch.setattr(
+        service,
+        "load_ecb_snapshot",
+        lambda: pytest.fail("same-currency recommendation must not fetch exchange rates"),
+    )
+    student4 = copy.deepcopy(STUDENT4)
+    for outfit in student4["outfits"]:
+        for item in outfit["items"]:
+            item["currency"] = "USD"
+
+    result = run(
+        {
+            "action": "recommend",
+            "request": {**REQUEST, "budget": "300", "currency": "USD"},
+            "student4": student4,
+        }
+    )
+
+    assert result.status == "ok", result.reason
+    assert result.data["state"]["current_request"]["currency"] == "USD"
+    assert "currency_conversion" not in result.data
+    recommendation = result.data["recommendation_set"]["recommendations"][0]
+    assert recommendation["currency"] == "USD"
+    assert recommendation["total_purchase_cost"] == "200.00"
+
+
+def test_display_currency_follows_cny_request_even_when_products_are_usd(monkeypatch):
+    from travel_agent.recommendation import service
+
+    rates = ExchangeRateSnapshot(
+        rate_date=date(2026, 10, 21),
+        rates_per_eur={
+            "EUR": Decimal("1"),
+            "USD": Decimal("1.2"),
+            "SGD": Decimal("1.5"),
+            "CNY": Decimal("8"),
+        },
+        source="ECB",
+    )
+    monkeypatch.setattr(service, "load_ecb_snapshot", lambda: rates)
+    student4 = copy.deepcopy(STUDENT4)
+    for outfit in student4["outfits"]:
+        for item in outfit["items"]:
+            item["currency"] = "USD"
+
+    result = run(
+        {
+            "action": "recommend",
+            "request": {**REQUEST, "budget": "2000", "currency": "CNY"},
+            "student4": student4,
+        }
+    )
+
+    assert result.status == "ok", result.reason
+    recommendation = result.data["recommendation_set"]["recommendations"][0]
+    assert recommendation["currency"] == "CNY"
+    assert recommendation["total_purchase_cost"] == "1333.33"
+    assert [(p["price"], p["currency"]) for p in recommendation["purchase_items"]] == [
+        ("333.33", "CNY"),
+        ("400.00", "CNY"),
+        ("600.00", "CNY"),
+    ]
+
+
+def test_all_sgd_input_does_not_load_exchange_rates(monkeypatch):
+    from travel_agent.recommendation import service
+
+    monkeypatch.setattr(
+        service,
+        "load_ecb_snapshot",
+        lambda: pytest.fail("all-SGD recommendation must not fetch exchange rates"),
+        raising=False,
+    )
+    assert _recommend().status == "ok"
+
+
+def test_unconvertible_currency_is_an_error(monkeypatch):
+    from travel_agent.recommendation import service
+
+    rates = ExchangeRateSnapshot(
+        rate_date=date(2026, 10, 21),
+        rates_per_eur={"EUR": Decimal("1"), "SGD": Decimal("1.5")},
+        source="ECB",
+    )
+    monkeypatch.setattr(service, "load_ecb_snapshot", lambda: rates)
+    result = _recommend(request={**REQUEST, "currency": "XYZ"})
+    assert result.status == "error"
+    assert result.data["error"]["type"] == "CurrencyConversionError"

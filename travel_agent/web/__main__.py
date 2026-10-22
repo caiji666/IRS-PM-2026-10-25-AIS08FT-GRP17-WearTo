@@ -1,6 +1,7 @@
 """Serve the private local trip UI: python -m travel_agent.web --port 8765."""
 
 import argparse
+import copy
 import json
 import mimetypes
 import os
@@ -14,11 +15,17 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from .refinement_jobs import PendingRefinementStore
+
 ROOT = Path.cwd().resolve()
 STATIC = Path(__file__).parent / "static"
 JOBS = ROOT / "runs/web_jobs"
 LOCK = threading.Lock()
 ACTIVE = threading.Lock()
+STUDENT5_LOCK = threading.Lock()
+STUDENT5_SESSIONS = {}
+STUDENT5_BASE_CACHE = {}
+STUDENT5_REFINEMENTS = PendingRefinementStore()
 COUNTRIES = {
     "KR": "South Korea",
     "JP": "Japan",
@@ -36,12 +43,27 @@ RUN_ID = re.compile(r"^\d{8}_\d{6}_\d{6}\+0800$")
 
 
 def read(path):
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def cached_file_template(source, cache, calculate):
+    """Cache an expensive result while sharing its immutable Student 4 input."""
+    source = Path(source)
+    stat = source.stat()
+    key = (str(source.resolve()), stat.st_mtime_ns, stat.st_size)
+    if cache.get("key") != key:
+        cache.clear()
+        cache.update(key=key, value=calculate())
+    value = cache["value"]
+    session = copy.deepcopy({key: item for key, item in value.items() if key != "student4"})
+    if "student4" in value:
+        session["student4"] = value["student4"]
+    return session
 
 
 def write(path, value):
     temp = path.with_suffix(".tmp")
-    temp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
+    temp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temp.replace(path)
 
 
@@ -304,6 +326,109 @@ def execute(job, mode):
         ACTIVE.release()
 
 
+def execute_student5_refinement(job, session_id, pending):
+    """Run the real Student 1–4 CLI, then atomically install its Student 5 result."""
+    directory = JOBS / job
+    try:
+        update(job, stage="weather", message="Updating trip context and weather…")
+        input_path = directory / "confirmed_input.json"
+        write(
+            input_path,
+            {
+                "request": pending.proposal["student1_request"],
+                "allow_draft": True,
+                "weather_provider": "open_meteo",
+            },
+        )
+        command = [
+            sys.executable,
+            "-m",
+            "scripts.run_live_product_pipeline",
+            "--input",
+            str(input_path),
+            "--with-outfits",
+        ]
+        env = os.environ.copy()
+        env["PYTHONUNBUFFERED"] = "1"
+        record_path = None
+        with (directory / "refinement.log").open("w", encoding="utf-8") as log:
+            process = subprocess.Popen(
+                command,
+                cwd=ROOT,
+                env=env,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+            )
+            for line in process.stdout:
+                log.write(line)
+                log.flush()
+                if "Student 1: ready" in line:
+                    update(job, stage="inspiration", message="Refreshing style inspiration…")
+                elif "Student 2:" in line:
+                    update(job, stage="products", message="Refreshing product candidates…")
+                elif line.startswith("Student 4:"):
+                    update(job, stage="outfits", message="Scoring candidate outfits…")
+            code = process.wait()
+        records = sorted((ROOT / "runs/live_pipeline").glob("*/pipeline_record.json"))
+        if records:
+            record_path = records[-1]
+        if code or record_path is None:
+            raise RuntimeError("The updated trip pipeline could not finish.")
+        record = read(record_path)
+        student5_path = (record.get("outfits") or {}).get("student5_input")
+        if record.get("status") not in {"ok", "completed"} or not student5_path:
+            raise RuntimeError("The updated outfits were not ready for final ranking.")
+
+        from travel_agent.recommendation.service import run as student5_run
+
+        payload = read(Path(student5_path))
+        update(job, stage="ranking", message="Ranking the new Top-3…")
+        result = student5_run(payload)
+        if result.status != "ok":
+            raise RuntimeError("The updated Top-3 could not be created.")
+        data = result.model_dump(mode="json")["data"]
+        replacement = {
+            "request": payload["request"],
+            "student4": payload["student4"],
+            "state": data["state"],
+            "recommendation_set": data["recommendation_set"],
+            "filter_summary": data["filter_summary"],
+            "confirmed_outfit": None,
+            "preview": None,
+            "checkpoints": {
+                "pipeline_record": record_path.parent.name,
+                "student1_state": pending.proposal["student1_state"],
+            },
+        }
+        from .student5_session import public
+
+        with STUDENT5_LOCK:
+            current = STUDENT5_SESSIONS.get(session_id)
+            if current is None:
+                raise RuntimeError("The recommendation session expired.")
+            version = (current.get("state") or {}).get("request_version")
+            if version != pending.request_version:
+                raise RuntimeError("The recommendation session changed while updating.")
+            STUDENT5_SESSIONS[session_id] = replacement
+        update(
+            job,
+            status="completed",
+            stage="completed",
+            message="Your updated Top-3 is ready.",
+            student5={"id": session_id, **public(replacement)},
+        )
+    except Exception as exc:
+        update(
+            job,
+            status="failed",
+            stage="refinement",
+            message=str(exc) if isinstance(exc, RuntimeError) else "The update could not finish.",
+        )
+    finally:
+        ACTIVE.release()
+
+
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *args):
         pass
@@ -348,6 +473,34 @@ class Handler(BaseHTTPRequestHandler):
                 from .profile import wardrobe_view
 
                 return self.send(wardrobe_view(ROOT))
+            if path == "/api/profile/portrait":
+                from .profile import portrait_view
+
+                return self.send(portrait_view(ROOT))
+            if path == "/api/student5/fixed-top3":
+                result = ROOT / (
+                    "artifacts/fixed_student4_input_run/budget_500_initial/student5_top3.json"
+                )
+                if not result.is_file():
+                    raise ValueError("Fixed Student 5 result is not available")
+                return self.send(read(result))
+            if path.startswith("/student5-preview-media/"):
+                name = path.rsplit("/", 1)[1]
+                if not re.fullmatch(r"[a-f0-9]{32}\.png", name):
+                    raise ValueError("Invalid preview image")
+                scope = JOBS / "student5-preview-media"
+                return self.file(scope / name, scope)
+            if path.startswith("/artifacts/previews/"):
+                name = path.rsplit("/", 1)[1]
+                if not re.fullmatch(r"[a-f0-9]{32}\.png", name):
+                    raise ValueError("Invalid preview image")
+                scope = ROOT / "artifacts/previews"
+                return self.file(scope / name, scope)
+            if path == "/portrait-media/current.png":
+                from .profile import portrait_path
+
+                target = portrait_path(ROOT)
+                return self.file(target, target.parent)
             if path.startswith("/wardrobe-media/"):
                 name = path.rsplit("/", 1)[1]
                 if not re.fullmatch(r"[a-f0-9]{64}\.png", name):
@@ -447,6 +600,12 @@ class Handler(BaseHTTPRequestHandler):
                     ACTIVE.release()
                     raise
                 return self.send({"id": job}, 202)
+            if self.path == "/api/profile/portrait":
+                from .profile import MAX_UPLOAD_BYTES, save_portrait
+
+                if not 0 < size <= MAX_UPLOAD_BYTES:
+                    raise ValueError("Choose an image smaller than 10 MB.")
+                return self.send(save_portrait(ROOT, self.rfile.read(size)))
             if not 0 < size < 12000:
                 raise ValueError("Invalid request size")
             body = json.loads(self.rfile.read(size))
@@ -454,6 +613,151 @@ class Handler(BaseHTTPRequestHandler):
                 from .profile import save_profile
 
                 return self.send(save_profile(ROOT, body))
+            if self.path == "/api/student5/start":
+                from scripts.run_student4_real_top3 import (
+                    TEST_REQUEST,
+                    build_payload,
+                    load_ranked_outfits,
+                )
+                from travel_agent.recommendation.service import run as student5_run
+
+                from .student5_session import public
+
+                source = ROOT.parent / "ranked_outfits.json"
+                if not source.is_file():
+                    raise ValueError("Fixed Student 4 input is not available")
+
+                def calculate():
+                    ranked_outfits = load_ranked_outfits(source)
+                    payload = build_payload(ranked_outfits)
+                    result = student5_run(payload)
+                    if result.status != "ok":
+                        raise ValueError(result.reason or f"Student 5 returned {result.status}")
+                    data = result.model_dump(mode="json")["data"]
+                    return {
+                        "request": dict(TEST_REQUEST),
+                        "student4": payload["student4"],
+                        "state": data["state"],
+                        "recommendation_set": data["recommendation_set"],
+                        "filter_summary": data["filter_summary"],
+                        "confirmed_outfit": None,
+                        "preview": None,
+                    }
+
+                with STUDENT5_LOCK:
+                    session = cached_file_template(source, STUDENT5_BASE_CACHE, calculate)
+                session_id = secrets.token_hex(16)
+                with STUDENT5_LOCK:
+                    STUDENT5_SESSIONS[session_id] = session
+                return self.send({"id": session_id, **public(session)})
+            if self.path == "/api/student5/refine/confirm":
+                session_id = body.get("id", "")
+                pending_id = body.get("pending_change_id", "")
+                if not re.fullmatch("[a-f0-9]{32}", session_id) or not re.fullmatch(
+                    "[a-f0-9]{32}", pending_id
+                ):
+                    raise ValueError("Invalid refinement confirmation")
+                with STUDENT5_LOCK:
+                    session = STUDENT5_SESSIONS.get(session_id)
+                    version = (session or {}).get("state", {}).get("request_version")
+                if session is None:
+                    raise ValueError("Student 5 session expired; reload the recommendations")
+                candidate_job = secrets.token_hex(16)
+                pending = STUDENT5_REFINEMENTS.consume_pending(
+                    pending_id, session_id, version, candidate_job
+                )
+                if pending.job_id != candidate_job:
+                    return self.send({"id": pending.job_id}, 202)
+                if not ACTIVE.acquire(blocking=False):
+                    STUDENT5_REFINEMENTS.release_job(pending_id, candidate_job)
+                    raise ValueError("Another task is running. Please wait.")
+                try:
+                    directory = JOBS / candidate_job
+                    directory.mkdir(parents=True)
+                    write(
+                        directory / "status.json",
+                        {
+                            "id": candidate_job,
+                            "status": "running",
+                            "stage": "weather",
+                            "message": "Updating trip context and weather…",
+                        },
+                    )
+                    threading.Thread(
+                        target=execute_student5_refinement,
+                        args=(candidate_job, session_id, pending),
+                        daemon=True,
+                    ).start()
+                except Exception:
+                    STUDENT5_REFINEMENTS.release_job(pending_id, candidate_job)
+                    ACTIVE.release()
+                    raise
+                return self.send({"id": candidate_job}, 202)
+            if self.path in {
+                "/api/student5/refine",
+                "/api/student5/confirm",
+                "/api/student5/preview",
+            }:
+                from travel_agent.recommendation.service import run as student5_run
+                from travel_agent.understanding.service import run as understand
+
+                from .student5_session import (
+                    confirm,
+                    patch_from_message,
+                    preview,
+                    propose_refinement,
+                    public,
+                    refine,
+                )
+
+                session_id = body.get("id", "")
+                if not re.fullmatch("[a-f0-9]{32}", session_id):
+                    raise ValueError("Invalid Student 5 session")
+                with STUDENT5_LOCK:
+                    session = STUDENT5_SESSIONS.get(session_id)
+                if session is None:
+                    raise ValueError("Student 5 session expired; reload the recommendations")
+                if self.path.endswith("/refine"):
+                    patch = body.get("patch")
+                    if patch is None and isinstance(body.get("message"), str):
+                        patch = patch_from_message(body["message"])
+                    if not isinstance(patch, dict):
+                        raise ValueError("A structured requirement change is required")
+                    if patch.get("kind") == "upstream":
+                        proposal = propose_refinement(session, patch["message"], understand)
+                        pending = STUDENT5_REFINEMENTS.create_pending(
+                            session_id,
+                            session["state"]["request_version"],
+                            proposal,
+                        )
+                        return self.send(STUDENT5_REFINEMENTS.public_plan(pending))
+                    session = refine(session, patch, student5_run)
+                elif self.path.endswith("/confirm"):
+                    session = confirm(session, str(body.get("outfit_id", "")), student5_run)
+                else:
+                    session = preview(session, student5_run)
+                with STUDENT5_LOCK:
+                    STUDENT5_SESSIONS[session_id] = session
+                response = {"id": session_id, **public(session)}
+                if self.path.endswith("/preview"):
+                    generated = (response.get("preview") or {}).get("preview") or {}
+                    reference = generated.get("output_reference")
+                    if reference:
+                        source = Path(reference).resolve()
+                        approved = (ROOT / "artifacts/previews").resolve()
+                        source.relative_to(approved)
+                        content = source.read_bytes()
+                        if (
+                            not content.startswith(b"\x89PNG\r\n\x1a\n")
+                            or len(content) > 20 * 1024 * 1024
+                        ):
+                            raise ValueError("Preview provider returned an invalid PNG image")
+                        media = JOBS / "student5-preview-media"
+                        media.mkdir(parents=True, exist_ok=True)
+                        target = media / f"{session_id}.png"
+                        target.write_bytes(content)
+                        generated["output_reference"] = f"/student5-preview-media/{target.name}"
+                return self.send(response)
             if self.path == "/api/chat":
                 message = body.get("message", "")
                 if not isinstance(message, str) or not 1 <= len(message.strip()) <= 2500:
@@ -576,11 +880,23 @@ class Handler(BaseHTTPRequestHandler):
                 400,
             )
 
+    def do_DELETE(self):
+        if not self.safe_host() or self.headers.get("X-Trip-UI") != "1":
+            return self.send({"error": "Local access only"}, 403)
+        if self.path != "/api/profile/portrait":
+            return self.send({"error": "Not found"}, 404)
+        from .profile import delete_portrait
+
+        return self.send(delete_portrait(ROOT))
+
 
 def main():
+    from dotenv import load_dotenv
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
+    load_dotenv(ROOT / ".env", override=False)
     JOBS.mkdir(parents=True, exist_ok=True)
     print(f"Local trip UI: http://127.0.0.1:{args.port}", flush=True)
     ThreadingHTTPServer(("127.0.0.1", args.port), Handler).serve_forever()
