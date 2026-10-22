@@ -283,7 +283,7 @@ def check_student1_output(result: ModuleResult) -> list[str]:
         request = SharedTripShoppingRequest.model_validate(data.get("trip_request"))
     except ValueError as exc:
         return [*problems, f"trip_request violates TripShoppingRequest: {exc}"]
-    for name in ("destination", "start_date", "end_date", "activities", "budget", "currency"):
+    for name in ("destination", "start_date", "end_date", "budget", "currency"):
         if not getattr(request, name):
             problems.append(f"trip_request.{name} is empty")
     if state.get("current_request") != data.get("trip_request"):
@@ -448,9 +448,7 @@ def student3_payload(s2: ModuleResult) -> dict[str, Any]:
 
 
 def student4_payload(s1: ModuleResult, s3: ModuleResult) -> dict[str, Any]:
-    # TODO(Student 4): outfits.service.run has no typed input contract yet. PROVISIONAL: the
-    # Student 1 data and the Student 3 result data, so the real entry point is called and its
-    # own status (currently `not_implemented`) is recorded.
+    """Student 4's public dynamic input: Student 3 bundle plus Student 1 context."""
     return {"understanding": s1.data, "products": s3.data}
 
 
@@ -624,11 +622,30 @@ def student3_settings():
     return Settings.from_environment()
 
 
-def run_student4_stage(run: PipelineRun, s1: ModuleResult, s3: ModuleResult) -> bool:
-    """Call the real Student 4 entry point; records its own status (e.g. not_implemented)."""
+def run_student4_stage(
+    run: PipelineRun,
+    s1: ModuleResult,
+    s3: ModuleResult,
+    *,
+    model=None,
+    manifest=None,
+) -> bool:
+    """Call the real Student 4 entry point.
+
+    `model` and `manifest` are test-only dependency injection supported by Student 4's public
+    Python boundary; ordinary pipeline runs omit them and load the real model.
+    """
     from travel_agent.outfits.service import run as student4_run
 
-    return _call(run, "student4", student4_run, student4_payload(s1, s3), "Student 3 result data")
+    return _call(
+        run,
+        "student4",
+        student4_run,
+        student4_payload(s1, s3),
+        "Student 3 result data",
+        model=model,
+        manifest=manifest,
+    )
 
 
 def run_pipeline(

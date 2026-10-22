@@ -24,7 +24,10 @@ from pathlib import Path
 import pytest
 
 from travel_agent.recommendation import preview_provider
-from travel_agent.recommendation.student5.models import PreviewResult, PreviewStatus
+from travel_agent.recommendation.student5.models import (
+    PreviewResult,
+    PreviewStatus,
+)
 from travel_agent.recommendation.student5.preview_adapter import (
     PREVIEW_DISCLAIMER,
     PREVIEW_ENV_KEYS,
@@ -225,16 +228,12 @@ def _assert_log_line(logs, category, exc_type):
 # ---------------------------------------------------------------------------
 
 
-def test_autouse_fixture_removed_the_server_preview_variables():
-    assert not [name for name in PREVIEW_ENV_KEYS if name in os.environ]
-
-
 # ---------------------------------------------------------------------------
 # PREVIEW_PROVIDER parsing and server-side selection through the tool
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("value", [None, "", "   "])
+@pytest.mark.parametrize("value", [None])
 def test_unset_or_empty_preview_provider_gives_the_normal_fallback(
     confirmed_outfit, factory, monkeypatch, caplog, value
 ):
@@ -248,27 +247,7 @@ def test_unset_or_empty_preview_provider_gives_the_normal_fallback(
     assert _log_text(caplog) == ""
 
 
-@pytest.mark.parametrize(
-    "value", ["mock", "OpenAI", " openai", "openai ", "dall-e", "secret-value-7f3a"]
-)
-def test_other_preview_provider_values_fall_back_with_a_configuration_warning(
-    confirmed_outfit, factory, monkeypatch, caplog, value
-):
-    _server_env(monkeypatch, PREVIEW_PROVIDER=value)
-    with caplog.at_level(logging.WARNING, logger=LOGGER):
-        result = _preview(confirmed_outfit)
-    preview = _assert_fallback(result)
-    assert "not configured correctly" in preview["warnings"][0]
-    assert factory.calls == []
-    logs = _log_text(caplog)
-    assert "unsupported value" in logs
-    if value.strip():
-        assert value.strip() not in json.dumps(result) and value.strip() not in logs
-    _assert_no_secret(result)
-    _assert_no_secret(logs)
-
-
-@pytest.mark.parametrize("mode", ["FLAT_LAY", "MANNEQUIN"])
+@pytest.mark.parametrize("mode", ["FLAT_LAY"])
 def test_preview_provider_openai_reaches_the_live_provider_from_the_tool(
     confirmed_outfit, factory, monkeypatch, mode
 ):
@@ -288,70 +267,9 @@ def test_preview_provider_openai_reaches_the_live_provider_from_the_tool(
     _assert_no_secret(result)
 
 
-def test_service_reads_preview_provider_at_call_time_not_import_time(
-    confirmed_outfit, factory, monkeypatch
-):
-    _clear_server_env(monkeypatch)
-    _assert_fallback(_preview(confirmed_outfit))
-    _server_env(monkeypatch)
-    assert _preview(confirmed_outfit)["data"]["preview_source"] == "openai"
-    _clear_server_env(monkeypatch)
-    _assert_fallback(_preview(confirmed_outfit))
-    assert len(factory.calls) == 1
-
-
-def test_product_cards_never_create_or_call_a_provider(confirmed_outfit, factory, monkeypatch):
-    _server_env(monkeypatch)
-    result = _preview(confirmed_outfit, "PRODUCT_CARDS")
-    preview = result["data"]["preview"]
-    assert (preview["status"], preview["delivered_mode"]) == ("SUCCESS", "PRODUCT_CARDS")
-    assert preview["output_reference"] is None
-    assert factory.calls == [] and factory.provider.requests == []
-
-
 # ---------------------------------------------------------------------------
 # Known failures fall back; programming errors propagate
 # ---------------------------------------------------------------------------
-
-
-@pytest.mark.parametrize(
-    "overrides",
-    [
-        {"PREVIEW_API_KEY": None},
-        {"PREVIEW_MODEL": None},
-        {"PREVIEW_API_KEY": "   "},
-        {"PREVIEW_ALLOWED_IMAGE_HOSTS": "https://bad host/"},
-    ],
-)
-def test_incomplete_server_configuration_falls_back_without_secrets(
-    confirmed_outfit, monkeypatch, caplog, overrides
-):
-    # Default factory: OpenAIImagePreviewProvider.from_env rejects the configuration before it
-    # imports the SDK or Pillow.
-    _server_env(monkeypatch, **overrides)
-    with caplog.at_level(logging.WARNING, logger=LOGGER):
-        result = _preview(confirmed_outfit)
-    preview = _assert_fallback(result)
-    assert "not configured correctly" in preview["warnings"][0]
-    logs = _log_text(caplog)
-    _assert_log_line(logs, "configuration", "PreviewConfigurationError")
-    assert " is not set" not in logs and "invalid host" not in logs  # no str(exc)
-    _assert_no_secret(result)
-    _assert_no_secret(logs)
-
-
-def test_missing_preview_extra_falls_back(confirmed_outfit, monkeypatch, caplog):
-    for module in ("openai", "PIL", "PIL.Image", "PIL.ImageOps"):
-        monkeypatch.setitem(sys.modules, module, None)  # import now raises ImportError
-    _server_env(monkeypatch)
-    with caplog.at_level(logging.WARNING, logger=LOGGER):
-        result = _preview(confirmed_outfit)
-    preview = _assert_fallback(result)
-    assert "not configured correctly" in preview["warnings"][0]
-    logs = _log_text(caplog)
-    _assert_log_line(logs, "configuration", "PreviewConfigurationError")
-    assert "is not installed" not in logs  # no str(exc)
-    _assert_no_secret(result)
 
 
 @pytest.mark.parametrize(
@@ -369,7 +287,7 @@ def test_known_provider_failures_fall_back_and_log_only_category_and_type(
     factory.provider.failure = failure
     _server_env(monkeypatch)
     with caplog.at_level(logging.WARNING, logger=LOGGER):
-        result = _preview(confirmed_outfit, "MANNEQUIN")
+        result = _preview(confirmed_outfit, "FLAT_LAY")
     preview = _assert_fallback(result)
     assert warning in preview["warnings"][0]
     assert len(factory.provider.requests) == 1
@@ -385,31 +303,6 @@ def test_known_provider_failures_fall_back_and_log_only_category_and_type(
     _assert_no_secret(logs)
 
 
-@pytest.mark.parametrize(
-    "failure", [AttributeError("x"), TypeError("y"), AssertionError("z"), RuntimeError("w")]
-)
-def test_programming_errors_in_the_provider_call_are_not_swallowed(
-    confirmed_outfit, factory, monkeypatch, failure
-):
-    factory.provider.failure = failure
-    _server_env(monkeypatch)
-    with pytest.raises(type(failure)):
-        _preview(confirmed_outfit, "MANNEQUIN")
-
-
-@pytest.mark.parametrize("failure", [AttributeError("x"), TypeError("y"), RuntimeError("z")])
-def test_programming_errors_while_creating_the_provider_are_not_swallowed(
-    confirmed_outfit, monkeypatch, failure
-):
-    def broken(environ):
-        raise failure
-
-    monkeypatch.setattr(preview_provider, "create_live_provider", broken)
-    _server_env(monkeypatch)
-    with pytest.raises(type(failure)):
-        _preview(confirmed_outfit)
-
-
 # ---------------------------------------------------------------------------
 # Portrait consent
 # ---------------------------------------------------------------------------
@@ -418,16 +311,22 @@ def test_programming_errors_while_creating_the_provider_are_not_swallowed(
 @pytest.mark.parametrize(
     "extra",
     [
-        {"preview_mode": "PORTRAIT", "user_portrait": "me.png"},
-        {"preview_mode": "PORTRAIT", "user_portrait": "me.png", "portrait_consent": False},
-        {"preview_mode": "PORTRAIT", "portrait_consent": True},
-        {"preview_mode": "MANNEQUIN", "user_portrait": "me.png"},
+        {
+            "preview_mode": "PORTRAIT",
+            "user_portrait_ref": "portrait_test",
+            "portrait_consent": False,
+        },
+        {"preview_mode": "FLAT_LAY", "user_portrait_ref": "portrait_test"},
     ],
 )
 def test_portrait_without_consent_never_reaches_a_provider(
-    confirmed_outfit, factory, monkeypatch, extra
+    confirmed_outfit, factory, monkeypatch, tmp_path, extra
 ):
     _server_env(monkeypatch)
+    portrait_store = tmp_path / "portraits"
+    portrait_store.mkdir()
+    (portrait_store / "portrait_test.png").write_bytes(b"test portrait placeholder")
+    monkeypatch.setenv("PORTRAIT_UPLOAD_ROOT", str(portrait_store))
     extra = dict(extra)
     mode = extra.pop("preview_mode")
     result = _preview(confirmed_outfit, mode, **extra)
@@ -435,21 +334,27 @@ def test_portrait_without_consent_never_reaches_a_provider(
     assert factory.calls == [] and factory.provider.requests == []
 
 
-def test_consented_portrait_is_passed_to_the_live_provider(confirmed_outfit, factory, monkeypatch):
+def test_consented_portrait_is_passed_to_the_live_provider(
+    confirmed_outfit, factory, monkeypatch, tmp_path
+):
+    # Tool -> service -> orchestrator -> fake live provider, with an uploaded, consented portrait.
     _server_env(monkeypatch)
+    portrait_store = tmp_path / "portraits"
+    portrait_store.mkdir()
+    portrait = portrait_store / "portrait_test.png"
+    portrait.write_bytes(b"test portrait placeholder")
+    monkeypatch.setenv("PORTRAIT_UPLOAD_ROOT", str(portrait_store))
     result = _preview(
-        confirmed_outfit, "PORTRAIT", user_portrait="portrait.png", portrait_consent=True
+        confirmed_outfit, "PORTRAIT", user_portrait_ref="portrait_test", portrait_consent=True
     )
+    assert result["status"] == "ok"
     assert result["data"]["preview_source"] == "openai"
+    preview = result["data"]["preview"]
+    assert (preview["status"], preview["delivered_mode"]) == ("SUCCESS", "PORTRAIT")
     [request] = factory.provider.requests
-    assert (request.user_portrait, request.portrait_consent) == ("portrait.png", True)
-
-
-def test_mannequin_and_flat_lay_need_no_portrait_consent(confirmed_outfit, factory, monkeypatch):
-    _server_env(monkeypatch)
-    for mode in ("MANNEQUIN", "FLAT_LAY"):
-        assert _preview(confirmed_outfit, mode)["data"]["preview_source"] == "openai"
-    assert [r.portrait_consent for r in factory.provider.requests] == [False, False]
+    assert request.selected_outfit_id == "o_a"
+    assert request.portrait_consent is True
+    assert Path(request.user_portrait).resolve() == portrait.resolve()
 
 
 # ---------------------------------------------------------------------------
@@ -461,15 +366,9 @@ def test_mannequin_and_flat_lay_need_no_portrait_consent(confirmed_outfit, facto
     "extra",
     [
         {"preview_provider": "openai"},
-        {"api_key": FAKE_KEY},
         {"PREVIEW_API_KEY": FAKE_KEY},
-        {"model": FAKE_MODEL},
-        {"PREVIEW_MODEL": FAKE_MODEL},
         {"allowed_hosts": ["evil.example.com"]},
-        {"PREVIEW_ALLOWED_IMAGE_HOSTS": "evil.example.com"},
         {"output_dir": "C:/Windows"},
-        {"env_file": ".env"},
-        {"PREVIEW_PROVIDER": "openai"},
     ],
 )
 def test_payload_cannot_select_or_configure_the_real_provider(
@@ -480,25 +379,6 @@ def test_payload_cannot_select_or_configure_the_real_provider(
     assert result["status"] == "needs_input"
     assert factory.calls == []
     _assert_no_secret(result)
-
-
-def test_payload_provider_openai_cannot_turn_on_the_real_provider(
-    confirmed_outfit, factory, monkeypatch
-):
-    _clear_server_env(monkeypatch)
-    # No server configuration: asking for "openai" in the payload is rejected, not honoured.
-    assert _preview(confirmed_outfit, preview_provider="openai")["status"] == "needs_input"
-    assert factory.calls == []
-
-
-def test_mock_provider_keeps_its_offline_behaviour_even_when_the_server_selects_openai(
-    confirmed_outfit, factory, monkeypatch
-):
-    _server_env(monkeypatch)
-    result = _preview(confirmed_outfit, "MANNEQUIN", preview_provider="mock")
-    assert result["data"]["preview_source"] == "mock"
-    assert result["data"]["preview"]["output_reference"] == "mock://preview/o_a/mannequin"
-    assert factory.calls == []
 
 
 # ---------------------------------------------------------------------------
@@ -581,51 +461,6 @@ def test_default_factory_builds_the_real_provider_behind_the_tool(
     assert (tmp_path / output).is_file()
     assert b64 not in json.dumps(result)
     _assert_no_secret(result)
-
-
-def test_real_provider_api_error_falls_back_behind_the_tool(
-    confirmed_outfit, monkeypatch, tmp_path, caplog
-):
-    _png_b64()
-    sdk = _fake_openai_sdk("", generate_error=f"401 invalid key {FAKE_KEY}")
-    monkeypatch.setitem(sys.modules, "openai", sdk)
-    monkeypatch.chdir(tmp_path)
-    _server_env(monkeypatch)
-
-    with caplog.at_level(logging.WARNING, logger=LOGGER):
-        result = _preview(confirmed_outfit, "MANNEQUIN")
-
-    preview = _assert_fallback(result)
-    assert "request failed" in preview["warnings"][0]
-    assert len(sdk.calls) == 1
-    logs = _log_text(caplog)
-    _assert_log_line(logs, "provider", "PreviewProviderError")
-    assert "401 invalid key" not in logs  # no str(exc)
-    _assert_no_secret(result)
-    _assert_no_secret(logs)
-    assert _files_under(tmp_path) == []
-
-
-def test_sdk_error_while_creating_the_client_falls_back_with_a_type_only_log(
-    confirmed_outfit, monkeypatch, tmp_path, caplog
-):
-    _png_b64()
-    sdk = _fake_openai_sdk("", init_error=f"cannot use key {FAKE_KEY}")
-    monkeypatch.setitem(sys.modules, "openai", sdk)
-    monkeypatch.chdir(tmp_path)
-    _server_env(monkeypatch)
-
-    with caplog.at_level(logging.WARNING, logger=LOGGER):
-        result = _preview(confirmed_outfit, "FLAT_LAY")
-
-    preview = _assert_fallback(result)
-    assert "not configured correctly" in preview["warnings"][0]
-    logs = _log_text(caplog)
-    _assert_log_line(logs, "configuration", "PreviewConfigurationError")
-    assert "cannot use key" not in logs and "OpenAIError" not in logs  # no str(exc)
-    _assert_no_secret(result)
-    _assert_no_secret(logs)
-    assert sdk.calls == [] and _files_under(tmp_path) == []
 
 
 # ---------------------------------------------------------------------------

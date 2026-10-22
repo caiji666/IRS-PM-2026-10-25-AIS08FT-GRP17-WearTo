@@ -110,6 +110,18 @@ class TripShoppingRequest(Contract):
     cold_sensitive: bool | None = Field(default=None, strict=True)
     price_preference: Literal["lower"] | None = None
 
+    @field_validator(
+        "activities", "style", "excluded_items", "owned_item_ids", "places", mode="before"
+    )
+    @classmethod
+    def empty_optional_lists(cls, value):
+        return [] if value is None else value
+
+    @field_validator("dress_codes", mode="before")
+    @classmethod
+    def empty_optional_map(cls, value):
+        return {} if value is None else value
+
     @field_validator("destination")
     @classmethod
     def clean_destination(cls, value):
@@ -205,6 +217,38 @@ class TripShoppingRequestPatch(Contract):
         return self
 
 
+class ClimateMonth(Contract):
+    month: int = Field(ge=1, le=12)
+    sample_days: int = Field(gt=0)
+    mean_daily_min_celsius: float = Field(allow_inf_nan=False)
+    mean_daily_max_celsius: float = Field(allow_inf_nan=False)
+    wet_day_frequency: float | None = Field(default=None, ge=0, le=1)
+    snowfall_day_frequency: float | None = Field(default=None, ge=0, le=1)
+
+    @model_validator(mode="after")
+    def ordered_temperatures(self):
+        if self.mean_daily_min_celsius > self.mean_daily_max_celsius:
+            raise ValueError("Historical mean temperature range is reversed")
+        return self
+
+
+class ClimateReference(Contract):
+    dataset_version: str
+    baseline_start_year: int
+    baseline_end_year: int
+    model: str
+    method: str
+    monthly: list[ClimateMonth] = Field(min_length=1)
+    source_urls: list[str] = Field(min_length=1)
+    updated_at: str
+    location_basis: str
+    attribution: str
+    grid_latitude: float | None = Field(default=None, ge=-90, le=90)
+    grid_longitude: float | None = Field(default=None, ge=-180, le=180)
+    grid_elevation_meters: float | None = Field(default=None, allow_inf_nan=False)
+    limitations: list[str] = Field(default_factory=list)
+
+
 class WeatherContext(Contract):
     temp_min_celsius: float | None = Field(default=None, allow_inf_nan=False)
     temp_max_celsius: float | None = Field(default=None, allow_inf_nan=False)
@@ -222,11 +266,22 @@ class WeatherContext(Contract):
     latitude: float | None = Field(default=None, ge=-90, le=90)
     longitude: float | None = Field(default=None, ge=-180, le=180)
     location_label: str | None = None
+    location_basis: str | None = None
     location_candidates: list[dict[str, Any]] = Field(default_factory=list)
     reason: str | None = None
+    climate_reference: ClimateReference | None = None
+    routing_reason: str | None = None
+    reason_code: str | None = None
+    next_steps: list[str] = Field(default_factory=list)
+    acquisition: dict[str, Any] | None = None
+    limitations: list[str] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def valid_weather(self):
+        if self.data_type == "historical_climatology" and (
+            self.snow is not None or self.precipitation_probability is not None
+        ):
+            raise ValueError("Historical frequencies are not trip-date snow or rain forecasts")
         if (
             self.temp_min_celsius is not None
             and self.temp_max_celsius is not None
@@ -259,6 +314,7 @@ class ConversationState(Contract):
     session_id: str = "local_demo"
     request_version: int = Field(default=0, ge=0, strict=True)
     current_request: TripShoppingRequest = Field(default_factory=TripShoppingRequest)
+    pending_request: TripShoppingRequest | None = None
     recommendation_round: int = Field(default=0, ge=0, strict=True)
     last_recommended_outfit_ids: list[str] = Field(default_factory=list)
     selected_outfit_id: str | None = None

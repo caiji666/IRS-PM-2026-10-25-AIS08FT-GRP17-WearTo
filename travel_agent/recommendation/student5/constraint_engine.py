@@ -43,11 +43,10 @@ from travel_agent.recommendation.student5.models import (
 
 
 class CurrencyMismatchError(ValueError):
-    """PROVISIONAL. A purchase item's currency differs from the request currency.
+    """A purchase item's currency differs from the SGD-normalised request currency.
 
-    Currency normalisation is PROVISIONAL upstream work (proposal Section 5.3.4 says prices are
-    normalised to the budget currency); this stage never converts currencies or compares
-    amounts across currencies.
+    The service normalises the request and candidate copies before Stage 10. This stage remains
+    deterministic and never performs network requests or compares amounts across currencies.
     """
 
 

@@ -14,7 +14,7 @@ from travel_agent.schemas import (
     TripShoppingRequest,
     TripShoppingRequestPatch,
 )
-from travel_agent.understanding.english_evidence import grounded_english
+from travel_agent.understanding.english_evidence import date_facts, grounded_english
 
 DIALOGUE_SCHEMA = TypeAdapter(
     Annotated[
@@ -111,6 +111,9 @@ def ground_extraction(value, message, existing=False, current_request=None):
     warnings = []
     if not isinstance(values, dict):
         raise ValueError("Model set must be an object")
+    # Controller-normalized date roles are deterministic evidence, including
+    # when the rest of the source is Chinese and the small model omits dates.
+    values.update(date_facts(message))
     # Validate value types before semantic guards, so malformed model JSON cannot
     # cause AttributeError/TypeError in normalization.
     if isinstance(values.get("dress_codes"), dict):
@@ -265,10 +268,34 @@ class QwenExtractor:
             .eval()
         )
 
-    def generate_raw(self, message, current_request=None):
-        """Generate once without postprocessing, for separate model evaluation."""
+    def generate_text(self, messages, *, max_new_tokens=650):
+        """Run the shared local model for extraction or grounded dialogue wording."""
         import torch
 
+        self._load()
+        text = self._tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+            enable_thinking=False,
+        )
+        inputs = self._tokenizer(text, return_tensors="pt").to(self._model.device)
+        with torch.inference_mode():
+            ids = self._model.generate(
+                **inputs,
+                max_new_tokens=max_new_tokens,
+                do_sample=False,
+                temperature=None,
+                top_p=None,
+                top_k=None,
+                pad_token_id=self._tokenizer.eos_token_id,
+            )
+        return self._tokenizer.decode(
+            ids[0, inputs.input_ids.shape[1] :], skip_special_tokens=True
+        ).strip()
+
+    def generate_raw(self, message, current_request=None):
+        """Generate once without postprocessing, for separate model evaluation."""
         self._load()
         existing = current_request is not None
         common = (
@@ -307,21 +334,9 @@ class QwenExtractor:
                 'For example, "I prefer casual outfits" yields {"style":["casual"]}. '
                 "Read every sentence; do not confuse a style preference with a dress code."
             )
-        text = self._tokenizer.apply_chat_template(
+        raw = self.generate_text(
             [{"role": "system", "content": instruction}, {"role": "user", "content": message}],
-            tokenize=False,
-            add_generation_prompt=True,
-            enable_thinking=False,
         )
-        inputs = self._tokenizer(text, return_tensors="pt").to(self._model.device)
-        with torch.inference_mode():
-            ids = self._model.generate(
-                **inputs,
-                max_new_tokens=650,
-                do_sample=False,
-                pad_token_id=self._tokenizer.eos_token_id,
-            )
-        raw = self._tokenizer.decode(ids[0, inputs.input_ids.shape[1] :], skip_special_tokens=True)
         return raw, {
             "provider": "qwen",
             "model": MODEL_ID,

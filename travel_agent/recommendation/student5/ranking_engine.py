@@ -111,7 +111,23 @@ def rank_outfits(
 def select_top_outfits(
     ranked_outfits: list[ScoredOutfit], limit: int = DEFAULT_TOP_K
 ) -> list[ScoredOutfit]:
-    """Return the first `limit` ranked outfits (Top-3 by default) as a new list."""
+    """Select up to `limit` ranked outfits, allowing at most one shared product per pair.
+
+    Candidates are considered in their existing ranking order. A candidate that shares more
+    than one product_id with any already-selected outfit is skipped, so diversity never changes
+    scoring and only promotes the next eligible lower-ranked outfit.
+    """
     if limit < 1:
         raise ValueError(f"limit must be at least 1, got {limit}")
-    return list(ranked_outfits[:limit])
+
+    selected: list[ScoredOutfit] = []
+    selected_product_ids: list[set[str]] = []
+    for outfit in ranked_outfits:
+        product_ids = {item.product_id for item in outfit.items}
+        if any(len(product_ids & previous_ids) > 1 for previous_ids in selected_product_ids):
+            continue
+        selected.append(outfit)
+        selected_product_ids.append(product_ids)
+        if len(selected) == limit:
+            break
+    return selected
