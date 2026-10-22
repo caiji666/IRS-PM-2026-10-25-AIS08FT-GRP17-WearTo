@@ -106,7 +106,7 @@ def _scores(items: list[dict]) -> list[dict]:
         {
             "outfit_id": r["outfit_id"],
             "display_position": r["display_position"],
-            "total_purchase_cost": r["total_purchase_cost"],
+            "total_purchase_cost": f"{Decimal(str(r['total_purchase_cost'])):.2f}",
             "currency": r["currency"],
             "final_outfit_score": r["final_outfit_score"],
         }
