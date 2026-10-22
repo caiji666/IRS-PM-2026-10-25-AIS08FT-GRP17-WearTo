@@ -1,8 +1,33 @@
 # Travel Style Agent · Group 17
 
-A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review. The Student 2 Inspiration module implements FashionCLIP-based context and image embeddings, Unsplash fashion reference retrieval, deduplication, cosine similarity reranking, and Top-N selection, with a file-based handoff to Student 3. See [the Inspiration runbook](docs/inspiration-runbook.md). The Student 3 Product Retrieval module integrates the existing M1–M6 and wardrobe pipeline for product retrieval and ranking. See [the product retrieval runbook](docs/product-retrieval-runbook.md). The Student 5 recommendation module in `travel_agent/recommendation/` implements hard constraints, final Top-3 ranking, the user decision loop and outfit preview; see [Student 5 recommendation](#student-5-recommendation). Dynamic outfit scoring is implemented as a backend module; the website still stops at Student 3. Image preview is a separate downstream operation. Full live-agent orchestration across all modules has not yet been verified.
+A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review. The Student 2 Inspiration module implements FashionCLIP-based context and image embeddings, Unsplash fashion reference retrieval, deduplication, cosine similarity reranking, and Top-N selection, with a file-based handoff to Student 3. See [the Inspiration runbook](docs/inspiration-runbook.md). The Student 3 Product Retrieval module integrates the existing M1–M6 and wardrobe pipeline for product retrieval and ranking. See [the product retrieval runbook](docs/product-retrieval-runbook.md). The Student 5 recommendation module in `travel_agent/recommendation/` implements hard constraints, final Top-3 ranking, the user decision loop and outfit preview; see [Student 5 recommendation](#student-5-recommendation). The WearTo website connects the current Student 1–5 outputs through final Top-3 recommendations and an optional preview of one confirmed outfit. The real web flow has been exercised; autonomous LLM orchestration of every tool remains a separate, unverified scope.
 
-## Quick start
+## Run the complete WearTo website (Student 1–5)
+
+**Start here:** [Complete website setup and operating guide](docs/wearto-runbook.md).
+It covers a fresh clone, all dependency extras, Qwen/FashionCLIP downloads, aligned
+outfit-model training, private Unsplash/eBay/OpenAI configuration, wardrobe import,
+chat and review, final Top-3, AI preview, output locations and troubleshooting.
+
+For an **already configured checkout**, from the repository root:
+
+```bash
+.venv/bin/python -m travel_agent.web --port 8765
+```
+
+Open **http://127.0.0.1:8765/** and keep the terminal running. No separate frontend
+build/server is needed. Click **New journey**, provide your trip details, review and
+confirm them, then wait for the real Student 1–5 pipeline. Select one of the final
+outfits, confirm it and optionally generate its AI preview. `/profile` manages the
+local profile and wardrobe. New trips and edits use distinct dialogue routes;
+destination inspiration updates with the corresponding recommendations.
+
+A fresh clone needs the full setup in the guide; the launch command alone does not
+download models, train Student 4 or supply credentials. The website requires eBay
+**Production**, not Sandbox. Model weights, private API keys and generated results
+are not uploaded to Git. Approved wardrobe examples are in `data/examples/wardrobe/`.
+
+## Offline scaffold quick start
 
 Install Git and [uv](https://docs.astral.sh/uv/getting-started/installation/), then run:
 
@@ -52,7 +77,7 @@ Every payload names its operation with an explicit top-level `action`. A missing
 | `explain` | `state`, latest `recommendation_set`, exact `outfit_id` | Data-only explanation; the state is not changed. |
 | `preview` | `confirmed_outfit`, `preview_mode` (optional `preview_provider: "mock"`, `user_portrait` with `portrait_consent`) | Preview with `preview_source` `mock`, `openai` (server-configured real provider) or `product_card_fallback`. |
 
-- **Student 4 input:** `student4` is Student 4's output, whose outfits already carry `compatibility_score`. Student 5 converts it with its `student4_adapter`; it does not compute CompatibilityScore itself. The Student 4 output format and this adapter remain PROVISIONAL until the real Student 4 hand-off.
+- **Student 4 input:** `student4` is Student 4's output, whose outfits already carry `compatibility_score`. Student 5 converts it with its `student4_adapter`; it does not compute CompatibilityScore itself. The dynamic handoff is implemented and has been exercised with current retrieval results; see [the website guide](docs/wearto-runbook.md).
 - **Request projection:** `travel_agent.recommendation.projection.project_trip_request` builds the Student 5 request from Student 1's validated `trip_request`. It takes only eight shared fields: `destination`, `start_date`, `end_date`, `activities`, `budget` (major units), `currency`, `style` and `excluded_items`.
   - Student 1 extension fields (`owned_item_ids`, `places`, `dress_codes`, `enter_interior`, `gender`, `cold_sensitive`, `price_preference`) are not forwarded.
   - Missing required fields are reported by name, never invented.
@@ -64,13 +89,13 @@ Every payload names its operation with an explicit top-level `action`. A missing
 
 ## Five-module integration test
 
-`tests/test_full_pipeline_integration.py` chains the real Student 1–5 entry points. The complete five-module pipeline has **not** been shown to pass end to end.
+`tests/test_full_pipeline_integration.py` is a separate contract/integration harness. The real WearTo web flow has completed through Student 5, including a separately confirmed live preview; this does not establish autonomous orchestration by `build_agent(model)`. See [the current website runbook](docs/wearto-runbook.md) for the verified application path.
 
 - **Student 1 → Student 2:** Student 2 receives Student 1's `ModuleResult.data` as `understanding`.
 - **Student 2 → Student 3:** Student 2's `product_handoff` (upstream files, `reference_mode=imported`) is passed unchanged to Student 3.
 - **Student 2 live runs:** need the `inspiration` extra, the FashionCLIP weights, `UNSPLASH_ACCESS_KEY` and network access.
 - **Student 4:** `outfits.service.run` now scores dynamic product/wardrobe combinations using the normalized model; see [backend integration](docs/outfit-integration.md). Model artifacts and valid handoff signals are required.
-- **Student 5:** reached through `travel_agent.recommendation.service.run` (`action: "recommend"`) with the minimal eight-field request projection. Real data cannot reach it until Student 4 returns real output.
+- **Student 5:** reached through `travel_agent.recommendation.service.run` (`action: "recommend"`) with the minimal eight-field request projection. The website supplies the current run's actual `student5_input.json`, preserving the original request rather than a fixed sample.
 - **Default tests:** offline. They download no model, call no external API and do not read `.env`. Contract and boundary checks run; the full-pipeline tests (`full_pipeline_live`) are skipped with the exact blocking stage until every real module runs. Model/API stages run only with `RUN_FULL_PIPELINE_TESTS=1`.
 
 See [full-pipeline integration](docs/full_pipeline_integration.md) for the contracts, prerequisites, run commands and current gaps.
@@ -95,7 +120,7 @@ Resume a saved chat or an earlier understanding state with `--resume /path/to/se
 - Student 4: `outfits/` and `training/` — Polyvore data, offline training, outfit generation, and compatibility scoring.
 - Student 5: `recommendation/` — hard constraints, final ranking, user refinement, and previews.
 
-Changes to shared schemas, `agent.py`, dependencies, and CI require review from affected team members. Ownership of main agent integration, the UI, deployment, and system-wide evaluation remains to be assigned by the team.
+Changes to shared schemas, `agent.py`, dependencies, and CI require review from affected team members. These ownership entries describe module boundaries; cross-module web integration and notification deployment are also implemented. System-wide quality evaluation remains separate from functional validation.
 
 ## LangChain integration
 
@@ -169,6 +194,6 @@ Production activation preparation: [notification service and Mac cleanup worker]
 
 ## Local travel interface
 
-Run `.venv/bin/python -m travel_agent.web --port 8765` to open the local travel chat, inspiration and real product interface, with a Profile page for personal details and wardrobe photos. See [Local web UI](docs/local-web-ui.md) for model/API setup, review flow and downstream output locations.
+Use the [complete WearTo runbook](docs/wearto-runbook.md) to launch and operate the current Student 1–5 website. [Local web UI notes](docs/local-web-ui.md) retain implementation and historical validation details.
 
 Student 4 dynamic backend: [setup, model alignment, contracts and Student 1–4 commands](docs/outfit-integration.md).

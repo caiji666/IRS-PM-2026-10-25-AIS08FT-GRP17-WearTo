@@ -1,6 +1,6 @@
 # Dynamic outfit compatibility backend (Student 4)
 
-This module consumes the **current** Student 3 result. It never falls back to the repository's historical `outfit-compatibility/result.json`. The website remains a Student 1–3 interface; the optional backend runner adds Student 4 without changing frontend behavior.
+This module consumes the **current** Student 3 result. It never falls back to the repository's historical `outfit-compatibility/result.json`. The current website invokes Student 4 and passes its real output to Student 5. For complete website setup, see [the WearTo runbook](wearto-runbook.md); this page focuses on the backend contract and earlier validation history.
 
 ## Environment and normalized model
 
@@ -88,7 +88,7 @@ Replace the timestamp with a corresponding run's paths:
   --output runs/outfit_generation/<timestamp>/result.json
 ```
 
-Add `--verify-recommendation` to save an additional `_student5.json` result using the **unchanged** original request. A non-ready Student 5 result returns exit code 4 and is preserved for inspection. Different purchase/budget currencies are an explicit CurrencyMismatchError, not a successful budget check.
+Add `--verify-recommendation` to save an additional `_student5.json` result using the **unchanged** original request. A non-ready Student 5 result returns exit code 4 and is preserved for inspection. Currency conversion depends on the current Student 5 converter and available rate evidence; unavailable rates or unsupported currencies must not be treated as a successful budget check.
 
 ## Fresh real Student 1 -> 4 run
 
@@ -105,6 +105,6 @@ This runs real local Qwen (for message inputs), live weather, live Unsplash, liv
 
 Fresh real run `20261021_213305_425160+0800` completed through Student 4. It indexed 80 live eBay candidates and returned 20 Top-K items plus 21 owned items. Thirteen owned items have supported categories; eight UNKNOWN items were retained outside outfit-role assignment. Category pool sizes were OUTERWEAR=6, TOP=7, BOTTOM=12, FOOTWEAR=8, yielding **4704 scored and Student5-ready combinations**, including optional-coat combinations. This is complete enumeration, not Top-3 filtering.
 
-The original 500 SGD request correctly fails Student 5's currency check against USD purchases. A separate, explicitly labeled **500 USD controlled validation fixture**, without changing the original request or any prices, demonstrated successful constraint filtering and three final recommendations. It is not evidence that the original SGD budget passes. New regression tests cover dynamic inputs, stable IDs, zero padding, owned participation, UNKNOWN handling, exact social-MAX relevance, no silent truncation and the Student 5 handoff.
+Historical validation before the Student 5 FX update: the original 500 SGD request failed the currency check against USD purchases. The current Student 5 converter handles the verified USD/SGD path; the following controlled fixture describes the earlier test. A separate, explicitly labeled **500 USD controlled validation fixture**, without changing the original request or any prices, demonstrated successful constraint filtering and three final recommendations. It is not evidence that the original SGD budget passes. New regression tests cover dynamic inputs, stable IDs, zero padding, owned participation, UNKNOWN handling, exact social-MAX relevance, no silent truncation and the Student 5 handoff.
 
 Production-derived outfit artifacts are registered with the existing local lifecycle registry when saved. This does not run a deletion worker or clear any queue. Model artifacts, credentials, runtime inputs and generated results are not committed to Git.

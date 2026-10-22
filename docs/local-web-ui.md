@@ -1,4 +1,8 @@
-# Local travel product interface
+# Local travel interface: implementation and historical notes
+
+For current first-time setup and the full Student 1–5 website, use the
+[WearTo runbook](wearto-runbook.md). Older validation/branch descriptions below
+are historical; they do not limit the current website to Student 3.
 
 The WearTo interface is a local, additive UI over the existing Understanding, Inspiration and Product Retrieval modules. It uses a quiet editorial layout inspired by the supplied runway reference; it does not claim affiliation with the reference brand.
 

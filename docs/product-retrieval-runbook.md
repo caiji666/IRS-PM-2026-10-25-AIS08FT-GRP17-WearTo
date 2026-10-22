@@ -1,5 +1,9 @@
 # Product retrieval runbook
 
+For the current complete Student 1–5 website, start with the
+[WearTo runbook](wearto-runbook.md). This document retains earlier standalone
+product/Sandbox workflows; the integration is now merged into `main`.
+
 This guide runs the product retrieval and wardrobe pipeline from a checkout of **this repository**. It does not require the original author's Desktop folder, an existing wardrobe store, or an existing model cache. The backend package is `travel_agent.products.retrieval`; the shared LangChain entry point is `travel_agent.products.demo` / `search_products`.
 
 ## 1. Obtain the version containing this module
