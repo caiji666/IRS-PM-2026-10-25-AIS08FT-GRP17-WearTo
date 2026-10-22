@@ -495,3 +495,13 @@ print("ok")
     )
     assert result.returncode == 0, result.stderr
     assert result.stdout.strip() == "ok"
+
+
+def test_blank_live_product_description_uses_title_without_mutating_product():
+    confirmed = make_confirmed()
+    item = confirmed.recommendation.purchase_items[0]
+    item.description = ""
+    request = build_preview_request(confirmed, PreviewMode.FLAT_LAY)
+    projected = next(p for p in request.items if p.product_id == item.product_id)
+    assert projected.description == item.title
+    assert item.description == ""

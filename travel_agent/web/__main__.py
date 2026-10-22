@@ -42,6 +42,12 @@ COUNTRIES = {
 RUN_ID = re.compile(r"^\d{8}_\d{6}_\d{6}\+0800$")
 
 
+def public_student5(session):
+    from .live_outfits import public_session
+
+    return public_session(ROOT, session)
+
+
 def read(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -211,6 +217,7 @@ def execute(job, mode):
             "scripts.run_live_product_pipeline",
             "--input",
             str(directory / "confirmed_input.json"),
+            "--with-outfits",
         ]
     )
     if mode in {"chat", "wardrobe"}:
@@ -401,7 +408,6 @@ def execute_student5_refinement(job, session_id, pending):
                 "student1_state": pending.proposal["student1_state"],
             },
         }
-        from .student5_session import public
 
         with STUDENT5_LOCK:
             current = STUDENT5_SESSIONS.get(session_id)
@@ -416,7 +422,7 @@ def execute_student5_refinement(job, session_id, pending):
             status="completed",
             stage="completed",
             message="Your updated Top-3 is ready.",
-            student5={"id": session_id, **public(replacement)},
+            student5={"id": session_id, **public_student5(replacement)},
         )
     except Exception as exc:
         update(
@@ -614,42 +620,17 @@ class Handler(BaseHTTPRequestHandler):
 
                 return self.send(save_profile(ROOT, body))
             if self.path == "/api/student5/start":
-                from scripts.run_student4_real_top3 import (
-                    TEST_REQUEST,
-                    build_payload,
-                    load_ranked_outfits,
-                )
                 from travel_agent.recommendation.service import run as student5_run
 
-                from .student5_session import public
+                from .live_outfits import load_session
 
-                source = ROOT.parent / "ranked_outfits.json"
-                if not source.is_file():
-                    raise ValueError("Fixed Student 4 input is not available")
-
-                def calculate():
-                    ranked_outfits = load_ranked_outfits(source)
-                    payload = build_payload(ranked_outfits)
-                    result = student5_run(payload)
-                    if result.status != "ok":
-                        raise ValueError(result.reason or f"Student 5 returned {result.status}")
-                    data = result.model_dump(mode="json")["data"]
-                    return {
-                        "request": dict(TEST_REQUEST),
-                        "student4": payload["student4"],
-                        "state": data["state"],
-                        "recommendation_set": data["recommendation_set"],
-                        "filter_summary": data["filter_summary"],
-                        "confirmed_outfit": None,
-                        "preview": None,
-                    }
-
+                stamp = body.get("result")
                 with STUDENT5_LOCK:
-                    session = cached_file_template(source, STUDENT5_BASE_CACHE, calculate)
+                    session = load_session(ROOT, stamp, student5_run)
                 session_id = secrets.token_hex(16)
                 with STUDENT5_LOCK:
                     STUDENT5_SESSIONS[session_id] = session
-                return self.send({"id": session_id, **public(session)})
+                return self.send({"id": session_id, **public_student5(session)})
             if self.path == "/api/student5/refine/confirm":
                 session_id = body.get("id", "")
                 pending_id = body.get("pending_change_id", "")
@@ -706,7 +687,6 @@ class Handler(BaseHTTPRequestHandler):
                     patch_from_message,
                     preview,
                     propose_refinement,
-                    public,
                     refine,
                 )
 
@@ -738,7 +718,7 @@ class Handler(BaseHTTPRequestHandler):
                     session = preview(session, student5_run)
                 with STUDENT5_LOCK:
                     STUDENT5_SESSIONS[session_id] = session
-                response = {"id": session_id, **public(session)}
+                response = {"id": session_id, **public_student5(session)}
                 if self.path.endswith("/preview"):
                     generated = (response.get("preview") or {}).get("preview") or {}
                     reference = generated.get("output_reference")
@@ -897,6 +877,7 @@ def main():
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
     load_dotenv(ROOT / ".env", override=False)
+    os.environ.setdefault("EBAY_MANAGED_ROOT", str(ROOT))
     JOBS.mkdir(parents=True, exist_ok=True)
     print(f"Local trip UI: http://127.0.0.1:{args.port}", flush=True)
     ThreadingHTTPServer(("127.0.0.1", args.port), Handler).serve_forever()

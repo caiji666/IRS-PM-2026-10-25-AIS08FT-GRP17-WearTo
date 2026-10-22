@@ -523,7 +523,7 @@ def build_preview_request(
             "category": p.category,
             "image_reference": p.image_url,
             "title": p.title,
-            "description": p.description,
+            "description": (p.description or "").strip() or p.title,
             "is_user_owned": p.is_user_owned,
         }
         for p in products

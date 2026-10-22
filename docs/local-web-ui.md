@@ -121,3 +121,26 @@ The review modal remains the final confirmation of all parsed trip details.
 These are bounded parsing rules, not a guarantee for arbitrary date phrasing.
 Original messages and normalized extraction input remain available in private turn
 audit files. The model ID, weights, and generation settings are unchanged.
+
+### Live Student 1–5 handoff
+
+The initial web search now runs `scripts.run_live_product_pipeline --with-outfits`.
+After the run completes, the browser sends its exact result timestamp to
+`POST /api/student5/start` as `{"result": "<timestamp>"}`. The server reads
+`runs/outfit_generation/<timestamp>/student5_input.json`; it never substitutes the
+historical fixed outfit sample or the temporary 500 USD test request. A saved run
+without that artifact asks the user to run a new journey.
+
+Student 5 retains responsibility for FX conversion and budget filtering. Its
+ModuleResult is saved in `runs/recommendation/<timestamp>/result.json`. Product
+and owned-item image references are mapped to scoped local media URLs for display;
+the internal image paths remain available for preview input. Owned clothes are
+shown separately as already owned and do not assert merchant stock.
+
+Preview configuration is private, in the Git-ignored repository `.env`:
+`PREVIEW_PROVIDER=openai`, `PREVIEW_API_KEY`, `PREVIEW_MODEL`, and
+`PREVIEW_ALLOWED_IMAGE_HOSTS=i.ebayimg.com,images.unsplash.com`. Install the
+`preview` optional dependency and restart the server after configuration changes.
+Only an explicitly confirmed outfit is submitted for image generation. Missing
+product descriptions use the existing title as a preview description, without
+changing the product scores or inventing details.
