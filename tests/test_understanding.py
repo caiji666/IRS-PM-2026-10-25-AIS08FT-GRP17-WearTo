@@ -158,11 +158,16 @@ def test_confirmation_uses_latest_round_and_changes_invalidate_old_outfits(paylo
 
 
 def test_review_policy_one_hop_multi_hop_and_unknown_activity(payload):
+    from travel_agent.understanding.activity_engine import KnowledgeGraph
+
+    graph = KnowledgeGraph.load()
+    for edge in graph.data["edges"]:
+        edge.update(review_status="pending", reviewed_by=None)
     request = TripShoppingRequest(activities=["hiking", "scuba diving"])
-    strict, results, _ = reason_activities(request)
+    strict, results, _ = reason_activities(request, graph=graph)
     assert strict["hiking"] == []
-    one, r1, _ = reason_activities(request, allow_draft=True, max_depth=1)
-    multi, r2, _ = reason_activities(request, allow_draft=True)
+    one, r1, _ = reason_activities(request, allow_draft=True, max_depth=1, graph=graph)
+    multi, r2, _ = reason_activities(request, allow_draft=True, graph=graph)
     assert set(one["hiking"]) <= set(multi["hiking"])
     assert all(len(p["edge_ids"]) == 1 for c in r1["hiking"]["conclusions"] for p in c["paths"])
     assert any(len(p["edge_ids"]) > 1 for c in r2["hiking"]["conclusions"] for p in c["paths"])

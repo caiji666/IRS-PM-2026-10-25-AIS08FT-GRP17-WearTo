@@ -1,0 +1,456 @@
+[
+  {
+    "id": "C01_mixed_abbreviated_dates_and_confirmation",
+    "turns": [
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "Tokyo, 28 Oct 2026 to 2 Nov 2026, budget 500 SGD"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "skip all"
+      },
+      {
+        "expected_confirmed": true,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "confirm"
+      }
+    ]
+  },
+  {
+    "id": "C02_slash_dates",
+    "turns": [
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2027-04-08",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2027-04-03",
+          "style": []
+        },
+        "message": "Tokyo, 2027/04/03 to 2027/04/08, budget 500 SGD"
+      }
+    ]
+  },
+  {
+    "id": "C03_year_only_clarification",
+    "turns": [
+      {
+        "expected_confirmed": false,
+        "expected_date_question": true,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": null,
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": null,
+          "style": []
+        },
+        "message": "Tokyo, Oct 28 to Nov 2, budget 500 SGD"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2027-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2027-10-28",
+          "style": []
+        },
+        "message": "2027"
+      }
+    ]
+  },
+  {
+    "id": "C04_ambiguous_date_cannot_be_confirmed",
+    "turns": [
+      {
+        "expected_confirmed": false,
+        "expected_date_question": true,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": null,
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": null,
+          "style": []
+        },
+        "message": "Tokyo, 03/04/2027, budget 500 SGD"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": true,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": null,
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": null,
+          "style": []
+        },
+        "message": "confirm"
+      }
+    ]
+  },
+  {
+    "id": "C05_incremental_short_answers",
+    "turns": [
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": null,
+          "cold_sensitive": null,
+          "currency": null,
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": null,
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": null,
+          "style": []
+        },
+        "message": "Tokyo"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": null,
+          "cold_sensitive": null,
+          "currency": null,
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": null,
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "2026-10-28"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": null,
+          "cold_sensitive": null,
+          "currency": null,
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "2026-11-02"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": null,
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "500"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "SGD"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "skip all"
+      },
+      {
+        "expected_confirmed": true,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Tokyo",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "confirm"
+      }
+    ]
+  },
+  {
+    "id": "C06_explicit_activity_and_skip_style",
+    "turns": [
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Seoul",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "Seoul, 28 Oct 2026 to 2 Nov 2026, budget 500 SGD"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [
+            "cafe visit"
+          ],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Seoul",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "cafe visit"
+      },
+      {
+        "expected_confirmed": false,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [
+            "cafe visit"
+          ],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Seoul",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "skip"
+      },
+      {
+        "expected_confirmed": true,
+        "expected_date_question": false,
+        "expected_request": {
+          "activities": [
+            "cafe visit"
+          ],
+          "budget": 500,
+          "cold_sensitive": null,
+          "currency": "SGD",
+          "destination": "Seoul",
+          "dress_codes": {},
+          "end_date": "2026-11-02",
+          "enter_interior": null,
+          "excluded_items": [],
+          "gender": null,
+          "owned_item_ids": [],
+          "places": [],
+          "price_preference": null,
+          "start_date": "2026-10-28",
+          "style": []
+        },
+        "message": "confirm"
+      }
+    ]
+  }
+]

@@ -119,7 +119,7 @@ def test_public_offer_excludes_raw_evidence_and_changes_key_with_menu(dialogue):
         {"private_path": "/private/internal", "raw_output": "private"}
     ]
     public = public_offer(offered)
-    assert len(public["options"]) == 3
+    assert len(public["options"]) == 4
     assert "private" not in json.dumps(public)
     assert "evidence" not in json.dumps(public)
     offered["scope"] = "changed"

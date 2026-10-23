@@ -1,18 +1,18 @@
 ﻿dresscode_id,place_id,req_id,strength,gender_scope,condition,source,confidence,updated_at,basis,evidence,review_status,reviewed_by
-dress:001,local:sultan_mosque,sleeved_top,must,male,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,pending,
-dress:002,local:sultan_mosque,long_pants,must,male,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,pending,
-dress:003,local:sultan_mosque,long_sleeve_ankle_coverage,must,female,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,pending,
-dress:004,local:sultan_mosque,no_cleavage,must,female,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,pending,
-dress:005,local:sultan_mosque,opaque_clothing,must,all,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,pending,
-dress:006,local:sultan_mosque,no_shoes_indoor,must,all,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,pending,
-dress:007,local:buddha_tooth,cover_shoulders,must,all,enter_interior,BUDDHA,0.94,2026-10-07,source_supported,按官网不露肩、不露背、不穿短裤或迷你裙归一化；不额外杜撰及膝长度条款。,pending,
-dress:008,local:buddha_tooth,no_bare_back,must,all,enter_interior,BUDDHA,0.94,2026-10-07,source_supported,按官网不露肩、不露背、不穿短裤或迷你裙归一化；不额外杜撰及膝长度条款。,pending,
-dress:009,local:buddha_tooth,no_shorts_mini_skirts,must,all,enter_interior,BUDDHA,0.94,2026-10-07,source_supported,按官网不露肩、不露背、不穿短裤或迷你裙归一化；不额外杜撰及膝长度条款。,pending,
-dress:010,local:grand_palace,sleeved_top,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,pending,
-dress:011,local:grand_palace,opaque_clothing,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,pending,
-dress:012,local:grand_palace,no_shorts_mini_skirts,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,pending,
-dress:013,local:grand_palace,no_crop_top,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,pending,
-dress:014,local:grand_palace,no_torn_tight_bike_pants,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,pending,
-dress:015,local:grand_palace,no_sleepwear,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,pending,
-dress:016,local:besakih,sarong_and_sash,must,all,enter_interior,BESAKIH,0.94,2026-10-07,source_supported,官方旅游指南明确要求沙龙及腰带；租借供应需现场确认。,pending,
-dress:017,local:national_gallery_singapore,no_roller_shoes,should,all,enter_interior,GALLERY,0.94,2026-10-07,source_supported,保留官网should not措辞；仅展厅适用。,pending,
+dress:001,local:sultan_mosque,sleeved_top,must,male,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,approved,project_owner
+dress:002,local:sultan_mosque,long_pants,must,male,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,approved,project_owner
+dress:003,local:sultan_mosque,long_sleeve_ankle_coverage,must,female,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,approved,project_owner
+dress:004,local:sultan_mosque,no_cleavage,must,female,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,approved,project_owner
+dress:005,local:sultan_mosque,opaque_clothing,must,all,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,approved,project_owner
+dress:006,local:sultan_mosque,no_shoes_indoor,must,all,enter_interior,SULTAN,0.94,2026-10-07,source_supported,官网另有学生着装分支，本版按成人访客建模；未知性别返回条件分支，不自动推定。,approved,project_owner
+dress:007,local:buddha_tooth,cover_shoulders,must,all,enter_interior,BUDDHA,0.94,2026-10-07,source_supported,按官网不露肩、不露背、不穿短裤或迷你裙归一化；不额外杜撰及膝长度条款。,approved,project_owner
+dress:008,local:buddha_tooth,no_bare_back,must,all,enter_interior,BUDDHA,0.94,2026-10-07,source_supported,按官网不露肩、不露背、不穿短裤或迷你裙归一化；不额外杜撰及膝长度条款。,approved,project_owner
+dress:009,local:buddha_tooth,no_shorts_mini_skirts,must,all,enter_interior,BUDDHA,0.94,2026-10-07,source_supported,按官网不露肩、不露背、不穿短裤或迷你裙归一化；不额外杜撰及膝长度条款。,approved,project_owner
+dress:010,local:grand_palace,sleeved_top,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,approved,project_owner
+dress:011,local:grand_palace,opaque_clothing,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,approved,project_owner
+dress:012,local:grand_palace,no_shorts_mini_skirts,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,approved,project_owner
+dress:013,local:grand_palace,no_crop_top,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,approved,project_owner
+dress:014,local:grand_palace,no_torn_tight_bike_pants,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,approved,project_owner
+dress:015,local:grand_palace,no_sleepwear,must,all,enter_interior,PALACE,0.94,2026-10-07,source_supported,明确条款子集；官网pants skirts译法含糊，留人工复核；本页无鞋类条款。,approved,project_owner
+dress:016,local:besakih,sarong_and_sash,must,all,enter_interior,BESAKIH,0.94,2026-10-07,source_supported,官方旅游指南明确要求沙龙及腰带；租借供应需现场确认。,approved,project_owner
+dress:017,local:national_gallery_singapore,no_roller_shoes,should,all,enter_interior,GALLERY,0.94,2026-10-07,source_supported,保留官网should not措辞；仅展厅适用。,approved,project_owner

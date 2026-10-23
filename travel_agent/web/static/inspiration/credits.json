@@ -1,0 +1,34 @@
+[
+  {
+    "image": "/inspiration/coast.jpg",
+    "source_url": "https://unsplash.com/photos/a-large-body-of-water-surrounded-by-a-lush-green-hillside-j_SX6ChCbFg",
+    "photographer": "JKalina",
+    "alt": "a large body of water surrounded by a lush green hillside",
+    "label": "Along the coast",
+    "photo_id": "j_SX6ChCbFg"
+  },
+  {
+    "image": "/inspiration/mountains.jpg",
+    "source_url": "https://unsplash.com/photos/sunbeams-pierce-dramatic-clouds-over-misty-rice-terraces-hYQWS9Ms4xU",
+    "photographer": "Veronica Tironi",
+    "alt": "Sunbeams pierce dramatic clouds over misty rice terraces",
+    "label": "Into the mountains",
+    "photo_id": "hYQWS9Ms4xU"
+  },
+  {
+    "image": "/inspiration/forest.jpg",
+    "source_url": "https://unsplash.com/photos/snow-capped-mountains-overlook-a-valley-with-autumn-trees-NbUPE2P6lCA",
+    "photographer": "Timothy Nevius",
+    "alt": "Snow-capped mountains overlook a valley with autumn trees",
+    "label": "A quieter pace",
+    "photo_id": "NbUPE2P6lCA"
+  },
+  {
+    "image": "/inspiration/city.jpg",
+    "source_url": "https://unsplash.com/photos/brown-concrete-building-during-daytime-dNlhQSQqfTg",
+    "photographer": "Kate Trifo",
+    "alt": "brown concrete building during daytime",
+    "label": "Everyday discoveries",
+    "photo_id": "dNlhQSQqfTg"
+  }
+]

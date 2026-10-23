@@ -1,0 +1,174 @@
+{
+  "cases": 16,
+  "passed": 16,
+  "failed": 0,
+  "report": "/Users/jiang/ISS-AIS/IRS_Intelligent Reasoning Systems/Practice Module/student1/place_kg/examples/query_trials/README.md",
+  "results": [
+    {
+      "id": "01_tokyo_winter",
+      "requirements": [
+        "舒适步行鞋",
+        "保暖衣层"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "02_tokyo_summer",
+      "requirements": [
+        "透气快干",
+        "舒适步行鞋",
+        "浅色"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "03_tokyo_no_month",
+      "requirements": [
+        "舒适步行鞋"
+      ],
+      "missing": [
+        "month_or_climate_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "04_osaka_theme_park",
+      "requirements": [
+        "透气快干",
+        "舒适步行鞋",
+        "浅色"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "05_seoul_viewpoint",
+      "requirements": [
+        "保暖衣层"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "06_mosque_inside",
+      "requirements": [
+        "透气快干",
+        "浅色",
+        "长袖及脚踝覆盖",
+        "领口不暴露",
+        "指定入内区域脱鞋",
+        "不透视衣物",
+        "防雨",
+        "易穿脱鞋"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "07_mosque_outside",
+      "requirements": [
+        "透气快干",
+        "浅色",
+        "防雨"
+      ],
+      "missing": [
+        "select_actual_activities"
+      ],
+      "passed": true
+    },
+    {
+      "id": "08_indoor_garden",
+      "requirements": [
+        "轻薄外层"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "09_hoi_an_rain",
+      "requirements": [
+        "舒适步行鞋",
+        "轻薄外层",
+        "防雨"
+      ],
+      "missing": [],
+      "passed": true
+    },
+    {
+      "id": "10_bali_beach",
+      "requirements": [],
+      "missing": [
+        "month_or_climate_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "11_bali_temple",
+      "requirements": [
+        "沙龙及腰带"
+      ],
+      "missing": [
+        "month_or_climate_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "12_china_hiking",
+      "requirements": [
+        "抓地鞋底",
+        "舒适步行鞋"
+      ],
+      "missing": [
+        "month_or_climate_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "13_klcc_walk",
+      "requirements": [
+        "舒适步行鞋"
+      ],
+      "missing": [
+        "month_or_climate_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "14_bangkok_shopping",
+      "requirements": [],
+      "missing": [
+        "month_or_climate_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "15_bangkok_palace",
+      "requirements": [
+        "舒适步行鞋",
+        "不穿短上衣",
+        "不穿短裤或迷你裙",
+        "不穿睡衣",
+        "不穿破洞裤、紧身裤、自行车裤",
+        "不透视衣物",
+        "有袖上衣"
+      ],
+      "missing": [
+        "month_or_climate_missing"
+      ],
+      "passed": true
+    },
+    {
+      "id": "16_singapore_multiple",
+      "requirements": [
+        "透气快干",
+        "舒适步行鞋",
+        "浅色",
+        "防雨"
+      ],
+      "missing": [],
+      "passed": true
+    }
+  ]
+}

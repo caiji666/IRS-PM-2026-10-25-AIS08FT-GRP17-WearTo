@@ -93,7 +93,10 @@ def test_place_bridge_and_no_universal_religious_or_swimming_rules():
 
 def test_review_filter_and_visual_descriptor_validation():
     graph = KnowledgeGraph.load()
-    assert graph.query("shopping")["style_candidates"] == []
+    pending = copy.deepcopy(graph.data)
+    for edge in pending["edges"]:
+        edge.update(review_status="pending", reviewed_by=None)
+    assert KnowledgeGraph(pending).query("shopping")["style_candidates"] == []
     data = copy.deepcopy(graph.data)
     for edge in data["edges"]:
         if edge["source"] == "activity:shopping" and edge["target"] == "style:maximalist":

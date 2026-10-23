@@ -160,6 +160,8 @@ python3 -m student1.place_kg.make_examples
 | EXT-001 | 2026-10-07 | 登记既有region、town、poi_heritage、poi_shrine、poi_aquarium、aquarium_visit；定义见3.2及schema.py。属于项目建模扩展，不是来源原话。 | 原词表保留，新增值可供各国使用；规则无需国家分支 |
 | EXT-002 | 2026-10-07 | 登记既有environment_tag、place_id、requirement三类规则条件入口，以及审核、证据、继承、场景选择等现有附加字段。完整基线见当前CSV表头、vocabulary.json及实现。 | 保留既有语义；未知属性不补猜测；原始v0.1严格消费者需同步这些已存在扩展 |
 
+| EXT-005 | 2026-10-22 | Register shared cafe_visit and Seoul shopping/cafe/sightseeing relationships; definition and scope below. | Preserve existing IDs and review states; validate both engines, four-option discovery and explicit selection. |
+
 新扩展必须追加到此表，不覆盖历史行；具体复杂定义可加本文件小节，但不得另建竞争性的国家规范。
 
 ## 9. 维护记录
@@ -189,3 +191,34 @@ python3 -m student1.place_kg.make_examples
 维护记录 2026-10-07：用户批准审核工具设计，追加第10节，规范升为1.1.0；KG事实与原审核状态不由开发过程改变。
 
 维护记录 2026-10-07：修复启动器重复打开已有审核服务；HTTP连接并发接收、审核操作仍串行执行，避免空闲浏览器连接阻塞服务。审核存储格式和KG语义不变。
+
+
+## EXT-005: Cafe discovery and Seoul coverage (2026-10-22)
+
+Register the country-independent activity `cafe_visit`: visiting cafes, including
+optional cafe hopping as a user interest. This does not assert a multi-stop route,
+opening hours, availability, indoor temperature or a dress code. Preserve all
+existing IDs and relationship types. Align the existing Activity KG
+`activity:cafe_visit` through `place_activity_id=cafe_visit`; keep its original
+name and add cafe-hopping aliases. Add the activity to vocabulary.json and
+schema.py before dependent data.
+
+Add Myeongdong (shopping district), Yeonmujang-gil / Seongsu-dong Cafe Street
+(district in the project's tourism geography), and Gyeongbokgung Palace
+(poi_heritage), each part_of Seoul, with has_activity shopping, cafe_visit and
+city_walk respectively. Classification and activity normalization are project
+modelling; factual descriptions come from the recorded official sources.
+No new relation type, compulsory clothing rule or climate profile is introduced.
+All new records remain pending; existing review decisions are preserved.
+
+Maintenance: 2026-10-22 — added three sources, three places, six aliases, three
+activity relationships, three content summaries and one activity definition.
+Validate references/provenance, regenerate graph/seed/coverage, refresh the
+runtime snapshot and hashes, and test Seoul's four-option menu, explicit cafe
+selection, downstream KG reasoning and review filtering. Existing unreviewed
+knowledge and absent opening-hours/route evidence remain limitations.
+
+
+维护记录 2026-10-22：项目负责人在对话中明确确认所有现有KG记录审核完成，授权记录为approved。审核人为project_owner，表示用户本人确认；不表示双人独立审核或专家验证。保留来源读取等级、project_heuristic、条件、资料缺口和旧版本快照。活动节点与来源兼容增加可选review_status/reviewed_by/reviewed_at审核元数据，关系沿用既有审核字段；不改变事实、ID或推理含义。地点导出总审核状态由各记录计算，sourced_from保留reviewed_by。逐条快照与指纹见本次审核记录。
+
+维护记录 2026-10-22T16:06:58+08:00：人工审核批次应用；具体记录、证据、修改前后快照见reviews/review.sqlite3，备份见reviews/backups。

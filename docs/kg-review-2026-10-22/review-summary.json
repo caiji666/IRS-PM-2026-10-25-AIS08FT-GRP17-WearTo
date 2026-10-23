@@ -1,0 +1,39 @@
+{
+  "reviewer": "project_owner",
+  "recorded_at": "2026-10-22T16:06:40+08:00",
+  "authorization_quote": "帮我把所有节点改为审核，我已经审核完了。",
+  "basis": "Project owner explicitly confirmed completion of KG review in chat on 2026-10-22. Record that human decision; no independent second reviewer or expert review is claimed.",
+  "activity_counts": {
+    "nodes": 90,
+    "edges": 203,
+    "sources": 13
+  },
+  "place_records": 753,
+  "place_states": {
+    "approved": 753
+  },
+  "place_tables": {
+    "activities": 12,
+    "aliases": 265,
+    "climate": 39,
+    "contents": 52,
+    "items": 15,
+    "place_activity": 98,
+    "place_dresscode": 17,
+    "place_style": 5,
+    "places": 100,
+    "requirement_item": 27,
+    "requirements": 29,
+    "rules": 17,
+    "season_events": 7,
+    "sources": 62,
+    "style_item": 5,
+    "styles": 3
+  },
+  "place_application": {
+    "batch": "3ed5af4eb2c141a0a2b855197d44183a",
+    "applied": 753,
+    "backup": "/Users/jiang/ISS-AIS/IRS_Intelligent Reasoning Systems/Practice Module/student1/place_kg/reviews/backups/3ed5af4eb2c141a0a2b855197d44183a",
+    "message": "已应用并重新生成图谱、校验、覆盖表和查询示例"
+  }
+}

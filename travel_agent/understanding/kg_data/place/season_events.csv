@@ -1,8 +1,8 @@
 ﻿event_id,event_type,place_id,start_month,end_month,climate_tags,inherit_to_descendants,source,confidence,updated_at,basis,evidence,review_status,reviewed_by
-event:001,东北季风,local:SG,12,3,,True,MSS,0.9,2026-10-07,source_normalized,12月至3月初；不能把后期干燥阶段统一标为雨季。,pending,
-event:002,西南季风,local:SG,6,9,,True,MSS,0.9,2026-10-07,source_normalized,季风常态，不代表每天大雨。,pending,
-event:003,梅雨,local:tokyo,6,7,rainy_season,True,TOKYO,0.9,2026-10-07,source_normalized,约6月至7月中旬；按月匹配仅为粗粒度规划。,pending,
-event:004,台风季节风险,local:tokyo,8,9,typhoon_risk,True,TOKYO,0.9,2026-10-07,source_normalized,季节风险，不是预警，不自动推荐冒雨出行。,pending,
-event:005,夏季雨季,local:seoul,6,7,rainy_season,True,KCLIMATE,0.9,2026-10-07,source_normalized,约6月中旬起一个月；非逐日预报。,pending,
-event:006,多雨季,local:hoi_an_city,9,1,rainy_season,True,VCLIMATE,0.9,2026-10-07,source_normalized,跨年月份按9–12或1计算。,pending,
-event:007,樱花,local:ueno_park,,,,False,UENO,0.9,2026-10-07,source_supported,来源仅称春季，不填精确月份或保证开花。,pending,
+event:001,东北季风,local:SG,12,3,,True,MSS,0.9,2026-10-07,source_normalized,12月至3月初；不能把后期干燥阶段统一标为雨季。,approved,project_owner
+event:002,西南季风,local:SG,6,9,,True,MSS,0.9,2026-10-07,source_normalized,季风常态，不代表每天大雨。,approved,project_owner
+event:003,梅雨,local:tokyo,6,7,rainy_season,True,TOKYO,0.9,2026-10-07,source_normalized,约6月至7月中旬；按月匹配仅为粗粒度规划。,approved,project_owner
+event:004,台风季节风险,local:tokyo,8,9,typhoon_risk,True,TOKYO,0.9,2026-10-07,source_normalized,季节风险，不是预警，不自动推荐冒雨出行。,approved,project_owner
+event:005,夏季雨季,local:seoul,6,7,rainy_season,True,KCLIMATE,0.9,2026-10-07,source_normalized,约6月中旬起一个月；非逐日预报。,approved,project_owner
+event:006,多雨季,local:hoi_an_city,9,1,rainy_season,True,VCLIMATE,0.9,2026-10-07,source_normalized,跨年月份按9–12或1计算。,approved,project_owner
+event:007,樱花,local:ueno_park,,,,False,UENO,0.9,2026-10-07,source_supported,来源仅称春季，不填精确月份或保证开花。,approved,project_owner

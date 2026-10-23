@@ -1,6 +1,6 @@
 ﻿place_id,style_id,source,confidence,updated_at,basis,evidence,review_status,reviewed_by
-local:usj,relaxed_travel,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,pending,
-local:uss,relaxed_travel,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,pending,
-local:macritchie,outdoor_functional,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,pending,
-local:siloso,tropical_casual,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,pending,
-local:sanur_beach,tropical_casual,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,pending,
+local:usj,relaxed_travel,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,approved,project_owner
+local:uss,relaxed_travel,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,approved,project_owner
+local:macritchie,outdoor_functional,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,approved,project_owner
+local:siloso,tropical_casual,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,approved,project_owner
+local:sanur_beach,tropical_casual,MODEL,0.55,2026-10-07,project_inference,项目编辑推荐；未由官方来源主张；不参与硬约束。,approved,project_owner

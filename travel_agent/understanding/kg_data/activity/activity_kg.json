@@ -8,21 +8,30 @@
       "title": "Student 1 MVP modelling decisions",
       "url": null,
       "accessed_on": "2026-10-07",
-      "summary": "项目暂定语义映射，尚未经团队或专家审核。"
+      "summary": "项目暂定语义映射，尚未经团队或专家审核。",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "emily",
       "title": "Emily Post — Attire Guide",
       "url": "https://emilypost.com/advice/attire-guide-dress-codes-from-casual-to-white-tie",
       "accessed_on": "2026-10-07",
-      "summary": "着装规范参考；并不证明任意活动必然有某个 dress code。"
+      "summary": "着装规范参考；并不证明任意活动必然有某个 dress code。",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "rei",
       "title": "REI — What to Wear Hiking",
       "url": "https://www.rei.com/learn/expert-advice/how-to-choose-hiking-clothes.html",
       "accessed_on": "2026-10-07",
-      "summary": "普通徒步服装功能建议；天气与地形仍需单独考虑。"
+      "summary": "普通徒步服装功能建议；天气与地形仍需单独考虑。",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "emily_v2",
@@ -33,7 +42,10 @@
       "supporting_section": "Casual; Dressy Casual; Business; Black Tie; Creative Black Tie; Black Tie Optional; Festive; White Tie",
       "summary": "Dress-code meanings; host/company policy takes precedence; Western etiquette reference.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "rei_v2",
@@ -44,7 +56,10 @@
       "supporting_section": "What to Wear Hiking; Clothing Strategies; Footwear",
       "summary": "Movement, moisture management and traction; conditions vary with terrain and weather.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "fit_minmax",
@@ -55,7 +70,10 @@
       "supporting_section": "1980s–1990s; 2000s–2010; 2015–2019",
       "summary": "Restrained forms versus expressive pattern/volume; descriptors, not activity suitability.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "fit_ivy",
@@ -66,7 +84,10 @@
       "supporting_section": "Introduction",
       "summary": "Collegiate classic aesthetic; not a school or workplace policy.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "vam_street",
@@ -77,7 +98,10 @@
       "supporting_section": "Introduction",
       "summary": "One contemporary streetwear example mixing sportswear, industrial design and tailoring; not every streetwear outfit.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "fit_art",
@@ -88,7 +112,10 @@
       "supporting_section": "Artistic identity; bohemian dress; art-inspired motifs",
       "summary": "Art and bohemian references; visiting a museum does not require artistic dress.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "fit_utility",
@@ -99,7 +126,10 @@
       "supporting_section": "Utilitarian design; Workwear; Military; Craft",
       "summary": "Functional heritage can become visual reference; utility appearance does not certify performance.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "fit_rose",
@@ -110,7 +140,10 @@
       "supporting_section": "Rose imagery; Neo-Romantic style",
       "summary": "Floral/romantic references are optional and not limited by gender.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "fit_retro",
@@ -121,7 +154,10 @@
       "supporting_section": "Introduction",
       "summary": "Historical silhouette references; retro does not assert a garment is authentic vintage.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "fit_sport",
@@ -132,7 +168,10 @@
       "supporting_section": "Introduction",
       "summary": "Sports-inspired fashion is distinct from sport-specific functional suitability.",
       "human_review_status": "pending",
-      "content_storage": "short_paraphrases_only"
+      "content_storage": "short_paraphrases_only",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     }
   ],
   "nodes": [
@@ -150,7 +189,10 @@
       "supported_dress_codes": [
         "casual"
       ],
-      "place_activity_id": "city_walk"
+      "place_activity_id": "city_walk",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:museum_visit",
@@ -166,7 +208,10 @@
       "supported_dress_codes": [
         "casual"
       ],
-      "place_activity_id": "museum_indoor"
+      "place_activity_id": "museum_indoor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:hiking",
@@ -180,7 +225,10 @@
       ],
       "requires_dress_code": false,
       "supported_dress_codes": [],
-      "place_activity_id": "outdoor_trek"
+      "place_activity_id": "outdoor_trek",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:dinner",
@@ -197,7 +245,10 @@
         "smart casual",
         "dressy casual",
         "festive"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:business_meeting",
@@ -212,7 +263,10 @@
       "supported_dress_codes": [
         "business casual",
         "business formal"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:wedding",
@@ -233,182 +287,260 @@
         "black tie optional",
         "festive",
         "white tie"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:casual",
       "type": "Style",
       "name": "casual",
       "definition": "日常休闲",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:outdoor",
       "type": "Style",
       "name": "outdoor",
       "definition": "以户外活动功能为主",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:smart_casual",
       "type": "Style",
       "name": "smart_casual",
       "definition": "项目中的精致休闲风格，与 dressy casual 不视作通用同义词",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:business_casual",
       "type": "Style",
       "name": "business_casual",
       "definition": "商务休闲",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:business_formal",
       "type": "Style",
       "name": "business_formal",
       "definition": "商务正式",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:semi_formal",
       "type": "Style",
       "name": "semi_formal",
       "definition": "半正式",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:comfortable",
       "type": "Attribute",
       "name": "comfortable",
       "definition": "舒适性建议，不保证个人实际穿着舒适",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:freedom_of_movement",
       "type": "Attribute",
       "name": "freedom_of_movement",
       "definition": "服装允许活动所需动作",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:moisture_wicking",
       "type": "Attribute",
       "name": "moisture_wicking",
       "definition": "贴身衣物排汗属性",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:breathable",
       "type": "Attribute",
       "name": "breathable",
       "definition": "衣物透湿属性",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:polished",
       "type": "Attribute",
       "name": "polished",
       "definition": "整洁精致的视觉风格描述",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:coordinated_suiting",
       "type": "Attribute",
       "name": "coordinated_suiting",
       "definition": "协调的套装式着装",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:dressy",
       "type": "Attribute",
       "name": "dressy",
       "definition": "较为考究的着装",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:casual",
       "type": "Formality",
       "name": "casual",
       "definition": "项目着装级别：casual；保留独立概念，不作全序排序。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:smart_casual",
       "type": "Formality",
       "name": "smart_casual",
       "definition": "项目着装级别：smart_casual；保留独立概念，不作全序排序。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:business_casual",
       "type": "Formality",
       "name": "business_casual",
       "definition": "项目着装级别：business_casual；保留独立概念，不作全序排序。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:business_formal",
       "type": "Formality",
       "name": "business_formal",
       "definition": "项目着装级别：business_formal；保留独立概念，不作全序排序。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:semi_formal",
       "type": "Formality",
       "name": "semi_formal",
       "definition": "项目着装级别：semi_formal；保留独立概念，不作全序排序。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "occasion:sightseeing_casual",
       "type": "Occasion",
       "name": "sightseeing_casual",
       "definition": "该活动在指定着装背景下的场合。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "occasion:museum_visit_casual",
       "type": "Occasion",
       "name": "museum_visit_casual",
       "definition": "该活动在指定着装背景下的场合。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "occasion:dinner_casual",
       "type": "Occasion",
       "name": "dinner_casual",
       "definition": "该活动在指定着装背景下的场合。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "occasion:dinner_smart_casual",
       "type": "Occasion",
       "name": "dinner_smart_casual",
       "definition": "该活动在指定着装背景下的场合。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "occasion:business_meeting_business_casual",
       "type": "Occasion",
       "name": "business_meeting_business_casual",
       "definition": "该活动在指定着装背景下的场合。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "occasion:business_meeting_business_formal",
       "type": "Occasion",
       "name": "business_meeting_business_formal",
       "definition": "该活动在指定着装背景下的场合。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "occasion:wedding_semi_formal",
       "type": "Occasion",
       "name": "wedding_semi_formal",
       "definition": "该活动在指定着装背景下的场合。",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:minimalist",
@@ -422,7 +554,10 @@
         "简约"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "极简"
+      "label_zh": "极简",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:clean_lines",
@@ -430,7 +565,10 @@
       "name": "clean_lines",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:restrained_decoration",
@@ -438,7 +576,10 @@
       "name": "restrained_decoration",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:maximalist",
@@ -451,7 +592,10 @@
         "繁复风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "繁复表达"
+      "label_zh": "繁复表达",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:expressive_patterns",
@@ -459,7 +603,10 @@
       "name": "expressive_patterns",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:expressive_volume",
@@ -467,7 +614,10 @@
       "name": "expressive_volume",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:preppy",
@@ -480,7 +630,10 @@
         "学院风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "学院"
+      "label_zh": "学院",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:collegiate_references",
@@ -488,7 +641,10 @@
       "name": "collegiate_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:classic_references",
@@ -496,7 +652,10 @@
       "name": "classic_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:streetwear",
@@ -508,7 +667,10 @@
         "街头风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "街头"
+      "label_zh": "街头",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:sportswear_references",
@@ -516,7 +678,10 @@
       "name": "sportswear_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:industrial_references",
@@ -524,7 +689,10 @@
       "name": "industrial_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:artistic",
@@ -537,7 +705,10 @@
         "艺术风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "艺术表达"
+      "label_zh": "艺术表达",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:art_references",
@@ -545,7 +716,10 @@
       "name": "art_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:creative_expression",
@@ -553,7 +727,10 @@
       "name": "creative_expression",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:bohemian",
@@ -566,7 +743,10 @@
         "波西米亚风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "波西米亚"
+      "label_zh": "波西米亚",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:artistic_identity",
@@ -574,7 +754,10 @@
       "name": "artistic_identity",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:historical_references",
@@ -582,7 +765,10 @@
       "name": "historical_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:utility",
@@ -595,7 +781,10 @@
         "工装风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "工装功能感"
+      "label_zh": "工装功能感",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:workwear_references",
@@ -603,7 +792,10 @@
       "name": "workwear_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:functional_visual_details",
@@ -611,7 +803,10 @@
       "name": "functional_visual_details",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:romantic",
@@ -623,7 +818,10 @@
         "浪漫风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "浪漫"
+      "label_zh": "浪漫",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:floral_references",
@@ -631,7 +829,10 @@
       "name": "floral_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:romantic_references",
@@ -639,7 +840,10 @@
       "name": "romantic_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:retro",
@@ -652,7 +856,10 @@
         "复古风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "复古"
+      "label_zh": "复古",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:historical_silhouette_references",
@@ -660,7 +867,10 @@
       "name": "historical_silhouette_references",
       "definition": "Optional visual descriptor; not a shared dressing obligation.",
       "aliases": [],
-      "attribute_kind": "aesthetic_descriptor"
+      "attribute_kind": "aesthetic_descriptor",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:sporty",
@@ -673,7 +883,10 @@
         "运动风"
       ],
       "style_kind": "aesthetic",
-      "label_zh": "运动休闲"
+      "label_zh": "运动休闲",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:dressy_casual",
@@ -681,14 +894,20 @@
       "name": "dressy_casual",
       "definition": "Dressy casual balances casual and formal elements; distinct from smart casual.",
       "aliases": [],
-      "style_kind": "dress_code"
+      "style_kind": "dress_code",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:dressy_casual",
       "type": "Formality",
       "name": "dressy_casual",
       "definition": "Explicit dress-code interpretation; not a global numeric rank.",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:black_tie",
@@ -696,14 +915,20 @@
       "name": "black_tie",
       "definition": "Formal evening dress code when explicitly requested.",
       "aliases": [],
-      "style_kind": "dress_code"
+      "style_kind": "dress_code",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:black_tie",
       "type": "Formality",
       "name": "black_tie",
       "definition": "Explicit dress-code interpretation; not a global numeric rank.",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:formal_evening_presentation",
@@ -711,7 +936,10 @@
       "name": "formal_evening_presentation",
       "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:creative_black_tie",
@@ -719,14 +947,20 @@
       "name": "creative_black_tie",
       "definition": "Black-tie foundation with room for visual creativity.",
       "aliases": [],
-      "style_kind": "dress_code"
+      "style_kind": "dress_code",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:creative_black_tie",
       "type": "Formality",
       "name": "creative_black_tie",
       "definition": "Explicit dress-code interpretation; not a global numeric rank.",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:creative_accent",
@@ -734,7 +968,10 @@
       "name": "creative_accent",
       "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:black_tie_optional",
@@ -742,14 +979,20 @@
       "name": "black_tie_optional",
       "definition": "Host permits alternatives within a formal presentation.",
       "aliases": [],
-      "style_kind": "dress_code"
+      "style_kind": "dress_code",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:black_tie_optional",
       "type": "Formality",
       "name": "black_tie_optional",
       "definition": "Explicit dress-code interpretation; not a global numeric rank.",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:formal_presentation",
@@ -757,7 +1000,10 @@
       "name": "formal_presentation",
       "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:formal_options",
@@ -765,7 +1011,10 @@
       "name": "formal_options",
       "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:festive",
@@ -773,14 +1022,20 @@
       "name": "festive",
       "definition": "Celebratory dress code with an optional seasonal touch.",
       "aliases": [],
-      "style_kind": "dress_code"
+      "style_kind": "dress_code",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:festive",
       "type": "Formality",
       "name": "festive",
       "definition": "Explicit dress-code interpretation; not a global numeric rank.",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:celebratory_expression",
@@ -788,7 +1043,10 @@
       "name": "celebratory_expression",
       "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "style:white_tie",
@@ -796,14 +1054,20 @@
       "name": "white_tie",
       "definition": "Full evening dress when explicitly required; do not infer from activity.",
       "aliases": [],
-      "style_kind": "dress_code"
+      "style_kind": "dress_code",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "formality:white_tie",
       "type": "Formality",
       "name": "white_tie",
       "definition": "Explicit dress-code interpretation; not a global numeric rank.",
-      "aliases": []
+      "aliases": [],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:full_evening_formality",
@@ -811,7 +1075,10 @@
       "name": "full_evening_formality",
       "definition": "Dressing direction under the supplied dress code; exact host requirements still apply.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:theme_park",
@@ -825,7 +1092,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:religious_visit",
@@ -841,7 +1111,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:beach",
@@ -856,7 +1129,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:photo_spot",
@@ -871,7 +1147,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:food_market",
@@ -886,7 +1165,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:shopping",
@@ -900,7 +1182,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:aquarium_visit",
@@ -915,7 +1200,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:nightlife_fine_dining",
@@ -933,7 +1221,10 @@
         "smart casual",
         "dressy casual",
         "festive"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:cafe_visit",
@@ -942,13 +1233,19 @@
       "definition": "Selected activity only; venue rules and weather remain separate.",
       "aliases": [
         "cafe visit",
-        "咖啡馆"
+        "咖啡馆",
+        "cafe hopping",
+        "café hopping",
+        "咖啡馆探访"
       ],
-      "place_activity_id": "",
+      "place_activity_id": "cafe_visit",
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "activity:travel_transit",
@@ -963,7 +1260,10 @@
       "requires_dress_code": false,
       "supported_dress_codes": [
         "casual"
-      ]
+      ],
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:traction",
@@ -971,7 +1271,10 @@
       "name": "traction",
       "definition": "Traction appropriate to the actual trail; not a specific footwear category.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:durability",
@@ -979,7 +1282,10 @@
       "name": "durability",
       "definition": "Durability for the trail conditions.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:verify_venue_dress_rules",
@@ -987,7 +1293,10 @@
       "name": "verify_venue_dress_rules",
       "definition": "Clarify the actual venue and entry conditions; no universal religious-site coverage rule.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "attribute:verify_actual_water_activity",
@@ -995,7 +1304,10 @@
       "name": "verify_actual_water_activity",
       "definition": "A beach visit does not imply swimming or wet activity.",
       "aliases": [],
-      "attribute_kind": "dressing_requirement"
+      "attribute_kind": "dressing_requirement",
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     }
   ],
   "edges": [
@@ -1009,10 +1321,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e002",
@@ -1024,10 +1337,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e003",
@@ -1039,10 +1353,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e004",
@@ -1054,10 +1369,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e005",
@@ -1069,10 +1385,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e006",
@@ -1084,10 +1401,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e007",
@@ -1099,10 +1417,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e008",
@@ -1114,10 +1433,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e009",
@@ -1129,10 +1449,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e010",
@@ -1144,10 +1465,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e011",
@@ -1159,10 +1481,11 @@
       "rationale": "项目建模映射，需团队审核；不是普遍着装规则。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e012",
@@ -1176,10 +1499,11 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e013",
@@ -1193,10 +1517,11 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e014",
@@ -1210,10 +1535,11 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e015",
@@ -1227,10 +1553,11 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e016",
@@ -1244,10 +1571,11 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e017",
@@ -1261,10 +1589,11 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e018",
@@ -1278,10 +1607,11 @@
         "dress_code": "business casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e019",
@@ -1295,10 +1625,11 @@
         "dress_code": "business casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e020",
@@ -1312,10 +1643,11 @@
         "dress_code": "business casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e021",
@@ -1329,10 +1661,11 @@
         "dress_code": "business formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e022",
@@ -1346,10 +1679,11 @@
         "dress_code": "business formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e023",
@@ -1363,10 +1697,11 @@
         "dress_code": "business formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e024",
@@ -1380,10 +1715,11 @@
         "dress_code": "semi formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e025",
@@ -1397,10 +1733,11 @@
         "dress_code": "semi formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e026",
@@ -1414,10 +1751,11 @@
         "dress_code": "semi formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e027",
@@ -1429,10 +1767,11 @@
       "rationale": "将来源中功能优先的徒步建议归入 outdoor 风格，是项目标签映射。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e028",
@@ -1444,10 +1783,11 @@
       "rationale": "来源将 casual 描述为舒适的非正式着装；这里只生成建议属性。",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e029",
@@ -1459,10 +1799,11 @@
       "rationale": "徒步建议支持该功能属性；仅限本图谱的普通徒步路径，不推广至所有户外活动。",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e030",
@@ -1474,10 +1815,11 @@
       "rationale": "徒步建议支持该功能属性；仅限本图谱的普通徒步路径，不推广至所有户外活动。",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e031",
@@ -1489,10 +1831,11 @@
       "rationale": "徒步建议支持该功能属性；仅限本图谱的普通徒步路径，不推广至所有户外活动。",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e032",
@@ -1504,10 +1847,11 @@
       "rationale": "精致休闲到 polished 为项目暂定映射，不声称来源直接定义了 smart casual。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e033",
@@ -1519,10 +1863,11 @@
       "rationale": "商务休闲到 polished 为项目暂定风格映射。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e034",
@@ -1534,10 +1879,11 @@
       "rationale": "来源以协调的西装外套与下装描述商务正式着装。",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "e035",
@@ -1549,10 +1895,11 @@
       "rationale": "将来源中的半正式着装示例概括为 dressy，属于项目归纳。",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:001",
@@ -1564,11 +1911,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:002",
@@ -1580,11 +1928,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:003",
@@ -1596,11 +1945,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:004",
@@ -1612,11 +1962,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:005",
@@ -1628,11 +1979,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:006",
@@ -1644,11 +1996,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:007",
@@ -1660,11 +2013,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:008",
@@ -1676,11 +2030,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:009",
@@ -1692,11 +2047,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:010",
@@ -1708,11 +2064,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:011",
@@ -1724,11 +2081,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:012",
@@ -1740,11 +2098,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:013",
@@ -1756,11 +2115,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:014",
@@ -1772,11 +2132,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:015",
@@ -1788,11 +2149,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:016",
@@ -1804,11 +2166,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:017",
@@ -1820,11 +2183,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:018",
@@ -1836,11 +2200,12 @@
       "rationale": "Project abstraction of the referenced exhibition examples; not an exhaustive definition.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:019",
@@ -1852,11 +2217,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:020",
@@ -1868,11 +2234,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:021",
@@ -1884,11 +2251,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:022",
@@ -1900,11 +2268,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:023",
@@ -1916,11 +2285,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:024",
@@ -1932,11 +2302,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:025",
@@ -1948,11 +2319,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:026",
@@ -1964,11 +2336,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:027",
@@ -1980,11 +2353,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:028",
@@ -1996,11 +2370,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:029",
@@ -2012,11 +2387,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:030",
@@ -2028,11 +2404,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:031",
@@ -2044,11 +2421,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:032",
@@ -2060,11 +2438,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:033",
@@ -2076,11 +2455,12 @@
       "rationale": "Abstract dressing direction from the named dress-code section; no item-level prescriptions.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:034",
@@ -2094,11 +2474,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:035",
@@ -2112,11 +2493,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:036",
@@ -2130,11 +2512,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:037",
@@ -2148,11 +2531,12 @@
         "dress_code": "black tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:038",
@@ -2166,11 +2550,12 @@
         "dress_code": "creative black tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:039",
@@ -2184,11 +2569,12 @@
         "dress_code": "black tie optional"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:040",
@@ -2202,11 +2588,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:041",
@@ -2220,11 +2607,12 @@
         "dress_code": "white tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:042",
@@ -2238,11 +2626,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:043",
@@ -2256,11 +2645,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:044",
@@ -2274,11 +2664,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:045",
@@ -2292,11 +2683,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:046",
@@ -2308,11 +2700,12 @@
       "rationale": "Functional trail recommendation.",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:047",
@@ -2324,11 +2717,12 @@
       "rationale": "Functional trail recommendation.",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:048",
@@ -2340,11 +2734,12 @@
       "rationale": "Functional trail recommendation.",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:049",
@@ -2356,11 +2751,12 @@
       "rationale": "Functional trail recommendation.",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:050",
@@ -2372,11 +2768,12 @@
       "rationale": "Functional trail recommendation.",
       "conditions": {},
       "basis": "source_supported",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:051",
@@ -2388,11 +2785,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:052",
@@ -2404,11 +2802,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:053",
@@ -2420,11 +2819,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:054",
@@ -2436,11 +2836,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:055",
@@ -2452,11 +2853,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:056",
@@ -2468,11 +2870,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:057",
@@ -2484,11 +2887,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:058",
@@ -2500,11 +2904,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:059",
@@ -2516,11 +2921,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:060",
@@ -2532,11 +2938,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:061",
@@ -2548,11 +2955,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:062",
@@ -2564,11 +2972,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:063",
@@ -2580,11 +2989,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:064",
@@ -2596,11 +3006,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:065",
@@ -2612,11 +3023,12 @@
       "rationale": "Project suggestion or clarification reminder, not an official venue rule.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "should"
+      "strength": "should",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:066",
@@ -2628,11 +3040,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:067",
@@ -2644,11 +3057,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:068",
@@ -2660,11 +3074,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:069",
@@ -2676,11 +3091,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:070",
@@ -2692,11 +3108,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:071",
@@ -2708,11 +3125,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:072",
@@ -2724,11 +3142,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:073",
@@ -2740,11 +3159,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:074",
@@ -2756,11 +3176,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:075",
@@ -2772,11 +3193,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:076",
@@ -2788,11 +3210,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:077",
@@ -2804,11 +3227,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:078",
@@ -2820,11 +3244,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:079",
@@ -2836,11 +3261,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:080",
@@ -2852,11 +3278,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:081",
@@ -2868,11 +3295,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:082",
@@ -2884,11 +3312,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:083",
@@ -2900,11 +3329,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:084",
@@ -2916,11 +3346,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:085",
@@ -2932,11 +3363,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:086",
@@ -2948,11 +3380,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:087",
@@ -2964,11 +3397,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:088",
@@ -2980,11 +3414,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:089",
@@ -2996,11 +3431,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:090",
@@ -3012,11 +3448,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:091",
@@ -3028,11 +3465,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:092",
@@ -3044,11 +3482,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:093",
@@ -3060,11 +3499,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:094",
@@ -3076,11 +3516,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:095",
@@ -3092,11 +3533,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:096",
@@ -3108,11 +3550,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:097",
@@ -3124,11 +3567,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:098",
@@ -3140,11 +3584,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:099",
@@ -3156,11 +3601,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:100",
@@ -3172,11 +3618,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:101",
@@ -3188,11 +3635,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:102",
@@ -3204,11 +3652,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:103",
@@ -3220,11 +3669,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:104",
@@ -3236,11 +3686,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:105",
@@ -3252,11 +3703,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:106",
@@ -3268,11 +3720,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:107",
@@ -3284,11 +3737,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:108",
@@ -3300,11 +3754,12 @@
       "rationale": "Optional project suggestion; source definitions do not establish activity suitability.",
       "conditions": {},
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:109",
@@ -3318,11 +3773,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:110",
@@ -3336,11 +3792,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:111",
@@ -3354,11 +3811,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:112",
@@ -3372,11 +3830,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:113",
@@ -3390,11 +3849,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:114",
@@ -3408,11 +3868,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:115",
@@ -3426,11 +3887,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:116",
@@ -3444,11 +3906,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:117",
@@ -3462,11 +3925,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:118",
@@ -3480,11 +3944,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:119",
@@ -3498,11 +3963,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:120",
@@ -3516,11 +3982,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:121",
@@ -3534,11 +4001,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:122",
@@ -3552,11 +4020,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:123",
@@ -3570,11 +4039,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:124",
@@ -3588,11 +4058,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:125",
@@ -3606,11 +4077,12 @@
         "dress_code": "semi formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:126",
@@ -3624,11 +4096,12 @@
         "dress_code": "semi formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:127",
@@ -3642,11 +4115,12 @@
         "dress_code": "semi formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:128",
@@ -3660,11 +4134,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:129",
@@ -3678,11 +4153,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:130",
@@ -3696,11 +4172,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:131",
@@ -3714,11 +4191,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:132",
@@ -3732,11 +4210,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:133",
@@ -3750,11 +4229,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:134",
@@ -3768,11 +4248,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:135",
@@ -3786,11 +4267,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:136",
@@ -3804,11 +4286,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:137",
@@ -3822,11 +4305,12 @@
         "dress_code": "black tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:138",
@@ -3840,11 +4324,12 @@
         "dress_code": "black tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:139",
@@ -3858,11 +4343,12 @@
         "dress_code": "creative black tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:140",
@@ -3876,11 +4362,12 @@
         "dress_code": "creative black tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:141",
@@ -3894,11 +4381,12 @@
         "dress_code": "creative black tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:142",
@@ -3912,11 +4400,12 @@
         "dress_code": "black tie optional"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:143",
@@ -3930,11 +4419,12 @@
         "dress_code": "black tie optional"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:144",
@@ -3948,11 +4438,12 @@
         "dress_code": "black tie optional"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:145",
@@ -3966,11 +4457,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:146",
@@ -3984,11 +4476,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:147",
@@ -4002,11 +4495,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:148",
@@ -4020,11 +4514,12 @@
         "dress_code": "white tie"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:149",
@@ -4038,11 +4533,12 @@
         "dress_code": "business casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:150",
@@ -4056,11 +4552,12 @@
         "dress_code": "business casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:151",
@@ -4074,11 +4571,12 @@
         "dress_code": "business formal"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:152",
@@ -4092,11 +4590,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:153",
@@ -4110,11 +4609,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:154",
@@ -4128,11 +4628,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:155",
@@ -4146,11 +4647,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:156",
@@ -4164,11 +4666,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:157",
@@ -4182,11 +4685,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:158",
@@ -4200,11 +4704,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:159",
@@ -4218,11 +4723,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:160",
@@ -4236,11 +4742,12 @@
         "dress_code": "smart casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:161",
@@ -4254,11 +4761,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:162",
@@ -4272,11 +4780,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:163",
@@ -4290,11 +4799,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:164",
@@ -4308,11 +4818,12 @@
         "dress_code": "dressy casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:165",
@@ -4326,11 +4837,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:166",
@@ -4344,11 +4856,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:167",
@@ -4362,11 +4875,12 @@
         "dress_code": "festive"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     },
     {
       "id": "x004:168",
@@ -4380,11 +4894,12 @@
         "dress_code": "casual"
       },
       "basis": "project_heuristic",
-      "review_status": "pending",
-      "reviewed_by": null,
+      "review_status": "approved",
+      "reviewed_by": "project_owner",
       "acquisition_method": "agent_curated",
       "version": "0.2.0",
-      "strength": "nice"
+      "strength": "nice",
+      "reviewed_at": "2026-10-22T16:06:40+08:00"
     }
   ],
   "expanded_on": "2026-10-13"

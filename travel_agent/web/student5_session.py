@@ -19,7 +19,68 @@ class SessionError(ValueError):
     """The requested action is invalid for the current recommendation round."""
 
 
-def patch_from_message(message: str) -> dict:
+_ITEM_TERMS = {
+    "FOOTWEAR": r"shoes?|footwear|boots?|sneakers?|heels?",
+    "TOP": r"tops?|shirts?|blouses?|sweaters?|knitwear|t-shirts?",
+    "BOTTOM": r"bottoms?|pants|trousers|jeans|skirts?|shorts",
+    "OUTERWEAR": r"outerwear|coats?|jackets?",
+}
+
+
+def _outfit_item_exclusion(text: str, session: dict) -> dict | None:
+    """Resolve explicit dislike/removal against the currently displayed recommendation round."""
+    if re.search(r"\b(?:don't|don’t|do not)\s+(?:remove|exclude|replace|swap)\b", text, re.I):
+        raise SessionError("No item was removed. Tell me what you would like to change.")
+    if not re.search(
+        r"\b(?:(?:don't|don’t|do not)\s+(?:like|want)|exclude|remove|replace|swap|change)\b",
+        text,
+        re.I,
+    ):
+        return None
+    categories = {
+        category
+        for category, terms in _ITEM_TERMS.items()
+        if re.search(rf"\b(?:{terms})\b", text, re.I)
+    }
+    references = re.findall(
+        r"\boutfit\s*#?\s*(\d+|one|two|three|first|second|third)\b"
+        r"|\b(first|second|third)\s+outfit\b",
+        text,
+        re.I,
+    )
+    if not categories and not references:
+        return None
+    if not categories:
+        raise SessionError("Which item would you like to replace: shoes, top, bottoms or coat?")
+    if not references:
+        raise SessionError(
+            "Which outfit contains the item you dislike? For example: shoes from outfit 1."
+        )
+    numbers = {"one": 1, "two": 2, "three": 3, "first": 1, "second": 2, "third": 3}
+    positions = set()
+    for after, before in references:
+        value = (after or before).casefold()
+        positions.add(int(value) if value.isdigit() else numbers[value])
+    if len(positions) != 1:
+        raise SessionError("Please specify one current outfit at a time.")
+    position = positions.pop()
+    recommendations = (session.get("recommendation_set") or {}).get("recommendations", [])
+    if not 1 <= position <= len(recommendations):
+        raise SessionError("Choose an outfit number from the current Top-3.")
+    outfit = recommendations[position - 1]
+    items = outfit.get("purchase_items", []) + outfit.get("existing_items", [])
+    matched = [item for item in items if item.get("category") in categories]
+    if {item.get("category") for item in matched} != categories:
+        raise SessionError(
+            "That outfit does not contain every item you mentioned. Choose a displayed item."
+        )
+    return {
+        "intent": "MODIFY_REQUIREMENTS",
+        "add": {"excluded_items": list(dict.fromkeys(item["product_id"] for item in matched))},
+    }
+
+
+def patch_from_message(message: str, session: dict | None = None) -> dict:
     """Parse refinements that Student 5 can safely apply without rerunning Students 1-4."""
     text = message.strip()
     lower = text.casefold()
@@ -42,6 +103,10 @@ def patch_from_message(message: str) -> dict:
     size = re.search(r"(?:size\s*(?:is|to)?|尺码(?:改成|是)?)\s*([A-Za-z0-9-]{1,8})\b", text, re.I)
     if size:
         return {"intent": "MODIFY_REQUIREMENTS", "set": {"user_size": size.group(1).upper()}}
+    if session is not None:
+        exclusion = _outfit_item_exclusion(text, session)
+        if exclusion is not None:
+            return exclusion
     excluded = re.search(r"(?:exclude|remove|排除|不要)\s+(?:product\s+)?([^,，。\s]+)", text, re.I)
     if excluded:
         return {"intent": "MODIFY_REQUIREMENTS", "add": {"excluded_items": [excluded.group(1)]}}
@@ -193,12 +258,25 @@ def refine(session: dict, patch: dict, run: Callable[[dict], Any]) -> dict:
     changed = _data(
         run({"action": "modify_requirements", "state": session["state"], "patch": patch})
     )
+    # Keep the original candidate pool for later changes; each round filters all
+    # cumulative exact product IDs, including owned items, before ranking.
+    excluded = set(changed["updated_request"].get("excluded_items", []))
+    student4 = session["student4"]
+    if excluded:
+        student4 = {
+            **student4,
+            "outfits": [
+                outfit
+                for outfit in student4.get("outfits", [])
+                if not any(item["product_id"] in excluded for item in outfit.get("items", []))
+            ],
+        }
     data = _data(
         run(
             {
                 "action": "recommend",
                 "request": changed["updated_request"],
-                "student4": session["student4"],
+                "student4": student4,
                 "state": changed["state"],
             }
         )

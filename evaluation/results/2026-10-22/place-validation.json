@@ -1,0 +1,45 @@
+{
+  "valid": true,
+  "errors": [],
+  "checks": "IDs, references, provenance, vocabulary, climate ranges, review fields, hierarchy, graph endpoints",
+  "table_counts": {
+    "activities": 12,
+    "aliases": 265,
+    "climate": 39,
+    "contents": 52,
+    "items": 15,
+    "place_activity": 98,
+    "place_dresscode": 17,
+    "place_style": 5,
+    "places": 100,
+    "requirement_item": 27,
+    "requirements": 29,
+    "rules": 17,
+    "season_events": 7,
+    "sources": 62,
+    "style_item": 5,
+    "styles": 3
+  },
+  "graph_counts": {
+    "nodes": 601,
+    "edges": 1214
+  },
+  "countries": [
+    "CN",
+    "ID",
+    "JP",
+    "KR",
+    "MY",
+    "SG",
+    "TH",
+    "VN"
+  ],
+  "review_counts": {
+    "approved": 753
+  },
+  "verification_limits": [
+    "人工审核状态不等同独立专家验证",
+    "地点KG未连接Neo4j验证",
+    "不是推荐质量或召回率评估"
+  ]
+}

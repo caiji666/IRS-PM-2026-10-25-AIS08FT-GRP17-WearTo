@@ -1,0 +1,88 @@
+{
+  "review_states": {
+    "approved": 753
+  },
+  "source_verification": {
+    "local_policy": 1,
+    "search_excerpt_only": 7,
+    "relevant_sections_read": 30,
+    "page_text_read": 24
+  },
+  "strict_queries": [
+    {
+      "place": "苏丹回教堂",
+      "requirements": [
+        {
+          "id": "breathable_quick_dry",
+          "complete_review_chain": true,
+          "record_count": 12
+        },
+        {
+          "id": "light_color",
+          "complete_review_chain": true,
+          "record_count": 11
+        },
+        {
+          "id": "long_sleeve_ankle_coverage",
+          "complete_review_chain": true,
+          "record_count": 14
+        },
+        {
+          "id": "no_cleavage",
+          "complete_review_chain": true,
+          "record_count": 8
+        },
+        {
+          "id": "no_shoes_indoor",
+          "complete_review_chain": true,
+          "record_count": 8
+        },
+        {
+          "id": "opaque_clothing",
+          "complete_review_chain": true,
+          "record_count": 12
+        },
+        {
+          "id": "rain_protection",
+          "complete_review_chain": true,
+          "record_count": 12
+        },
+        {
+          "id": "slip_on_shoes",
+          "complete_review_chain": true,
+          "record_count": 12
+        }
+      ]
+    },
+    {
+      "place": "USJ",
+      "requirements": [
+        {
+          "id": "breathable_quick_dry",
+          "complete_review_chain": true,
+          "record_count": 17
+        },
+        {
+          "id": "comfy_walking_shoes",
+          "complete_review_chain": true,
+          "record_count": 16
+        },
+        {
+          "id": "light_color",
+          "complete_review_chain": true,
+          "record_count": 16
+        }
+      ]
+    },
+    {
+      "place": "云雾林",
+      "requirements": [
+        {
+          "id": "light_layer",
+          "complete_review_chain": true,
+          "record_count": 11
+        }
+      ]
+    }
+  ]
+}

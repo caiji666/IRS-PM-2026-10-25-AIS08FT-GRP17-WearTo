@@ -166,3 +166,128 @@ commit `0b6d3a5`. Loading old recommendations alone does not activate refinement
 After a newly confirmed trip finishes, or after **Adjust requirements**, messages
 can refine the current Student 5 session. **New journey** resets the dialogue route
 and pending refinement state without deleting the existing results or wardrobe.
+
+
+## Seoul activity discovery (2026-10-22)
+
+Activity menus now show up to four options (style menus remain limited to three).
+Seoul's local Place KG includes Myeongdong → shopping, Yeonmujang-gil /
+Seongsu-dong Cafe Street → cafe_visit, and Gyeongbokgung Palace → city_walk,
+alongside N Seoul Tower → photo_spot. Each new place is linked to Seoul by
+part_of; activity options are collected through these paths rather than a
+hardcoded city menu. Source URLs and summaries are retained per record.
+The existing Activity KG cafe_visit node now maps to the shared Place KG activity;
+its menu label is “Café hopping”, with cafe-hopping aliases for explicit selection.
+This label expresses optional interest, not a verified multi-stop route.
+All new knowledge remains pending and requires allow_draft for discovery.
+Existing sessions keep the menu they were offered; use /suggest to reopen
+activity suggestions on a trip with no selected activities, or start a new trip.
+
+
+## Progressive chat replies
+
+New assistant replies are revealed progressively with a quiet cursor. This is
+a browser presentation effect after the response arrives; model generation and
+the stored full response are unchanged. Existing message elements persist across
+polls, so text does not restart or flicker. Restored history, user messages and
+reduced-motion mode show complete text immediately. Scrolling up stops automatic
+following; screen readers receive the full reply without per-character updates.
+The two helper lines below the composer have been removed.
+
+## Complete local installation
+
+A Git checkout alone does not contain the full web runtime. Install the optional
+features together; a plain `uv sync` can remove optional packages installed for a
+previous run:
+
+```bash
+uv sync --locked --extra qwen --extra products --extra inspiration \
+  --extra outfits --extra preview --extra ebay-notifications --extra neo4j
+.venv/bin/python -m travel_agent.products.retrieval.m5.download \
+  --model-cache .cache/huggingface
+HF_HUB_OFFLINE=1 .venv/bin/python -m travel_agent.outfits.train --reencode --device mps
+.venv/bin/python -m travel_agent.web --port 8765
+```
+
+Use `--device cpu` for training when Apple Metal is unavailable. Download the
+local Qwen model using the understanding runbook if it is not already cached.
+FashionCLIP downloads are pinned and the downloader verifies the weight SHA-256.
+The outfit trainer creates the normalized feature cache, model and manifest in
+`artifacts/outfits/normalized-v1`; it preserves the older teammate `.pkl` file.
+
+Provide private `.secrets/unsplash.env` and `.secrets/ebay-production.json`, plus
+`.env` for optional image-preview configuration. These files and model caches are
+Git-ignored and must be configured separately on every device. The eBay file uses
+`environment: "production"`, `client_id` (App ID), and `client_secret` (Cert ID /
+OAuth secret). Dev ID is not the OAuth secret. Restrict credential files to mode
+0600. Only authentication checks should run before the user confirms a trip.
+
+Local setup validation on 2026-10-23 restored the full locked runtime, verified
+the FashionCLIP weight hash, trained the normalized outfit model, and confirmed
+eBay Production OAuth without displaying or persisting the access token.
+
+The same confirmed Seoul web trip was rerun successfully: 10 new Unsplash
+references, 80 indexed real eBay products, five returned products in each of
+four categories, and 750 scored outfit combinations. The local web Top-3
+endpoint returned HTTP 200 with three outfits. The original failed web job was
+linked to this completed run; the original failure status was backed up locally.
+Detailed local evidence is in `artifacts/local-setup-validation/`; no live image
+generation or outfit confirmation was performed during environment recovery.
+
+
+## Refine a displayed outfit item
+
+Adjust requirements accepts explicit references such as “I don't like the shoes
+from outfit 1” or “Replace the coat in the second outfit”. References resolve
+against the current Top-3, using exact product IDs, including owned items. A
+missing/invalid outfit number or absent category asks for clarification without
+changing the current recommendations. Exact item exclusions filter every
+combination containing that item before Student 5 reranks the existing pool;
+no trip extraction or external product search is needed. Exclusions accumulate
+and remain active through subsequent budget/size changes. The original pool
+is retained. Repeated clicks on Adjust requirements do not repeat its prompt.
+
+
+## Discovery and viewport layout
+
+With no saved result, the page opens with chat and a local four-photo travel
+slideshow. The edit and its navigation link stay hidden until actual Top-3
+outfits are available, then the desktop grid expands to three panels. Saved
+results still restore their actual destination photos and recommendations.
+New journey returns to the two-panel discovery state without deleting saved
+results; in-flight requests cannot restore an older edit over this reset.
+
+The default photographs show general scenery without a chosen destination.
+Credits and original Unsplash photo links accompany the locally served assets;
+showing them needs no API key. Search results replace them after a real run.
+
+Desktop layout fills the available viewport, with the composer and outfit
+actions remaining visible and long messages scrolling inside chat. Product
+cards use a vertical scrollable list with larger images. Only the product list
+scrolls; the outfit tabs and action buttons stay visible. Desktop sizes
+1280×720 and 1024×640 were verified without document overflow.
+At phone widths, panels stack naturally; 390×844 was checked for horizontal
+overflow and composer visibility. Profile keeps its existing layout.
+
+
+## Focused results and personal wardrobe (2026-10-23)
+
+When outfits are ready, chat collapses and the page shows inspiration plus the
+scrollable product edit. Adjust requirements opens chat as a third panel; its
+close control returns to the two-panel result view. A new journey remains
+available in the header while chat is collapsed. New Top-3 responses collapse
+chat by default, while ordinary in-chat refinements leave the conversation open.
+The composer uses a small outlined SVG paper-plane icon.
+
+Profile now uses the available desktop viewport with a compact introduction,
+independently scrollable personal form and wardrobe grid, and visible category
+filters/upload controls. Phone widths retain a natural stacked layout.
+
+The user-provided wardrobe ZIP was imported locally through the same metadata
+stripping and offline FashionCLIP ingestion services as photo uploads. All 20
+photos were added, without issues; seven uncertain categories remain Unsorted.
+Existing items/labels are preserved and pixel identities prevent duplicates.
+Import metadata is in `runs/web_profile/wardrobe_zip_import_20261023.json`.
+Future product searches include the owned pool; previously saved results remain
+historical and are not silently recomputed. No wardrobe photo was sent to an
+external model during this import.

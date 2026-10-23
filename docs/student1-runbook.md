@@ -1,5 +1,7 @@
 # Student 1 — today's supervised flow
 
+Current status (2026-10-22): The project owner explicitly confirmed completion of KG review. Current Activity and Place KG records are approved with an audit trail in docs/kg-review-2026-10-22. Activity reasoning supports local Python and Neo4j; four fresh live comparisons matched. Weather rules and diagnostic gold labels are separate and are not approved by this KG decision. Earlier pending/live-unverified statements below describe historical deliveries. See student1-implementation-findings-2026-10-22.zh.md for current results.
+
 Reference: proposal Section 7.1 Stages 1–3 and Appendix A. This delivery implements the understanding boundary; FashionCLIP, retrieval and outfit recommendation remain owned by other modules. [Contracts](contracts.md) explains the proposal/scaffold differences.
 
 ## 1. Reproduce the complete offline context flow

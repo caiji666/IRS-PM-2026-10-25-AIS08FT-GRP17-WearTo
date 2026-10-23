@@ -10,7 +10,7 @@ def _usable(edge, allow_draft):
     )
 
 
-def activity_suggestions(request, *, allow_draft=False, limit=3, places=None, graph=None):
+def activity_suggestions(request, *, allow_draft=False, limit=4, places=None, graph=None):
     graph = graph or KnowledgeGraph.load()
     places = places or KG()
     if request.activities:
@@ -44,7 +44,9 @@ def activity_suggestions(request, *, allow_draft=False, limit=3, places=None, gr
             {
                 "id": node["id"],
                 "value": node["name"].replace("_", " "),
-                "label": node["name"].replace("_", " "),
+                "label": "Café hopping"
+                if node["id"] == "activity:cafe_visit"
+                else node["name"].replace("_", " "),
                 "aliases": node["aliases"],
                 "scope": "destination",
                 "basis": "place_kg_relationship",

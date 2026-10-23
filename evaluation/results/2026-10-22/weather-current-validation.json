@@ -1,0 +1,141 @@
+[
+  {
+    "case": "forecast",
+    "request": {
+      "destination": "Seoul",
+      "start_date": "2026-10-22",
+      "end_date": "2026-10-24",
+      "activities": [],
+      "budget": 500,
+      "currency": "SGD",
+      "style": [],
+      "excluded_items": [],
+      "owned_item_ids": [],
+      "places": [],
+      "dress_codes": {},
+      "enter_interior": null,
+      "gender": null,
+      "cold_sensitive": null,
+      "price_preference": null
+    },
+    "weather": {
+      "temp_min_celsius": 4.7,
+      "temp_max_celsius": 20.8,
+      "snow": false,
+      "precipitation_probability": 0.09,
+      "humidity_percent": null,
+      "weather_class": null,
+      "status": "ok",
+      "data_type": "forecast",
+      "destination": "Seoul",
+      "start_date": "2026-10-22",
+      "end_date": "2026-10-24",
+      "source": "https://api.open-meteo.com/v1/forecast?latitude=37.566&longitude=126.9784&timezone=auto&start_date=2026-10-22&end_date=2026-10-24&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_probability_max%2Csnowfall_sum",
+      "retrieved_at": "2026-10-22T08:12:52.719257+00:00",
+      "latitude": 37.566,
+      "longitude": 126.9784,
+      "location_label": "Seoul",
+      "location_basis": "registered_city_default",
+      "location_candidates": [],
+      "reason": null,
+      "climate_reference": null,
+      "routing_reason": "within_forecast_window",
+      "reason_code": null,
+      "next_steps": [],
+      "acquisition": null,
+      "limitations": [
+        "City-level outdoor reference only; not indoor, attraction, mountain or beach microclimates."
+      ]
+    },
+    "checks": {
+      "available": true,
+      "correct_type": true
+    }
+  },
+  {
+    "case": "historical",
+    "request": {
+      "destination": "Tokyo",
+      "start_date": "2027-01-20",
+      "end_date": "2027-01-24",
+      "activities": [],
+      "budget": 500,
+      "currency": "SGD",
+      "style": [],
+      "excluded_items": [],
+      "owned_item_ids": [],
+      "places": [],
+      "dress_codes": {},
+      "enter_interior": null,
+      "gender": null,
+      "cold_sensitive": null,
+      "price_preference": null
+    },
+    "weather": {
+      "temp_min_celsius": null,
+      "temp_max_celsius": null,
+      "snow": null,
+      "precipitation_probability": null,
+      "humidity_percent": null,
+      "weather_class": null,
+      "status": "ok",
+      "data_type": "historical_climatology",
+      "destination": "Tokyo",
+      "start_date": "2027-01-20",
+      "end_date": "2027-01-24",
+      "source": "https://archive-api.open-meteo.com/v1/archive?latitude=35.6895&longitude=139.69171&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+      "retrieved_at": "2026-10-21T08:18:43.645913+00:00",
+      "latitude": 35.6895,
+      "longitude": 139.69171,
+      "location_label": "Tokyo",
+      "location_basis": "registered_city_default",
+      "location_candidates": [],
+      "reason": "Historical monthly planning reference only; not a trip-date forecast",
+      "climate_reference": {
+        "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+        "baseline_start_year": 2015,
+        "baseline_end_year": 2024,
+        "model": "era5",
+        "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+        "monthly": [
+          {
+            "month": 1,
+            "sample_days": 310,
+            "mean_daily_min_celsius": 0.764,
+            "mean_daily_max_celsius": 9.43,
+            "wet_day_frequency": 0.190323,
+            "snowfall_day_frequency": 0.077419
+          }
+        ],
+        "source_urls": [
+          "https://archive-api.open-meteo.com/v1/archive?latitude=35.6895&longitude=139.69171&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+          "https://geocoding-api.open-meteo.com/v1/search?name=Tokyo&count=10&language=en&countryCode=JP"
+        ],
+        "updated_at": "2026-10-21T08:18:43.645913+00:00",
+        "location_basis": "registered_city_default",
+        "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+        "grid_latitude": 35.75,
+        "grid_longitude": 139.75,
+        "grid_elevation_meters": 40.0,
+        "limitations": [
+          "Historical monthly averages, not forecasts for the requested dates or extremes.",
+          "Wet/snowfall frequencies describe past days, not future probabilities.",
+          "Ten-year reanalysis reference; local microclimates and future anomalies are not captured.",
+          "Whole-trip historical mode: no forecast and historical values are blended."
+        ]
+      },
+      "routing_reason": "outside_forecast_window",
+      "reason_code": null,
+      "next_steps": [],
+      "acquisition": null,
+      "limitations": [
+        "City-level outdoor reference only; not indoor, attraction, mountain or beach microclimates."
+      ]
+    },
+    "checks": {
+      "available": true,
+      "correct_type": true,
+      "history_not_forecast": true
+    }
+  }
+]

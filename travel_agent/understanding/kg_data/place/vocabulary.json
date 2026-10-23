@@ -51,7 +51,8 @@
     "food_market",
     "shopping",
     "museum_indoor",
-    "aquarium_visit"
+    "aquarium_visit",
+    "cafe_visit"
   ],
   "strength": [
     "must",
@@ -118,7 +119,8 @@
     ],
     "reason": "原始v0.1未覆盖的地点和活动概念，集中登记为跨国家词表扩展；不新增国家专用实体表或推理分支。",
     "activity": [
-      "aquarium_visit"
+      "aquarium_visit",
+      "cafe_visit"
     ],
     "definitions": {
       "region": "地理或旅游区域，也可表达省、州、都府县等范围；不暗示固定行政级别。",
@@ -126,7 +128,8 @@
       "poi_heritage": "历史遗产游览地，例如城堡、宫殿、古城或遗址。",
       "poi_shrine": "神祠类宗教场所；不隐含宗教、国家或服装要求。",
       "poi_aquarium": "水族馆；不隐含涉水活动、室内温度或服装要求。",
-      "aquarium_visit": "参观水族馆展览；任何国家复用相同活动ID。"
+      "aquarium_visit": "参观水族馆展览；任何国家复用相同活动ID。",
+      "cafe_visit": "Visiting cafes; optional cafe hopping interest, without asserting a route or venue rules."
     }
   },
   "confidence_note": "0–1为人工式证据强度估计，未经统计校准；不等于真实概率或团队审核。",

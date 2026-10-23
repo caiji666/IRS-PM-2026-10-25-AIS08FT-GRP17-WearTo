@@ -52,3 +52,8 @@ The original Chrome Aura tab is left on the native Query interface:
 The earlier local snapshot viewer remains an optional export, not the native verification result. Read-only queries for other cases are in [neo4j-activity-demo.cypher](neo4j-activity-demo.cypher).
 
 The runtime continues to use Python for conditional reasoning and Neo4j for storage and retained-path verification. The service example still uses synthetic weather and explicitly enabled draft knowledge, so `context_status=partial` is expected. No knowledge was approved; place KG runtime data was not imported or switched to Neo4j. The observed recovery does not guarantee future DNS or free-instance uptime.
+
+
+## Reviewed knowledge validation on 2026-10-22
+
+The owner confirmed KG review completion. Review metadata was synchronized to the existing 90 nodes and 203 relationships without creating or deleting graph entities. Hiking, museum visit, dinner with smart casual (multi-hop), and dinner with casual at depth 1 all matched local Python results in reviewed-only mode, including evidence paths; every retained path passed live Cypher verification. Source records retain their original reading levels and evidence basis. This validates local and Neo4j support, independently of the backend chosen for a final demonstration. Machine-readable results: evaluation/results/2026-10-22/neo4j-reviewed-validation.json.

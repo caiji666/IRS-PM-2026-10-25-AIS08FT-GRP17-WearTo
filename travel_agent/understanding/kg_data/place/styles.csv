@@ -1,4 +1,4 @@
 ﻿style_id,name,region_scope,source,confidence,updated_at,basis,evidence,review_status,reviewed_by
-relaxed_travel,轻松旅行,global,MODEL,0.6,2026-10-07,project_inference,可选检索风格，不代表当地人的穿衣习惯。,pending,
-outdoor_functional,户外功能,global,MODEL,0.6,2026-10-07,project_inference,可选检索风格，不代表当地人的穿衣习惯。,pending,
-tropical_casual,热带休闲,global,MODEL,0.6,2026-10-07,project_inference,可选检索风格，不代表当地人的穿衣习惯。,pending,
+relaxed_travel,轻松旅行,global,MODEL,0.6,2026-10-07,project_inference,可选检索风格，不代表当地人的穿衣习惯。,approved,project_owner
+outdoor_functional,户外功能,global,MODEL,0.6,2026-10-07,project_inference,可选检索风格，不代表当地人的穿衣习惯。,approved,project_owner
+tropical_casual,热带休闲,global,MODEL,0.6,2026-10-07,project_inference,可选检索风格，不代表当地人的穿衣习惯。,approved,project_owner

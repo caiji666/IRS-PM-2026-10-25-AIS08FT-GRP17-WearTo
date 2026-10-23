@@ -1,260 +1,266 @@
 ﻿alias_id,place_id,alias,lang,source,confidence,updated_at,basis,evidence,review_status,reviewed_by
-alias:1,local:CN,中国,zh,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:2,local:CN,China,en,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:3,local:JP,日本,zh,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:4,local:JP,Japan,en,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:5,local:KR,韩国,zh,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:6,local:KR,South Korea,en,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:7,local:SG,新加坡,zh,MSS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:8,local:SG,Singapore,en,MSS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:9,local:MY,马来西亚,zh,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:10,local:MY,Malaysia,en,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:11,local:ID,印度尼西亚,zh,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:12,local:ID,Indonesia,en,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:13,local:VN,越南,zh,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:14,local:VN,Vietnam,en,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:15,local:TH,泰国,zh,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:16,local:TH,Thailand,en,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:17,local:beijing,北京,zh,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:18,local:beijing,Beijing,en,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:19,local:tokyo,东京,zh,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:20,local:tokyo,Tokyo,en,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:21,local:osaka,大阪,zh,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:22,local:osaka,Osaka,en,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:23,local:seoul,首尔,zh,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:24,local:seoul,Seoul,en,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:25,local:kuala_lumpur,吉隆坡,zh,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:26,local:kuala_lumpur,Kuala Lumpur,en,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:27,local:denpasar,登巴萨,zh,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:28,local:denpasar,Denpasar,en,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:29,local:hoi_an_city,会安,zh,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:30,local:hoi_an_city,Hoi An,en,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:31,local:bangkok,曼谷,zh,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:32,local:bangkok,Bangkok,en,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:33,local:bali,巴厘岛,zh,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:34,local:bali,Bali,en,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:35,local:gardens_by_the_bay,滨海湾花园,zh,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:36,local:gardens_by_the_bay,Gardens by the Bay,en,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:37,local:sentosa,圣淘沙,zh,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:38,local:sentosa,Sentosa,en,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:39,local:mutianyu,慕田峪长城,zh,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:40,local:mutianyu,Mutianyu Great Wall,en,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:41,local:ueno_park,上野公园,zh,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:42,local:ueno_park,Ueno Park,en,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:43,local:usj,日本环球影城,zh,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:44,local:usj,Universal Studios Japan,en,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:45,local:n_seoul_tower,N首尔塔,zh,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:46,local:n_seoul_tower,N Seoul Tower,en,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:47,local:cloud_forest,云雾林,zh,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:48,local:cloud_forest,Cloud Forest,en,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:49,local:sanur_beach,沙努尔海滩,zh,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:50,local:sanur_beach,Sanur Beach,en,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:51,local:hoi_an,会安古城,zh,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:52,local:hoi_an,Hoi An Ancient Town,en,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:53,local:klcc_park,KLCC公园,zh,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:54,local:klcc_park,KLCC Park,en,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:55,local:asiatique,Asiatique河滨综合区,zh,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:56,local:asiatique,Asiatique The Riverfront Destination,en,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:57,local:national_gallery_singapore,新加坡国家美术馆,zh,GALLERY,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:58,local:national_gallery_singapore,National Gallery Singapore,en,GALLERY,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:59,local:sultan_mosque,苏丹回教堂,zh,SULTAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:60,local:sultan_mosque,Sultan Mosque,en,SULTAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:61,local:buddha_tooth,佛牙寺龙华院,zh,BUDDHA,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:62,local:buddha_tooth,Buddha Tooth Relic Temple and Museum,en,BUDDHA,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:63,local:uss,新加坡环球影城,zh,USS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:64,local:uss,Universal Studios Singapore,en,USS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:65,local:merlion,鱼尾狮公园,zh,MERLION,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:66,local:merlion,Merlion Park,en,MERLION,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:67,local:siloso,西乐索海滩,zh,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:68,local:siloso,Siloso Beach,en,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:69,local:grand_palace,曼谷大皇宫,zh,PALACE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:70,local:grand_palace,The Grand Palace,en,PALACE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:71,local:besakih,百沙基寺,zh,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:72,local:besakih,Pura Besakih,en,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:73,local:macritchie,麦里芝步道网,zh,MAC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:74,local:macritchie,MacRitchie Trails,en,MAC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:75,local:flower_dome,花穹,zh,FLOWER,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:76,local:flower_dome,Flower Dome,en,FLOWER,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:77,local:fort_canning,福康宁公园,zh,FORT,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:78,local:fort_canning,Fort Canning Park,en,FORT,0.92,2026-10-07,source_normalized,名称及中文项目译名。,pending,
-alias:79,local:sultan_mosque,Masjid Sultan,ms,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,pending,
-alias:80,local:ueno_park,上野恩賜公園,ja,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,pending,
-alias:81,local:usj,USJ,en,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,pending,
-alias:82,local:uss,USS,en,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,pending,
-alias:83,local:hoi_an,Hội An Ancient Town,vi,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,pending,
-alias:84,local:n_seoul_tower,南山塔,zh,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,pending,
-alias:85,local:buddha_tooth,佛牙寺,zh,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,pending,
-alias:jp:kanto:zh,local:kanto,关东,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kanto:en,local:kanto,Kanto,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kanto:ja,local:kanto,関東,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kansai:zh,local:kansai,关西,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kansai:en,local:kansai,Kansai,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kansai:ja,local:kansai,関西,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_tokyo_pref:zh,local:jp_tokyo_pref,东京都,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_tokyo_pref:en,local:jp_tokyo_pref,Tokyo Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_tokyo_pref:ja,local:jp_tokyo_pref,東京都,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_chiba_pref:zh,local:jp_chiba_pref,千叶县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_chiba_pref:en,local:jp_chiba_pref,Chiba Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_chiba_pref:ja,local:jp_chiba_pref,千葉県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_kanagawa_pref:zh,local:jp_kanagawa_pref,神奈川县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_kanagawa_pref:en,local:jp_kanagawa_pref,Kanagawa Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_kanagawa_pref:ja,local:jp_kanagawa_pref,神奈川県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_tochigi_pref:zh,local:jp_tochigi_pref,栃木县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_tochigi_pref:en,local:jp_tochigi_pref,Tochigi Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_tochigi_pref:ja,local:jp_tochigi_pref,栃木県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_ibaraki_pref:zh,local:jp_ibaraki_pref,茨城县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_ibaraki_pref:en,local:jp_ibaraki_pref,Ibaraki Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_ibaraki_pref:ja,local:jp_ibaraki_pref,茨城県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_saitama_pref:zh,local:jp_saitama_pref,埼玉县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_saitama_pref:en,local:jp_saitama_pref,Saitama Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_saitama_pref:ja,local:jp_saitama_pref,埼玉県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_gunma_pref:zh,local:jp_gunma_pref,群马县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_gunma_pref:en,local:jp_gunma_pref,Gunma Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_gunma_pref:ja,local:jp_gunma_pref,群馬県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_kyoto_pref:zh,local:jp_kyoto_pref,京都府,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_kyoto_pref:en,local:jp_kyoto_pref,Kyoto Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_kyoto_pref:ja,local:jp_kyoto_pref,京都府,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_osaka_pref:zh,local:jp_osaka_pref,大阪府,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_osaka_pref:en,local:jp_osaka_pref,Osaka Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_osaka_pref:ja,local:jp_osaka_pref,大阪府,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_nara_pref:zh,local:jp_nara_pref,奈良县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_nara_pref:en,local:jp_nara_pref,Nara Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_nara_pref:ja,local:jp_nara_pref,奈良県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_hyogo_pref:zh,local:jp_hyogo_pref,兵库县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_hyogo_pref:en,local:jp_hyogo_pref,Hyogo Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_hyogo_pref:ja,local:jp_hyogo_pref,兵庫県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_shiga_pref:zh,local:jp_shiga_pref,滋贺县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_shiga_pref:en,local:jp_shiga_pref,Shiga Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_shiga_pref:ja,local:jp_shiga_pref,滋賀県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_wakayama_pref:zh,local:jp_wakayama_pref,和歌山县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_wakayama_pref:en,local:jp_wakayama_pref,Wakayama Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:jp_wakayama_pref:ja,local:jp_wakayama_pref,和歌山県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hachioji:zh,local:hachioji,八王子市,zh,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hachioji:en,local:hachioji,Hachioji,en,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hachioji:ja,local:hachioji,八王子市,ja,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:urayasu:zh,local:urayasu,浦安市,zh,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:urayasu:en,local:urayasu,Urayasu,en,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:urayasu:ja,local:urayasu,浦安市,ja,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kamakura:zh,local:kamakura,镰仓市,zh,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kamakura:en,local:kamakura,Kamakura,en,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kamakura:ja,local:kamakura,鎌倉市,ja,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hakone:zh,local:hakone,箱根町,zh,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hakone:en,local:hakone,Hakone,en,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hakone:ja,local:hakone,箱根町,ja,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nikko:zh,local:nikko,日光市,zh,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nikko:en,local:nikko,Nikko,en,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nikko:ja,local:nikko,日光市,ja,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hitachinaka:zh,local:hitachinaka,常陆那珂市,zh,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hitachinaka:en,local:hitachinaka,Hitachinaka,en,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hitachinaka:ja,local:hitachinaka,ひたちなか市,ja,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kawagoe:zh,local:kawagoe,川越市,zh,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kawagoe:en,local:kawagoe,Kawagoe,en,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kawagoe:ja,local:kawagoe,川越市,ja,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kusatsu:zh,local:kusatsu,草津町,zh,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kusatsu:en,local:kusatsu,Kusatsu,en,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kusatsu:ja,local:kusatsu,草津町,ja,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kyoto:zh,local:kyoto,京都市,zh,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kyoto:en,local:kyoto,Kyoto,en,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kyoto:ja,local:kyoto,京都市,ja,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nara:zh,local:nara,奈良市,zh,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nara:en,local:nara,Nara,en,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nara:ja,local:nara,奈良市,ja,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kobe:zh,local:kobe,神户市,zh,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kobe:en,local:kobe,Kobe,en,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kobe:ja,local:kobe,神戸市,ja,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:himeji:zh,local:himeji,姬路市,zh,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:himeji:en,local:himeji,Himeji,en,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:himeji:ja,local:himeji,姫路市,ja,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hikone:zh,local:hikone,彦根市,zh,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hikone:en,local:hikone,Hikone,en,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hikone:ja,local:hikone,彦根市,ja,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:koya:zh,local:koya,高野町,zh,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:koya:en,local:koya,Koya,en,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:koya:ja,local:koya,高野町,ja,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:sensoji:zh,local:sensoji,浅草寺,zh,JP_SENSOJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:sensoji:en,local:sensoji,Sensoji Temple,en,JP_SENSOJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:sensoji:ja,local:sensoji,浅草寺,ja,JP_SENSOJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:meiji_jingu:zh,local:meiji_jingu,明治神宫,zh,JP_MEIJI_JINGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:meiji_jingu:en,local:meiji_jingu,Meiji Jingu,en,JP_MEIJI_JINGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:meiji_jingu:ja,local:meiji_jingu,明治神宮,ja,JP_MEIJI_JINGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_skytree:zh,local:tokyo_skytree,东京晴空塔,zh,JP_TOKYO_SKYTREE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_skytree:en,local:tokyo_skytree,Tokyo Skytree,en,JP_TOKYO_SKYTREE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_skytree:ja,local:tokyo_skytree,東京スカイツリー,ja,JP_TOKYO_SKYTREE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:shibuya_crossing:zh,local:shibuya_crossing,涩谷十字路口,zh,JP_SHIBUYA_CROSSING,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:shibuya_crossing:en,local:shibuya_crossing,Shibuya Crossing,en,JP_SHIBUYA_CROSSING,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:shibuya_crossing:ja,local:shibuya_crossing,渋谷スクランブル交差点,ja,JP_SHIBUYA_CROSSING,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:shinjuku_gyoen:zh,local:shinjuku_gyoen,新宿御苑,zh,JP_SHINJUKU_GYOEN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:shinjuku_gyoen:en,local:shinjuku_gyoen,Shinjuku Gyoen,en,JP_SHINJUKU_GYOEN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:shinjuku_gyoen:ja,local:shinjuku_gyoen,新宿御苑,ja,JP_SHINJUKU_GYOEN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:mt_takao:zh,local:mt_takao,高尾山,zh,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:mt_takao:en,local:mt_takao,Mount Takao,en,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:mt_takao:ja,local:mt_takao,高尾山,ja,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_national_museum:zh,local:tokyo_national_museum,东京国立博物馆,zh,JP_TOKYO_NATIONAL_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_national_museum:en,local:tokyo_national_museum,Tokyo National Museum,en,JP_TOKYO_NATIONAL_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_national_museum:ja,local:tokyo_national_museum,東京国立博物館,ja,JP_TOKYO_NATIONAL_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_disneyland:zh,local:tokyo_disneyland,东京迪士尼乐园,zh,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_disneyland:en,local:tokyo_disneyland,Tokyo Disneyland,en,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_disneyland:ja,local:tokyo_disneyland,東京ディズニーランド,ja,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_disneysea:zh,local:tokyo_disneysea,东京迪士尼海洋,zh,JP_TOKYO_DISNEYSEA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_disneysea:en,local:tokyo_disneysea,Tokyo DisneySea,en,JP_TOKYO_DISNEYSEA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:tokyo_disneysea:ja,local:tokyo_disneysea,東京ディズニーシー,ja,JP_TOKYO_DISNEYSEA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kamakura_daibutsu:zh,local:kamakura_daibutsu,镰仓大佛（高德院）,zh,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kamakura_daibutsu:en,local:kamakura_daibutsu,Kamakura Great Buddha,en,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kamakura_daibutsu:ja,local:kamakura_daibutsu,鎌倉大仏,ja,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hakone_open_air_museum:zh,local:hakone_open_air_museum,箱根雕刻之森美术馆,zh,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hakone_open_air_museum:en,local:hakone_open_air_museum,Hakone Open-Air Museum,en,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hakone_open_air_museum:ja,local:hakone_open_air_museum,彫刻の森美術館,ja,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nikko_toshogu:zh,local:nikko_toshogu,日光东照宫,zh,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nikko_toshogu:en,local:nikko_toshogu,Nikko Toshogu,en,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nikko_toshogu:ja,local:nikko_toshogu,日光東照宮,ja,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hitachi_seaside_park:zh,local:hitachi_seaside_park,国营常陆海滨公园,zh,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hitachi_seaside_park:en,local:hitachi_seaside_park,Hitachi Seaside Park,en,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hitachi_seaside_park:ja,local:hitachi_seaside_park,国営ひたち海浜公園,ja,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kawagoe_warehouse:zh,local:kawagoe_warehouse,川越藏造老街,zh,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kawagoe_warehouse:en,local:kawagoe_warehouse,Kawagoe Warehouse District,en,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kawagoe_warehouse:ja,local:kawagoe_warehouse,川越 蔵造りの町並み,ja,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kusatsu_yubatake:zh,local:kusatsu_yubatake,草津温泉汤畑周边,zh,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kusatsu_yubatake:en,local:kusatsu_yubatake,Kusatsu Yubatake Area,en,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kusatsu_yubatake:ja,local:kusatsu_yubatake,草津温泉 湯畑,ja,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kiyomizudera:zh,local:kiyomizudera,清水寺,zh,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kiyomizudera:en,local:kiyomizudera,Kiyomizu-dera Temple,en,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kiyomizudera:ja,local:kiyomizudera,清水寺,ja,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:fushimi_inari:zh,local:fushimi_inari,伏见稻荷大社,zh,JP_FUSHIMI_INARI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:fushimi_inari:en,local:fushimi_inari,Fushimi Inari Taisha,en,JP_FUSHIMI_INARI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:fushimi_inari:ja,local:fushimi_inari,伏見稲荷大社,ja,JP_FUSHIMI_INARI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:arashiyama_bamboo:zh,local:arashiyama_bamboo,岚山竹林小径,zh,JP_ARASHIYAMA_BAMBOO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:arashiyama_bamboo:en,local:arashiyama_bamboo,Arashiyama Bamboo Grove,en,JP_ARASHIYAMA_BAMBOO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:arashiyama_bamboo:ja,local:arashiyama_bamboo,嵐山 竹林の小径,ja,JP_ARASHIYAMA_BAMBOO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kinkakuji:zh,local:kinkakuji,金阁寺（鹿苑寺）,zh,JP_KINKAKUJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kinkakuji:en,local:kinkakuji,Kinkakuji Temple,en,JP_KINKAKUJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kinkakuji:ja,local:kinkakuji,金閣寺（鹿苑寺）,ja,JP_KINKAKUJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nishiki_market:zh,local:nishiki_market,锦市场,zh,JP_NISHIKI_MARKET,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nishiki_market:en,local:nishiki_market,Nishiki Market,en,JP_NISHIKI_MARKET,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nishiki_market:ja,local:nishiki_market,錦市場,ja,JP_NISHIKI_MARKET,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:osaka_castle:zh,local:osaka_castle,大阪城,zh,JP_OSAKA_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:osaka_castle:en,local:osaka_castle,Osaka Castle,en,JP_OSAKA_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:osaka_castle:ja,local:osaka_castle,大阪城,ja,JP_OSAKA_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:dotonbori:zh,local:dotonbori,道顿堀,zh,JP_DOTONBORI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:dotonbori:en,local:dotonbori,Dotonbori,en,JP_DOTONBORI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:dotonbori:ja,local:dotonbori,道頓堀,ja,JP_DOTONBORI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kaiyukan:zh,local:kaiyukan,大阪海游馆,zh,JP_KAIYUKAN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kaiyukan:en,local:kaiyukan,Osaka Aquarium Kaiyukan,en,JP_KAIYUKAN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kaiyukan:ja,local:kaiyukan,海遊館,ja,JP_KAIYUKAN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nara_park:zh,local:nara_park,奈良公园,zh,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nara_park:en,local:nara_park,Nara Park,en,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:nara_park:ja,local:nara_park,奈良公園,ja,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:todaiji:zh,local:todaiji,东大寺,zh,JP_TODAIJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:todaiji:en,local:todaiji,Todaiji Temple,en,JP_TODAIJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:todaiji:ja,local:todaiji,東大寺,ja,JP_TODAIJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kobe_harborland:zh,local:kobe_harborland,神户港湾乐园,zh,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kobe_harborland:en,local:kobe_harborland,Kobe Harborland,en,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:kobe_harborland:ja,local:kobe_harborland,神戸ハーバーランド,ja,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:himeji_castle:zh,local:himeji_castle,姬路城,zh,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:himeji_castle:en,local:himeji_castle,Himeji Castle,en,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:himeji_castle:ja,local:himeji_castle,姫路城,ja,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hikone_castle:zh,local:hikone_castle,彦根城,zh,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hikone_castle:en,local:hikone_castle,Hikone Castle,en,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:hikone_castle:ja,local:hikone_castle,彦根城,ja,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:koyasan_okunoin:zh,local:koyasan_okunoin,高野山奥之院,zh,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:koyasan_okunoin:en,local:koyasan_okunoin,Koyasan Okunoin,en,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
-alias:jp:koyasan_okunoin:ja,local:koyasan_okunoin,高野山 奥之院,ja,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,pending,
+alias:1,local:CN,中国,zh,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:2,local:CN,China,en,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:3,local:JP,日本,zh,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:4,local:JP,Japan,en,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:5,local:KR,韩国,zh,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:6,local:KR,South Korea,en,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:7,local:SG,新加坡,zh,MSS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:8,local:SG,Singapore,en,MSS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:9,local:MY,马来西亚,zh,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:10,local:MY,Malaysia,en,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:11,local:ID,印度尼西亚,zh,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:12,local:ID,Indonesia,en,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:13,local:VN,越南,zh,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:14,local:VN,Vietnam,en,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:15,local:TH,泰国,zh,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:16,local:TH,Thailand,en,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:17,local:beijing,北京,zh,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:18,local:beijing,Beijing,en,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:19,local:tokyo,东京,zh,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:20,local:tokyo,Tokyo,en,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:21,local:osaka,大阪,zh,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:22,local:osaka,Osaka,en,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:23,local:seoul,首尔,zh,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:24,local:seoul,Seoul,en,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:25,local:kuala_lumpur,吉隆坡,zh,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:26,local:kuala_lumpur,Kuala Lumpur,en,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:27,local:denpasar,登巴萨,zh,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:28,local:denpasar,Denpasar,en,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:29,local:hoi_an_city,会安,zh,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:30,local:hoi_an_city,Hoi An,en,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:31,local:bangkok,曼谷,zh,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:32,local:bangkok,Bangkok,en,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:33,local:bali,巴厘岛,zh,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:34,local:bali,Bali,en,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:35,local:gardens_by_the_bay,滨海湾花园,zh,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:36,local:gardens_by_the_bay,Gardens by the Bay,en,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:37,local:sentosa,圣淘沙,zh,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:38,local:sentosa,Sentosa,en,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:39,local:mutianyu,慕田峪长城,zh,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:40,local:mutianyu,Mutianyu Great Wall,en,MUT,0.7,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:41,local:ueno_park,上野公园,zh,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:42,local:ueno_park,Ueno Park,en,UENO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:43,local:usj,日本环球影城,zh,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:44,local:usj,Universal Studios Japan,en,USJ,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:45,local:n_seoul_tower,N首尔塔,zh,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:46,local:n_seoul_tower,N Seoul Tower,en,SEOUL,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:47,local:cloud_forest,云雾林,zh,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:48,local:cloud_forest,Cloud Forest,en,CLOUD,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:49,local:sanur_beach,沙努尔海滩,zh,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:50,local:sanur_beach,Sanur Beach,en,SANUR,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:51,local:hoi_an,会安古城,zh,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:52,local:hoi_an,Hoi An Ancient Town,en,HOIAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:53,local:klcc_park,KLCC公园,zh,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:54,local:klcc_park,KLCC Park,en,KLCC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:55,local:asiatique,Asiatique河滨综合区,zh,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:56,local:asiatique,Asiatique The Riverfront Destination,en,ASIATIQUE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:57,local:national_gallery_singapore,新加坡国家美术馆,zh,GALLERY,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:58,local:national_gallery_singapore,National Gallery Singapore,en,GALLERY,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:59,local:sultan_mosque,苏丹回教堂,zh,SULTAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:60,local:sultan_mosque,Sultan Mosque,en,SULTAN,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:61,local:buddha_tooth,佛牙寺龙华院,zh,BUDDHA,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:62,local:buddha_tooth,Buddha Tooth Relic Temple and Museum,en,BUDDHA,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:63,local:uss,新加坡环球影城,zh,USS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:64,local:uss,Universal Studios Singapore,en,USS,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:65,local:merlion,鱼尾狮公园,zh,MERLION,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:66,local:merlion,Merlion Park,en,MERLION,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:67,local:siloso,西乐索海滩,zh,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:68,local:siloso,Siloso Beach,en,SILOSO,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:69,local:grand_palace,曼谷大皇宫,zh,PALACE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:70,local:grand_palace,The Grand Palace,en,PALACE,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:71,local:besakih,百沙基寺,zh,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:72,local:besakih,Pura Besakih,en,BESAKIH,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:73,local:macritchie,麦里芝步道网,zh,MAC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:74,local:macritchie,MacRitchie Trails,en,MAC,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:75,local:flower_dome,花穹,zh,FLOWER,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:76,local:flower_dome,Flower Dome,en,FLOWER,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:77,local:fort_canning,福康宁公园,zh,FORT,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:78,local:fort_canning,Fort Canning Park,en,FORT,0.92,2026-10-07,source_normalized,名称及中文项目译名。,approved,project_owner
+alias:79,local:sultan_mosque,Masjid Sultan,ms,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,approved,project_owner
+alias:80,local:ueno_park,上野恩賜公園,ja,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,approved,project_owner
+alias:81,local:usj,USJ,en,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,approved,project_owner
+alias:82,local:uss,USS,en,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,approved,project_owner
+alias:83,local:hoi_an,Hội An Ancient Town,vi,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,approved,project_owner
+alias:84,local:n_seoul_tower,南山塔,zh,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,approved,project_owner
+alias:85,local:buddha_tooth,佛牙寺,zh,MODEL,0.85,2026-10-07,project_normalization,检索别名；不声明独立实体。,approved,project_owner
+alias:jp:kanto:zh,local:kanto,关东,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kanto:en,local:kanto,Kanto,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kanto:ja,local:kanto,関東,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kansai:zh,local:kansai,关西,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kansai:en,local:kansai,Kansai,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kansai:ja,local:kansai,関西,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_tokyo_pref:zh,local:jp_tokyo_pref,东京都,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_tokyo_pref:en,local:jp_tokyo_pref,Tokyo Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_tokyo_pref:ja,local:jp_tokyo_pref,東京都,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_chiba_pref:zh,local:jp_chiba_pref,千叶县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_chiba_pref:en,local:jp_chiba_pref,Chiba Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_chiba_pref:ja,local:jp_chiba_pref,千葉県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_kanagawa_pref:zh,local:jp_kanagawa_pref,神奈川县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_kanagawa_pref:en,local:jp_kanagawa_pref,Kanagawa Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_kanagawa_pref:ja,local:jp_kanagawa_pref,神奈川県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_tochigi_pref:zh,local:jp_tochigi_pref,栃木县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_tochigi_pref:en,local:jp_tochigi_pref,Tochigi Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_tochigi_pref:ja,local:jp_tochigi_pref,栃木県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_ibaraki_pref:zh,local:jp_ibaraki_pref,茨城县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_ibaraki_pref:en,local:jp_ibaraki_pref,Ibaraki Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_ibaraki_pref:ja,local:jp_ibaraki_pref,茨城県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_saitama_pref:zh,local:jp_saitama_pref,埼玉县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_saitama_pref:en,local:jp_saitama_pref,Saitama Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_saitama_pref:ja,local:jp_saitama_pref,埼玉県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_gunma_pref:zh,local:jp_gunma_pref,群马县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_gunma_pref:en,local:jp_gunma_pref,Gunma Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_gunma_pref:ja,local:jp_gunma_pref,群馬県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_kyoto_pref:zh,local:jp_kyoto_pref,京都府,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_kyoto_pref:en,local:jp_kyoto_pref,Kyoto Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_kyoto_pref:ja,local:jp_kyoto_pref,京都府,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_osaka_pref:zh,local:jp_osaka_pref,大阪府,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_osaka_pref:en,local:jp_osaka_pref,Osaka Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_osaka_pref:ja,local:jp_osaka_pref,大阪府,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_nara_pref:zh,local:jp_nara_pref,奈良县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_nara_pref:en,local:jp_nara_pref,Nara Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_nara_pref:ja,local:jp_nara_pref,奈良県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_hyogo_pref:zh,local:jp_hyogo_pref,兵库县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_hyogo_pref:en,local:jp_hyogo_pref,Hyogo Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_hyogo_pref:ja,local:jp_hyogo_pref,兵庫県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_shiga_pref:zh,local:jp_shiga_pref,滋贺县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_shiga_pref:en,local:jp_shiga_pref,Shiga Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_shiga_pref:ja,local:jp_shiga_pref,滋賀県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_wakayama_pref:zh,local:jp_wakayama_pref,和歌山县,zh,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_wakayama_pref:en,local:jp_wakayama_pref,Wakayama Prefecture,en,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:jp_wakayama_pref:ja,local:jp_wakayama_pref,和歌山県,ja,JP_REGIONS,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hachioji:zh,local:hachioji,八王子市,zh,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hachioji:en,local:hachioji,Hachioji,en,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hachioji:ja,local:hachioji,八王子市,ja,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:urayasu:zh,local:urayasu,浦安市,zh,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:urayasu:en,local:urayasu,Urayasu,en,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:urayasu:ja,local:urayasu,浦安市,ja,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kamakura:zh,local:kamakura,镰仓市,zh,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kamakura:en,local:kamakura,Kamakura,en,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kamakura:ja,local:kamakura,鎌倉市,ja,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hakone:zh,local:hakone,箱根町,zh,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hakone:en,local:hakone,Hakone,en,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hakone:ja,local:hakone,箱根町,ja,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nikko:zh,local:nikko,日光市,zh,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nikko:en,local:nikko,Nikko,en,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nikko:ja,local:nikko,日光市,ja,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hitachinaka:zh,local:hitachinaka,常陆那珂市,zh,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hitachinaka:en,local:hitachinaka,Hitachinaka,en,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hitachinaka:ja,local:hitachinaka,ひたちなか市,ja,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kawagoe:zh,local:kawagoe,川越市,zh,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kawagoe:en,local:kawagoe,Kawagoe,en,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kawagoe:ja,local:kawagoe,川越市,ja,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kusatsu:zh,local:kusatsu,草津町,zh,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kusatsu:en,local:kusatsu,Kusatsu,en,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kusatsu:ja,local:kusatsu,草津町,ja,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kyoto:zh,local:kyoto,京都市,zh,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kyoto:en,local:kyoto,Kyoto,en,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kyoto:ja,local:kyoto,京都市,ja,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nara:zh,local:nara,奈良市,zh,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nara:en,local:nara,Nara,en,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nara:ja,local:nara,奈良市,ja,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kobe:zh,local:kobe,神户市,zh,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kobe:en,local:kobe,Kobe,en,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kobe:ja,local:kobe,神戸市,ja,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:himeji:zh,local:himeji,姬路市,zh,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:himeji:en,local:himeji,Himeji,en,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:himeji:ja,local:himeji,姫路市,ja,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hikone:zh,local:hikone,彦根市,zh,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hikone:en,local:hikone,Hikone,en,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hikone:ja,local:hikone,彦根市,ja,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:koya:zh,local:koya,高野町,zh,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:koya:en,local:koya,Koya,en,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:koya:ja,local:koya,高野町,ja,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:sensoji:zh,local:sensoji,浅草寺,zh,JP_SENSOJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:sensoji:en,local:sensoji,Sensoji Temple,en,JP_SENSOJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:sensoji:ja,local:sensoji,浅草寺,ja,JP_SENSOJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:meiji_jingu:zh,local:meiji_jingu,明治神宫,zh,JP_MEIJI_JINGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:meiji_jingu:en,local:meiji_jingu,Meiji Jingu,en,JP_MEIJI_JINGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:meiji_jingu:ja,local:meiji_jingu,明治神宮,ja,JP_MEIJI_JINGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_skytree:zh,local:tokyo_skytree,东京晴空塔,zh,JP_TOKYO_SKYTREE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_skytree:en,local:tokyo_skytree,Tokyo Skytree,en,JP_TOKYO_SKYTREE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_skytree:ja,local:tokyo_skytree,東京スカイツリー,ja,JP_TOKYO_SKYTREE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:shibuya_crossing:zh,local:shibuya_crossing,涩谷十字路口,zh,JP_SHIBUYA_CROSSING,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:shibuya_crossing:en,local:shibuya_crossing,Shibuya Crossing,en,JP_SHIBUYA_CROSSING,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:shibuya_crossing:ja,local:shibuya_crossing,渋谷スクランブル交差点,ja,JP_SHIBUYA_CROSSING,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:shinjuku_gyoen:zh,local:shinjuku_gyoen,新宿御苑,zh,JP_SHINJUKU_GYOEN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:shinjuku_gyoen:en,local:shinjuku_gyoen,Shinjuku Gyoen,en,JP_SHINJUKU_GYOEN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:shinjuku_gyoen:ja,local:shinjuku_gyoen,新宿御苑,ja,JP_SHINJUKU_GYOEN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:mt_takao:zh,local:mt_takao,高尾山,zh,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:mt_takao:en,local:mt_takao,Mount Takao,en,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:mt_takao:ja,local:mt_takao,高尾山,ja,JP_MT_TAKAO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_national_museum:zh,local:tokyo_national_museum,东京国立博物馆,zh,JP_TOKYO_NATIONAL_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_national_museum:en,local:tokyo_national_museum,Tokyo National Museum,en,JP_TOKYO_NATIONAL_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_national_museum:ja,local:tokyo_national_museum,東京国立博物館,ja,JP_TOKYO_NATIONAL_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_disneyland:zh,local:tokyo_disneyland,东京迪士尼乐园,zh,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_disneyland:en,local:tokyo_disneyland,Tokyo Disneyland,en,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_disneyland:ja,local:tokyo_disneyland,東京ディズニーランド,ja,JP_TOKYO_DISNEYLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_disneysea:zh,local:tokyo_disneysea,东京迪士尼海洋,zh,JP_TOKYO_DISNEYSEA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_disneysea:en,local:tokyo_disneysea,Tokyo DisneySea,en,JP_TOKYO_DISNEYSEA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:tokyo_disneysea:ja,local:tokyo_disneysea,東京ディズニーシー,ja,JP_TOKYO_DISNEYSEA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kamakura_daibutsu:zh,local:kamakura_daibutsu,镰仓大佛（高德院）,zh,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kamakura_daibutsu:en,local:kamakura_daibutsu,Kamakura Great Buddha,en,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kamakura_daibutsu:ja,local:kamakura_daibutsu,鎌倉大仏,ja,JP_KAMAKURA_DAIBUTSU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hakone_open_air_museum:zh,local:hakone_open_air_museum,箱根雕刻之森美术馆,zh,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hakone_open_air_museum:en,local:hakone_open_air_museum,Hakone Open-Air Museum,en,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hakone_open_air_museum:ja,local:hakone_open_air_museum,彫刻の森美術館,ja,JP_HAKONE_OPEN_AIR_MUSEUM,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nikko_toshogu:zh,local:nikko_toshogu,日光东照宫,zh,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nikko_toshogu:en,local:nikko_toshogu,Nikko Toshogu,en,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nikko_toshogu:ja,local:nikko_toshogu,日光東照宮,ja,JP_NIKKO_TOSHOGU,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hitachi_seaside_park:zh,local:hitachi_seaside_park,国营常陆海滨公园,zh,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hitachi_seaside_park:en,local:hitachi_seaside_park,Hitachi Seaside Park,en,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hitachi_seaside_park:ja,local:hitachi_seaside_park,国営ひたち海浜公園,ja,JP_HITACHI_SEASIDE_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kawagoe_warehouse:zh,local:kawagoe_warehouse,川越藏造老街,zh,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kawagoe_warehouse:en,local:kawagoe_warehouse,Kawagoe Warehouse District,en,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kawagoe_warehouse:ja,local:kawagoe_warehouse,川越 蔵造りの町並み,ja,JP_KAWAGOE_WAREHOUSE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kusatsu_yubatake:zh,local:kusatsu_yubatake,草津温泉汤畑周边,zh,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kusatsu_yubatake:en,local:kusatsu_yubatake,Kusatsu Yubatake Area,en,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kusatsu_yubatake:ja,local:kusatsu_yubatake,草津温泉 湯畑,ja,JP_KUSATSU_YUBATAKE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kiyomizudera:zh,local:kiyomizudera,清水寺,zh,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kiyomizudera:en,local:kiyomizudera,Kiyomizu-dera Temple,en,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kiyomizudera:ja,local:kiyomizudera,清水寺,ja,JP_KIYOMIZUDERA,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:fushimi_inari:zh,local:fushimi_inari,伏见稻荷大社,zh,JP_FUSHIMI_INARI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:fushimi_inari:en,local:fushimi_inari,Fushimi Inari Taisha,en,JP_FUSHIMI_INARI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:fushimi_inari:ja,local:fushimi_inari,伏見稲荷大社,ja,JP_FUSHIMI_INARI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:arashiyama_bamboo:zh,local:arashiyama_bamboo,岚山竹林小径,zh,JP_ARASHIYAMA_BAMBOO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:arashiyama_bamboo:en,local:arashiyama_bamboo,Arashiyama Bamboo Grove,en,JP_ARASHIYAMA_BAMBOO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:arashiyama_bamboo:ja,local:arashiyama_bamboo,嵐山 竹林の小径,ja,JP_ARASHIYAMA_BAMBOO,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kinkakuji:zh,local:kinkakuji,金阁寺（鹿苑寺）,zh,JP_KINKAKUJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kinkakuji:en,local:kinkakuji,Kinkakuji Temple,en,JP_KINKAKUJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kinkakuji:ja,local:kinkakuji,金閣寺（鹿苑寺）,ja,JP_KINKAKUJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nishiki_market:zh,local:nishiki_market,锦市场,zh,JP_NISHIKI_MARKET,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nishiki_market:en,local:nishiki_market,Nishiki Market,en,JP_NISHIKI_MARKET,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nishiki_market:ja,local:nishiki_market,錦市場,ja,JP_NISHIKI_MARKET,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:osaka_castle:zh,local:osaka_castle,大阪城,zh,JP_OSAKA_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:osaka_castle:en,local:osaka_castle,Osaka Castle,en,JP_OSAKA_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:osaka_castle:ja,local:osaka_castle,大阪城,ja,JP_OSAKA_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:dotonbori:zh,local:dotonbori,道顿堀,zh,JP_DOTONBORI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:dotonbori:en,local:dotonbori,Dotonbori,en,JP_DOTONBORI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:dotonbori:ja,local:dotonbori,道頓堀,ja,JP_DOTONBORI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kaiyukan:zh,local:kaiyukan,大阪海游馆,zh,JP_KAIYUKAN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kaiyukan:en,local:kaiyukan,Osaka Aquarium Kaiyukan,en,JP_KAIYUKAN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kaiyukan:ja,local:kaiyukan,海遊館,ja,JP_KAIYUKAN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nara_park:zh,local:nara_park,奈良公园,zh,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nara_park:en,local:nara_park,Nara Park,en,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:nara_park:ja,local:nara_park,奈良公園,ja,JP_NARA_PARK,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:todaiji:zh,local:todaiji,东大寺,zh,JP_TODAIJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:todaiji:en,local:todaiji,Todaiji Temple,en,JP_TODAIJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:todaiji:ja,local:todaiji,東大寺,ja,JP_TODAIJI,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kobe_harborland:zh,local:kobe_harborland,神户港湾乐园,zh,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kobe_harborland:en,local:kobe_harborland,Kobe Harborland,en,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:kobe_harborland:ja,local:kobe_harborland,神戸ハーバーランド,ja,JP_KOBE_HARBORLAND,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:himeji_castle:zh,local:himeji_castle,姬路城,zh,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:himeji_castle:en,local:himeji_castle,Himeji Castle,en,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:himeji_castle:ja,local:himeji_castle,姫路城,ja,JP_HIMEJI_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hikone_castle:zh,local:hikone_castle,彦根城,zh,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hikone_castle:en,local:hikone_castle,Hikone Castle,en,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:hikone_castle:ja,local:hikone_castle,彦根城,ja,JP_HIKONE_CASTLE,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:koyasan_okunoin:zh,local:koyasan_okunoin,高野山奥之院,zh,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:koyasan_okunoin:en,local:koyasan_okunoin,Koyasan Okunoin,en,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:jp:koyasan_okunoin:ja,local:koyasan_okunoin,高野山 奥之院,ja,JP_KOYASAN_OKUNOIN,0.85,2026-10-07,source_normalized,名称归一化；中文为项目译名。,approved,project_owner
+alias:seoul:myeongdong:en,local:myeongdong,Myeongdong,en,SEOUL_MYEONGDONG,0.85,2026-10-22,project_normalization,Official English name or project Chinese translation.,approved,project_owner
+alias:seoul:myeongdong:zh,local:myeongdong,明洞,zh,SEOUL_MYEONGDONG,0.85,2026-10-22,project_normalization,Official English name or project Chinese translation.,approved,project_owner
+alias:seoul:seongsu_cafe_street:en,local:seongsu_cafe_street,Yeonmujang-gil (Seongsu-dong Cafe Street),en,SEOUL_CAFE_STREET,0.85,2026-10-22,project_normalization,Official English name or project Chinese translation.,approved,project_owner
+alias:seoul:seongsu_cafe_street:zh,local:seongsu_cafe_street,圣水洞咖啡街,zh,SEOUL_CAFE_STREET,0.85,2026-10-22,project_normalization,Official English name or project Chinese translation.,approved,project_owner
+alias:seoul:gyeongbokgung:en,local:gyeongbokgung,Gyeongbokgung Palace,en,SEOUL_GYEONGBOKGUNG,0.85,2026-10-22,project_normalization,Official English name or project Chinese translation.,approved,project_owner
+alias:seoul:gyeongbokgung:zh,local:gyeongbokgung,景福宫,zh,SEOUL_GYEONGBOKGUNG,0.85,2026-10-22,project_normalization,Official English name or project Chinese translation.,approved,project_owner

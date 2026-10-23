@@ -1,0 +1,43 @@
+{
+  "graph_version": "0.2.0",
+  "operation": "review metadata only; no creation/deletion",
+  "cases": [
+    {
+      "activity": "hiking",
+      "depth": 4,
+      "local_equal": true,
+      "path_query_verified": true,
+      "status": "ok",
+      "knowledge_status": "approved"
+    },
+    {
+      "activity": "museum_visit",
+      "depth": 4,
+      "local_equal": true,
+      "path_query_verified": true,
+      "status": "ok",
+      "knowledge_status": "approved"
+    },
+    {
+      "activity": "dinner",
+      "depth": 4,
+      "local_equal": true,
+      "path_query_verified": true,
+      "status": "ok",
+      "knowledge_status": "approved"
+    },
+    {
+      "activity": "dinner",
+      "depth": 1,
+      "local_equal": true,
+      "path_query_verified": true,
+      "status": "ok",
+      "knowledge_status": "approved"
+    }
+  ],
+  "updated": {
+    "nodes": 90,
+    "relationships": 203
+  },
+  "status": "passed"
+}

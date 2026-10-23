@@ -49,13 +49,74 @@ def test_tokyo_activity_candidates_have_destination_paths_and_no_automatic_selec
         "photo spot",
         "sightseeing",
         "museum visit",
+        "religious visit",
     }
     for option in results["activities"]:
-        assert option["scope"] == "destination" and option["knowledge_status"] == "draft"
+        assert option["scope"] == "destination" and option["knowledge_status"] == "approved"
         for evidence in option["evidence"]:
             assert evidence["hierarchy"][-1]["record"]["place_id"] == "local:tokyo"
             assert evidence["relationship"]["source_url"]
         assert not any("disney" in e["place_id"] for e in option["examples"])
+
+
+def test_seoul_four_activity_options_have_scoped_source_evidence():
+    request = TripShoppingRequest(**{**MINIMUM, "destination": "Seoul"})
+    before = request.model_dump()
+    options = optional_suggestions(request, allow_draft=True)["activities"]
+    assert request.model_dump() == before
+    assert {option["value"] for option in options} == {
+        "shopping",
+        "cafe visit",
+        "sightseeing",
+        "photo spot",
+    }
+    cafe = next(option for option in options if option["value"] == "cafe visit")
+    assert cafe["label"] == "Café hopping"
+    for option in options:
+        assert option["scope"] == "destination"
+        assert option["knowledge_status"] == "approved"
+        for evidence in option["evidence"]:
+            assert evidence["hierarchy"][-1]["record"]["place_id"] == "local:seoul"
+            assert evidence["relationship"]["source_url"].startswith("https://")
+    assert len(activity_suggestions(request, allow_draft=True, limit=3)) == 3
+    assert optional_suggestions(request)["activities"]
+
+
+def test_seoul_fourth_choice_and_cafe_label_remain_explicit_and_queryable():
+    from travel_agent.understanding.knowledge import reason_activities, reason_places
+    from travel_agent.web.chat import public_offer
+
+    state = ConversationState(
+        pending_request=TripShoppingRequest(**{**MINIMUM, "destination": "Seoul"})
+    ).model_dump(mode="json")
+    chat = Conversation(
+        saved=state,
+        settings={"allow_draft": True},
+        extractor=NoExtractor(),
+        responder=ReferenceResponder(),
+    )
+    chat.opening()
+    offer = public_offer(chat.offered_options)
+    assert len(offer["options"]) == 4
+    fourth = chat.offered_options["options"][3]["value"]
+    chat.turn("Café hopping and sightseeing")
+    pending = TripShoppingRequest.model_validate(chat.state["pending_request"])
+    assert pending.activities == ["cafe visit", fourth]
+    assert chat.state["current_request"]["activities"] == []
+    _, results, questions = reason_activities(pending, allow_draft=True)
+    assert results["cafe visit"]["status"] == "ok" and not questions
+    pending.places = ["local:seongsu_cafe_street"]
+    place_result = reason_places(pending, allow_draft=True)
+    assert place_result["places"][0]["selected_activities"] == ["cafe_visit"]
+    numeric = Conversation(
+        saved=state,
+        settings={"allow_draft": True},
+        extractor=NoExtractor(),
+        responder=ReferenceResponder(),
+    )
+    numeric.opening()
+    numeric.turn("1 and 4")
+    assert numeric.state["pending_request"]["activities"] == ["cafe visit", fourth]
 
 
 def test_unknown_destination_gets_clearly_generic_ideas_and_review_policy_is_respected():
@@ -64,7 +125,9 @@ def test_unknown_destination_gets_clearly_generic_ideas_and_review_policy_is_res
     assert draft["activities"] and all(o["scope"] == "general" for o in draft["activities"])
     assert all(o["examples"] == [] for o in draft["activities"])
     strict = optional_suggestions(request)
-    assert strict["activities"] == strict["style"] == []
+    assert strict["activities"] and strict["style"]
+    assert all(o["knowledge_status"] == "approved" for o in strict["activities"])
+    assert all(o["scope"] == "general" and o["examples"] == [] for o in strict["activities"])
 
 
 def test_rejected_destination_is_not_used_as_location_evidence():

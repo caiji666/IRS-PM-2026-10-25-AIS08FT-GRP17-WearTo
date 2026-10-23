@@ -30,7 +30,7 @@ def test_dialogue_asks_one_missing_field_and_accepts_short_answers(monkeypatch):
         ("2026-12-20", "end_date"),
         ("2026-12-27", "budget"),
         ("500", "currency"),
-        ("SGD", None),
+        ("SGD", "optional_activities"),
     ]:
         output = chat.turn(message)
         assert "validation_errors" not in output["result"]["data"]
@@ -41,6 +41,7 @@ def test_dialogue_asks_one_missing_field_and_accepts_short_answers(monkeypatch):
             extractor=chat.extractor,
             responder=ReferenceResponder(),
         )
+    output = chat.turn("skip all")
     assert "Are these details correct?" in output["reply"]
     assert chat.state["request_version"] == 0
     accepted = chat.turn("Yes, confirm")

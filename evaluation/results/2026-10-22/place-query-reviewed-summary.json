@@ -1,0 +1,628 @@
+[
+  {
+    "id": "01_tokyo_winter",
+    "question": "1月去上野公园散步，穿什么？",
+    "command": "python3 -m student1.place_kg.engine '上野公园' --month 1 --activity city_walk",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      },
+      {
+        "req_id": "warm_layer",
+        "name": "保暖衣层",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "warm_layer",
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [
+        "breathable_quick_dry"
+      ],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "01_tokyo_winter.json"
+  },
+  {
+    "id": "02_tokyo_summer",
+    "question": "8月去同一个公园散步，会有什么变化？",
+    "command": "python3 -m student1.place_kg.engine '上野公园' --month 8 --activity city_walk",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "breathable_quick_dry",
+        "name": "透气快干",
+        "strength": "should"
+      },
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      },
+      {
+        "req_id": "light_color",
+        "name": "浅色",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "breathable_quick_dry",
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [
+        "warm_layer"
+      ],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "02_tokyo_summer.json"
+  },
+  {
+    "id": "03_tokyo_no_month",
+    "question": "去上野公园散步，但还没确定月份。",
+    "command": "python3 -m student1.place_kg.engine '上野公园' --activity city_walk",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [
+      {
+        "place_id": "local:ueno_park",
+        "reason": "month_or_climate_missing",
+        "detail": "补充月份或本地天气；不跨国套用气候。"
+      }
+    ],
+    "expected": {
+      "required": [
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [
+        "warm_layer",
+        "breathable_quick_dry"
+      ],
+      "missing_reasons": [
+        "month_or_climate_missing"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "03_tokyo_no_month.json"
+  },
+  {
+    "id": "04_osaka_theme_park",
+    "question": "8月去日本环球影城玩。",
+    "command": "python3 -m student1.place_kg.engine USJ --month 8 --activity theme_park",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "breathable_quick_dry",
+        "name": "透气快干",
+        "strength": "should"
+      },
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      },
+      {
+        "req_id": "light_color",
+        "name": "浅色",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "breathable_quick_dry",
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [
+        "warm_layer"
+      ],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "04_osaka_theme_park.json"
+  },
+  {
+    "id": "05_seoul_viewpoint",
+    "question": "1月去N首尔塔观景拍照，不安排徒步。",
+    "command": "python3 -m student1.place_kg.engine 'N首尔塔' --month 1 --activity photo_spot",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "warm_layer",
+        "name": "保暖衣层",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "warm_layer"
+      ],
+      "forbidden": [
+        "anti_slip_sole"
+      ],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "05_seoul_viewpoint.json"
+  },
+  {
+    "id": "06_mosque_inside",
+    "question": "12月进入苏丹回教堂参观，采用官网女性访客分支。",
+    "command": "python3 -m student1.place_kg.engine '苏丹回教堂' --month 12 --activity religious_visit --enter-interior --gender female",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "breathable_quick_dry",
+        "name": "透气快干",
+        "strength": "should"
+      },
+      {
+        "req_id": "light_color",
+        "name": "浅色",
+        "strength": "should"
+      },
+      {
+        "req_id": "long_sleeve_ankle_coverage",
+        "name": "长袖及脚踝覆盖",
+        "strength": "must"
+      },
+      {
+        "req_id": "no_cleavage",
+        "name": "领口不暴露",
+        "strength": "must"
+      },
+      {
+        "req_id": "no_shoes_indoor",
+        "name": "指定入内区域脱鞋",
+        "strength": "must"
+      },
+      {
+        "req_id": "opaque_clothing",
+        "name": "不透视衣物",
+        "strength": "must"
+      },
+      {
+        "req_id": "rain_protection",
+        "name": "防雨",
+        "strength": "should"
+      },
+      {
+        "req_id": "slip_on_shoes",
+        "name": "易穿脱鞋",
+        "strength": "nice"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "long_sleeve_ankle_coverage",
+        "no_shoes_indoor",
+        "opaque_clothing"
+      ],
+      "forbidden": [
+        "cover_hair_f"
+      ],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "06_mosque_inside.json"
+  },
+  {
+    "id": "07_mosque_outside",
+    "question": "同样12月到苏丹回教堂，但只在外面看，不入内。",
+    "command": "python3 -m student1.place_kg.engine '苏丹回教堂' --month 12 --gender female",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "breathable_quick_dry",
+        "name": "透气快干",
+        "strength": "should"
+      },
+      {
+        "req_id": "light_color",
+        "name": "浅色",
+        "strength": "should"
+      },
+      {
+        "req_id": "rain_protection",
+        "name": "防雨",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 4,
+    "missing_information": [
+      {
+        "place_id": "local:sultan_mosque",
+        "reason": "select_actual_activities"
+      }
+    ],
+    "expected": {
+      "required": [
+        "rain_protection"
+      ],
+      "forbidden": [
+        "no_shoes_indoor",
+        "long_sleeve_ankle_coverage"
+      ],
+      "missing_reasons": [
+        "select_actual_activities"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "07_mosque_outside.json"
+  },
+  {
+    "id": "08_indoor_garden",
+    "question": "进入云雾林看景拍照，我比较怕冷。",
+    "command": "python3 -m student1.place_kg.engine '云雾林' --activity photo_spot --enter-interior --cold-sensitive",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "light_layer",
+        "name": "轻薄外层",
+        "strength": "nice"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "light_layer"
+      ],
+      "forbidden": [
+        "rain_protection",
+        "breathable_quick_dry"
+      ],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "08_indoor_garden.json"
+  },
+  {
+    "id": "09_hoi_an_rain",
+    "question": "1月在会安古城步行游览。",
+    "command": "python3 -m student1.place_kg.engine '会安古城' --month 1 --activity city_walk",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      },
+      {
+        "req_id": "light_layer",
+        "name": "轻薄外层",
+        "strength": "should"
+      },
+      {
+        "req_id": "rain_protection",
+        "name": "防雨",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "rain_protection",
+        "light_layer",
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "09_hoi_an_rain.json"
+  },
+  {
+    "id": "10_bali_beach",
+    "question": "10月到沙努尔海滩看看海，没有选择下水。",
+    "command": "python3 -m student1.place_kg.engine '沙努尔海滩' --month 10 --activity beach",
+    "return_code": 0,
+    "requirements": [],
+    "conditional_requirement_count": 0,
+    "missing_information": [
+      {
+        "place_id": "local:sanur_beach",
+        "reason": "month_or_climate_missing",
+        "detail": "补充月份或本地天气；不跨国套用气候。"
+      }
+    ],
+    "expected": {
+      "required": [],
+      "forbidden": [
+        "swimwear",
+        "breathable_quick_dry"
+      ],
+      "missing_reasons": [
+        "month_or_climate_missing"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "10_bali_beach.json"
+  },
+  {
+    "id": "11_bali_temple",
+    "question": "10月入内参观百沙基寺。",
+    "command": "python3 -m student1.place_kg.engine '百沙基寺' --month 10 --activity religious_visit --enter-interior",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "sarong_and_sash",
+        "name": "沙龙及腰带",
+        "strength": "must"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [
+      {
+        "place_id": "local:besakih",
+        "reason": "month_or_climate_missing",
+        "detail": "补充月份或本地天气；不跨国套用气候。"
+      }
+    ],
+    "expected": {
+      "required": [
+        "sarong_and_sash"
+      ],
+      "forbidden": [
+        "no_shoes_indoor"
+      ],
+      "missing_reasons": [
+        "month_or_climate_missing"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "11_bali_temple.json"
+  },
+  {
+    "id": "12_china_hiking",
+    "question": "10月去慕田峪长城，选择徒步路线。",
+    "command": "python3 -m student1.place_kg.engine '慕田峪长城' --month 10 --activity outdoor_trek",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "anti_slip_sole",
+        "name": "抓地鞋底",
+        "strength": "should"
+      },
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [
+      {
+        "place_id": "local:mutianyu",
+        "reason": "month_or_climate_missing",
+        "detail": "补充月份或本地天气；不跨国套用气候。"
+      }
+    ],
+    "expected": {
+      "required": [
+        "anti_slip_sole",
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [
+        "breathable_quick_dry"
+      ],
+      "missing_reasons": [
+        "month_or_climate_missing"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "12_china_hiking.json"
+  },
+  {
+    "id": "13_klcc_walk",
+    "question": "10月到KLCC公园散步。",
+    "command": "python3 -m student1.place_kg.engine 'KLCC公园' --month 10 --activity city_walk",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [
+      {
+        "place_id": "local:klcc_park",
+        "reason": "month_or_climate_missing",
+        "detail": "补充月份或本地天气；不跨国套用气候。"
+      }
+    ],
+    "expected": {
+      "required": [
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [
+        "breathable_quick_dry",
+        "smart_casual"
+      ],
+      "missing_reasons": [
+        "month_or_climate_missing"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "13_klcc_walk.json"
+  },
+  {
+    "id": "14_bangkok_shopping",
+    "question": "10月在Asiatique河滨综合区购物。",
+    "command": "python3 -m student1.place_kg.engine 'Asiatique河滨综合区' --month 10 --activity shopping",
+    "return_code": 0,
+    "requirements": [],
+    "conditional_requirement_count": 0,
+    "missing_information": [
+      {
+        "place_id": "local:asiatique",
+        "reason": "month_or_climate_missing",
+        "detail": "补充月份或本地天气；不跨国套用气候。"
+      }
+    ],
+    "expected": {
+      "required": [],
+      "forbidden": [
+        "smart_casual",
+        "no_slippers_shorts"
+      ],
+      "missing_reasons": [
+        "month_or_climate_missing"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "14_bangkok_shopping.json"
+  },
+  {
+    "id": "15_bangkok_palace",
+    "question": "10月进入曼谷大皇宫参观。",
+    "command": "python3 -m student1.place_kg.engine '曼谷大皇宫' --month 10 --activity city_walk --enter-interior",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      },
+      {
+        "req_id": "no_crop_top",
+        "name": "不穿短上衣",
+        "strength": "must"
+      },
+      {
+        "req_id": "no_shorts_mini_skirts",
+        "name": "不穿短裤或迷你裙",
+        "strength": "must"
+      },
+      {
+        "req_id": "no_sleepwear",
+        "name": "不穿睡衣",
+        "strength": "must"
+      },
+      {
+        "req_id": "no_torn_tight_bike_pants",
+        "name": "不穿破洞裤、紧身裤、自行车裤",
+        "strength": "must"
+      },
+      {
+        "req_id": "opaque_clothing",
+        "name": "不透视衣物",
+        "strength": "must"
+      },
+      {
+        "req_id": "sleeved_top",
+        "name": "有袖上衣",
+        "strength": "must"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [
+      {
+        "place_id": "local:grand_palace",
+        "reason": "month_or_climate_missing",
+        "detail": "补充月份或本地天气；不跨国套用气候。"
+      }
+    ],
+    "expected": {
+      "required": [
+        "sleeved_top",
+        "opaque_clothing",
+        "no_shorts_mini_skirts"
+      ],
+      "forbidden": [
+        "no_slippers_shorts"
+      ],
+      "missing_reasons": [
+        "month_or_climate_missing"
+      ]
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "15_bangkok_palace.json"
+  },
+  {
+    "id": "16_singapore_multiple",
+    "question": "3月去新加坡环球影城和西乐索海滩，合并准备需求。",
+    "command": "python3 -m student1.place_kg.engine USS '西乐索海滩' --month 3 --activity theme_park --activity beach",
+    "return_code": 0,
+    "requirements": [
+      {
+        "req_id": "breathable_quick_dry",
+        "name": "透气快干",
+        "strength": "should"
+      },
+      {
+        "req_id": "comfy_walking_shoes",
+        "name": "舒适步行鞋",
+        "strength": "should"
+      },
+      {
+        "req_id": "light_color",
+        "name": "浅色",
+        "strength": "should"
+      },
+      {
+        "req_id": "rain_protection",
+        "name": "防雨",
+        "strength": "should"
+      }
+    ],
+    "conditional_requirement_count": 0,
+    "missing_information": [],
+    "expected": {
+      "required": [
+        "breathable_quick_dry",
+        "rain_protection",
+        "comfy_walking_shoes"
+      ],
+      "forbidden": [
+        "warm_layer",
+        "swimwear"
+      ],
+      "missing_reasons": []
+    },
+    "checks_passed": true,
+    "failures": [],
+    "raw_result": "16_singapore_multiple.json"
+  }
+]

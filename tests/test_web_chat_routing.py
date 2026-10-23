@@ -37,6 +37,7 @@ function renderChat(){}
 function setBusy(value){state.busy=value;}
 function resetPreview(){}
 function renderOutfitTabs(){}
+function renderReference(){}
 function renderOutfitProducts(){}
 function showRefinementPlan(){}
 function poll(){}
@@ -50,7 +51,9 @@ async function api(path,body){calls.push({path,body});return path==='/api/chat'?
         "assert.equal(state.job,null);await submitChatMessage('I want to visit Tokyo.');",
         "offer": "state.chatMode='refine';state.job='new-trip';"
         "await submitChatMessage('Museums','optional-activities');",
-        "refine": "focusRequirementChat();await submitChatMessage('Change my budget to 200.');",
+        "refine": "focusRequirementChat();focusRequirementChat();"
+        "assert.equal(state.messages.length,1);assert.equal(state.chatExpanded,true);"
+        "await submitChatMessage('Change my budget to 200.');",
     }
     expected = "/api/student5/refine" if scenario == "refine" else "/api/chat"
     expected_offer = '"optional-activities"' if scenario == "offer" else "undefined"

@@ -1,0 +1,110 @@
+............................................................s........... [ 10%]
+........................................................................ [ 21%]
+.....sssssssssssssss..ssssssssssssssssssss.sssssssssssssssss............ [ 32%]
+.s...................................................................... [ 42%]
+......................................................................F. [ 53%]
+................................F....................................... [ 64%]
+............s........sss.........................s...................... [ 75%]
+................s...........s.........FF.F.......................F...... [ 85%]
+....................................FF................................F. [ 96%]
+......................F                                                  [100%]
+=================================== FAILURES ===================================
+_____________ test_review_filter_and_visual_descriptor_validation ______________
+tests/test_activity_style_expansion.py:96: in test_review_filter_and_visual_descriptor_validation
+    assert graph.query("shopping")["style_candidates"] == []
+E   AssertionError: assert [{'style_id':...thetic', ...}] == []
+E     
+E     Left contains 4 more items, first extra item: {'style_id': 'style:maximalist', 'style': 'maximalist', 'label_zh': '繁复表达', 'kind': 'aesthetic', ...}
+E     Use -v to get more diff
+________ test_dialogue_asks_one_missing_field_and_accepts_short_answers ________
+tests/test_conversation.py:37: in test_dialogue_asks_one_missing_field_and_accepts_short_answers
+    assert chat.awaiting_field == next_field
+E   AssertionError: assert 'optional_activities' == None
+E    +  where 'optional_activities' = <travel_agent.understanding.conversation.Conversation object at 0x10c22ad50>.awaiting_field
+_ test_tokyo_activity_candidates_have_destination_paths_and_no_automatic_selection _
+tests/test_suggestions.py:55: in test_tokyo_activity_candidates_have_destination_paths_and_no_automatic_selection
+    assert option["scope"] == "destination" and option["knowledge_status"] == "draft"
+E   AssertionError: assert ('destination' == 'destination'
+E     
+E       destination and 'approved' == 'draft'
+E     
+E     - draft
+E     + approved)
+_________ test_seoul_four_activity_options_have_scoped_source_evidence _________
+tests/test_suggestions.py:77: in test_seoul_four_activity_options_have_scoped_source_evidence
+    assert option["knowledge_status"] == "draft"
+E   AssertionError: assert 'approved' == 'draft'
+E     
+E     - draft
+E     + approved
+_ test_unknown_destination_gets_clearly_generic_ideas_and_review_policy_is_respected _
+tests/test_suggestions.py:128: in test_unknown_destination_gets_clearly_generic_ideas_and_review_policy_is_respected
+    assert strict["activities"] == strict["style"] == []
+E   AssertionError: assert [{'id': 'acti...'主题乐园'], ...}] == [{'id': 'styl...ction.', ...}]
+E     
+E     At index 0 diff: {'id': 'activity:sightseeing', 'value': 'sightseeing', 'label': 'sightseeing', 'aliases': ['观光', 'city sightseeing', 'city_walk'], 'scope': 'general', 'basis': 'activity_kg_category', 'examples': [], 'knowledge_status': 'approved', 'evidence': [{'edge': {'id': 'e006', 'source': 'activity:sightseeing', 'target': 'occasion:sightseeing_casual', 'relation': 'HAS_OCCASION', 'source_id': 'project', 'supporting_section': 'MVP design', 'rationale': '项目建模映射，需团队审核；不是普遍着装规则。', 'conditions': {}, 'basis': 'project_heuristic', 'review_status': 'approved', 'reviewed_b...
+E     
+E     ...Full output truncated (3 lines hidden), use '-vv' to show
+__________ test_review_policy_one_hop_multi_hop_and_unknown_activity ___________
+tests/test_understanding.py:163: in test_review_policy_one_hop_multi_hop_and_unknown_activity
+    assert strict["hiking"] == []
+E   AssertionError: assert ['outdoor', '...', 'traction'] == []
+E     
+E     Left contains 6 more items, first extra item: 'outdoor'
+E     Use -v to get more diff
+________ test_local_http_rejects_foreign_origin_host_and_private_files _________
+tests/test_web.py:86: in test_local_http_rejects_foreign_origin_host_and_private_files
+    server = ThreadingHTTPServer(("127.0.0.1", 0), web.Handler)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:456: in __init__
+    self.server_bind()
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/http/server.py:140: in server_bind
+    socketserver.TCPServer.server_bind(self)
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:472: in server_bind
+    self.socket.bind(self.server_address)
+E   PermissionError: [Errno 1] Operation not permitted
+____________ test_legacy_preview_url_serves_existing_generated_png _____________
+tests/test_web.py:125: in test_legacy_preview_url_serves_existing_generated_png
+    server = ThreadingHTTPServer(("127.0.0.1", 0), web.Handler)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:456: in __init__
+    self.server_bind()
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/http/server.py:140: in server_bind
+    socketserver.TCPServer.server_bind(self)
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:472: in server_bind
+    self.socket.bind(self.server_address)
+E   PermissionError: [Errno 1] Operation not permitted
+______ test_http_exposes_only_public_choices_and_rejects_stale_selection _______
+tests/test_web_dialogue.py:174: in test_http_exposes_only_public_choices_and_rejects_stale_selection
+    server = ThreadingHTTPServer(("127.0.0.1", 0), web.Handler)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:456: in __init__
+    self.server_bind()
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/http/server.py:140: in server_bind
+    socketserver.TCPServer.server_bind(self)
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:472: in server_bind
+    self.socket.bind(self.server_address)
+E   PermissionError: [Errno 1] Operation not permitted
+_ test_http_upstream_refinement_requires_confirmation_and_confirmation_is_idempotent _
+tests/test_web_refinement.py:159: in test_http_upstream_refinement_requires_confirmation_and_confirmation_is_idempotent
+    server = ThreadingHTTPServer(("127.0.0.1", 0), web.Handler)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:456: in __init__
+    self.server_bind()
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/http/server.py:140: in server_bind
+    socketserver.TCPServer.server_bind(self)
+../../../../.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/socketserver.py:472: in server_bind
+    self.socket.bind(self.server_address)
+E   PermissionError: [Errno 1] Operation not permitted
+=========================== short test summary info ============================
+FAILED tests/test_activity_style_expansion.py::test_review_filter_and_visual_descriptor_validation
+FAILED tests/test_conversation.py::test_dialogue_asks_one_missing_field_and_accepts_short_answers
+FAILED tests/test_suggestions.py::test_tokyo_activity_candidates_have_destination_paths_and_no_automatic_selection
+FAILED tests/test_suggestions.py::test_seoul_four_activity_options_have_scoped_source_evidence
+FAILED tests/test_suggestions.py::test_unknown_destination_gets_clearly_generic_ideas_and_review_policy_is_respected
+FAILED tests/test_understanding.py::test_review_policy_one_hop_multi_hop_and_unknown_activity
+FAILED tests/test_web.py::test_local_http_rejects_foreign_origin_host_and_private_files
+FAILED tests/test_web.py::test_legacy_preview_url_serves_existing_generated_png
+FAILED tests/test_web_dialogue.py::test_http_exposes_only_public_choices_and_rejects_stale_selection
+FAILED tests/test_web_refinement.py::test_http_upstream_refinement_requires_confirmation_and_confirmation_is_idempotent
+10 failed, 600 passed, 63 skipped in 9.26s

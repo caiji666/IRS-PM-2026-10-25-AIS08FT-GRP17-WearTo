@@ -1,5 +1,7 @@
 # Activity styles and dressing needs — v0.2.0
 
+Review update (2026-10-22): All 90 current nodes, 203 assertions and 13 sources have project-owner approval recorded. Factual fields, source reading levels and project-heuristic classifications are preserved. Earlier pending references below describe the original expansion. Four fresh Neo4j/local comparisons passed in reviewed-only mode; see kg-review-2026-10-22 and the current evaluation report.
+
 The KG returns alternative style directions and independently scoped dressing needs. Item selection, outfit construction and final feasibility belong to downstream modules.
 
 ## Implemented scope

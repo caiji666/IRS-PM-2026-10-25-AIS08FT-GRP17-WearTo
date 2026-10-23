@@ -1,6 +1,6 @@
 ﻿style_id,item_id,source,confidence,updated_at,basis,evidence,review_status,reviewed_by
-relaxed_travel,walking_shoes,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,pending,
-outdoor_functional,trail_shoes,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,pending,
-outdoor_functional,quick_dry_top,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,pending,
-tropical_casual,quick_dry_top,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,pending,
-tropical_casual,hat,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,pending,
+relaxed_travel,walking_shoes,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,approved,project_owner
+outdoor_functional,trail_shoes,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,approved,project_owner
+outdoor_functional,quick_dry_top,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,approved,project_owner
+tropical_casual,quick_dry_top,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,approved,project_owner
+tropical_casual,hat,MODEL,0.6,2026-10-07,project_inference,风格可选单品。,approved,project_owner

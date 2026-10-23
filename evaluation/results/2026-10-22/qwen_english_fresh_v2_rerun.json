@@ -1,0 +1,4925 @@
+{
+  "dataset_id": "qwen-english-fresh-diagnostic-v2",
+  "dataset_sha256": "c07f38a63674a270c375619766a20cd358d013a043d0ccc1047acda4e5db12cb",
+  "extractor_sha256": "125b65317e16f93f2311416becbfdeb0424d98044bcf321865eadcdd7f918698",
+  "label_status": "assistant_authored_pending_human_review",
+  "evaluation_role": "reused_dataset_live_regression",
+  "dataset_scope": "New model generations on a previously inspected synthetic dataset. Not held out. Original labels and raw outputs are preserved; label review is separate from KG approval.",
+  "started_at": "2026-10-22T08:04:58.855851+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "subset_limit": null,
+  "teacher_forced": [
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Denver",
+        "start_date": "2026-11-12",
+        "end_date": "2026-11-16",
+        "activities": [
+          "skiing"
+        ],
+        "budget": 480,
+        "currency": "USD",
+        "style": [
+          "skiing"
+        ],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Denver",
+          "start_date": "2026-11-12",
+          "end_date": "2026-11-16",
+          "activities": [
+            "skiing"
+          ],
+          "budget": 480,
+          "currency": "USD",
+          "style": [
+            "skiing"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": false,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "style": {
+            "expected": [],
+            "actual": [
+              "skiing"
+            ]
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Denver",
+            "start_date": "2026-11-12",
+            "end_date": "2026-11-16",
+            "activities": [
+              "skiing"
+            ],
+            "budget": 480,
+            "currency": "USD",
+            "style": [
+              "skiing"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Denver",
+          "start_date": "2026-11-12",
+          "end_date": "2026-11-16",
+          "activities": [
+            "skiing"
+          ],
+          "budget": 480,
+          "currency": "USD",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Denver",
+            "start_date": "2026-11-12",
+            "end_date": "2026-11-16",
+            "activities": [
+              "skiing"
+            ],
+            "budget": 480,
+            "currency": "USD",
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E01",
+      "category": "new_city_activity",
+      "language": "en",
+      "message": "Denver, 2026-11-12 to 2026-11-16. I plan skiing. Budget 480 USD.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": "Denver",
+          "start_date": "2026-11-12",
+          "end_date": "2026-11-16",
+          "activities": [
+            "skiing"
+          ],
+          "budget": 480,
+          "currency": "USD",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Denver\",\n  \"start_date\": \"2026-11-12\",\n  \"end_date\": \"2026-11-16\",\n  \"activities\": [\"skiing\"],\n  \"budget\": 480,\n  \"currency\": \"USD\",\n  \"style\": [\"skiing\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Denver\",\n  \"start_date\": \"2026-11-12\",\n  \"end_date\": \"2026-11-16\",\n  \"activities\": [\"skiing\"],\n  \"budget\": 480,\n  \"currency\": \"USD\",\n  \"style\": [\"skiing\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 14.79
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "boho",
+        "start_date": "2023-01-01",
+        "end_date": "2023-01-31",
+        "activities": [
+          "boho outfits"
+        ],
+        "budget": 1000,
+        "currency": "USD",
+        "style": [
+          "boho"
+        ],
+        "excluded_items": [],
+        "dress_codes": {
+          "boho": "dresses in neutral colors"
+        }
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "boho",
+          "start_date": "2023-01-01",
+          "end_date": "2023-01-31",
+          "activities": [
+            "boho outfits"
+          ],
+          "budget": 1000,
+          "currency": "USD",
+          "style": [
+            "boho"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {
+            "boho": "dresses in neutral colors"
+          },
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": false,
+          "start_date": false,
+          "end_date": false,
+          "activities": false,
+          "budget": false,
+          "currency": false,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": false,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "destination": {
+            "expected": null,
+            "actual": "boho"
+          },
+          "start_date": {
+            "expected": null,
+            "actual": "2023-01-01"
+          },
+          "end_date": {
+            "expected": null,
+            "actual": "2023-01-31"
+          },
+          "activities": {
+            "expected": [],
+            "actual": [
+              "boho outfits"
+            ]
+          },
+          "budget": {
+            "expected": null,
+            "actual": 1000
+          },
+          "currency": {
+            "expected": null,
+            "actual": "USD"
+          },
+          "dress_codes": {
+            "expected": {},
+            "actual": {
+              "boho": "dresses in neutral colors"
+            }
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [
+          "boho"
+        ],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "destination",
+          "start_date",
+          "end_date",
+          "activities",
+          "budget",
+          "currency"
+        ],
+        "missing_fields_observed": [],
+        "missing_fields_match": false,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "boho",
+            "start_date": "2023-01-01",
+            "end_date": "2023-01-31",
+            "activities": [
+              "boho outfits"
+            ],
+            "budget": 1000,
+            "currency": "USD",
+            "style": [
+              "boho"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {
+              "boho": "dresses in neutral colors"
+            },
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": null,
+          "start_date": null,
+          "end_date": null,
+          "activities": [],
+          "budget": null,
+          "currency": null,
+          "style": [
+            "bohemian",
+            "boho"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "destination",
+          "start_date",
+          "end_date",
+          "activities",
+          "budget",
+          "currency"
+        ],
+        "missing_fields_observed": [
+          "destination",
+          "start_date",
+          "end_date",
+          "activities",
+          "budget",
+          "currency"
+        ],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": null,
+            "start_date": null,
+            "end_date": null,
+            "activities": [],
+            "budget": null,
+            "currency": null,
+            "style": [
+              "bohemian",
+              "boho"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "COLLECTING_REQUIREMENTS"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E02",
+      "category": "new_style",
+      "language": "en",
+      "message": "I prefer boho outfits.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": null,
+          "start_date": null,
+          "end_date": null,
+          "activities": [],
+          "budget": null,
+          "currency": null,
+          "style": [
+            "bohemian"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"boho\",\n  \"start_date\": \"2023-01-01\",\n  \"end_date\": \"2023-01-31\",\n  \"activities\": [\"boho outfits\"],\n  \"budget\": 1000,\n  \"currency\": \"USD\",\n  \"style\": [\"boho\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"boho\": \"dresses in neutral colors\"\n  }\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"boho\",\n  \"start_date\": \"2023-01-01\",\n  \"end_date\": \"2023-01-31\",\n  \"activities\": [\"boho outfits\"],\n  \"budget\": 1000,\n  \"currency\": \"USD\",\n  \"style\": [\"boho\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"boho\": \"dresses in neutral colors\"\n  }\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 7.67
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Riga",
+        "start_date": "2026-11-23",
+        "end_date": "2026-11-25",
+        "activities": [
+          "Sightseeing"
+        ],
+        "budget": 275.75,
+        "currency": "SGD",
+        "style": [
+          "Sightseeing"
+        ],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Riga",
+          "start_date": "2026-11-23",
+          "end_date": "2026-11-25",
+          "activities": [
+            "Sightseeing"
+          ],
+          "budget": 275.75,
+          "currency": "SGD",
+          "style": [
+            "Sightseeing"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": false,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "style": {
+            "expected": [],
+            "actual": [
+              "Sightseeing"
+            ]
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Riga",
+            "start_date": "2026-11-23",
+            "end_date": "2026-11-25",
+            "activities": [
+              "Sightseeing"
+            ],
+            "budget": 275.75,
+            "currency": "SGD",
+            "style": [
+              "Sightseeing"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Riga",
+          "start_date": "2026-11-23",
+          "end_date": "2026-11-25",
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 275.75,
+          "currency": "SGD",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Riga",
+            "start_date": "2026-11-23",
+            "end_date": "2026-11-25",
+            "activities": [
+              "sightseeing"
+            ],
+            "budget": 275.75,
+            "currency": "SGD",
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E03",
+      "category": "decimal_money",
+      "language": "en",
+      "message": "Riga, 2026-11-23 to 2026-11-25. Sightseeing. Budget 275.75 SGD.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": "Riga",
+          "start_date": "2026-11-23",
+          "end_date": "2026-11-25",
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 275.75,
+          "currency": "SGD",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Riga\",\n  \"start_date\": \"2026-11-23\",\n  \"end_date\": \"2026-11-25\",\n  \"activities\": [\"Sightseeing\"],\n  \"budget\": 275.75,\n  \"currency\": \"SGD\",\n  \"style\": [\"Sightseeing\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Riga\",\n  \"start_date\": \"2026-11-23\",\n  \"end_date\": \"2026-11-25\",\n  \"activities\": [\"Sightseeing\"],\n  \"budget\": 275.75,\n  \"currency\": \"SGD\",\n  \"style\": [\"Sightseeing\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 6.86
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Vienna",
+        "start_date": "2026-11-04",
+        "end_date": "2026-11-08",
+        "activities": [
+          "Museum visit"
+        ],
+        "budget": 180,
+        "currency": "EUR",
+        "style": [
+          "casual"
+        ],
+        "excluded_items": [],
+        "dress_codes": {
+          "Museum visit": "I prefer casual outfits"
+        }
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "Museum visit"
+          ],
+          "budget": 180,
+          "currency": "EUR",
+          "style": [
+            "casual"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {
+            "Museum visit": "I prefer casual outfits"
+          },
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": false,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": false,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "style": {
+            "expected": [],
+            "actual": [
+              "casual"
+            ]
+          },
+          "dress_codes": {
+            "expected": {},
+            "actual": {
+              "Museum visit": "I prefer casual outfits"
+            }
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "Museum visit"
+            ],
+            "budget": 180,
+            "currency": "EUR",
+            "style": [
+              "casual"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {
+              "Museum visit": "I prefer casual outfits"
+            },
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 180,
+          "currency": "EUR",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 180,
+            "currency": "EUR",
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E04",
+      "category": "english_date_words",
+      "language": "en",
+      "message": "My destination is Vienna. Departure is November 4, 2026. Return is November 8, 2026. Museum visit. Budget 180 EUR.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 180,
+          "currency": "EUR",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"Museum visit\"],\n  \"budget\": 180,\n  \"currency\": \"EUR\",\n  \"style\": [\"casual\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"Museum visit\": \"I prefer casual outfits\"\n  }\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"Museum visit\"],\n  \"budget\": 180,\n  \"currency\": \"EUR\",\n  \"style\": [\"casual\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"Museum visit\": \"I prefer casual outfits\"\n  }\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 6.46
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "",
+        "start_date": "",
+        "end_date": "",
+        "activities": [
+          "Museum visit"
+        ],
+        "budget": 140,
+        "currency": "EUR",
+        "style": [
+          "classic"
+        ],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "",
+          "start_date": "",
+          "end_date": "",
+          "activities": [
+            "Museum visit"
+          ],
+          "budget": 140,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": false,
+          "start_date": false,
+          "end_date": false,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "destination": {
+            "expected": null,
+            "actual": ""
+          },
+          "start_date": {
+            "expected": null,
+            "actual": ""
+          },
+          "end_date": {
+            "expected": null,
+            "actual": ""
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "destination",
+          "start_date",
+          "end_date"
+        ],
+        "missing_fields_observed": [
+          "destination",
+          "start_date",
+          "end_date"
+        ],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValidationError: 3 validation errors for TripShoppingRequest\ndestination\n  Value error, Destination cannot be blank [type=value_error, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error\nstart_date\n  Input should be a valid date or datetime, input is too short [type=date_from_datetime_parsing, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/date_from_datetime_parsing\nend_date\n  Input should be a valid date or datetime, input is too short [type=date_from_datetime_parsing, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/date_from_datetime_parsing",
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 0,
+          "current_request": {
+            "destination": null,
+            "start_date": null,
+            "end_date": null,
+            "activities": [],
+            "budget": null,
+            "currency": null,
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "COLLECTING_REQUIREMENTS"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": null,
+          "start_date": null,
+          "end_date": null,
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 140,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "destination",
+          "start_date",
+          "end_date"
+        ],
+        "missing_fields_observed": [
+          "destination",
+          "start_date",
+          "end_date"
+        ],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": null,
+            "start_date": null,
+            "end_date": null,
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 140,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "COLLECTING_REQUIREMENTS"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E05",
+      "category": "missing_destination",
+      "language": "en",
+      "message": "Museum visit, classic style, budget 140 EUR. I have not chosen a destination or dates.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": null,
+          "start_date": null,
+          "end_date": null,
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 140,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"\",\n  \"start_date\": \"\",\n  \"end_date\": \"\",\n  \"activities\": [\"Museum visit\"],\n  \"budget\": 140,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"\",\n  \"start_date\": \"\",\n  \"end_date\": \"\",\n  \"activities\": [\"Museum visit\"],\n  \"budget\": 140,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 4.63
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Sapporo",
+        "start_date": "2026-11-02",
+        "end_date": "2026-11-05",
+        "activities": [
+          "hiking"
+        ],
+        "budget": 90,
+        "currency": "$",
+        "style": [],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "Sapporo",
+          "start_date": "2026-11-02",
+          "end_date": "2026-11-05",
+          "activities": [
+            "hiking"
+          ],
+          "budget": 90,
+          "currency": "$",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": false,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "currency": {
+            "expected": null,
+            "actual": "$"
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "currency"
+        ],
+        "missing_fields_observed": [],
+        "missing_fields_match": false,
+        "selection_match": true,
+        "error": "ValidationError: 1 validation error for TripShoppingRequest\ncurrency\n  Value error, Unsupported currency; use a supported ISO currency code [type=value_error, input_value='$', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 0,
+          "current_request": {
+            "destination": null,
+            "start_date": null,
+            "end_date": null,
+            "activities": [],
+            "budget": null,
+            "currency": null,
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "COLLECTING_REQUIREMENTS"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Sapporo",
+          "start_date": "2026-11-02",
+          "end_date": "2026-11-05",
+          "activities": [
+            "hiking"
+          ],
+          "budget": 90,
+          "currency": null,
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "currency"
+        ],
+        "missing_fields_observed": [
+          "currency"
+        ],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Sapporo",
+            "start_date": "2026-11-02",
+            "end_date": "2026-11-05",
+            "activities": [
+              "hiking"
+            ],
+            "budget": 90,
+            "currency": null,
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "COLLECTING_REQUIREMENTS"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E06",
+      "category": "dollar_ambiguity",
+      "language": "en",
+      "message": "Sapporo, 2026-11-02 to 2026-11-05. Hiking. Budget $90.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": "Sapporo",
+          "start_date": "2026-11-02",
+          "end_date": "2026-11-05",
+          "activities": [
+            "hiking"
+          ],
+          "budget": 90,
+          "currency": null,
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Sapporo\",\n  \"start_date\": \"2026-11-02\",\n  \"end_date\": \"2026-11-05\",\n  \"activities\": [\"hiking\"],\n  \"budget\": 90,\n  \"currency\": \"$\",\n  \"style\": [],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Sapporo\",\n  \"start_date\": \"2026-11-02\",\n  \"end_date\": \"2026-11-05\",\n  \"activities\": [\"hiking\"],\n  \"budget\": 90,\n  \"currency\": \"$\",\n  \"style\": [],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 5.46
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Warsaw",
+        "start_date": "2023-01-01",
+        "end_date": "2023-12-31",
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 210,
+        "currency": "EUR",
+        "style": [
+          "casual"
+        ],
+        "excluded_items": [],
+        "dress_codes": {
+          "sightseeing": "dresses"
+        }
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Warsaw",
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31",
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 210,
+          "currency": "EUR",
+          "style": [
+            "casual"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {
+            "sightseeing": "dresses"
+          },
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": false,
+          "end_date": false,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": false,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": false,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "start_date": {
+            "expected": null,
+            "actual": "2023-01-01"
+          },
+          "end_date": {
+            "expected": null,
+            "actual": "2023-12-31"
+          },
+          "style": {
+            "expected": [],
+            "actual": [
+              "casual"
+            ]
+          },
+          "dress_codes": {
+            "expected": {},
+            "actual": {
+              "sightseeing": "dresses"
+            }
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "start_date",
+          "end_date"
+        ],
+        "missing_fields_observed": [],
+        "missing_fields_match": false,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Warsaw",
+            "start_date": "2023-01-01",
+            "end_date": "2023-12-31",
+            "activities": [
+              "sightseeing"
+            ],
+            "budget": 210,
+            "currency": "EUR",
+            "style": [
+              "casual"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {
+              "sightseeing": "dresses"
+            },
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Warsaw",
+          "start_date": null,
+          "end_date": null,
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 210,
+          "currency": "EUR",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "start_date",
+          "end_date"
+        ],
+        "missing_fields_observed": [
+          "start_date",
+          "end_date"
+        ],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Warsaw",
+            "start_date": null,
+            "end_date": null,
+            "activities": [
+              "sightseeing"
+            ],
+            "budget": 210,
+            "currency": "EUR",
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "COLLECTING_REQUIREMENTS"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E07",
+      "category": "relative_date",
+      "language": "en",
+      "message": "I am going to Warsaw later this winter for sightseeing. Budget 210 EUR.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": "Warsaw",
+          "start_date": null,
+          "end_date": null,
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 210,
+          "currency": "EUR",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Warsaw\",\n  \"start_date\": \"2023-01-01\",\n  \"end_date\": \"2023-12-31\",\n  \"activities\": [\"sightseeing\"],\n  \"budget\": 210,\n  \"currency\": \"EUR\",\n  \"style\": [\"casual\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"sightseeing\": \"dresses\"\n  }\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Warsaw\",\n  \"start_date\": \"2023-01-01\",\n  \"end_date\": \"2023-12-31\",\n  \"activities\": [\"sightseeing\"],\n  \"budget\": 210,\n  \"currency\": \"EUR\",\n  \"style\": [\"casual\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"sightseeing\": \"dresses\"\n  }\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 6.17
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Madrid",
+        "start_date": "2026-11-06",
+        "end_date": "2026-11-09",
+        "activities": [
+          "sightseeing"
+        ],
+        "budget": 260,
+        "currency": "EUR",
+        "style": [],
+        "excluded_items": [],
+        "dress_codes": {}
+      },
+      "raw": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Madrid",
+          "start_date": "2026-11-06",
+          "end_date": "2026-11-09",
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 260,
+          "currency": "EUR",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Madrid",
+            "start_date": "2026-11-06",
+            "end_date": "2026-11-09",
+            "activities": [
+              "sightseeing"
+            ],
+            "budget": 260,
+            "currency": "EUR",
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Madrid",
+          "start_date": "2026-11-06",
+          "end_date": "2026-11-09",
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 260,
+          "currency": "EUR",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Madrid",
+            "start_date": "2026-11-06",
+            "end_date": "2026-11-09",
+            "activities": [
+              "sightseeing"
+            ],
+            "budget": 260,
+            "currency": "EUR",
+            "style": [],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E08",
+      "category": "negated_activity",
+      "language": "en",
+      "message": "Madrid, 2026-11-06 to 2026-11-09. I will do sightseeing, not dinner. Budget 260 EUR.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": "Madrid",
+          "start_date": "2026-11-06",
+          "end_date": "2026-11-09",
+          "activities": [
+            "sightseeing"
+          ],
+          "budget": 260,
+          "currency": "EUR",
+          "style": [],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Madrid\",\n  \"start_date\": \"2026-11-06\",\n  \"end_date\": \"2026-11-09\",\n  \"activities\": [\"sightseeing\"],\n  \"budget\": 260,\n  \"currency\": \"EUR\",\n  \"style\": [],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Madrid\",\n  \"start_date\": \"2026-11-06\",\n  \"end_date\": \"2026-11-09\",\n  \"activities\": [\"sightseeing\"],\n  \"budget\": 260,\n  \"currency\": \"EUR\",\n  \"style\": [],\n  \"excluded_items\": [],\n  \"dress_codes\": {}\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 5.69
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "street",
+        "start_date": "2023-01-01",
+        "end_date": "2023-01-31",
+        "activities": [
+          "streetwear outfits"
+        ],
+        "budget": 150,
+        "currency": "USD",
+        "style": [
+          "streetwear"
+        ],
+        "excluded_items": [],
+        "dress_codes": {
+          "streetwear": "dresses and shoes"
+        }
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "street",
+          "start_date": "2023-01-01",
+          "end_date": "2023-01-31",
+          "activities": [
+            "streetwear outfits"
+          ],
+          "budget": 150,
+          "currency": "USD",
+          "style": [
+            "streetwear"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {
+            "streetwear": "dresses and shoes"
+          },
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": false,
+          "start_date": false,
+          "end_date": false,
+          "activities": false,
+          "budget": true,
+          "currency": false,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": false,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "destination": {
+            "expected": null,
+            "actual": "street"
+          },
+          "start_date": {
+            "expected": null,
+            "actual": "2023-01-01"
+          },
+          "end_date": {
+            "expected": null,
+            "actual": "2023-01-31"
+          },
+          "activities": {
+            "expected": [],
+            "actual": [
+              "streetwear outfits"
+            ]
+          },
+          "currency": {
+            "expected": null,
+            "actual": "USD"
+          },
+          "dress_codes": {
+            "expected": {},
+            "actual": {
+              "streetwear": "dresses and shoes"
+            }
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [
+          "streetwear"
+        ],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "destination",
+          "start_date",
+          "end_date",
+          "activities",
+          "currency"
+        ],
+        "missing_fields_observed": [],
+        "missing_fields_match": false,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": "street",
+            "start_date": "2023-01-01",
+            "end_date": "2023-01-31",
+            "activities": [
+              "streetwear outfits"
+            ],
+            "budget": 150,
+            "currency": "USD",
+            "style": [
+              "streetwear"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {
+              "streetwear": "dresses and shoes"
+            },
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CREATE_REQUEST",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": null,
+          "start_date": null,
+          "end_date": null,
+          "activities": [],
+          "budget": 150,
+          "currency": null,
+          "style": [
+            "streetwear"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [
+          "destination",
+          "start_date",
+          "end_date",
+          "activities",
+          "currency"
+        ],
+        "missing_fields_observed": [
+          "destination",
+          "start_date",
+          "end_date",
+          "activities",
+          "currency"
+        ],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "local_demo",
+          "request_version": 1,
+          "current_request": {
+            "destination": null,
+            "start_date": null,
+            "end_date": null,
+            "activities": [],
+            "budget": 150,
+            "currency": null,
+            "style": [
+              "streetwear"
+            ],
+            "excluded_items": [],
+            "owned_item_ids": [],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "COLLECTING_REQUIREMENTS"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E09",
+      "category": "missing_currency",
+      "language": "en",
+      "message": "I prefer streetwear outfits and my budget is 150. Currency is not decided yet.",
+      "expected": {
+        "intent": "CREATE_REQUEST",
+        "request": {
+          "destination": null,
+          "start_date": null,
+          "end_date": null,
+          "activities": [],
+          "budget": 150,
+          "currency": null,
+          "style": [
+            "streetwear"
+          ],
+          "excluded_items": [],
+          "owned_item_ids": [],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"street\",\n  \"start_date\": \"2023-01-01\",\n  \"end_date\": \"2023-01-31\",\n  \"activities\": [\"streetwear outfits\"],\n  \"budget\": 150,\n  \"currency\": \"USD\",\n  \"style\": [\"streetwear\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"streetwear\": \"dresses and shoes\"\n  }\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "e118e0afab1a917766e48f43605080dcc4e86ba16e2c9ba64d10caaa381ede72",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"street\",\n  \"start_date\": \"2023-01-01\",\n  \"end_date\": \"2023-01-31\",\n  \"activities\": [\"streetwear outfits\"],\n  \"budget\": 150,\n  \"currency\": \"USD\",\n  \"style\": [\"streetwear\"],\n  \"excluded_items\": [],\n  \"dress_codes\": {\n    \"streetwear\": \"dresses and shoes\"\n  }\n}\n```",
+        "mode": "request",
+        "human_review_required": true
+      },
+      "input_state": null,
+      "seconds": 6.41
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Vienna",
+        "start_date": "2026-11-04",
+        "end_date": "2026-11-10",
+        "activities": [
+          "museum visit"
+        ],
+        "budget": 275,
+        "currency": "EUR",
+        "style": [
+          "classic"
+        ],
+        "excluded_items": [
+          "boots",
+          "sandals"
+        ],
+        "owned_item_ids": [
+          "owned_jacket_b"
+        ]
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": null,
+        "intent_match": false,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": false,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "end_date": {
+            "expected": "2026-11-10",
+            "actual": "2026-11-08"
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "end_date": false
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValidationError: 1 validation error for tagged-union[function-after[legal_fields_and_operations(), TripShoppingRequestPatch],OutfitConfirmation,ExplanationRequest]\n  Unable to extract tag using discriminator 'intent' [type=union_tag_not_found, input_value={'destination': 'Vienna',...ds': ['owned_jacket_b']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/union_tag_not_found",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "MODIFY_REQUIREMENTS",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-10",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "end_date": true
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 2,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-10",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E10",
+      "category": "end_date_patch",
+      "language": "en",
+      "message": "Extend the end date to 2026-11-10. Keep everything else.",
+      "expected": {
+        "intent": "MODIFY_REQUIREMENTS",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-10",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-10\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "61103475b77942656e110a03e92068cf9169cf35dc63c45df46a003d58a66e07",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-10\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}\n```",
+        "mode": "patch",
+        "human_review_required": true
+      },
+      "input_state": {
+        "session_id": "english_synthetic",
+        "request_version": 1,
+        "current_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "recommendation_round": 0,
+        "last_recommended_outfit_ids": [],
+        "selected_outfit_id": null,
+        "session_status": "READY"
+      },
+      "seconds": 6.97
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Vienna",
+        "start_date": "2026-11-04",
+        "end_date": "2026-11-08",
+        "activities": [
+          "museum visit"
+        ],
+        "budget": 275,
+        "currency": "EUR",
+        "style": [
+          "classic"
+        ],
+        "excluded_items": [
+          "boots"
+        ],
+        "owned_item_ids": [
+          "owned_jacket_b"
+        ]
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": null,
+        "intent_match": false,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": false,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "excluded_items": {
+            "expected": [
+              "boots"
+            ],
+            "actual": [
+              "boots",
+              "sandals"
+            ]
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "excluded_items": false
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValidationError: 1 validation error for tagged-union[function-after[legal_fields_and_operations(), TripShoppingRequestPatch],OutfitConfirmation,ExplanationRequest]\n  Unable to extract tag using discriminator 'intent' [type=union_tag_not_found, input_value={'destination': 'Vienna',...ds': ['owned_jacket_b']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/union_tag_not_found",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "MODIFY_REQUIREMENTS",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "excluded_items": true
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 2,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E11",
+      "category": "remove_one_exclusion",
+      "language": "en",
+      "message": "Remove sandals from my exclusion list. Keep boots excluded.",
+      "expected": {
+        "intent": "MODIFY_REQUIREMENTS",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "61103475b77942656e110a03e92068cf9169cf35dc63c45df46a003d58a66e07",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}\n```",
+        "mode": "patch",
+        "human_review_required": true
+      },
+      "input_state": {
+        "session_id": "english_synthetic",
+        "request_version": 1,
+        "current_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "recommendation_round": 0,
+        "last_recommended_outfit_ids": [],
+        "selected_outfit_id": null,
+        "session_status": "READY"
+      },
+      "seconds": 6.39
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Vienna",
+        "start_date": "2026-11-04",
+        "end_date": "2026-11-08",
+        "activities": [
+          "museum visit",
+          "dinner"
+        ],
+        "budget": 275,
+        "currency": "EUR",
+        "style": [
+          "classic"
+        ],
+        "excluded_items": [
+          "boots",
+          "sandals"
+        ],
+        "owned_item_ids": [
+          "owned_jacket_b"
+        ],
+        "dinner": {
+          "dress_code": "casual"
+        }
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": null,
+        "intent_match": false,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": false,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": false,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {
+          "activities": {
+            "expected": [
+              "museum visit",
+              "dinner"
+            ],
+            "actual": [
+              "museum visit"
+            ]
+          },
+          "dress_codes": {
+            "expected": {
+              "dinner": "casual"
+            },
+            "actual": {}
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "activities": false,
+          "dress_codes": false
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValidationError: 1 validation error for tagged-union[function-after[legal_fields_and_operations(), TripShoppingRequestPatch],OutfitConfirmation,ExplanationRequest]\n  Unable to extract tag using discriminator 'intent' [type=union_tag_not_found, input_value={'destination': 'Vienna',...'dress_code': 'casual'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/union_tag_not_found",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "MODIFY_REQUIREMENTS",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit",
+            "dinner"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {
+            "dinner": "casual"
+          },
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "activities": true,
+          "dress_codes": true
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 2,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit",
+              "dinner"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {
+              "dinner": "casual"
+            },
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E12",
+      "category": "activity_and_code_patch",
+      "language": "en",
+      "message": "Add dinner. The dinner dress code is casual.",
+      "expected": {
+        "intent": "MODIFY_REQUIREMENTS",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit",
+            "dinner"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {
+            "dinner": "casual"
+          },
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\", \"dinner\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"],\n  \"dinner\": {\n    \"dress_code\": \"casual\"\n  }\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "61103475b77942656e110a03e92068cf9169cf35dc63c45df46a003d58a66e07",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\", \"dinner\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"],\n  \"dinner\": {\n    \"dress_code\": \"casual\"\n  }\n}\n```",
+        "mode": "patch",
+        "human_review_required": true
+      },
+      "input_state": {
+        "session_id": "english_synthetic",
+        "request_version": 1,
+        "current_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "recommendation_round": 0,
+        "last_recommended_outfit_ids": [],
+        "selected_outfit_id": null,
+        "session_status": "READY"
+      },
+      "seconds": 8.07
+    },
+    {
+      "strict_json_object": true,
+      "parseable_object": true,
+      "raw_candidate": {
+        "intent": "REQUEST_EXPLANATION",
+        "reason": "The third outfit was recommended based on the user's preference for a classic style, which aligns with their budget of EUR 275 and the exclusion of items like boots and sandals. The outfit includes a jacket that matches their style preference."
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": "REQUEST_EXPLANATION",
+        "intent_match": true,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValidationError: 1 validation error for tagged-union[function-after[legal_fields_and_operations(), TripShoppingRequestPatch],OutfitConfirmation,ExplanationRequest]\nREQUEST_EXPLANATION.reason\n  Extra inputs are not permitted [type=extra_forbidden, input_value=\"The third outfit was rec...their style preference.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 1,
+          "last_recommended_outfit_ids": [
+            "outfit_301",
+            "outfit_302",
+            "outfit_303"
+          ],
+          "selected_outfit_id": null,
+          "session_status": "AWAITING_CONFIRMATION"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "REQUEST_EXPLANATION",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 1,
+          "last_recommended_outfit_ids": [
+            "outfit_301",
+            "outfit_302",
+            "outfit_303"
+          ],
+          "selected_outfit_id": null,
+          "session_status": "AWAITING_CONFIRMATION"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E13",
+      "category": "explanation_intent",
+      "language": "en",
+      "message": "Please explain why the third outfit was recommended.",
+      "expected": {
+        "intent": "REQUEST_EXPLANATION",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "{\n  \"intent\": \"REQUEST_EXPLANATION\",\n  \"reason\": \"The third outfit was recommended based on the user's preference for a classic style, which aligns with their budget of EUR 275 and the exclusion of items like boots and sandals. The outfit includes a jacket that matches their style preference.\"\n}",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "61103475b77942656e110a03e92068cf9169cf35dc63c45df46a003d58a66e07",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "{\n  \"intent\": \"REQUEST_EXPLANATION\",\n  \"reason\": \"The third outfit was recommended based on the user's preference for a classic style, which aligns with their budget of EUR 275 and the exclusion of items like boots and sandals. The outfit includes a jacket that matches their style preference.\"\n}",
+        "mode": "patch",
+        "human_review_required": true
+      },
+      "input_state": {
+        "session_id": "english_synthetic",
+        "request_version": 1,
+        "current_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "recommendation_round": 1,
+        "last_recommended_outfit_ids": [
+          "outfit_301",
+          "outfit_302",
+          "outfit_303"
+        ],
+        "selected_outfit_id": null,
+        "session_status": "AWAITING_CONFIRMATION"
+      },
+      "seconds": 4.31
+    },
+    {
+      "strict_json_object": true,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Vienna",
+        "start_date": "2026-11-04",
+        "end_date": "2026-11-08",
+        "activities": [
+          "museum visit"
+        ],
+        "budget": 275,
+        "currency": "EUR",
+        "style": [
+          "classic"
+        ],
+        "excluded_items": [
+          "boots",
+          "sandals"
+        ],
+        "owned_item_ids": [
+          "owned_jacket_b"
+        ]
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": null,
+        "intent_match": false,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": false,
+        "error": "ValidationError: 1 validation error for tagged-union[function-after[legal_fields_and_operations(), TripShoppingRequestPatch],OutfitConfirmation,ExplanationRequest]\n  Unable to extract tag using discriminator 'intent' [type=union_tag_not_found, input_value={'destination': 'Vienna',...ds': ['owned_jacket_b']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/union_tag_not_found",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 1,
+          "last_recommended_outfit_ids": [
+            "outfit_301",
+            "outfit_302",
+            "outfit_303"
+          ],
+          "selected_outfit_id": null,
+          "session_status": "AWAITING_CONFIRMATION"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CONFIRM_OUTFIT",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 1,
+          "last_recommended_outfit_ids": [
+            "outfit_301",
+            "outfit_302",
+            "outfit_303"
+          ],
+          "selected_outfit_id": "outfit_303",
+          "session_status": "CONFIRMED"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E14",
+      "category": "selection_by_id",
+      "language": "en",
+      "message": "Select outfit_303.",
+      "expected": {
+        "intent": "CONFIRM_OUTFIT",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "accept",
+        "selected_outfit_id": "outfit_303"
+      },
+      "raw_output": "{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "61103475b77942656e110a03e92068cf9169cf35dc63c45df46a003d58a66e07",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}",
+        "mode": "patch",
+        "human_review_required": true
+      },
+      "input_state": {
+        "session_id": "english_synthetic",
+        "request_version": 1,
+        "current_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "recommendation_round": 1,
+        "last_recommended_outfit_ids": [
+          "outfit_301",
+          "outfit_302",
+          "outfit_303"
+        ],
+        "selected_outfit_id": null,
+        "session_status": "AWAITING_CONFIRMATION"
+      },
+      "seconds": 6.46
+    },
+    {
+      "strict_json_object": true,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Vienna",
+        "start_date": "2026-11-04",
+        "end_date": "2026-11-08",
+        "activities": [
+          "museum visit"
+        ],
+        "budget": 275,
+        "currency": "EUR",
+        "style": [
+          "classic"
+        ],
+        "excluded_items": [
+          "boots",
+          "sandals"
+        ],
+        "owned_item_ids": [
+          "owned_jacket_b"
+        ]
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": null,
+        "intent_match": false,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValidationError: 1 validation error for tagged-union[function-after[legal_fields_and_operations(), TripShoppingRequestPatch],OutfitConfirmation,ExplanationRequest]\n  Unable to extract tag using discriminator 'intent' [type=union_tag_not_found, input_value={'destination': 'Vienna',...ds': ['owned_jacket_b']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/union_tag_not_found",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 1,
+          "last_recommended_outfit_ids": [
+            "outfit_301",
+            "outfit_302",
+            "outfit_303"
+          ],
+          "selected_outfit_id": null,
+          "session_status": "AWAITING_CONFIRMATION"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "CONFIRM_OUTFIT",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "reject",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {},
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValueError: Choose an outfit from the latest displayed recommendation round",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 1,
+          "last_recommended_outfit_ids": [
+            "outfit_301",
+            "outfit_302",
+            "outfit_303"
+          ],
+          "selected_outfit_id": null,
+          "session_status": "AWAITING_CONFIRMATION"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E15",
+      "category": "ambiguous_selection",
+      "language": "en",
+      "message": "I confirm an outfit.",
+      "expected": {
+        "intent": "CONFIRM_OUTFIT",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "validation": "reject",
+        "selected_outfit_id": null
+      },
+      "raw_output": "{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "61103475b77942656e110a03e92068cf9169cf35dc63c45df46a003d58a66e07",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"]\n}",
+        "mode": "patch",
+        "human_review_required": true
+      },
+      "input_state": {
+        "session_id": "english_synthetic",
+        "request_version": 1,
+        "current_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "recommendation_round": 1,
+        "last_recommended_outfit_ids": [
+          "outfit_301",
+          "outfit_302",
+          "outfit_303"
+        ],
+        "selected_outfit_id": null,
+        "session_status": "AWAITING_CONFIRMATION"
+      },
+      "seconds": 6.85
+    },
+    {
+      "strict_json_object": false,
+      "parseable_object": true,
+      "raw_candidate": {
+        "destination": "Vienna",
+        "start_date": "2026-11-04",
+        "end_date": "2026-11-08",
+        "activities": [
+          "museum visit"
+        ],
+        "budget": 275,
+        "currency": "EUR",
+        "style": [
+          "classic"
+        ],
+        "excluded_items": [
+          "boots",
+          "sandals"
+        ],
+        "owned_item_ids": [
+          "owned_jacket_b"
+        ],
+        "price_preference": "lower"
+      },
+      "raw": {
+        "passed": false,
+        "predicted_intent": null,
+        "intent_match": false,
+        "contract_valid": false,
+        "validation_outcome": "reject",
+        "validation_match": false,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": false
+        },
+        "mismatches": {
+          "price_preference": {
+            "expected": "lower",
+            "actual": null
+          }
+        },
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "price_preference": false
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": "ValidationError: 1 validation error for tagged-union[function-after[legal_fields_and_operations(), TripShoppingRequestPatch],OutfitConfirmation,ExplanationRequest]\n  Unable to extract tag using discriminator 'intent' [type=union_tag_not_found, input_value={'destination': 'Vienna',...ce_preference': 'lower'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/union_tag_not_found",
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 1,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": null
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true
+      },
+      "guarded": {
+        "passed": true,
+        "predicted_intent": "MODIFY_REQUIREMENTS",
+        "intent_match": true,
+        "contract_valid": true,
+        "validation_outcome": "accept",
+        "validation_match": true,
+        "observed_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": "lower"
+        },
+        "field_matches": {
+          "destination": true,
+          "start_date": true,
+          "end_date": true,
+          "activities": true,
+          "budget": true,
+          "currency": true,
+          "style": true,
+          "excluded_items": true,
+          "owned_item_ids": true,
+          "places": true,
+          "dress_codes": true,
+          "enter_interior": true,
+          "gender": true,
+          "cold_sensitive": true,
+          "price_preference": true
+        },
+        "mismatches": {},
+        "extra_fields": [],
+        "dangling_dress_code_keys": [],
+        "changed_field_matches": {
+          "price_preference": true
+        },
+        "unrequested_edits": [],
+        "missing_fields_expected": [],
+        "missing_fields_observed": [],
+        "missing_fields_match": true,
+        "selection_match": true,
+        "error": null,
+        "next_state": {
+          "session_id": "english_synthetic",
+          "request_version": 2,
+          "current_request": {
+            "destination": "Vienna",
+            "start_date": "2026-11-04",
+            "end_date": "2026-11-08",
+            "activities": [
+              "museum visit"
+            ],
+            "budget": 275,
+            "currency": "EUR",
+            "style": [
+              "classic"
+            ],
+            "excluded_items": [
+              "boots",
+              "sandals"
+            ],
+            "owned_item_ids": [
+              "owned_jacket_b"
+            ],
+            "places": [],
+            "dress_codes": {},
+            "enter_interior": null,
+            "gender": null,
+            "cold_sensitive": null,
+            "price_preference": "lower"
+          },
+          "pending_request": null,
+          "recommendation_round": 0,
+          "last_recommended_outfit_ids": [],
+          "selected_outfit_id": null,
+          "session_status": "READY"
+        },
+        "candidate_available": true,
+        "grounding_warnings": [
+          "Reconciled model proposal with explicit English source evidence"
+        ]
+      },
+      "id": "E16",
+      "category": "cheaper_no_numeric_change",
+      "language": "en",
+      "message": "Make it cheaper.",
+      "expected": {
+        "intent": "MODIFY_REQUIREMENTS",
+        "request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": "lower"
+        },
+        "validation": "accept",
+        "selected_outfit_id": null
+      },
+      "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"],\n  \"price_preference\": \"lower\"\n}\n```",
+      "metadata": {
+        "provider": "qwen",
+        "model": "Qwen/Qwen3-0.6B",
+        "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+        "prompt_version": "english-supervised-v4",
+        "prompt_sha256": "61103475b77942656e110a03e92068cf9169cf35dc63c45df46a003d58a66e07",
+        "generation": {
+          "do_sample": false,
+          "max_new_tokens": 650,
+          "enable_thinking": false
+        },
+        "device": "cpu",
+        "raw_output": "```json\n{\n  \"destination\": \"Vienna\",\n  \"start_date\": \"2026-11-04\",\n  \"end_date\": \"2026-11-08\",\n  \"activities\": [\"museum visit\"],\n  \"budget\": 275,\n  \"currency\": \"EUR\",\n  \"style\": [\"classic\"],\n  \"excluded_items\": [\"boots\", \"sandals\"],\n  \"owned_item_ids\": [\"owned_jacket_b\"],\n  \"price_preference\": \"lower\"\n}\n```",
+        "mode": "patch",
+        "human_review_required": true
+      },
+      "input_state": {
+        "session_id": "english_synthetic",
+        "request_version": 1,
+        "current_request": {
+          "destination": "Vienna",
+          "start_date": "2026-11-04",
+          "end_date": "2026-11-08",
+          "activities": [
+            "museum visit"
+          ],
+          "budget": 275,
+          "currency": "EUR",
+          "style": [
+            "classic"
+          ],
+          "excluded_items": [
+            "boots",
+            "sandals"
+          ],
+          "owned_item_ids": [
+            "owned_jacket_b"
+          ],
+          "places": [],
+          "dress_codes": {},
+          "enter_interior": null,
+          "gender": null,
+          "cold_sensitive": null,
+          "price_preference": null
+        },
+        "recommendation_round": 0,
+        "last_recommended_outfit_ids": [],
+        "selected_outfit_id": null,
+        "session_status": "READY"
+      },
+      "seconds": 8.22
+    }
+  ],
+  "rollout": [],
+  "teacher_forced_summary": {
+    "score_version": "state-fields-and-joins-v1.1",
+    "total": 16,
+    "strict_json_objects": 3,
+    "parseable_objects": 16,
+    "stages": {
+      "raw": {
+        "passed": 1,
+        "total": 16,
+        "contract_valid_on_accept_cases": 7,
+        "accept_case_total": 15,
+        "followup_intent_correct": 1,
+        "followup_intent_total": 7,
+        "populated_field_correct": 100,
+        "populated_field_total": 105,
+        "changed_field_correct": 0,
+        "changed_field_total": 5,
+        "validation_outcome_correct": 8,
+        "unrequested_edit_turns": 0,
+        "dangling_dress_code_turns": 2,
+        "safe_rejections_without_candidate": 0,
+        "by_category": {
+          "new_city_activity": {
+            "passed": 0,
+            "total": 1
+          },
+          "new_style": {
+            "passed": 0,
+            "total": 1
+          },
+          "decimal_money": {
+            "passed": 0,
+            "total": 1
+          },
+          "english_date_words": {
+            "passed": 0,
+            "total": 1
+          },
+          "missing_destination": {
+            "passed": 0,
+            "total": 1
+          },
+          "dollar_ambiguity": {
+            "passed": 0,
+            "total": 1
+          },
+          "relative_date": {
+            "passed": 0,
+            "total": 1
+          },
+          "negated_activity": {
+            "passed": 1,
+            "total": 1
+          },
+          "missing_currency": {
+            "passed": 0,
+            "total": 1
+          },
+          "end_date_patch": {
+            "passed": 0,
+            "total": 1
+          },
+          "remove_one_exclusion": {
+            "passed": 0,
+            "total": 1
+          },
+          "activity_and_code_patch": {
+            "passed": 0,
+            "total": 1
+          },
+          "explanation_intent": {
+            "passed": 0,
+            "total": 1
+          },
+          "selection_by_id": {
+            "passed": 0,
+            "total": 1
+          },
+          "ambiguous_selection": {
+            "passed": 0,
+            "total": 1
+          },
+          "cheaper_no_numeric_change": {
+            "passed": 0,
+            "total": 1
+          }
+        },
+        "by_field": {
+          "destination": {
+            "correct": 13,
+            "total": 16
+          },
+          "start_date": {
+            "correct": 12,
+            "total": 16
+          },
+          "end_date": {
+            "correct": 11,
+            "total": 16
+          },
+          "activities": {
+            "correct": 13,
+            "total": 16
+          },
+          "budget": {
+            "correct": 15,
+            "total": 16
+          },
+          "currency": {
+            "correct": 13,
+            "total": 16
+          },
+          "style": {
+            "correct": 12,
+            "total": 16
+          },
+          "excluded_items": {
+            "correct": 15,
+            "total": 16
+          },
+          "owned_item_ids": {
+            "correct": 16,
+            "total": 16
+          },
+          "places": {
+            "correct": 16,
+            "total": 16
+          },
+          "dress_codes": {
+            "correct": 11,
+            "total": 16
+          },
+          "enter_interior": {
+            "correct": 16,
+            "total": 16
+          },
+          "gender": {
+            "correct": 16,
+            "total": 16
+          },
+          "cold_sensitive": {
+            "correct": 16,
+            "total": 16
+          },
+          "price_preference": {
+            "correct": 15,
+            "total": 16
+          }
+        }
+      },
+      "guarded": {
+        "passed": 16,
+        "total": 16,
+        "contract_valid_on_accept_cases": 15,
+        "accept_case_total": 15,
+        "followup_intent_correct": 7,
+        "followup_intent_total": 7,
+        "populated_field_correct": 105,
+        "populated_field_total": 105,
+        "changed_field_correct": 5,
+        "changed_field_total": 5,
+        "validation_outcome_correct": 16,
+        "unrequested_edit_turns": 0,
+        "dangling_dress_code_turns": 0,
+        "safe_rejections_without_candidate": 0,
+        "by_category": {
+          "new_city_activity": {
+            "passed": 1,
+            "total": 1
+          },
+          "new_style": {
+            "passed": 1,
+            "total": 1
+          },
+          "decimal_money": {
+            "passed": 1,
+            "total": 1
+          },
+          "english_date_words": {
+            "passed": 1,
+            "total": 1
+          },
+          "missing_destination": {
+            "passed": 1,
+            "total": 1
+          },
+          "dollar_ambiguity": {
+            "passed": 1,
+            "total": 1
+          },
+          "relative_date": {
+            "passed": 1,
+            "total": 1
+          },
+          "negated_activity": {
+            "passed": 1,
+            "total": 1
+          },
+          "missing_currency": {
+            "passed": 1,
+            "total": 1
+          },
+          "end_date_patch": {
+            "passed": 1,
+            "total": 1
+          },
+          "remove_one_exclusion": {
+            "passed": 1,
+            "total": 1
+          },
+          "activity_and_code_patch": {
+            "passed": 1,
+            "total": 1
+          },
+          "explanation_intent": {
+            "passed": 1,
+            "total": 1
+          },
+          "selection_by_id": {
+            "passed": 1,
+            "total": 1
+          },
+          "ambiguous_selection": {
+            "passed": 1,
+            "total": 1
+          },
+          "cheaper_no_numeric_change": {
+            "passed": 1,
+            "total": 1
+          }
+        },
+        "by_field": {
+          "destination": {
+            "correct": 16,
+            "total": 16
+          },
+          "start_date": {
+            "correct": 16,
+            "total": 16
+          },
+          "end_date": {
+            "correct": 16,
+            "total": 16
+          },
+          "activities": {
+            "correct": 16,
+            "total": 16
+          },
+          "budget": {
+            "correct": 16,
+            "total": 16
+          },
+          "currency": {
+            "correct": 16,
+            "total": 16
+          },
+          "style": {
+            "correct": 16,
+            "total": 16
+          },
+          "excluded_items": {
+            "correct": 16,
+            "total": 16
+          },
+          "owned_item_ids": {
+            "correct": 16,
+            "total": 16
+          },
+          "places": {
+            "correct": 16,
+            "total": 16
+          },
+          "dress_codes": {
+            "correct": 16,
+            "total": 16
+          },
+          "enter_interior": {
+            "correct": 16,
+            "total": 16
+          },
+          "gender": {
+            "correct": 16,
+            "total": 16
+          },
+          "cold_sensitive": {
+            "correct": 16,
+            "total": 16
+          },
+          "price_preference": {
+            "correct": 16,
+            "total": 16
+          }
+        }
+      }
+    }
+  },
+  "finished_at": "2026-10-22T08:06:50.351531+00:00",
+  "original_dataset_role": "fresh_diagnostic",
+  "original_dataset_scope": "16 newly authored English cases; frozen before their first actual v4 model run, pending human label review. Not a deployment benchmark.",
+  "run_context": {
+    "new_model_calls": true,
+    "held_out": false,
+    "kg_approval_does_not_approve_gold_labels": true
+  }
+}

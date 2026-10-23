@@ -1,0 +1,1497 @@
+{
+  "evaluated_at": "2026-10-22T16:22:41.384497+08:00",
+  "scope": "Student 1 understanding, Activity and Place KGs, weather, dialogue integration",
+  "model_runs": {
+    "qwen_understanding_v1": {
+      "summary": {
+        "score_version": "state-fields-and-joins-v1.1",
+        "total": 40,
+        "strict_json_objects": 8,
+        "parseable_objects": 40,
+        "stages": {
+          "raw": {
+            "passed": 4,
+            "total": 40,
+            "contract_valid_on_accept_cases": 21,
+            "accept_case_total": 35,
+            "followup_intent_correct": 1,
+            "followup_intent_total": 13,
+            "populated_field_correct": 228,
+            "populated_field_total": 253,
+            "changed_field_correct": 0,
+            "changed_field_total": 15,
+            "validation_outcome_correct": 26,
+            "unrequested_edit_turns": 0,
+            "dangling_dress_code_turns": 3,
+            "safe_rejections_without_candidate": 0,
+            "by_category": {
+              "complete_request": {
+                "passed": 0,
+                "total": 3
+              },
+              "multiple_activities": {
+                "passed": 0,
+                "total": 1
+              },
+              "date_year_boundary": {
+                "passed": 0,
+                "total": 1
+              },
+              "currency_precision": {
+                "passed": 2,
+                "total": 2
+              },
+              "missing_information": {
+                "passed": 0,
+                "total": 3
+              },
+              "ambiguous_currency": {
+                "passed": 0,
+                "total": 2
+              },
+              "ambiguous_date": {
+                "passed": 0,
+                "total": 2
+              },
+              "negation": {
+                "passed": 0,
+                "total": 2
+              },
+              "dress_code_scope": {
+                "passed": 0,
+                "total": 1
+              },
+              "unsupported_activity": {
+                "passed": 0,
+                "total": 1
+              },
+              "weather_separation": {
+                "passed": 0,
+                "total": 1
+              },
+              "quoted_instruction": {
+                "passed": 0,
+                "total": 2
+              },
+              "exclusions": {
+                "passed": 0,
+                "total": 1
+              },
+              "invalid_input": {
+                "passed": 1,
+                "total": 3
+              },
+              "scalar_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "preference_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "list_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "reset_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "dialogue_missing": {
+                "passed": 0,
+                "total": 4
+              },
+              "dialogue_edits": {
+                "passed": 1,
+                "total": 4
+              },
+              "dialogue_confirmation": {
+                "passed": 0,
+                "total": 3
+              }
+            },
+            "by_field": {
+              "destination": {
+                "correct": 37,
+                "total": 40
+              },
+              "start_date": {
+                "correct": 33,
+                "total": 40
+              },
+              "end_date": {
+                "correct": 33,
+                "total": 40
+              },
+              "activities": {
+                "correct": 31,
+                "total": 40
+              },
+              "budget": {
+                "correct": 35,
+                "total": 40
+              },
+              "currency": {
+                "correct": 26,
+                "total": 40
+              },
+              "style": {
+                "correct": 23,
+                "total": 40
+              },
+              "excluded_items": {
+                "correct": 34,
+                "total": 40
+              },
+              "owned_item_ids": {
+                "correct": 40,
+                "total": 40
+              },
+              "places": {
+                "correct": 40,
+                "total": 40
+              },
+              "dress_codes": {
+                "correct": 25,
+                "total": 40
+              },
+              "enter_interior": {
+                "correct": 40,
+                "total": 40
+              },
+              "gender": {
+                "correct": 40,
+                "total": 40
+              },
+              "cold_sensitive": {
+                "correct": 40,
+                "total": 40
+              },
+              "price_preference": {
+                "correct": 39,
+                "total": 40
+              }
+            }
+          },
+          "guarded": {
+            "passed": 23,
+            "total": 40,
+            "contract_valid_on_accept_cases": 29,
+            "accept_case_total": 35,
+            "followup_intent_correct": 8,
+            "followup_intent_total": 13,
+            "populated_field_correct": 211,
+            "populated_field_total": 253,
+            "changed_field_correct": 8,
+            "changed_field_total": 15,
+            "validation_outcome_correct": 34,
+            "unrequested_edit_turns": 0,
+            "dangling_dress_code_turns": 0,
+            "safe_rejections_without_candidate": 4,
+            "by_category": {
+              "complete_request": {
+                "passed": 2,
+                "total": 3
+              },
+              "multiple_activities": {
+                "passed": 1,
+                "total": 1
+              },
+              "date_year_boundary": {
+                "passed": 1,
+                "total": 1
+              },
+              "currency_precision": {
+                "passed": 1,
+                "total": 2
+              },
+              "missing_information": {
+                "passed": 2,
+                "total": 3
+              },
+              "ambiguous_currency": {
+                "passed": 2,
+                "total": 2
+              },
+              "ambiguous_date": {
+                "passed": 0,
+                "total": 2
+              },
+              "negation": {
+                "passed": 1,
+                "total": 2
+              },
+              "dress_code_scope": {
+                "passed": 1,
+                "total": 1
+              },
+              "unsupported_activity": {
+                "passed": 1,
+                "total": 1
+              },
+              "weather_separation": {
+                "passed": 1,
+                "total": 1
+              },
+              "quoted_instruction": {
+                "passed": 1,
+                "total": 2
+              },
+              "exclusions": {
+                "passed": 0,
+                "total": 1
+              },
+              "invalid_input": {
+                "passed": 0,
+                "total": 3
+              },
+              "scalar_patch": {
+                "passed": 1,
+                "total": 1
+              },
+              "preference_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "list_patch": {
+                "passed": 1,
+                "total": 1
+              },
+              "reset_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "dialogue_missing": {
+                "passed": 0,
+                "total": 4
+              },
+              "dialogue_edits": {
+                "passed": 4,
+                "total": 4
+              },
+              "dialogue_confirmation": {
+                "passed": 3,
+                "total": 3
+              }
+            },
+            "by_field": {
+              "destination": {
+                "correct": 35,
+                "total": 40
+              },
+              "start_date": {
+                "correct": 35,
+                "total": 40
+              },
+              "end_date": {
+                "correct": 35,
+                "total": 40
+              },
+              "activities": {
+                "correct": 33,
+                "total": 40
+              },
+              "budget": {
+                "correct": 34,
+                "total": 40
+              },
+              "currency": {
+                "correct": 29,
+                "total": 40
+              },
+              "style": {
+                "correct": 37,
+                "total": 40
+              },
+              "excluded_items": {
+                "correct": 38,
+                "total": 40
+              },
+              "owned_item_ids": {
+                "correct": 40,
+                "total": 40
+              },
+              "places": {
+                "correct": 40,
+                "total": 40
+              },
+              "dress_codes": {
+                "correct": 40,
+                "total": 40
+              },
+              "enter_interior": {
+                "correct": 40,
+                "total": 40
+              },
+              "gender": {
+                "correct": 40,
+                "total": 40
+              },
+              "cold_sensitive": {
+                "correct": 40,
+                "total": 40
+              },
+              "price_preference": {
+                "correct": 39,
+                "total": 40
+              }
+            }
+          }
+        }
+      },
+      "dataset_sha256": "d5d735bd0b9a2297eb1019b695c05ef61ea76f11313a49032f015d619b448b80",
+      "extractor_sha256": "125b65317e16f93f2311416becbfdeb0424d98044bcf321865eadcdd7f918698",
+      "actual_model_calls": 51,
+      "dialogues": [
+        {
+          "id": "D01",
+          "final_state_match": false
+        },
+        {
+          "id": "D02",
+          "final_state_match": true
+        },
+        {
+          "id": "D03",
+          "final_state_match": true
+        }
+      ]
+    },
+    "qwen_english_development_v2": {
+      "summary": {
+        "score_version": "state-fields-and-joins-v1.1",
+        "total": 25,
+        "strict_json_objects": 5,
+        "parseable_objects": 25,
+        "stages": {
+          "raw": {
+            "passed": 4,
+            "total": 25,
+            "contract_valid_on_accept_cases": 13,
+            "accept_case_total": 21,
+            "followup_intent_correct": 1,
+            "followup_intent_total": 8,
+            "populated_field_correct": 155,
+            "populated_field_total": 162,
+            "changed_field_correct": 0,
+            "changed_field_total": 8,
+            "validation_outcome_correct": 17,
+            "unrequested_edit_turns": 0,
+            "dangling_dress_code_turns": 1,
+            "safe_rejections_without_candidate": 0,
+            "by_category": {
+              "complete_request": {
+                "passed": 0,
+                "total": 1
+              },
+              "multiple_activities": {
+                "passed": 0,
+                "total": 1
+              },
+              "date_year_boundary": {
+                "passed": 0,
+                "total": 1
+              },
+              "currency_precision": {
+                "passed": 2,
+                "total": 2
+              },
+              "missing_information": {
+                "passed": 0,
+                "total": 2
+              },
+              "ambiguous_currency": {
+                "passed": 0,
+                "total": 2
+              },
+              "negation": {
+                "passed": 0,
+                "total": 1
+              },
+              "dress_code_scope": {
+                "passed": 0,
+                "total": 1
+              },
+              "unsupported_activity": {
+                "passed": 0,
+                "total": 1
+              },
+              "weather_separation": {
+                "passed": 0,
+                "total": 1
+              },
+              "quoted_instruction": {
+                "passed": 0,
+                "total": 1
+              },
+              "invalid_input": {
+                "passed": 1,
+                "total": 2
+              },
+              "scalar_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "list_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "dialogue_edits": {
+                "passed": 1,
+                "total": 4
+              },
+              "dialogue_confirmation": {
+                "passed": 0,
+                "total": 3
+              }
+            },
+            "by_field": {
+              "destination": {
+                "correct": 22,
+                "total": 25
+              },
+              "start_date": {
+                "correct": 23,
+                "total": 25
+              },
+              "end_date": {
+                "correct": 23,
+                "total": 25
+              },
+              "activities": {
+                "correct": 21,
+                "total": 25
+              },
+              "budget": {
+                "correct": 22,
+                "total": 25
+              },
+              "currency": {
+                "correct": 20,
+                "total": 25
+              },
+              "style": {
+                "correct": 17,
+                "total": 25
+              },
+              "excluded_items": {
+                "correct": 21,
+                "total": 25
+              },
+              "owned_item_ids": {
+                "correct": 25,
+                "total": 25
+              },
+              "places": {
+                "correct": 25,
+                "total": 25
+              },
+              "dress_codes": {
+                "correct": 17,
+                "total": 25
+              },
+              "enter_interior": {
+                "correct": 25,
+                "total": 25
+              },
+              "gender": {
+                "correct": 25,
+                "total": 25
+              },
+              "cold_sensitive": {
+                "correct": 25,
+                "total": 25
+              },
+              "price_preference": {
+                "correct": 25,
+                "total": 25
+              }
+            }
+          },
+          "guarded": {
+            "passed": 22,
+            "total": 25,
+            "contract_valid_on_accept_cases": 21,
+            "accept_case_total": 21,
+            "followup_intent_correct": 8,
+            "followup_intent_total": 8,
+            "populated_field_correct": 144,
+            "populated_field_total": 162,
+            "changed_field_correct": 8,
+            "changed_field_total": 8,
+            "validation_outcome_correct": 25,
+            "unrequested_edit_turns": 0,
+            "dangling_dress_code_turns": 0,
+            "safe_rejections_without_candidate": 3,
+            "by_category": {
+              "complete_request": {
+                "passed": 1,
+                "total": 1
+              },
+              "multiple_activities": {
+                "passed": 1,
+                "total": 1
+              },
+              "date_year_boundary": {
+                "passed": 1,
+                "total": 1
+              },
+              "currency_precision": {
+                "passed": 1,
+                "total": 2
+              },
+              "missing_information": {
+                "passed": 2,
+                "total": 2
+              },
+              "ambiguous_currency": {
+                "passed": 2,
+                "total": 2
+              },
+              "negation": {
+                "passed": 1,
+                "total": 1
+              },
+              "dress_code_scope": {
+                "passed": 1,
+                "total": 1
+              },
+              "unsupported_activity": {
+                "passed": 1,
+                "total": 1
+              },
+              "weather_separation": {
+                "passed": 1,
+                "total": 1
+              },
+              "quoted_instruction": {
+                "passed": 1,
+                "total": 1
+              },
+              "invalid_input": {
+                "passed": 0,
+                "total": 2
+              },
+              "scalar_patch": {
+                "passed": 1,
+                "total": 1
+              },
+              "list_patch": {
+                "passed": 1,
+                "total": 1
+              },
+              "dialogue_edits": {
+                "passed": 4,
+                "total": 4
+              },
+              "dialogue_confirmation": {
+                "passed": 3,
+                "total": 3
+              }
+            },
+            "by_field": {
+              "destination": {
+                "correct": 22,
+                "total": 25
+              },
+              "start_date": {
+                "correct": 22,
+                "total": 25
+              },
+              "end_date": {
+                "correct": 22,
+                "total": 25
+              },
+              "activities": {
+                "correct": 22,
+                "total": 25
+              },
+              "budget": {
+                "correct": 22,
+                "total": 25
+              },
+              "currency": {
+                "correct": 22,
+                "total": 25
+              },
+              "style": {
+                "correct": 25,
+                "total": 25
+              },
+              "excluded_items": {
+                "correct": 25,
+                "total": 25
+              },
+              "owned_item_ids": {
+                "correct": 25,
+                "total": 25
+              },
+              "places": {
+                "correct": 25,
+                "total": 25
+              },
+              "dress_codes": {
+                "correct": 25,
+                "total": 25
+              },
+              "enter_interior": {
+                "correct": 25,
+                "total": 25
+              },
+              "gender": {
+                "correct": 25,
+                "total": 25
+              },
+              "cold_sensitive": {
+                "correct": 25,
+                "total": 25
+              },
+              "price_preference": {
+                "correct": 25,
+                "total": 25
+              }
+            }
+          }
+        }
+      },
+      "dataset_sha256": "ddeb1a71c09c304fb955524fb3d91b1d7de2201f1fcddd2566071d98911a48f6",
+      "extractor_sha256": "125b65317e16f93f2311416becbfdeb0424d98044bcf321865eadcdd7f918698",
+      "actual_model_calls": 32,
+      "dialogues": [
+        {
+          "id": "D02",
+          "final_state_match": true
+        },
+        {
+          "id": "D03",
+          "final_state_match": true
+        }
+      ]
+    },
+    "qwen_english_fresh_v2": {
+      "summary": {
+        "score_version": "state-fields-and-joins-v1.1",
+        "total": 16,
+        "strict_json_objects": 3,
+        "parseable_objects": 16,
+        "stages": {
+          "raw": {
+            "passed": 1,
+            "total": 16,
+            "contract_valid_on_accept_cases": 7,
+            "accept_case_total": 15,
+            "followup_intent_correct": 1,
+            "followup_intent_total": 7,
+            "populated_field_correct": 100,
+            "populated_field_total": 105,
+            "changed_field_correct": 0,
+            "changed_field_total": 5,
+            "validation_outcome_correct": 8,
+            "unrequested_edit_turns": 0,
+            "dangling_dress_code_turns": 2,
+            "safe_rejections_without_candidate": 0,
+            "by_category": {
+              "new_city_activity": {
+                "passed": 0,
+                "total": 1
+              },
+              "new_style": {
+                "passed": 0,
+                "total": 1
+              },
+              "decimal_money": {
+                "passed": 0,
+                "total": 1
+              },
+              "english_date_words": {
+                "passed": 0,
+                "total": 1
+              },
+              "missing_destination": {
+                "passed": 0,
+                "total": 1
+              },
+              "dollar_ambiguity": {
+                "passed": 0,
+                "total": 1
+              },
+              "relative_date": {
+                "passed": 0,
+                "total": 1
+              },
+              "negated_activity": {
+                "passed": 1,
+                "total": 1
+              },
+              "missing_currency": {
+                "passed": 0,
+                "total": 1
+              },
+              "end_date_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "remove_one_exclusion": {
+                "passed": 0,
+                "total": 1
+              },
+              "activity_and_code_patch": {
+                "passed": 0,
+                "total": 1
+              },
+              "explanation_intent": {
+                "passed": 0,
+                "total": 1
+              },
+              "selection_by_id": {
+                "passed": 0,
+                "total": 1
+              },
+              "ambiguous_selection": {
+                "passed": 0,
+                "total": 1
+              },
+              "cheaper_no_numeric_change": {
+                "passed": 0,
+                "total": 1
+              }
+            },
+            "by_field": {
+              "destination": {
+                "correct": 13,
+                "total": 16
+              },
+              "start_date": {
+                "correct": 12,
+                "total": 16
+              },
+              "end_date": {
+                "correct": 11,
+                "total": 16
+              },
+              "activities": {
+                "correct": 13,
+                "total": 16
+              },
+              "budget": {
+                "correct": 15,
+                "total": 16
+              },
+              "currency": {
+                "correct": 13,
+                "total": 16
+              },
+              "style": {
+                "correct": 12,
+                "total": 16
+              },
+              "excluded_items": {
+                "correct": 15,
+                "total": 16
+              },
+              "owned_item_ids": {
+                "correct": 16,
+                "total": 16
+              },
+              "places": {
+                "correct": 16,
+                "total": 16
+              },
+              "dress_codes": {
+                "correct": 11,
+                "total": 16
+              },
+              "enter_interior": {
+                "correct": 16,
+                "total": 16
+              },
+              "gender": {
+                "correct": 16,
+                "total": 16
+              },
+              "cold_sensitive": {
+                "correct": 16,
+                "total": 16
+              },
+              "price_preference": {
+                "correct": 15,
+                "total": 16
+              }
+            }
+          },
+          "guarded": {
+            "passed": 16,
+            "total": 16,
+            "contract_valid_on_accept_cases": 15,
+            "accept_case_total": 15,
+            "followup_intent_correct": 7,
+            "followup_intent_total": 7,
+            "populated_field_correct": 105,
+            "populated_field_total": 105,
+            "changed_field_correct": 5,
+            "changed_field_total": 5,
+            "validation_outcome_correct": 16,
+            "unrequested_edit_turns": 0,
+            "dangling_dress_code_turns": 0,
+            "safe_rejections_without_candidate": 0,
+            "by_category": {
+              "new_city_activity": {
+                "passed": 1,
+                "total": 1
+              },
+              "new_style": {
+                "passed": 1,
+                "total": 1
+              },
+              "decimal_money": {
+                "passed": 1,
+                "total": 1
+              },
+              "english_date_words": {
+                "passed": 1,
+                "total": 1
+              },
+              "missing_destination": {
+                "passed": 1,
+                "total": 1
+              },
+              "dollar_ambiguity": {
+                "passed": 1,
+                "total": 1
+              },
+              "relative_date": {
+                "passed": 1,
+                "total": 1
+              },
+              "negated_activity": {
+                "passed": 1,
+                "total": 1
+              },
+              "missing_currency": {
+                "passed": 1,
+                "total": 1
+              },
+              "end_date_patch": {
+                "passed": 1,
+                "total": 1
+              },
+              "remove_one_exclusion": {
+                "passed": 1,
+                "total": 1
+              },
+              "activity_and_code_patch": {
+                "passed": 1,
+                "total": 1
+              },
+              "explanation_intent": {
+                "passed": 1,
+                "total": 1
+              },
+              "selection_by_id": {
+                "passed": 1,
+                "total": 1
+              },
+              "ambiguous_selection": {
+                "passed": 1,
+                "total": 1
+              },
+              "cheaper_no_numeric_change": {
+                "passed": 1,
+                "total": 1
+              }
+            },
+            "by_field": {
+              "destination": {
+                "correct": 16,
+                "total": 16
+              },
+              "start_date": {
+                "correct": 16,
+                "total": 16
+              },
+              "end_date": {
+                "correct": 16,
+                "total": 16
+              },
+              "activities": {
+                "correct": 16,
+                "total": 16
+              },
+              "budget": {
+                "correct": 16,
+                "total": 16
+              },
+              "currency": {
+                "correct": 16,
+                "total": 16
+              },
+              "style": {
+                "correct": 16,
+                "total": 16
+              },
+              "excluded_items": {
+                "correct": 16,
+                "total": 16
+              },
+              "owned_item_ids": {
+                "correct": 16,
+                "total": 16
+              },
+              "places": {
+                "correct": 16,
+                "total": 16
+              },
+              "dress_codes": {
+                "correct": 16,
+                "total": 16
+              },
+              "enter_interior": {
+                "correct": 16,
+                "total": 16
+              },
+              "gender": {
+                "correct": 16,
+                "total": 16
+              },
+              "cold_sensitive": {
+                "correct": 16,
+                "total": 16
+              },
+              "price_preference": {
+                "correct": 16,
+                "total": 16
+              }
+            }
+          }
+        }
+      },
+      "dataset_sha256": "c07f38a63674a270c375619766a20cd358d013a043d0ccc1047acda4e5db12cb",
+      "extractor_sha256": "125b65317e16f93f2311416becbfdeb0424d98044bcf321865eadcdd7f918698",
+      "actual_model_calls": 16,
+      "dialogues": []
+    }
+  },
+  "limitations": [
+    "All reused datasets are development/regression evidence; not held-out tests.",
+    "Synthetic gold labels remain pending human review.",
+    "KG owner approval does not approve evaluation labels or weather thresholds.",
+    "Dataset turns overlap; do not add them as unique independent examples."
+  ],
+  "current_dialogue": {
+    "scenarios": 6,
+    "scenarios_passed": 6,
+    "turns": 19,
+    "turns_passed": 19,
+    "actual_model_calls": 11,
+    "label_status": "assistant_authored_pending_human_review",
+    "dataset_sha256": "a0ed70698ce02fab83f67d41ae66fcd7eb48015eb3037d56150d80e84a27cbf8"
+  },
+  "total_actual_model_calls": 110,
+  "repository_tests": {
+    "passed": 613,
+    "failed": 0,
+    "skipped": 63,
+    "skip_reasons": {
+      "collection skipped": 2,
+      "set RUN_LIVE_PREVIEW_TESTS=1 to run the paid live preview test": 1,
+      "could not import 'PIL.Image': No module named 'PIL'": 55,
+      "Student 2 inspiration extra not installed (['PIL'])": 1,
+      "Full pipeline not runnable: student2 (travel_agent.inspiration.service.run) stopped the pipeline with status 'prerequisite_missing': Student 2 is implemented; live-run prerequisites missing: inspiration extra not installed (['PIL']); live run (FashionCLIP + Unsplash API over the network) not enabled: set RUN_FULL_PIPELINE_TESTS=1; UNSPLASH_ACCESS_KEY not set in the process environment (the harness does not read .env)": 2,
+      "Qwen3-0.6B extraction needs local weights; set RUN_FULL_PIPELINE_TESTS=1": 1,
+      "requires products extra": 1
+    }
+  },
+  "activity_source_tests": {
+    "run": 14,
+    "passed": 14
+  },
+  "place_source_tests": {
+    "run": 60,
+    "passed": 60
+  },
+  "review": {
+    "reviewer": "project_owner",
+    "recorded_at": "2026-10-22T16:06:40+08:00",
+    "authorization_quote": "帮我把所有节点改为审核，我已经审核完了。",
+    "basis": "Project owner explicitly confirmed completion of KG review in chat on 2026-10-22. Record that human decision; no independent second reviewer or expert review is claimed.",
+    "activity_counts": {
+      "nodes": 90,
+      "edges": 203,
+      "sources": 13
+    },
+    "place_records": 753,
+    "place_states": {
+      "approved": 753
+    },
+    "place_tables": {
+      "activities": 12,
+      "aliases": 265,
+      "climate": 39,
+      "contents": 52,
+      "items": 15,
+      "place_activity": 98,
+      "place_dresscode": 17,
+      "place_style": 5,
+      "places": 100,
+      "requirement_item": 27,
+      "requirements": 29,
+      "rules": 17,
+      "season_events": 7,
+      "sources": 62,
+      "style_item": 5,
+      "styles": 3
+    },
+    "place_application": {
+      "batch": "3ed5af4eb2c141a0a2b855197d44183a",
+      "applied": 753,
+      "backup": "/Users/jiang/ISS-AIS/IRS_Intelligent Reasoning Systems/Practice Module/student1/place_kg/reviews/backups/3ed5af4eb2c141a0a2b855197d44183a",
+      "message": "已应用并重新生成图谱、校验、覆盖表和查询示例"
+    }
+  },
+  "neo4j": {
+    "graph_version": "0.2.0",
+    "operation": "review metadata only; no creation/deletion",
+    "cases": [
+      {
+        "activity": "hiking",
+        "depth": 4,
+        "local_equal": true,
+        "path_query_verified": true,
+        "status": "ok",
+        "knowledge_status": "approved"
+      },
+      {
+        "activity": "museum_visit",
+        "depth": 4,
+        "local_equal": true,
+        "path_query_verified": true,
+        "status": "ok",
+        "knowledge_status": "approved"
+      },
+      {
+        "activity": "dinner",
+        "depth": 4,
+        "local_equal": true,
+        "path_query_verified": true,
+        "status": "ok",
+        "knowledge_status": "approved"
+      },
+      {
+        "activity": "dinner",
+        "depth": 1,
+        "local_equal": true,
+        "path_query_verified": true,
+        "status": "ok",
+        "knowledge_status": "approved"
+      }
+    ],
+    "updated": {
+      "nodes": 90,
+      "relationships": 203
+    },
+    "status": "passed"
+  },
+  "strict_review": {
+    "review_states": {
+      "approved": 753
+    },
+    "source_verification": {
+      "local_policy": 1,
+      "search_excerpt_only": 7,
+      "relevant_sections_read": 30,
+      "page_text_read": 24
+    },
+    "strict_queries": [
+      {
+        "place": "苏丹回教堂",
+        "requirements": [
+          {
+            "id": "breathable_quick_dry",
+            "complete_review_chain": true,
+            "record_count": 12
+          },
+          {
+            "id": "light_color",
+            "complete_review_chain": true,
+            "record_count": 11
+          },
+          {
+            "id": "long_sleeve_ankle_coverage",
+            "complete_review_chain": true,
+            "record_count": 14
+          },
+          {
+            "id": "no_cleavage",
+            "complete_review_chain": true,
+            "record_count": 8
+          },
+          {
+            "id": "no_shoes_indoor",
+            "complete_review_chain": true,
+            "record_count": 8
+          },
+          {
+            "id": "opaque_clothing",
+            "complete_review_chain": true,
+            "record_count": 12
+          },
+          {
+            "id": "rain_protection",
+            "complete_review_chain": true,
+            "record_count": 12
+          },
+          {
+            "id": "slip_on_shoes",
+            "complete_review_chain": true,
+            "record_count": 12
+          }
+        ]
+      },
+      {
+        "place": "USJ",
+        "requirements": [
+          {
+            "id": "breathable_quick_dry",
+            "complete_review_chain": true,
+            "record_count": 17
+          },
+          {
+            "id": "comfy_walking_shoes",
+            "complete_review_chain": true,
+            "record_count": 16
+          },
+          {
+            "id": "light_color",
+            "complete_review_chain": true,
+            "record_count": 16
+          }
+        ]
+      },
+      {
+        "place": "云雾林",
+        "requirements": [
+          {
+            "id": "light_layer",
+            "complete_review_chain": true,
+            "record_count": 11
+          }
+        ]
+      }
+    ]
+  },
+  "place_queries": {
+    "cases": 16,
+    "passed": 16,
+    "failed": 0,
+    "report": "/Users/jiang/ISS-AIS/IRS_Intelligent Reasoning Systems/Practice Module/student1/place_kg/examples/query_trials/README.md",
+    "results": [
+      {
+        "id": "01_tokyo_winter",
+        "requirements": [
+          "舒适步行鞋",
+          "保暖衣层"
+        ],
+        "missing": [],
+        "passed": true
+      },
+      {
+        "id": "02_tokyo_summer",
+        "requirements": [
+          "透气快干",
+          "舒适步行鞋",
+          "浅色"
+        ],
+        "missing": [],
+        "passed": true
+      },
+      {
+        "id": "03_tokyo_no_month",
+        "requirements": [
+          "舒适步行鞋"
+        ],
+        "missing": [
+          "month_or_climate_missing"
+        ],
+        "passed": true
+      },
+      {
+        "id": "04_osaka_theme_park",
+        "requirements": [
+          "透气快干",
+          "舒适步行鞋",
+          "浅色"
+        ],
+        "missing": [],
+        "passed": true
+      },
+      {
+        "id": "05_seoul_viewpoint",
+        "requirements": [
+          "保暖衣层"
+        ],
+        "missing": [],
+        "passed": true
+      },
+      {
+        "id": "06_mosque_inside",
+        "requirements": [
+          "透气快干",
+          "浅色",
+          "长袖及脚踝覆盖",
+          "领口不暴露",
+          "指定入内区域脱鞋",
+          "不透视衣物",
+          "防雨",
+          "易穿脱鞋"
+        ],
+        "missing": [],
+        "passed": true
+      },
+      {
+        "id": "07_mosque_outside",
+        "requirements": [
+          "透气快干",
+          "浅色",
+          "防雨"
+        ],
+        "missing": [
+          "select_actual_activities"
+        ],
+        "passed": true
+      },
+      {
+        "id": "08_indoor_garden",
+        "requirements": [
+          "轻薄外层"
+        ],
+        "missing": [],
+        "passed": true
+      },
+      {
+        "id": "09_hoi_an_rain",
+        "requirements": [
+          "舒适步行鞋",
+          "轻薄外层",
+          "防雨"
+        ],
+        "missing": [],
+        "passed": true
+      },
+      {
+        "id": "10_bali_beach",
+        "requirements": [],
+        "missing": [
+          "month_or_climate_missing"
+        ],
+        "passed": true
+      },
+      {
+        "id": "11_bali_temple",
+        "requirements": [
+          "沙龙及腰带"
+        ],
+        "missing": [
+          "month_or_climate_missing"
+        ],
+        "passed": true
+      },
+      {
+        "id": "12_china_hiking",
+        "requirements": [
+          "抓地鞋底",
+          "舒适步行鞋"
+        ],
+        "missing": [
+          "month_or_climate_missing"
+        ],
+        "passed": true
+      },
+      {
+        "id": "13_klcc_walk",
+        "requirements": [
+          "舒适步行鞋"
+        ],
+        "missing": [
+          "month_or_climate_missing"
+        ],
+        "passed": true
+      },
+      {
+        "id": "14_bangkok_shopping",
+        "requirements": [],
+        "missing": [
+          "month_or_climate_missing"
+        ],
+        "passed": true
+      },
+      {
+        "id": "15_bangkok_palace",
+        "requirements": [
+          "舒适步行鞋",
+          "不穿短上衣",
+          "不穿短裤或迷你裙",
+          "不穿睡衣",
+          "不穿破洞裤、紧身裤、自行车裤",
+          "不透视衣物",
+          "有袖上衣"
+        ],
+        "missing": [
+          "month_or_climate_missing"
+        ],
+        "passed": true
+      },
+      {
+        "id": "16_singapore_multiple",
+        "requirements": [
+          "透气快干",
+          "舒适步行鞋",
+          "浅色",
+          "防雨"
+        ],
+        "missing": [],
+        "passed": true
+      }
+    ]
+  },
+  "weather": [
+    {
+      "case": "forecast",
+      "request": {
+        "destination": "Seoul",
+        "start_date": "2026-10-22",
+        "end_date": "2026-10-24",
+        "activities": [],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [],
+        "excluded_items": [],
+        "owned_item_ids": [],
+        "places": [],
+        "dress_codes": {},
+        "enter_interior": null,
+        "gender": null,
+        "cold_sensitive": null,
+        "price_preference": null
+      },
+      "weather": {
+        "temp_min_celsius": 4.7,
+        "temp_max_celsius": 20.8,
+        "snow": false,
+        "precipitation_probability": 0.09,
+        "humidity_percent": null,
+        "weather_class": null,
+        "status": "ok",
+        "data_type": "forecast",
+        "destination": "Seoul",
+        "start_date": "2026-10-22",
+        "end_date": "2026-10-24",
+        "source": "https://api.open-meteo.com/v1/forecast?latitude=37.566&longitude=126.9784&timezone=auto&start_date=2026-10-22&end_date=2026-10-24&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_probability_max%2Csnowfall_sum",
+        "retrieved_at": "2026-10-22T08:12:52.719257+00:00",
+        "latitude": 37.566,
+        "longitude": 126.9784,
+        "location_label": "Seoul",
+        "location_basis": "registered_city_default",
+        "location_candidates": [],
+        "reason": null,
+        "climate_reference": null,
+        "routing_reason": "within_forecast_window",
+        "reason_code": null,
+        "next_steps": [],
+        "acquisition": null,
+        "limitations": [
+          "City-level outdoor reference only; not indoor, attraction, mountain or beach microclimates."
+        ]
+      },
+      "checks": {
+        "available": true,
+        "correct_type": true
+      }
+    },
+    {
+      "case": "historical",
+      "request": {
+        "destination": "Tokyo",
+        "start_date": "2027-01-20",
+        "end_date": "2027-01-24",
+        "activities": [],
+        "budget": 500,
+        "currency": "SGD",
+        "style": [],
+        "excluded_items": [],
+        "owned_item_ids": [],
+        "places": [],
+        "dress_codes": {},
+        "enter_interior": null,
+        "gender": null,
+        "cold_sensitive": null,
+        "price_preference": null
+      },
+      "weather": {
+        "temp_min_celsius": null,
+        "temp_max_celsius": null,
+        "snow": null,
+        "precipitation_probability": null,
+        "humidity_percent": null,
+        "weather_class": null,
+        "status": "ok",
+        "data_type": "historical_climatology",
+        "destination": "Tokyo",
+        "start_date": "2027-01-20",
+        "end_date": "2027-01-24",
+        "source": "https://archive-api.open-meteo.com/v1/archive?latitude=35.6895&longitude=139.69171&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+        "retrieved_at": "2026-10-21T08:18:43.645913+00:00",
+        "latitude": 35.6895,
+        "longitude": 139.69171,
+        "location_label": "Tokyo",
+        "location_basis": "registered_city_default",
+        "location_candidates": [],
+        "reason": "Historical monthly planning reference only; not a trip-date forecast",
+        "climate_reference": {
+          "dataset_version": "open-meteo-era5-monthly-2015-2024-v1",
+          "baseline_start_year": 2015,
+          "baseline_end_year": 2024,
+          "model": "era5",
+          "method": "Calendar-month pooled arithmetic means of daily min/max Celsius temperatures; wet-day frequency = days with precipitation >= 1 mm / valid days; snowfall-day frequency = days with snowfall > 0 cm / valid days. 2015-2024 is a ten-year planning reference, not a standard 30-year climate normal.",
+          "monthly": [
+            {
+              "month": 1,
+              "sample_days": 310,
+              "mean_daily_min_celsius": 0.764,
+              "mean_daily_max_celsius": 9.43,
+              "wet_day_frequency": 0.190323,
+              "snowfall_day_frequency": 0.077419
+            }
+          ],
+          "source_urls": [
+            "https://archive-api.open-meteo.com/v1/archive?latitude=35.6895&longitude=139.69171&start_date=2015-01-01&end_date=2024-12-31&timezone=auto&models=era5&daily=temperature_2m_min%2Ctemperature_2m_max%2Cprecipitation_sum%2Csnowfall_sum",
+            "https://geocoding-api.open-meteo.com/v1/search?name=Tokyo&count=10&language=en&countryCode=JP"
+          ],
+          "updated_at": "2026-10-21T08:18:43.645913+00:00",
+          "location_basis": "registered_city_default",
+          "attribution": "Open-Meteo Historical Weather API; Copernicus ERA5 reanalysis; CC BY 4.0.",
+          "grid_latitude": 35.75,
+          "grid_longitude": 139.75,
+          "grid_elevation_meters": 40.0,
+          "limitations": [
+            "Historical monthly averages, not forecasts for the requested dates or extremes.",
+            "Wet/snowfall frequencies describe past days, not future probabilities.",
+            "Ten-year reanalysis reference; local microclimates and future anomalies are not captured.",
+            "Whole-trip historical mode: no forecast and historical values are blended."
+          ]
+        },
+        "routing_reason": "outside_forecast_window",
+        "reason_code": null,
+        "next_steps": [],
+        "acquisition": null,
+        "limitations": [
+          "City-level outdoor reference only; not indoor, attraction, mountain or beach microclimates."
+        ]
+      },
+      "checks": {
+        "available": true,
+        "correct_type": true,
+        "history_not_forecast": true
+      }
+    }
+  ]
+}

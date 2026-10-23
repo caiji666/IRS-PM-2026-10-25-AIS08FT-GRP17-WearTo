@@ -702,7 +702,7 @@ class Handler(BaseHTTPRequestHandler):
                 if self.path.endswith("/refine"):
                     patch = body.get("patch")
                     if patch is None and isinstance(body.get("message"), str):
-                        patch = patch_from_message(body["message"])
+                        patch = patch_from_message(body["message"], session)
                     if not isinstance(patch, dict):
                         raise ValueError("A structured requirement change is required")
                     if patch.get("kind") == "upstream":
