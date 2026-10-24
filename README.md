@@ -42,11 +42,11 @@ Detailed individual contributions and validation results will be included in [Pr
 
 ## SECTION 4: VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-The final submission videos are available in [Video](Video/). YouTube links will be added after publication.
+The final submission videos are available in [Video](Video/). Published YouTube links are listed below.
 
 | Video | Repository file | YouTube link |
 | --- | --- | --- |
-| Product promotion and use-case demo | [WearTo_Promotion Video.mov](Video/WearTo_Promotion%20Video.mov) | To be added |
+| Product promotion and use-case demo | [WearTo_Promotion Video.mov](Video/WearTo_Promotion%20Video.mov) | [Watch on YouTube](https://www.youtube.com/watch?v=A9T1dum7yM0) |
 | System design and technical walkthrough | [WearTo_System Design Video.mp4](Video/WearTo_System%20Design%20Video.mp4) | To be added |
 
 The videos are stored with Git LFS. Install Git LFS before cloning the repository. If a checkout contains only video pointer files, run git lfs pull from the repository root.
