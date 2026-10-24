@@ -32,7 +32,7 @@ The keywords below summarize primary contributions evident in this repository's 
 | --- | --- | --- |
 | [Agarwal Hritik Kumar](https://github.com/MasterHrit) | A0353874R | Unsplash inspiration; FashionCLIP image encoding; reference-image retrieval and ranking; module handoff; offline evaluation |
 | [Jiang Yushan](https://github.com/caiji666) | A0353592X | Multi-turn trip dialogue; Qwen requirement extraction; weather and knowledge reasoning; activity knowledge graph; chat interface |
-| [Lu Yujing](https://github.com/Tang-chu) | A0351286B | AI-assisted outfit recommendation and Top-3 ranking; multi-turn recommendation refinement and confirmation; selective pipeline re-execution; Student 4 adapter; generative-AI outfit preview; module and full-pipeline testing |
+| [Lu Yujing](https://github.com/Tang-chu) | A0351286B | AI-assisted outfit recommendation and Top-3 ranking; multi-turn recommendation refinement and confirmation; selective pipeline re-execution; generative-AI outfit preview; module and full-pipeline testing |
 | [Ma Bofei](https://github.com/Bofei2058) | A0314662H | Outfit compatibility model; combination generation and scoring; product-information output |
 | [Zhang Yurun](https://github.com/yurunzzz) | A0330891A | Hybrid eBay retrieval; product Top-K reranking; wardrobe image understanding; Production notification service; end-to-end integration; product-retrieval evaluation |
 
