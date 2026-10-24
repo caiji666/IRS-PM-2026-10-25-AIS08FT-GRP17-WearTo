@@ -1,68 +1,75 @@
-# [Practice Module] Project Submission
+# WearTo — Where to? WearTo!
 
-**Archive naming convention:** CourseCode-StartDate-BatchCode-TeamName-ProjectName.zip
+**Intelligent Travel Style & Shopping Assistant · Group 17**
 
-This repository follows the [Workshop Project Submission Template](https://github.com/IRS-PM/Workshop-Project-Submission-Template). The application source is under [SystemCode/clips](SystemCode/clips/); the application-specific setup guide is [docs/wearto-runbook.md](SystemCode/clips/docs/wearto-runbook.md).
+This repository follows the seven-section [Workshop Project Submission Template](https://github.com/IRS-PM/Workshop-Project-Submission-Template). The application code is in [SystemCode/clips](SystemCode/clips/), and the complete setup instructions are in the [WearTo runbook](SystemCode/clips/docs/wearto-runbook.md). Name the final submission archive according to the course template: CourseCode-StartDate-BatchCode-TeamName-ProjectName.zip.
 
 ---
 
 ## SECTION 1: PROJECT TITLE
 
-# WearTo — Where to? WearTo!
-
-Intelligent Travel Style & Shopping Assistant · Group 17
+**WearTo — Where to? WearTo!** — An intelligent travel style and shopping assistant.
 
 ---
 
 ## SECTION 2: EXECUTIVE SUMMARY / PAPER ABSTRACT
 
-Planning what to wear for a trip means reconciling destination weather, activities, personal style, budget, inspiration, available products and clothes already owned. WearTo brings these inputs into one conversational workflow. The traveller can describe a trip over multiple chat turns, review the interpreted requirements, and refine the resulting recommendations through further feedback.
+Choosing what to wear for a trip means balancing destination weather, planned activities, personal style, budget, social inspiration, products available to buy, and clothes already owned. WearTo brings these inputs into a multi-turn conversation. A traveller describes a trip, answers follow-up questions when details are missing, reviews the interpreted requirements, and can keep chatting to refine the recommended outfits.
 
-The current local application uses Qwen for trip understanding, weather and knowledge-based context, Unsplash and FashionCLIP for visual inspiration, and eBay Production image and keyword search for purchasable products. It ranks eBay candidates against the trip context and social references, keeping category Top-K results separate from the user's wardrobe. A compatibility model combines both pools into outfits; the recommendation module applies constraints and presents up to three options. After confirming one option, the user may request an AI outfit preview. Raw intermediate files and generated results are retained locally for inspection and module handoff.
+The current local prototype uses Qwen to understand trip requirements and combines them with weather and knowledge-based context. It retrieves visual inspiration from Unsplash and encodes images with FashionCLIP. For purchasable clothing, it performs hybrid image and keyword searches through eBay Production, then reranks candidates against the trip context and social references to produce category-level Top-K results. The user's wardrobe remains separate from the eBay Top-K pool. An outfit compatibility module combines items from both pools and scores the combinations; the recommendation module applies constraints and presents up to three outfits. After confirming an outfit, the user can request an AI-generated preview. Intermediate files and module outputs are retained locally for inspection and handoff.
 
-The website is a local single-user prototype. Running the live workflow requires separately configured API credentials, downloaded models and an enabled eBay Production keyset. Product availability reflects API evidence at retrieval time, not a guaranteed checkout outcome.
+The website is currently a local, single-user prototype. Live runs require separately configured API credentials, model files, and an enabled eBay Production keyset. Product availability reflects the API evidence at retrieval time; final purchase availability must be checked on the seller's page.
 
 ---
 
 ## SECTION 3: CREDITS / PROJECT CONTRIBUTION
 
-| Team member | Student ID | Main contribution |
-| --- | --- | --- |
-| Agarwal Hritik Kumar | A0353874R | Final recommendation, constraints, feedback loop and outfit preview |
-| Jiang Yushan | A0353592X | Trip understanding, dialogue, weather and context reasoning |
-| Lu Yujing | A0351286B | Social inspiration retrieval and FashionCLIP reference processing |
-| Ma Bofei | A0314662H | Outfit compatibility modelling and combination scoring |
-| Zhang Yurun | A0330891A | eBay product retrieval, Top-K ranking, wardrobe understanding and integration |
+The keywords below summarize primary contributions evident in this repository's commits. Shared integration work is not attributed exclusively to one person.
 
-The [project report](ProjectReport/) will record detailed individual contributions and validation.
+| Team member | Student ID | Main contribution keywords |
+| --- | --- | --- |
+| [Agarwal Hritik Kumar](https://github.com/MasterHrit) | A0353874R | Unsplash inspiration; FashionCLIP image encoding; reference-image retrieval and ranking; module handoff; offline evaluation |
+| [Jiang Yushan](https://github.com/caiji666) | A0353592X | Multi-turn trip dialogue; Qwen requirement extraction; weather and knowledge reasoning; activity knowledge graph; chat interface |
+| [Lu Yujing](https://github.com/Tang-chu) | A0351286B | Outfit recommendation; constraint filtering; feedback-driven refinement; Student 4 output adapter; AI outfit preview |
+| [Ma Bofei](https://github.com/Bofei2058) | A0314662H | Outfit compatibility model; combination generation and scoring; product-information output |
+| [Zhang Yurun](https://github.com/yurunzzz) | A0330891A | Hybrid eBay retrieval; product Top-K reranking; wardrobe image understanding; Production notification service; end-to-end integration; product-retrieval evaluation |
+
+Detailed individual contributions and validation results will be included in [ProjectReport](ProjectReport/).
 
 ---
 
 ## SECTION 4: VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-The final system presentation and use-case demonstration will be placed in [Video](Video/) for submission.
+The final submission videos are available in [Video](Video/). YouTube links will be added after publication.
+
+| Video | Repository file | YouTube link |
+| --- | --- | --- |
+| Product promotion and use-case demo | [WearTo_Promotion Video.mov](Video/WearTo_Promotion%20Video.mov) | To be added |
+| System design and technical walkthrough | [WearTo_System Design Video.mp4](Video/WearTo_System%20Design%20Video.mp4) | To be added |
+
+The videos are stored with Git LFS. Install Git LFS before cloning the repository. If a checkout contains only video pointer files, run git lfs pull from the repository root.
 
 ---
 
 ## SECTION 5: USER GUIDE
 
-The complete installation, credential, model, training and website instructions are in the [WearTo runbook](SystemCode/clips/docs/wearto-runbook.md). Start all application commands from **SystemCode/clips**, which contains the Python project and lockfile.
+See the [WearTo runbook](SystemCode/clips/docs/wearto-runbook.md) for dependency installation, credentials, model setup, the full workflow, and website instructions. Run application commands from SystemCode/clips. For an **already configured** checkout:
 
-For an already configured checkout:
+~~~bash
+cd SystemCode/clips
+.venv/bin/python -m travel_agent.web --port 8765
+~~~
 
-    cd SystemCode/clips
-    .venv/bin/python -m travel_agent.web --port 8765
-
-Open http://127.0.0.1:8765/ in a browser. A fresh checkout first needs the setup steps in the runbook; the repository does not contain private credentials, downloaded model weights or personal wardrobe photos. The [product retrieval runbook](SystemCode/clips/docs/product-retrieval-runbook.md) and [outfit integration guide](SystemCode/clips/docs/outfit-integration.md) explain the module interfaces.
+Open <http://127.0.0.1:8765/>. A fresh clone requires the setup steps in the runbook. Private API credentials, downloaded model weights, and personal wardrobe photos are not included in this repository. The [product-retrieval runbook](SystemCode/clips/docs/product-retrieval-runbook.md) and [outfit integration guide](SystemCode/clips/docs/outfit-integration.md) describe the module interfaces.
 
 ---
 
 ## SECTION 6: PROJECT REPORT / PAPER
 
-The final report, including system design, evaluation, limitations and individual reflections, will be placed in [ProjectReport](ProjectReport/) for submission. Current technical documentation and offline evaluation instructions are under [SystemCode/clips/docs](SystemCode/clips/docs/) and [SystemCode/clips/evaluation](SystemCode/clips/evaluation/).
+The final report will be placed in [ProjectReport](ProjectReport/). It will cover the business problem, system design, implementation and testing, evaluation results, limitations, and individual reflections. Current technical documentation and offline evaluation code are in [SystemCode/clips/docs](SystemCode/clips/docs/) and [SystemCode/clips/evaluation](SystemCode/clips/evaluation/).
 
 ---
 
 ## SECTION 7: MISCELLANEOUS
 
-Supplementary submission material, where applicable, will be placed in [Miscellaneous](Miscellaneous/). The application itself, tests, examples and reproducible evaluation code are under [SystemCode/clips](SystemCode/clips/).
+Supplementary submission materials, if applicable, will be placed in [Miscellaneous](Miscellaneous/). Application source code, tests, and reproducible evaluation scripts are in [SystemCode/clips](SystemCode/clips/).
