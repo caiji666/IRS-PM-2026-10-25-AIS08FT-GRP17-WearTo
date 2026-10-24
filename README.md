@@ -6,9 +6,11 @@ This repository follows the seven-section [Workshop Project Submission Template]
 
 ---
 
-## SECTION 1: PROJECT TITLE
+## SECTION 1: WearTo — Where to? WearTo!
 
-**WearTo — Where to? WearTo!** — An intelligent travel style and shopping assistant.
+An intelligent travel style and shopping assistant.
+
+![WearTo homepage showing the travel chat and inspiration view](SystemCode/clips/docs/images/wearto-homepage.png)
 
 ---
 
