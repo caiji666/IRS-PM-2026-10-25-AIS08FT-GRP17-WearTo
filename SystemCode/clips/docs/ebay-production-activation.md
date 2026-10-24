@@ -20,7 +20,7 @@ The receiver validates the raw payload, or compact JSON compatible with the offi
 
 ## Local preparation
 
-From the repository root, with Python 3.11 and uv:
+From the application root, `SystemCode/clips`, with Python 3.11 and uv:
 
 ```bash
 uv sync --locked --extra products --extra ebay-notifications
@@ -51,6 +51,10 @@ GET verification needs no network access. A signed POST needs valid eBay signatu
 ## Deployment preparation (not deployed yet)
 
 A Dockerfile and Gunicorn configuration are in `deploy/ebay-notifications/`. The Docker build context excludes secrets, data, model weights and caches; it installs only the notification extra, not FashionCLIP/Torch.
+For a submission-layout checkout, run the build from `SystemCode/clips`. On Render,
+set **Root Directory** to `SystemCode/clips` and keep **Dockerfile Path** as
+`deploy/ebay-notifications/Dockerfile`; the older repository-root deployment
+settings will not find the Dockerfile after this layout is published.
 
 ```bash
 docker build -f deploy/ebay-notifications/Dockerfile -t ebay-notifications .

@@ -8,7 +8,7 @@ The WearTo interface is a local, additive UI over the existing Understanding, In
 
 ## Run
 
-From the repository root, using the configured environment:
+From the application root, `SystemCode/clips`, using the configured environment:
 
 ```bash
 .venv/bin/python -m travel_agent.web --port 8765

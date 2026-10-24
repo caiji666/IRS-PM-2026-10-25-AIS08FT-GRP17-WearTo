@@ -1,199 +1,132 @@
-# Travel Style Agent · Group 17
+﻿### [ Practice Module ] Project Submission Template: Github Repository & Zip File
 
-A shared LangChain agent project for the Intelligent Travel Style & Shopping Assistant. The Student 1 understanding module implements proposal-style request validation, patches, weather retrieval/rules, qualified KG reasoning and context aggregation, with optional local Qwen3-0.6B extraction. See [the Student 1 runbook](docs/student1-runbook.md) for runnable demos and required human review. The Student 2 Inspiration module implements FashionCLIP-based context and image embeddings, Unsplash fashion reference retrieval, deduplication, cosine similarity reranking, and Top-N selection, with a file-based handoff to Student 3. See [the Inspiration runbook](docs/inspiration-runbook.md). The Student 3 Product Retrieval module integrates the existing M1–M6 and wardrobe pipeline for product retrieval and ranking. See [the product retrieval runbook](docs/product-retrieval-runbook.md). The Student 5 recommendation module in `travel_agent/recommendation/` implements hard constraints, final Top-3 ranking, the user decision loop and outfit preview; see [Student 5 recommendation](#student-5-recommendation). The WearTo website connects the current Student 1–5 outputs through final Top-3 recommendations and an optional preview of one confirmed outfit. The real web flow has been exercised; autonomous LLM orchestration of every tool remains a separate, unverified scope.
+**[ Naming Convention ]** CourseCode-StartDate-BatchCode-TeamName-ProjectName.zip
 
-## Run the complete WearTo website (Student 1–5)
+* **[ MTech Thru-Train Group Project Naming Example ]** IRS-PM-2020-01-18-IS02PT-GRP-AwsomeSG-HDB_BTO_Recommender.zip
 
-**Start here:** [Complete website setup and operating guide](docs/wearto-runbook.md).
-It covers a fresh clone, all dependency extras, Qwen/FashionCLIP downloads, aligned
-outfit-model training, private Unsplash/eBay/OpenAI configuration, wardrobe import,
-chat and review, final Top-3, AI preview, output locations and troubleshooting.
+* **[ MTech Stackable Group Project Naming Example ]** IRS-PM-2020-01-18-STK02-GRP-AwsomeSG-HDB_BTO_Recommender.zip
 
-For an **already configured checkout**, from the repository root:
+[Online editor for this README.md markdown file](https://pandao.github.io/editor.md/en.html "pandao")
 
-```bash
-.venv/bin/python -m travel_agent.web --port 8765
-```
+---
 
-Open **http://127.0.0.1:8765/** and keep the terminal running. No separate frontend
-build/server is needed. Click **New journey**, provide your trip details, review and
-confirm them, then wait for the real Student 1–5 pipeline. Select one of the final
-outfits, confirm it and optionally generate its AI preview. `/profile` manages the
-local profile and wardrobe. New trips and edits use distinct dialogue routes;
-destination inspiration updates with the corresponding recommendations.
+### <<<<<<<<<<<<<<<<<<<< Start of Template >>>>>>>>>>>>>>>>>>>>
 
-A fresh clone needs the full setup in the guide; the launch command alone does not
-download models, train Student 4 or supply credentials. The website requires eBay
-**Production**, not Sandbox. Model weights, private API keys and generated results
-are not uploaded to Git. Approved wardrobe examples are in `data/examples/wardrobe/`.
+---
 
-## Offline scaffold quick start
+## SECTION 1 : PROJECT TITLE
+## Singapore Housing & Deveoplment Board - BTO Recommender System
 
-Install Git and [uv](https://docs.astral.sh/uv/getting-started/installation/), then run:
+<img src="SystemCode/clips/static/hdb-bto.png"
+     style="float: left; margin-right: 0px;" />
 
-```bash
-git clone https://github.com/caiji666/travel-style-agent.git
-cd travel-style-agent
-uv sync --locked
-uv run python -m travel_agent.demo
-uv run pytest
-uv run ruff check .
-uv run ruff format --check .
-```
+---
 
-Use Python 3.11 across the team. Commit both `pyproject.toml` and `uv.lock`. Add dependencies with `uv add` and include both files in the same pull request. Do not edit the lockfile manually.
+## SECTION 2 : EXECUTIVE SUMMARY / PAPER ABSTRACT
+Singapore ranks amongst countries with the highest population density in the world. In a bid to have firm control over long term urban planning, the Singapore government came up with the “Built to Order” (abbreviated BTO) initiative back in 2001. These are new Housing Development Board (HDB) flats tightly controlled by their eligibility and quantity released every year. In more recent years, the modern BTO scheme in Singapore requires a waiting period of 3-4 years, and is generally targeted at young Singaporean couples looking to purchase their first property and set up a family. Nationality and income ceilings are some of the broad filters that determine one’s eligibility for the highly sought after projects.
 
-The default demo uses explicit synthetic weather and draft KG knowledge, with no model or API calls. It demonstrates the implemented understanding pipeline, not model accuracy or complete outfit recommendations. The Inspiration module is implemented and requires its optional dependencies and Unsplash API credentials for live retrieval; its tool returns `needs_input` for the empty demo payload. The product retrieval requires explicit inputs and returns `needs_input` for the empty demo payload. The recommendation tool (Student 5) returns `error` because its payload requires an explicit `action`. The outfit tool (Student 4) returns `needs_input` for the empty demo payload; it requires explicit current products and a trained normalized model.
 
-## English-first understanding workflow
+Our team, comprising of 6 young Singaporeans, all hope to be property owners one day. Many of our peers opt for BTO flats due to their affordability, existence of financial aid from the government, as well as their resale value. However, there often exists a knowledge gap for these young couples during the decision making process and they end up making potentially regretful decisions. We would like to bridge this knowledge gap, and have hence chosen to base our project on creating a recommender system for BTO flats, utilizing the data from recent launches in Tampines, Eunos, Sengkang and Punggol.
 
-Activity KG v0.2.0 now returns alternative aesthetics and independent dressing needs, covering all 11 Place KG activity IDs. See [activity style expansion](docs/activity-style-expansion.md) for source scope, draft examples and the downstream output contract. No new item mappings are part of this expansion.
 
-English is the primary evaluated input language. Local Qwen3-0.6B proposes structured facts; a constrained English source-evidence layer checks explicit dates, money, activities, preferences, exclusions and edits. Raw model output and augmented results are retained separately. This is a supervised prototype, not a model-only accuracy claim. Relative/yearless dates, ambiguous currencies, unsupported edits and invalid inputs need clarification.
+Using the techniques imparted to us in lectures, our group first set out to build a sizeable knowledge base via conducting an interview and administering a survey. While building the system, we utilized tools such as Java to scrape real time data from HDB website and transform it into a database, CLIPS to synthesize the rule based reasoning process, and Python to integrate it into an easy to use UI for the everyday user. To add icing on the cake, we even hosted the system on a website so that the everyday user can access it through the click of a link.
 
-```bash
-uv sync --locked --extra qwen
-HF_HOME="$PWD/artifacts/huggingface" uv run --locked --extra qwen \
-  python -m travel_agent.understanding.demo \
-  --message "Seoul, 2026-12-20 to 2026-12-27. Sightseeing and dinner. Budget 500 SGD. I prefer minimalist style. Dinner requires smart casual dress code." \
-  --output artifacts/extraction-preview.json
-```
 
-The first run returns a proposal for human review. Save and resend returned state on every turn: `pending_request` accumulates facts across previews so users supply each detail once. Only destination, start/end dates and budget with currency are required; optional fields and KG outputs may be empty. Review `proposed_request` / `proposed_action` before explicitly accepting extraction in a direct CLI/service call. Do not enable automatic acceptance through the agent tool. Selected Open-Meteo weather uses forecasts within coverage and a local historical climate reference outside it; source types stay separate and no forecast is invented. See [weather data and teammate setup](docs/weather-data.md) and [12-country city coverage and clarification](docs/weather-location-coverage.md). Use the offline demo for a complete synthetic-weather walkthrough.
+Our team had an amazing time working on this project, and hope to share our insights with everyone. Despite a focus on BTO flats, we would recommend it for everybody interested in understanding property market trends for residence or investment purposes. There truly are a wide array of factors behind the decision to invest in a property, and we only wish there was more time to work on the scope and scale of the project.
 
-Current English diagnostics and preserved multilingual history are in [evaluation](evaluation/README.md). Chinese aliases inside copied KG snapshots are source provenance; public explanations use English labels. All knowledge/rule approvals remain pending. Optional Neo4j and a live multi-tool recommendation agent are not verified.
+---
 
-## Student 5 recommendation
+## SECTION 3 : CREDITS / PROJECT CONTRIBUTION
 
-`travel_agent.recommendation.service.run(payload)` is the Student 5 entry point (proposal Stages 10, 12, 13 and 14). The implementation lives in `travel_agent/recommendation/student5/` and the tests in `tests/recommendation/`.
+| Official Full Name  | Student ID (MTech Applicable)  | Work Items (Who Did What) | Email (Optional) |
+| :------------ |:---------------:| :-----| :-----|
+| Desmond Chua | A1234567A | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567A@nus.edu.sg |
+| Chang Ye Han | A1234567B | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567B@gmail.com |
+| Chee Jia Wei | A1234567C | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567C@outlook.com |
+| Ganesh Kumar | A1234567D | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567D@yahoo.com |
+| Jeanette Lim | A1234567E | xxxxxxxxxx yyyyyyyyyy zzzzzzzzzz| A1234567E@qq.com |
 
-Every payload names its operation with an explicit top-level `action`. A missing or unknown `action` returns `error`. The `action` is the service operation; it is distinct from the Stage 1 user intent, so a `patch` keeps its own `intent: "MODIFY_REQUIREMENTS"`.
+---
 
-| `action` | Required fields | Result |
-|---|---|---|
-| `recommend` | `request`, `student4` (optional `beta`, `session_id`, `state`) | Stages 10 → 12: Top-3 `RecommendationSet` and state (`ok`), or `no_candidates` with a structured conflict. |
-| `modify_requirements` | `state`, `patch` | Updated state, changed fields and a selective `rerun_plan`. |
-| `confirm` | `state`, latest `recommendation_set`, exact `outfit_id` | Confirmed state and `confirmed_outfit`. |
-| `explain` | `state`, latest `recommendation_set`, exact `outfit_id` | Data-only explanation; the state is not changed. |
-| `preview` | `confirmed_outfit`, `preview_mode` (optional `preview_provider: "mock"`, `user_portrait` with `portrait_consent`) | Preview with `preview_source` `mock`, `openai` (server-configured real provider) or `product_card_fallback`. |
+## SECTION 4 : VIDEO OF SYSTEM MODELLING & USE CASE DEMO
 
-- **Student 4 input:** `student4` is Student 4's output, whose outfits already carry `compatibility_score`. Student 5 converts it with its `student4_adapter`; it does not compute CompatibilityScore itself. The dynamic handoff is implemented and has been exercised with current retrieval results; see [the website guide](docs/wearto-runbook.md).
-- **Request projection:** `travel_agent.recommendation.projection.project_trip_request` builds the Student 5 request from Student 1's validated `trip_request`. It takes only eight shared fields: `destination`, `start_date`, `end_date`, `activities`, `budget` (major units), `currency`, `style` and `excluded_items`.
-  - Student 1 extension fields (`owned_item_ids`, `places`, `dress_codes`, `enter_interior`, `gender`, `cold_sensitive`, `price_preference`) are not forwarded.
-  - Missing required fields are reported by name, never invented.
-  - `user_size` is not set because its source is still to be agreed; with `user_size=None` the size constraint is not enabled.
-- **Stage 10:** hard constraints. Only purchase items count toward the budget, availability (a real boolean) is checked for purchase items, and size only when the size data is reliable. Constraints are never relaxed.
-- **Stage 12:** final ranking with `FinalOutfitScore = beta * CompatibilityScore + (1 - beta) * OutfitProductRelevance` (`beta` is configurable) and stable `outfit_id`s.
-- **Stage 14:** the real image provider is selected only by the server environment (`PREVIEW_PROVIDER=openai`), never by a tool payload; otherwise, or on any failure, the preview falls back to product cards. See [the Student 5 preview runbook](docs/student5-preview-runbook.md).
-- **Import safety:** importing the service reads no `.env` or `PREVIEW_*` variable, opens no network connection, loads no model and imports neither `openai` nor Pillow.
+[![Sudoku AI Solver](http://img.youtube.com/vi/-AiYLUjP6o8/0.jpg)](https://youtu.be/-AiYLUjP6o8 "Sudoku AI Solver")
 
-## Five-module integration test
+Note: It is not mandatory for every project member to appear in video presentation; Presentation by one project member is acceptable.
+More reference video presentations [here](https://telescopeuser.wordpress.com/2018/03/31/master-of-technology-solution-know-how-video-index-2/ "video presentations")
 
-`tests/test_full_pipeline_integration.py` is a separate contract/integration harness. The real WearTo web flow has completed through Student 5, including a separately confirmed live preview; this does not establish autonomous orchestration by `build_agent(model)`. See [the current website runbook](docs/wearto-runbook.md) for the verified application path.
+---
 
-- **Student 1 → Student 2:** Student 2 receives Student 1's `ModuleResult.data` as `understanding`.
-- **Student 2 → Student 3:** Student 2's `product_handoff` (upstream files, `reference_mode=imported`) is passed unchanged to Student 3.
-- **Student 2 live runs:** need the `inspiration` extra, the FashionCLIP weights, `UNSPLASH_ACCESS_KEY` and network access.
-- **Student 4:** `outfits.service.run` now scores dynamic product/wardrobe combinations using the normalized model; see [backend integration](docs/outfit-integration.md). Model artifacts and valid handoff signals are required.
-- **Student 5:** reached through `travel_agent.recommendation.service.run` (`action: "recommend"`) with the minimal eight-field request projection. The website supplies the current run's actual `student5_input.json`, preserving the original request rather than a fixed sample.
-- **Default tests:** offline. They download no model, call no external API and do not read `.env`. Contract and boundary checks run; the full-pipeline tests (`full_pipeline_live`) are skipped with the exact blocking stage until every real module runs. Model/API stages run only with `RUN_FULL_PIPELINE_TESTS=1`.
+## SECTION 5 : USER GUIDE
 
-See [full-pipeline integration](docs/full_pipeline_integration.md) for the contracts, prerequisites, run commands and current gaps.
+`Refer to appendix <Installation & User Guide> in project report at Github Folder: ProjectReport`
 
-## Local multi-turn natural-language chat
+### [ 1 ] To run the system using iss-vm
 
-A local dialogue entry point now wraps the understanding service. It reuses cached Qwen3-0.6B for structured extraction and natural reply wording; deterministic code stores the session, asks only for the next missing field, and applies pending facts only after an explicit confirmation. Reply wording has conservative lexical checks and a factual fallback; this is not a guarantee of model accuracy. This scoped chat does not run the full five-tool shopping agent.
+> download pre-built virtual machine from http://bit.ly/iss-vm
 
-```bash
-uv run --extra qwen python -m travel_agent.chat --allow-draft
-```
+> start iss-vm
 
-Type required trip details in separate turns. If activities or styles are missing, the chat offers up to four KG-backed activity choices and three style choices, before the final review. Reply with numbers (for example `1 and 3`) or names; say `skip` for the current step or `skip all` for both. Suggested activities/styles are never written into the request until explicitly selected. After the accumulated summary, say `confirm`. Commands: `/state`, `/result`, `/suggest` (reopen optional suggestions), `/reset`, `/quit`. English remains the primary evaluated language. Model replies appear after `Assistant >`; JSON is saved under ignored `artifacts/chat/` and is displayed only by inspection commands or `--debug`. The default weather source is the local historical climate reference; select `--weather-provider open_meteo` for live forecast routing. Draft KG assertions require `--allow-draft`. Destination activity choices use Place KG hierarchy and place/activity relationships; uncovered destinations get explicitly generic ideas. Style choices use aesthetic alternatives for selected activities, or clearly general preferences if no activity was chosen. These are optional suggestions, not live availability or itinerary verification.
+> open terminal in iss-vm
 
-Resume a saved chat or an earlier understanding state with `--resume /path/to/session.json`. Each checkpoint stores accepted/pending facts and the last requested field, so a short ISO-date answer has a known start/end role. `build_agent(model)` is still the separate full-tool framework and needs a configured chat provider.
+> $ git clone https://github.com/telescopeuser/Workshop-Project-Submission-Template.git
 
-## Team responsibilities
+> $ source activate iss-env-py2
 
-- Student 1: `understanding/` — user input, structured requirements, weather reasoning, and knowledge graph reasoning.
-- Student 2: `inspiration/` — context embeddings, social/web reference retrieval, and ranking.
-- Student 3: `products/` — product retrieval, embeddings, and Top-K ranking.
-- Student 4: `outfits/` and `training/` — Polyvore data, offline training, outfit generation, and compatibility scoring.
-- Student 5: `recommendation/` — hard constraints, final ranking, user refinement, and previews.
+> (iss-env-py2) $ cd Workshop-Project-Submission-Template/SystemCode/clips
 
-Changes to shared schemas, `agent.py`, dependencies, and CI require review from affected team members. These ownership entries describe module boundaries; cross-module web integration and notification deployment are also implemented. System-wide quality evaluation remains separate from functional validation.
+> (iss-env-py2) $ python app.py
 
-## LangChain integration
+> **Go to URL using web browser** http://0.0.0.0:5000 or http://127.0.0.1:5000
 
-Implement module business logic in `service.py` and expose LangChain tools in `tools.py`. Create the main agent and register its tools centrally in `agent.py`. Each contributor develops a module of the shared agent system; a separate agent per contributor is not required.
+### [ 2 ] To run the system in other/local machine:
+### Install additional necessary libraries. This application works in python 2 only.
 
-`build_agent(model)` accepts a configured chat model instance or a LangChain model identifier. Install the appropriate provider package and configure credentials before using a live model. For example, when using the OpenAI integration:
+> $ sudo apt-get install python-clips clips build-essential libssl-dev libffi-dev python-dev python-pip
 
-```bash
-uv sync --locked --extra openai
-cp .env.example .env
-# Set AGENT_MODEL (provider:model format) and the required API key in your local .env.
-```
+> $ pip install pyclips flask flask-socketio eventlet simplejson pandas
 
-```python
-import os
-from dotenv import load_dotenv
-from travel_agent.agent import build_agent
+---
+## SECTION 6 : PROJECT REPORT / PAPER
 
-load_dotenv()
-agent = build_agent(os.environ["AGENT_MODEL"])
-result = agent.invoke(
-    {"messages": [{"role": "user", "content": "Help me plan outfits for my trip."}]},
-    config={"recursion_limit": 12},
-)
-```
+`Refer to project report at Github Folder: ProjectReport`
 
-This example demonstrates integration only. Real recommendations require completed tool implementations. Persistent sessions are not configured yet; a shared checkpointer and session/thread ID convention will be added later. Budget calculations and final feasibility checks must be implemented in deterministic code. Prompts cannot replace constraint validation.
+**Recommended Sections for Project Report / Paper:**
+- Executive Summary / Paper Abstract
+- Sponsor Company Introduction (if applicable)
+- Business Problem Background
+- Market Research
+- Project Objectives & Success Measurements
+- Project Solution (To detail domain modelling & system design.)
+- Project Implementation (To detail system development & testing approach.)
+- Project Performance & Validation (To prove project objectives are met.)
+- Project Conclusions: Findings & Recommendation
+- Appendix of report: Project Proposal
+- Appendix of report: Mapped System Functionalities against knowledge, techniques and skills of modular courses: MR, RS, CGS
+- Appendix of report: Installation and User Guide
+- Appendix of report: 1-2 pages individual project report per project member, including: Individual reflection of project journey: (1) personal contribution to group project (2) what learnt is most useful for you (3) how you can apply the knowledge and skills in other situations or your workplaces
+- Appendix of report: List of Abbreviations (if applicable)
+- Appendix of report: References (if applicable)
 
-## Collaboration
+---
+## SECTION 7 : MISCELLANEOUS
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [interface contracts](docs/contracts.md).
+`Refer to Github Folder: Miscellaneous`
 
-Follow this workflow: main → feature branch → pull request → CI → peer review → squash merge. Keep full datasets, user-uploaded images, credentials, and model weights out of Git. Commit acquisition instructions, version information, and checksums instead.
+### HDB_BTO_SURVEY.xlsx
+* Results of survey
+* Insights derived, which were subsequently used in our system
 
-English is the project language for documentation, code comments, examples, issues, and pull requests.
+---
 
-## Fashion Inspiration Retrieval and Ranking
+### <<<<<<<<<<<<<<<<<<<< End of Template >>>>>>>>>>>>>>>>>>>>
 
-The Inspiration module uses **FashionCLIP** to generate context and image embeddings, retrieve fashion references through the Unsplash API, and rank them using cosine similarity. It supports structured query generation, image deduplication, Top-N selection, and a file-based handoff to Student 3's product retrieval pipeline.
+---
 
-The module integrates with Student 1's Understanding output through the LangChain `search_references` tool.
+**This [Machine Reasoning (MR)](https://www.iss.nus.edu.sg/executive-education/course/detail/machine-reasoning "Machine Reasoning") course is part of the Analytics and Intelligent Systems and Graduate Certificate in [Intelligent Reasoning Systems (IRS)](https://www.iss.nus.edu.sg/stackable-certificate-programmes/intelligent-systems "Intelligent Reasoning Systems") series offered by [NUS-ISS](https://www.iss.nus.edu.sg "Institute of Systems Science, National University of Singapore").**
 
-**Setup:**
+**Lecturer: [GU Zhan (Sam)](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan "GU Zhan (Sam)")**
 
-```bash
-uv sync --locked --extra inspiration
-```
+[![alt text](https://www.iss.nus.edu.sg/images/default-source/About-Us/7.6.1-teaching-staff/sam-website.tmb-.png "Let's check Sam' profile page")](https://www.iss.nus.edu.sg/about-us/staff/detail/201/GU%20Zhan)
 
-Configure `UNSPLASH_ACCESS_KEY` in your local `.env` file.
-
-**Standalone execution:**
-
-```bash
-uv run --no-sync python -m travel_agent.inspiration.pipeline
-```
-
-The standalone pipeline uses local context fixtures for testing. Full live-agent orchestration remains pending team integration.
-
-For architecture, dependencies, integration contracts, and testing instructions, see the [Inspiration Runbook](docs/inspiration-runbook.md).
-
-## Product retrieval and wardrobe commands
-
-For a fresh checkout, follow the [product retrieval runbook](docs/product-retrieval-runbook.md). It covers the products extra, repository-local configuration, included offline demos, FashionCLIP download, personal wardrobe import, upstream PT/TXT/JSON preparation, optional historical photos, Sandbox credentials and output handoff. Private input files, complete datasets, user images, model weights and credentials are not included in Git. The runbook includes the clone command.
-
-For the resource-complete current local checkout, see [independent local validation and commands](docs/local-product-retrieval-validation.md). Inputs, photographs, model files and private Sandbox configuration now reside within this checkout; the old standalone project is not required. These excluded resources remain local and are not supplied by a Git clone.
-
-Hybrid eBay candidate retrieval: [algorithm and commands](docs/hybrid-product-retrieval.md).
-
-Production activation preparation: [notification service and Mac cleanup worker](docs/ebay-production-activation.md).
-
-
-## Local travel interface
-
-Use the [complete WearTo runbook](docs/wearto-runbook.md) to launch and operate the current Student 1–5 website. [Local web UI notes](docs/local-web-ui.md) retain implementation and historical validation details.
-
-Student 4 dynamic backend: [setup, model alignment, contracts and Student 1–4 commands](docs/outfit-integration.md).
+**zhan.gu@nus.edu.sg**

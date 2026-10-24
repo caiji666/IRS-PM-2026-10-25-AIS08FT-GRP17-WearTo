@@ -3,7 +3,8 @@
 This is the primary guide for the current **Student 1–5 website**, including local
 Qwen dialogue, weather context, Unsplash references, eBay Production products,
 wardrobe-aware outfit scoring, final Top-3 recommendations and selected-outfit AI
-preview. Run commands from the repository root. The UI, API server and model jobs
+preview. Run commands from the application root, `SystemCode/clips`, not from the
+submission repository root. The UI, API server and model jobs
 are Python-based; the browser uses HTML/CSS/JavaScript. No npm build or separate
 frontend server is required.
 
@@ -12,7 +13,7 @@ frontend server is required.
 On the original Mac, where the environment, models and credentials are prepared:
 
 ```bash
-cd /Users/yoyozhang/Desktop/travel-style-agent
+cd /Users/yoyozhang/Desktop/travel-style-agent/SystemCode/clips
 .venv/bin/python -m travel_agent.web --port 8765
 ```
 
@@ -31,6 +32,7 @@ Install Git and uv, then:
 ```bash
 git clone https://github.com/caiji666/travel-style-agent.git
 cd travel-style-agent
+cd SystemCode/clips
 uv python install 3.11
 uv sync --locked \
   --extra products --extra inspiration --extra qwen --extra outfits \
