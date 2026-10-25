@@ -2,7 +2,7 @@
 
 **Intelligent Travel Style & Shopping Assistant · Group 17**
 
-This repository follows the seven-section [Workshop Project Submission Template](https://github.com/IRS-PM/Workshop-Project-Submission-Template). The application code is in [SystemCode/clips](SystemCode/clips/), and the complete setup instructions are in the [WearTo runbook](SystemCode/clips/docs/wearto-runbook.md). Name the final submission archive according to the course template: CourseCode-StartDate-BatchCode-TeamName-ProjectName.zip.
+This repository follows the seven-section [Workshop Project Submission Template](https://github.com/IRS-PM/Workshop-Project-Submission-Template). The application code is in [SystemCode/clips](SystemCode/clips/), and the complete setup instructions are in the [WearTo runbook](SystemCode/clips/docs/wearto-runbook.md). The repository currently uses the submission identifier `IRS-PM-2026-10-25-AIS08FT-GRP17-WearTo`. The course template names repositories and ZIP archives as `CourseCode-StartDate-BatchCode-TeamName-ProjectName`; confirm that the date component is the course start date before creating the final ZIP.
 
 ---
 
@@ -36,7 +36,7 @@ The keywords below summarize primary contributions evident in this repository's 
 | [Ma Bofei](https://github.com/Bofei2058) | A0314662H | Outfit compatibility model; combination generation and scoring; product-information output |
 | [Zhang Yurun](https://github.com/yurunzzz) | A0330891A | Hybrid eBay retrieval; product Top-K reranking; wardrobe image understanding; Production notification service; end-to-end integration; product-retrieval evaluation |
 
-Detailed individual contributions and validation results will be included in [ProjectReport](ProjectReport/).
+The [group report](ProjectReport/IRS-PM-2026-10-25-AIS08FT-GRP17-WearTo-Report.pdf) includes implementation and validation results. The [submission checklist](ProjectReport/README.md) tracks the remaining individual-reflection appendices recommended by the template.
 
 ---
 
@@ -47,7 +47,7 @@ The final submission videos are available in [Video](Video/). Published YouTube 
 | Video | Repository file | YouTube link |
 | --- | --- | --- |
 | Product promotion and use-case demo | [WearTo_Promotion Video.mov](Video/WearTo_Promotion%20Video.mov) | [Watch on YouTube](https://www.youtube.com/watch?v=A9T1dum7yM0) |
-| System design and technical walkthrough | [WearTo_System Design Video.mp4](Video/WearTo_System%20Design%20Video.mp4) | To be added |
+| System design and technical walkthrough | [WearTo_System Design Video.mp4](Video/WearTo_System%20Design%20Video.mp4) | [Watch on YouTube](https://youtu.be/WjWHpptENcc) |
 
 The videos are stored with Git LFS. Install Git LFS before cloning the repository. If a checkout contains only video pointer files, run git lfs pull from the repository root.
 
@@ -68,7 +68,7 @@ Open <http://127.0.0.1:8765/>. A fresh clone requires the setup steps in the run
 
 ## SECTION 6: PROJECT REPORT / PAPER
 
-The final report will be placed in [ProjectReport](ProjectReport/). It will cover the business problem, system design, implementation and testing, evaluation results, limitations, and individual reflections. Current technical documentation and offline evaluation code are in [SystemCode/clips/docs](SystemCode/clips/docs/) and [SystemCode/clips/evaluation](SystemCode/clips/evaluation/).
+The [final group report](ProjectReport/IRS-PM-2026-10-25-AIS08FT-GRP17-WearTo-Report.pdf) (55 pages) covers the business problem, market research, system design, implementation, experiments, findings and future work. Appendices A–C contain the project proposal, course mapping and installation/user guide. See the [submission checklist](ProjectReport/README.md) for recommended additions, including individual reflections. Current technical documentation and offline evaluation code are in [SystemCode/clips/docs](SystemCode/clips/docs/) and [SystemCode/clips/evaluation](SystemCode/clips/evaluation/).
 
 ---
 
